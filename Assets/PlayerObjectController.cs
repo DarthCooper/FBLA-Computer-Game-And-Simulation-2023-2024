@@ -59,10 +59,14 @@ public class PlayerObjectController : NetworkBehaviour
 
     public override void OnStartAuthority()
     {
+        base.OnStartAuthority();
         CmdSetPlayerName(SteamFriends.GetPersonaName().ToString());
         gameObject.name = "LocalGamePlayer";
         LobbyController.instance.FindLocalPlayer();
         LobbyController.instance.UpdateLobbyName();
+
+        UnityEngine.InputSystem.PlayerInput playerInput = GetComponent<UnityEngine.InputSystem.PlayerInput>();
+        playerInput.enabled = true;
     }
 
     public override void OnStartClient()
