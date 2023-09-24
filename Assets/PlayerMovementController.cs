@@ -33,6 +33,7 @@ public class PlayerMovementController : NetworkBehaviour
 
             if(isOwned)
             {
+                print(movement);
                 Movement();
             }
         }
