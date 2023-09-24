@@ -45,7 +45,10 @@ public class PlayerMovementController : NetworkBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
+        if(isOwned)
+        {
+            movement = context.ReadValue<Vector2>();
+        }
     }
 
     public void Movement()

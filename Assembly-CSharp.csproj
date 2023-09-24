@@ -407,6 +407,9 @@
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
     </Reference>
@@ -958,6 +961,10 @@
       <Project>{4874F951-7DF6-6F73-A4B0-E5F5FEAD024A}</Project>
       <Name>FizzySteamworks</Name>
     </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{3AFCA3AB-90D0-8E04-B073-E28E49026BEB}</Project>
+      <Name>PackageToolsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="Telepathy.csproj">
       <Project>{F52D5999-A738-EA1F-2A25-B33D937D712B}</Project>
       <Name>Telepathy</Name>
@@ -965,6 +972,10 @@
     <ProjectReference Include="Mirror.Examples.csproj">
       <Project>{29AA536F-67A4-5F91-6090-50A2EE1BF469}</Project>
       <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{AE867D71-691A-88B9-9894-476A406A8BCA}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
     <ProjectReference Include="com.rlabrecque.steamworks.net.editor.csproj">
       <Project>{1549204E-3C76-03FA-B25E-B7FB05378F8D}</Project>
@@ -997,6 +1008,10 @@
     <ProjectReference Include="Mirror.Authenticators.csproj">
       <Project>{19E940D9-5B71-0FAC-70A4-1391EF9F5A50}</Project>
       <Name>Mirror.Authenticators</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{453BD88B-D263-4E8C-6EA0-F554A9D8C812}</Project>
+      <Name>AstarPathfindingProject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
