@@ -27,6 +27,10 @@ public class PlayerMovementController : NetworkBehaviour
         {
             if(PlayerModel.activeSelf == false)
             {
+                if (!isOwned)
+                {
+                    Destroy(GetComponent<PlayerInput>());
+                }
                 SetSpawnPosition();
                 PlayerModel.SetActive(true);
             }
