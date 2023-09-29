@@ -15,13 +15,19 @@ public class PlayerMovementController : NetworkBehaviour
     public float speed = 1f;
     public GameObject PlayerModel;
 
+    public bool canMove = true;
+
+    public bool beingKnockedBack;
+    Vector2 KnockbackDirection = Vector2.zero;
+    float KnockbackStrength = 0;
+
     private void Awake()
     {
         PlayerModel.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(SceneManager.GetActiveScene().name == "Game")
         {
@@ -33,7 +39,6 @@ public class PlayerMovementController : NetworkBehaviour
 
             if(isOwned)
             {
-                print(movement);
                 Movement();
             }
         }
@@ -48,12 +53,42 @@ public class PlayerMovementController : NetworkBehaviour
     {
         if(isOwned)
         {
-            movement = context.ReadValue<Vector2>();
+            movement = context.ReadValue<Vector2>().normalized;
         }
     }
 
     public void Movement()
     {
-        rb.velocity = movement * speed;
+        if(canMove)
+        {
+            rb.velocity = movement * speed * Time.fixedDeltaTime;
+        }
+    }
+
+    public void disableMovement(float time)
+    {
+        canMove = false;
+        Invoke("ReEnableMovement", time);
+    }
+
+    public void TakeKnockback(float time, Vector2 Direction)
+    {
+        disableMovement(time);
+        Invoke("EndKnockback", time);
+        beingKnockedBack = true;
+        rb.AddForce(Direction);
+        KnockbackDirection = Direction;
+        beingKnockedBack = true;
+    }
+
+    void EndKnockback()
+    {
+        beingKnockedBack = false;
+        rb.velocity = Vector2.zero;
+    }
+
+    void ReEnableMovement()
+    {
+        canMove = true;
     }
 }

@@ -128,8 +128,8 @@
     <Compile Include="Assets\Mirror\Examples\Pong\Scripts\NetworkManagerPong.cs" />
     <Compile Include="Assets\Mirror\Examples\Snapshot Interpolation\Snapshot3D.cs" />
     <Compile Include="Assets\Mirror\Examples\AdditiveScenes\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\MonsterMovement.cs" />
     <Compile Include="Assets\Mirror\Examples\Chat\Scripts\ChatAuthenticator.cs" />
+    <Compile Include="Assets\Mirror\Examples\Benchmark\Scripts\MonsterMovement.cs" />
     <Compile Include="Assets\Mirror\Examples\MultipleAdditiveScenes\Scripts\PlayerCamera.cs" />
     <Compile Include="Assets\Mirror\Examples\MultipleMatches\Scripts\MatchNetworkManager.cs" />
     <Compile Include="Assets\Mirror\Examples\Room\Scripts\Spawner.cs" />
