@@ -10,7 +10,9 @@ using Steamworks;
 public class PlayerMovementController : NetworkBehaviour
 {
     Vector2 movement = Vector2.zero;
+    Vector2 lastMovement = Vector2.zero;
     Rigidbody2D rb;
+    Animator animator;
 
     public float speed = 1f;
     public GameObject PlayerModel;
@@ -18,13 +20,20 @@ public class PlayerMovementController : NetworkBehaviour
     public bool canMove = true;
 
     public bool beingKnockedBack;
-    Vector2 KnockbackDirection = Vector2.zero;
-    float KnockbackStrength = 0;
+
+    public bool desiredDash;
+
+    public float dashTime = 0.5f;
+    public float dashSpeed;
+    bool canDash = true;
+
+    public float TimeBetweenDashes = 1f;
 
     private void Awake()
     {
         PlayerModel.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -39,6 +48,10 @@ public class PlayerMovementController : NetworkBehaviour
 
             if(isOwned)
             {
+                if(desiredDash)
+                {
+                    Dash();
+                }
                 Movement();
             }
         }
@@ -54,37 +67,56 @@ public class PlayerMovementController : NetworkBehaviour
         if(isOwned)
         {
             movement = context.ReadValue<Vector2>().normalized;
+            if(movement != Vector2.zero )
+            {
+                lastMovement = movement;
+            }
         }
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if(canDash)
+        {
+            desiredDash |= context.ReadValueAsButton();
+        }
+    }
+
+    public void PlayAnim()
+    {
+        animator.SetFloat("X", movement.x);
+        animator.SetFloat("Y", movement.y);
     }
 
     public void Movement()
     {
         if(canMove)
         {
+            if(movement != Vector2.zero)
+            {
+                PlayAnim();
+            }
             rb.velocity = movement * speed * Time.fixedDeltaTime;
         }
+    }
+
+    public void Dash()
+    {
+        desiredDash = false;
+        canDash = false;
+        GetComponent<Health>().TakeKnockback(dashTime, lastMovement * dashSpeed);
+        Invoke("ReEnableCanDash", TimeBetweenDashes);
+    }
+
+    public void ReEnableCanDash()
+    {
+        canDash = true;
     }
 
     public void disableMovement(float time)
     {
         canMove = false;
         Invoke("ReEnableMovement", time);
-    }
-
-    public void TakeKnockback(float time, Vector2 Direction)
-    {
-        disableMovement(time);
-        Invoke("EndKnockback", time);
-        beingKnockedBack = true;
-        rb.AddForce(Direction);
-        KnockbackDirection = Direction;
-        beingKnockedBack = true;
-    }
-
-    void EndKnockback()
-    {
-        beingKnockedBack = false;
-        rb.velocity = Vector2.zero;
     }
 
     void ReEnableMovement()

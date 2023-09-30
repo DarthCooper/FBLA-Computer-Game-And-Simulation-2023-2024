@@ -29,6 +29,13 @@ public class EnemyAI : MonoBehaviour
     bool canAttack = true;
     public float timeSinceLastAttack = 0;
 
+    bool waitingForReEnable;
+
+    public GameObject projectile;
+    public Transform Firepoint;
+
+    public LayerMask targetLayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,15 +71,24 @@ public class EnemyAI : MonoBehaviour
 
         if (currentWaypoint >= path.vectorPath.Count) { return; }
 
+        if(Firepoint)
+        {
+            Firepoint.up = target.position - Firepoint.position;
+        }
+
         float distanceToTarget = Vector2.Distance(rb.position, target.position);
-        if(distanceToTarget <= targetTolerance)
+        RaycastHit2D hit =  Physics2D.Raycast(transform.position, target.position - transform.position, targetTolerance, targetLayer);
+        if(distanceToTarget <= targetTolerance && hit.collider.gameObject == target.gameObject)
         {
             reachedEndOfPath = true;
             canMove = false;
         }else
         {
             reachedEndOfPath = false;
-            canMove=true;
+            if(!waitingForReEnable)
+            {
+                canMove=true;
+            }
         }
 
         if(reachedEndOfPath)
@@ -108,6 +124,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void RangedAttack()
+    {
+        if(canAttack)
+        {
+            Instantiate(projectile, Firepoint.position, Firepoint.rotation);
+            canAttack = false;
+            Invoke("AttackDelay", timeBetweenAttacks);
+        }
+    }
+
     public void AttackDelay()
     {
         canAttack = true;
@@ -122,12 +148,14 @@ public class EnemyAI : MonoBehaviour
     public void StopMovement(float time)
     {
         canMove = false;
+        waitingForReEnable = true;
         Invoke("ReEnableMovement", time);
     }
 
     void ReEnableMovement()
     {
         canMove = true;
+        waitingForReEnable = false;
     }
 }
     

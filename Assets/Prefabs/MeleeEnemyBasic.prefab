@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9180897637355214922}
   - component: {fileID: 9215066107280419519}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5639301441395014829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 8919906579309889494}
   - component: {fileID: 2425753687831898560}
   - component: {fileID: 5643782823821099448}
-  m_Layer: 0
+  - component: {fileID: -1698735529092108234}
+  m_Layer: 6
   m_Name: MeleeEnemyBasic
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,8 +234,13 @@ MonoBehaviour:
   nextWaypointDistance: 3
   reachedEndOfPath: 0
   canMove: 1
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 2
   timeSinceLastAttack: 0
+  projectile: {fileID: 0}
+  Firepoint: {fileID: 0}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!50 &3868151615024046155
 Rigidbody2D:
   serializedVersion: 4
@@ -402,6 +408,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1698735529092108234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984096683137273666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293df70f868868148abdea171fff4bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &8215807015438684442
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5881420613933422697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827532802532193703}
   - component: {fileID: 474271388238757443}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +552,7 @@ GameObject:
   - component: {fileID: 2837815320935070886}
   - component: {fileID: 5738067006244521156}
   - component: {fileID: 5539128068713259344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Isometric Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,4 +731,5 @@ MonoBehaviour:
         m_CallState: 2
   hitableTags:
   - Player
-  knockBack: 20
+  knockBack: 2000
+  damage: 10
