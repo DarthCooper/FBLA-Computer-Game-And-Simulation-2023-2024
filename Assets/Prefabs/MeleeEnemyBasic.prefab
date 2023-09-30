@@ -233,6 +233,14 @@ MonoBehaviour:
   speed: 350
   nextWaypointDistance: 3
   reachedEndOfPath: 0
+  runIfPlayerIsClose: 0
+  runDistance: 0
+  DistanceFromPlayer: 0
+  runLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  tempTarget: {fileID: 0}
+  tempTargetPrefab: {fileID: 5243171882204016220, guid: 5a788bc29aac35e4c840108a22617fd1, type: 3}
   canMove: 1
   timeBetweenAttacks: 2
   timeSinceLastAttack: 0

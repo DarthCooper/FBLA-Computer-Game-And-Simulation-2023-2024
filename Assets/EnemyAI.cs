@@ -18,6 +18,13 @@ public class EnemyAI : MonoBehaviour
     int currentWaypoint = 0;
     public bool reachedEndOfPath = false;
 
+    public bool runIfPlayerIsClose;
+    public float runDistance;
+    public float DistanceFromPlayer;
+    public LayerMask runLayer;
+    public Transform tempTarget;
+    public Transform tempTargetPrefab;
+
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -47,6 +54,11 @@ public class EnemyAI : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
+    private void Awake()
+    {
+        //tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
+    }
+
     void UpdatePath()
     {
         if(target == null) {  return; }
@@ -71,17 +83,74 @@ public class EnemyAI : MonoBehaviour
 
         if (currentWaypoint >= path.vectorPath.Count) { return; }
 
-        if(Firepoint)
+        if(target == null && tempTarget != null)
+        {
+            target = tempTarget;
+        }else if(target == null)
+        {
+            tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
+            target = tempTarget;
+        }
+
+        if (Firepoint)
         {
             Firepoint.up = target.position - Firepoint.position;
         }
 
+        float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
+        if(distanceToPlayer >= DistanceFromPlayer)
+        {
+            target = GetComponent<GetClosestTarget>().Target.transform;
+        }else
+        {
+            if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
+            {
+                if(tempTarget == null)
+                {
+                    tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
+                }
+                RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
+                if (NewPos)
+                {
+                    tempTarget.transform.position = NewPos.transform.position;
+                    target = tempTarget;
+                }
+                else
+                {
+                    Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
+                    tempTarget.transform.position = ray.GetPoint(runDistance);
+                    target = tempTarget;
+                }
+            }
+        }
+
         float distanceToTarget = Vector2.Distance(rb.position, target.position);
         RaycastHit2D hit =  Physics2D.Raycast(transform.position, target.position - transform.position, targetTolerance, targetLayer);
-        if(distanceToTarget <= targetTolerance && hit.collider.gameObject == target.gameObject)
+
+        if(distanceToTarget <= targetTolerance)
         {
-            reachedEndOfPath = true;
-            canMove = false;
+            if(hit)
+            {
+                if(hit.collider.gameObject == target.gameObject)
+                {
+                    reachedEndOfPath = true;
+                    canMove = false;
+                }else
+                {
+                    reachedEndOfPath = false;
+                    if (!waitingForReEnable)
+                    {
+                        canMove = true;
+                    }
+                }
+            }else
+            {
+                reachedEndOfPath = false;
+                if (!waitingForReEnable)
+                {
+                    canMove = true;
+                }
+            }
         }else
         {
             reachedEndOfPath = false;

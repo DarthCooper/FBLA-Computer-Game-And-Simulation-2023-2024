@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
+  m_Color: {r: 0.3019608, g: 0.9058824, b: 0.3529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -116,6 +116,37 @@ Transform:
   - {fileID: 1217246591434167862}
   m_Father: {fileID: 5881420613933422697}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.15}
+--- !u!1 &6756519423530132618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7366273398743392419}
+  m_Layer: 6
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7366273398743392419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756519423530132618}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5699997, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9173732031589095596}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6984096683137273666
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7366273398743392419}
   - {fileID: 5881420613933422697}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,13 +246,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetTolerance: 2
+  targetTolerance: 10
   OnReachedTarget:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 395736572427170250}
         m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
-        m_MethodName: MeleeAttack
+        m_MethodName: RangedAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -233,11 +265,19 @@ MonoBehaviour:
   speed: 350
   nextWaypointDistance: 3
   reachedEndOfPath: 0
+  runIfPlayerIsClose: 1
+  runDistance: 10
+  DistanceFromPlayer: 5
+  runLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  tempTarget: {fileID: 0}
+  tempTargetPrefab: {fileID: 5243171882204016220, guid: 5a788bc29aac35e4c840108a22617fd1, type: 3}
   canMove: 1
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 0.5
   timeSinceLastAttack: 0
-  projectile: {fileID: 0}
-  Firepoint: {fileID: 0}
+  projectile: {fileID: 1164507450302123576, guid: 8cedd335b4f0c684989fbb957ad25e1c, type: 3}
+  Firepoint: {fileID: 7366273398743392419}
   targetLayer:
     serializedVersion: 2
     m_Bits: 9
@@ -529,7 +569,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
+  m_Color: {r: 0.31764704, g: 0.9411765, b: 0.36356366, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
