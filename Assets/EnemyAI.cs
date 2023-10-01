@@ -203,6 +203,17 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void SupportAttack()
+    {
+        if(canAttack)
+        {
+            print("Healed" + target.GetComponent<Health>().health);
+            target.GetComponent<Health>().health += 25;
+            canAttack = false;
+            Invoke("AttackDelay", timeBetweenAttacks);
+        }
+    }
+
     public void AttackDelay()
     {
         canAttack = true;

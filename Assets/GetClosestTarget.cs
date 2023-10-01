@@ -17,14 +17,19 @@ public class GetClosestTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Target == null) { return; }
-        if(GetComponent<EnemyAI>().target != Target.transform && (GetComponent<EnemyAI>().tempTarget == null || GetComponent<EnemyAI>().target != GetComponent<EnemyAI>().tempTarget))
+        SetTarget();
+    }
+
+    public virtual void SetTarget()
+    {
+        if (Target == null) { return; }
+        if (GetComponent<EnemyAI>().target != Target.transform && (GetComponent<EnemyAI>().tempTarget == null || GetComponent<EnemyAI>().target != GetComponent<EnemyAI>().tempTarget))
         {
             GetComponent<EnemyAI>().target = Target.transform;
         }
     }
 
-    public void GetClosest()
+    public virtual void GetClosest()
     {
         float maxDistance = 0;
         foreach (var tag in TargetTags)
