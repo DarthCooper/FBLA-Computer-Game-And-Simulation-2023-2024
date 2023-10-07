@@ -16,7 +16,7 @@ public class Interactable : NetworkBehaviour
         CmdInteract();
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     void CmdInteract()
     {
         ServerInteract();
@@ -42,7 +42,7 @@ public class Interactable : NetworkBehaviour
         CmdEndInteract();
     }
 
-    [Command]
+    [Command(requiresAuthority = false)]
     void CmdEndInteract()
     {
         ServerEndInteract();
