@@ -84,8 +84,8 @@ public class PlayerMovementController : NetworkBehaviour
 
     public void PlayAnim()
     {
-        animator.SetFloat("X", movement.x);
-        animator.SetFloat("Y", movement.y);
+        animator.SetFloat("X", lastMovement.x);
+        animator.SetFloat("Y", lastMovement.y);
     }
 
     public void Movement()

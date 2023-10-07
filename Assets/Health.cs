@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class Health : MonoBehaviour
+public class Health : NetworkBehaviour
 {
     PlayerMovementController playerMovementController;
     EnemyAI enemyAI;
     Rigidbody2D rb;
 
-    public float health = 100f;
+    [SyncVar(hook = "HealthUpdate")] public float health = 100f;
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
+        CmdSetHealth(this.health - damage);
+
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdSetHealth(float health)
+    {
+        HealthUpdate(this.health, health);
+    }
+
+    public void HealthUpdate(float OldValue, float NewValue)
+    {
+        if (isServer)
+        {
+            this.health = NewValue;
+        }
+        if (isClient)
+        {
+            this.health = NewValue;
+            checkIfDead();
+        }
+    }
+
+    void checkIfDead()
+    {
         if (health <= 0)
         {
             //die
