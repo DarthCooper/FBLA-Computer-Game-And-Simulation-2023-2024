@@ -8,13 +8,21 @@ public class Health : NetworkBehaviour
     PlayerMovementController playerMovementController;
     EnemyAI enemyAI;
     Rigidbody2D rb;
+    ReviveMarker marker;
+
+    public bool canBeRevived = false;
+    public GameObject reviveMarker;
 
     [SyncVar(hook = "HealthUpdate")] public float health = 100f;
 
     public void TakeDamage(float damage)
     {
         CmdSetHealth(this.health - damage);
+    }
 
+    public void Heal(float healAmount)
+    {
+        CmdSetHealth(this.health + healAmount);
     }
 
     [Command(requiresAuthority = false)]
@@ -38,10 +46,23 @@ public class Health : NetworkBehaviour
 
     void checkIfDead()
     {
-        if (health <= 0)
+        if (health <= 0 && !canBeRevived)
         {
-            //die
             gameObject.SetActive(false);
+        }else if(canBeRevived && health <= 0 && !marker)
+        {
+            marker = Instantiate(reviveMarker, transform.position, Quaternion.identity).GetComponent<ReviveMarker>();
+            marker.player = this.gameObject;
+            gameObject.SetActive(false);
+        }
+
+        if(health > 0 && canBeRevived && !gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+            if(marker != null)
+            {
+                Destroy(marker.gameObject);
+            }
         }
     }
 

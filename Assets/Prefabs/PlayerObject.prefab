@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 2476981166703122982}
   - component: {fileID: 6203871864702825603}
   - component: {fileID: 2208889474004822125}
+  - component: {fileID: 7845306695929123669}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -235,6 +236,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 77fccff8-ec29-4d77-afc7-a5e906a67517
     m_ActionName: Player/Dash[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ff0c24dd-868d-496d-9c46-afeff84d60bb
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -380,6 +385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180e717c9fb6495478d11ce203d53090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   Attacking: 0
   OnPrimaryPressed:
     m_PersistentCalls:
@@ -412,6 +420,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  canBeRevived: 1
+  reviveMarker: {fileID: 3408733443353997524, guid: 3bbd7754abdf8eb498457c38f53cc761, type: 3}
   health: 100
 --- !u!70 &6203871864702825603
 CapsuleCollider2D:
@@ -465,6 +475,18 @@ MonoBehaviour:
   syncInterval: 0
   clientAuthority: 1
   animator: {fileID: 4439315438948236271}
+--- !u!114 &7845306695929123669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945422061647966874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05edeed717003a240ad617290b1f23b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5302411170048041117
 GameObject:
   m_ObjectHideFlags: 0

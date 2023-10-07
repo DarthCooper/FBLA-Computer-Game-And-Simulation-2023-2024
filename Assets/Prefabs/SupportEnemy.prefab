@@ -386,6 +386,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  canBeRevived: 0
+  reviveMarker: {fileID: 0}
   health: 100
 --- !u!114 &3517870629528250069
 MonoBehaviour:
