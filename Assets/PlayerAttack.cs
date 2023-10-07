@@ -7,7 +7,7 @@ using Mirror;
 
 public class PlayerAttack : NetworkBehaviour
 {
-    [SyncVar(hook = "UpdateAttacking")] public bool Attacking;
+    public bool Attacking;
 
     public UnityEvent OnPrimaryPressed;
 
@@ -25,34 +25,37 @@ public class PlayerAttack : NetworkBehaviour
     {
         if(canAttack)
         {
-            CmdSetAttacking(context.ReadValueAsButton());
-        }
-    }
-
-    [Command(requiresAuthority = false)]
-    public void CmdSetAttacking(bool context)
-    {
-        UpdateAttacking(this.Attacking, context);
-    }
-
-    public void UpdateAttacking(bool OldValue, bool NewValue)
-    {
-        if(isServer)
-        {
-            Attacking |= NewValue;
-        }
-        if(isClient)
-        {
-            Attacking |= NewValue;
+            Attacking |= context.ReadValueAsButton();
         }
     }
 
     private void Update()
     {
-        if (Attacking)
+        if (Attacking && isOwned)
         {
-            OnPrimaryPressed.Invoke();
+            CmdAttack();
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdAttack()
+    {
+        ServerAttack();
+    }
+
+    [Server]
+    public void ServerAttack()
+    {
+        if(isServer)
+        {
+            RpcAttack();
+        }
+    }
+
+    [ClientRpc] 
+    public void RpcAttack()
+    {
+        OnPrimaryPressed.Invoke();
     }
 
     public void meleeAttack()
