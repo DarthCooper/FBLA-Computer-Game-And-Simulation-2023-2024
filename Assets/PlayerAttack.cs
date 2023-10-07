@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Mirror;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : NetworkBehaviour
 {
-    public bool Attacking;
+    [SyncVar(hook = "UpdateAttacking")] public bool Attacking;
 
     public UnityEvent OnPrimaryPressed;
 
@@ -24,7 +25,25 @@ public class PlayerAttack : MonoBehaviour
     {
         if(canAttack)
         {
-            Attacking |= context.ReadValueAsButton();
+            CmdSetAttacking(context.ReadValueAsButton());
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetAttacking(bool context)
+    {
+        UpdateAttacking(this.Attacking, context);
+    }
+
+    public void UpdateAttacking(bool OldValue, bool NewValue)
+    {
+        if(isServer)
+        {
+            Attacking |= NewValue;
+        }
+        if(isClient)
+        {
+            Attacking |= NewValue;
         }
     }
 
