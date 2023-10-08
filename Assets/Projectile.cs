@@ -74,7 +74,7 @@ public class Projectile : MonoBehaviour
     public void ApplyKnockbackWithTimeScale()
     {
         Time.timeScale = 0.25f;
-        Vector2 direction = (hitObject.transform.position - transform.position).normalized;
+        Vector2 direction = (transform.position - hitObject.transform.position).normalized;
         Vector2 force = direction * knockBack;
         hitObject.GetComponent<Health>().TakeKnockback(0.0625f, force);
     }
