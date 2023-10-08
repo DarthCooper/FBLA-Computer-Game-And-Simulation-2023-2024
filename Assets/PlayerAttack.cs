@@ -118,16 +118,9 @@ public class PlayerAttack : NetworkBehaviour
     {
         if(isOwned)
         {
-            SpawnBullet();
+            GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
         }
         ChangeAttack(this.primary);
-    }
-
-    [Command(requiresAuthority = false)]
-    public void SpawnBullet()
-    {
-        GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
-        NetworkServer.Spawn(bullet);
     }
 
     public void ChangeAttack(bool primary)
