@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     public UnityEvent onHit;
     public string[] hitableTags;
 
+    public string[] ignoreTags;
+
     public float speed;
 
     Rigidbody2D rb;
@@ -29,6 +31,13 @@ public class Projectile : MonoBehaviour
                 hitObject = collision.gameObject;
                 onHit.Invoke();
                 HideObject();
+            }
+        }
+        foreach (var tag in ignoreTags)
+        {
+            if(collision.gameObject.tag == tag)
+            {
+                hitRequiresResponse = true;
             }
         }
         if(!hitRequiresResponse)

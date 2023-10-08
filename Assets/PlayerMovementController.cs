@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using Mirror;
 using UnityEngine.SceneManagement;
 using Steamworks;
+using UnityEditor.Rendering.LookDev;
 
 public class PlayerMovementController : NetworkBehaviour
 {
@@ -14,7 +15,14 @@ public class PlayerMovementController : NetworkBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+    public bool aiming;
+    bool canChangeAim = true;
+
+    public bool sprinting;
+
     public float speed = 1f;
+    public float aimingSpeed;
+    public float runSpeed;
     public GameObject PlayerModel;
 
     public bool canMove = true;
@@ -82,21 +90,60 @@ public class PlayerMovementController : NetworkBehaviour
         }
     }
 
-    public void PlayAnim()
+    public void OnAim(InputAction.CallbackContext context)
     {
-        animator.SetFloat("X", lastMovement.x);
-        animator.SetFloat("Y", lastMovement.y);
+        if(context.ReadValueAsButton() && canChangeAim)
+        {
+            aiming = !aiming;
+            if(aiming && sprinting)
+            {
+                sprinting = false;
+            } 
+            canChangeAim = false;
+            Invoke("ChangeAim", 0.2f);
+        }
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        sprinting = context.ReadValueAsButton();
+        if(sprinting && aiming)
+        {
+            aiming = false;
+        }
+    }
+
+    public void ChangeAim()
+    {
+        canChangeAim = true;
+    }
+
+    public void PlayAnim(Vector2 direction)
+    {
+        animator.SetFloat("X", direction.x);
+        animator.SetFloat("Y", direction.y);
     }
 
     public void Movement()
     {
         if(canMove)
         {
-            if(movement != Vector2.zero)
+            var currentSpeed = speed;
+            if(movement != Vector2.zero && !aiming)
             {
-                PlayAnim();
+                if(sprinting)
+                {
+                    currentSpeed = runSpeed;
+                }
+                PlayAnim(lastMovement);
+
+            }else if(aiming)
+            {
+                currentSpeed = aimingSpeed;
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                PlayAnim(pos - transform.position);
             }
-            rb.velocity = movement * speed * Time.fixedDeltaTime;
+            rb.velocity = movement * currentSpeed * Time.fixedDeltaTime;
         }
     }
 

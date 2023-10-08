@@ -4,18 +4,28 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Mirror;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : NetworkBehaviour
 {
     public bool Attacking;
+    public bool secondaryAttacking;
 
     public UnityEvent OnPrimaryPressed;
+    public UnityEvent OnSecondaryPressed;
 
     Animator anim;
 
     bool canAttack = true;
+    bool canSecondaryAttack = true;
 
     public float timeBetweenAttack = 1f;
+    public float timeBetweenSecondaryAttack = 1f;
+
+    public GameObject projectile;
+    public Transform firepoint;
+
+    bool primary;
 
     private void Awake()
     {
@@ -23,17 +33,33 @@ public class PlayerAttack : NetworkBehaviour
     }
     public void OnPrimaryAttack(InputAction.CallbackContext context)
     {
-        if(canAttack)
+        if (SceneManager.GetActiveScene().name != "Game") { return; }
+        if (canAttack)
         {
             Attacking |= context.ReadValueAsButton();
         }
     }
 
+    public void OnSecondaryAttack(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().name != "Game") { return; }
+        if (canSecondaryAttack)
+        {
+            secondaryAttacking |= context.ReadValueAsButton();
+        }
+    }
+
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name != "Game") { return; }
+
         if (Attacking && isOwned)
         {
             CmdAttack();
+        }
+        if(secondaryAttacking && isOwned)
+        {
+            CmdSecondaryAttack();
         }
     }
 
@@ -55,19 +81,68 @@ public class PlayerAttack : NetworkBehaviour
     [ClientRpc] 
     public void RpcAttack()
     {
+        this.primary = true;
         OnPrimaryPressed.Invoke();
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSecondaryAttack()
+    {
+        ServerSecondaryAttack();
+    }
+
+    [Server]
+    public void ServerSecondaryAttack()
+    {
+        if(isServer)
+        {
+            RpcSecondaryAttack();
+        }
+    }
+
+    [ClientRpc] 
+    public void RpcSecondaryAttack()
+    {
+        this.primary = false;
+        OnSecondaryPressed.Invoke();
+    }
+
 
     public void meleeAttack()
     {
         anim.SetTrigger("Attack1");
-        Attacking = false;
-        canAttack = false;
-        Invoke("ResetAttack", timeBetweenAttack);
+        ChangeAttack(this.primary);
+    }
+
+    public void rangedAttack()
+    {
+        Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
+        ChangeAttack(this.primary);
+    }
+
+    public void ChangeAttack(bool primary)
+    {
+        if(primary)
+        {
+            Attacking = false;
+            canAttack = false;
+            Invoke("ResetAttack", timeBetweenAttack);
+        }
+        else
+        {
+            secondaryAttacking = false;
+            canSecondaryAttack = false;
+            Invoke("ResetSecondaryAttack", timeBetweenSecondaryAttack);
+        }
     }
 
     void ResetAttack()
     {
         canAttack = true;
+    }
+
+    void ResetSecondaryAttack()
+    {
+        canSecondaryAttack = true;
     }
 }
