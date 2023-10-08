@@ -116,10 +116,7 @@ public class PlayerAttack : NetworkBehaviour
 
     public void rangedAttack()
     {
-        if(isOwned)
-        {
-            GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
-        }
+        GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
         ChangeAttack(this.primary);
     }
 
