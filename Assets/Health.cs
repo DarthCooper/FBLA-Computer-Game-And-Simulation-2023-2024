@@ -53,12 +53,7 @@ public class Health : NetworkBehaviour
         {
             if(isOwned)
             {
-                marker = Instantiate(reviveMarker, transform.position, Quaternion.identity).GetComponent<ReviveMarker>();
-                NetworkServer.Spawn(marker.gameObject, this.gameObject);
-            }
-            if(marker)
-            {
-                marker.player = this.gameObject;
+                CmdSpawnGrave();
             }
             gameObject.SetActive(false);
         }
@@ -71,6 +66,14 @@ public class Health : NetworkBehaviour
                 Destroy(marker.gameObject);
             }
         }
+    }
+
+    [Command]
+    public void CmdSpawnGrave()
+    {
+        marker = Instantiate(reviveMarker, transform.position, Quaternion.identity).GetComponent<ReviveMarker>();
+        NetworkServer.Spawn(marker.gameObject, this.gameObject);
+        marker.player = this.gameObject;
     }
 
     private void Awake()
