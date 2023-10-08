@@ -52,6 +52,7 @@ public class Health : NetworkBehaviour
         }else if(canBeRevived && health <= 0 && !marker)
         {
             marker = Instantiate(reviveMarker, transform.position, Quaternion.identity).GetComponent<ReviveMarker>();
+            NetworkServer.Spawn(marker.gameObject, this.gameObject);
             marker.player = this.gameObject;
             gameObject.SetActive(false);
         }

@@ -25,10 +25,7 @@ public class Interactable : NetworkBehaviour
     [Server]
     void ServerInteract()
     {
-        if(isServer)
-        {
-            RpcInteract();
-        }
+        RpcInteract();
     }
 
     [ClientRpc]
@@ -60,6 +57,6 @@ public class Interactable : NetworkBehaviour
     [ClientRpc]
     void RpcEndInteract()
     {
-        OnInteract.Invoke();
+        OnEndInteract.Invoke();
     }
 }

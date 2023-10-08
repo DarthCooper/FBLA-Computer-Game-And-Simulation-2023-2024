@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 560
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -253,7 +253,7 @@ MonoBehaviour:
   - {fileID: 20}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,9 +338,9 @@ MonoBehaviour:
     m_SearchString: 
   m_ActionsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 877518f7
-    m_LastClickedID: -149391993
-    m_ExpandedIDs: a2bcd29c78425bc4318d8ddd
+    m_SelectedIDs: 8cf475a7
+    m_LastClickedID: -1485441908
+    m_ExpandedIDs: 318d8ddd34a9aee2
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -376,6 +376,9 @@ MonoBehaviour:
       - itemId: 378383742
         selectedIndex: 0
         scroll: {x: 0, y: 0}
+      - itemId: -790623487
+        selectedIndex: -1
+        scroll: {x: 0, y: 0}
     m_ManualPathEditMode: 0
   m_ActionAssetManager:
     m_AssetObjectForEditing: {fileID: 0}
@@ -402,6 +405,10 @@ MonoBehaviour:
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
       },\n                {\n                    \"name\": \"Dash\",\n                   
       \"type\": \"Button\",\n                    \"id\": \"77fccff8-ec29-4d77-afc7-a5e906a67517\",\n                   
+      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
+      },\n                {\n                    \"name\": \"Interact\",\n                   
+      \"type\": \"Button\",\n                    \"id\": \"ff0c24dd-868d-496d-9c46-afeff84d60bb\",\n                   
       \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
       \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
       }\n            ],\n            \"bindings\": [\n                {\n                   
@@ -545,6 +552,11 @@ MonoBehaviour:
       \"path\": \"<Keyboard>/space\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"\",\n                   
       \"action\": \"Dash\",\n                    \"isComposite\": false,\n                   
+      \"isPartOfComposite\": false\n                },\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"743120c1-8776-41ee-9d57-16c7a604bc55\",\n                   
+      \"path\": \"<Keyboard>/e\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"Keyboard&Mouse\",\n                   
+      \"action\": \"Interact\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                }\n            ]\n        },\n       
       {\n            \"name\": \"UI\",\n            \"id\": \"bf9ba757-81fa-4eec-9b45-bc3d0962f781\",\n           
       \"actions\": [\n                {\n                    \"name\": \"Navigate\",\n                   
@@ -894,7 +906,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 35010
+  m_LastSelectedObjectID: 50326
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -932,9 +944,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f8f3ffff
-      m_LastClickedID: -3080
-      m_ExpandedIDs: 96f3fffffafafffff4ffffff
+      m_SelectedIDs: de5afdff
+      m_LastClickedID: -173346
+      m_ExpandedIDs: 2a5dfdff666afdffd275fdff4886fdff5892fdff5c9cfdff74a6fdfff6b3fdff5cc3fdff3ed0fdffeadafdff5af2fdff72f3fdff12f9fdff1ef9fdff4ef9fdff1a0efeff1a4dfefff64efeff9654feffa254feffd254feff9662feff367dfeff6496feff46effeff5ef0fefff8f5feff04f6feff34f6feffce69ffff6a6affff0470ffff1070ffff4070ffff1293ffffae93ffff4899ffff5499ffff8499ffffea9effffa8a5ffff12b5ffff82c0fffffafafffff4ffffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1344,7 +1356,7 @@ MonoBehaviour:
       sizeOverriden: 0
     m_OverlaysVisible: 1
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -1353,9 +1365,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 12.823134, y: -3.7224436, z: 0.14913236}
+    m_Target: {x: 5.585028, y: 2.05948, z: -0.0111938}
     speed: 2
-    m_Value: {x: 12.823134, y: -3.7224436, z: 0.14913236}
+    m_Value: {x: 5.585028, y: 2.05948, z: -0.0111938}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1405,9 +1417,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.4992843
+    m_Target: 1.8086969
     speed: 2
-    m_Value: 1.4992843
+    m_Value: 1.8086969
   m_Ortho:
     m_Target: 1
     speed: 2

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class ReviveMarker : MonoBehaviour
+public class ReviveMarker : NetworkBehaviour
 {
     public GameObject player;
     public Interactable interactable;
@@ -17,12 +18,13 @@ public class ReviveMarker : MonoBehaviour
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
+        interactable.beenInteractedWith = false;
     }
 
     public void StartRevive()
     {
+        print("Interact");
         reviving = true;
-        interactable.beenInteractedWith = true;
     }
 
     public void EndRevive()
@@ -43,7 +45,7 @@ public class ReviveMarker : MonoBehaviour
 
         progressBar.value = currentReviveTime / maxReviveTime;
 
-        if(currentReviveTime > maxReviveTime)
+        if(currentReviveTime > maxReviveTime && reviving)
         {
             Revive();
         }

@@ -421,7 +421,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5587676298568289435}
         m_TargetAssemblyTypeName: ReviveMarker, Assembly-CSharp
-        m_MethodName: Revive
+        m_MethodName: StartRevive
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -476,6 +476,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031e344ff1db8a64e82dab4f889be2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   player: {fileID: 0}
   interactable: {fileID: 0}
   maxReviveTime: 5
