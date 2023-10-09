@@ -11,25 +11,43 @@ public class ReviveMarker : NetworkBehaviour
     public float maxReviveTime = 5f; //In Seconds
     public float currentReviveTime = 0f;
 
-    public bool reviving;
+    [SyncVar(hook = "ChangeRevive")]public bool reviving;
 
     public Slider progressBar;
 
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
-        interactable.beenInteractedWith = false;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void startRevive(bool reviving)
+    {
+        ChangeRevive(this.reviving, reviving);
+    }
+
+    public void ChangeRevive(bool oldValue, bool newValue)
+    {
+        if(isServer)
+        {
+            reviving = newValue;
+        }
+        if(isClient)
+        {
+            reviving = newValue;
+        }
     }
 
     public void StartRevive()
     {
         print("Interact");
-        reviving = true;
+        startRevive(true);
+        interactable.beenInteractedWith = false;
     }
 
     public void EndRevive()
     {
-        reviving = false;
+        startRevive(false);
         interactable.beenInteractedWith = false;
     }
 
