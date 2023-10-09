@@ -116,6 +116,13 @@ public class PlayerAttack : NetworkBehaviour
 
     public void rangedAttack()
     {
+        if(this.primary)
+        {
+            if (!canAttack) { return; }
+        }else
+        {
+            if(!canSecondaryAttack) { return; }
+        }
         GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
         ChangeAttack(this.primary);
     }
