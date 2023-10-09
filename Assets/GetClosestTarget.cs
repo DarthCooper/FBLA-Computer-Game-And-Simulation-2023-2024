@@ -25,7 +25,7 @@ public class GetClosestTarget : MonoBehaviour
         if (Target == null) { return; }
         if (GetComponent<EnemyAI>().target != Target.transform && (GetComponent<EnemyAI>().tempTarget == null || GetComponent<EnemyAI>().target != GetComponent<EnemyAI>().tempTarget))
         {
-            GetComponent<EnemyAI>().CmdSetTarget(Target.gameObject.name);
+            GetComponent<EnemyAI>().target = Target.transform;
         }
     }
 

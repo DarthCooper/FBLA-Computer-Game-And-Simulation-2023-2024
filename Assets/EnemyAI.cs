@@ -7,7 +7,6 @@ using Mirror;
 
 public class EnemyAI : NetworkBehaviour
 {
-    [SyncVar(hook = "SetTarget")]public string targetName;
     public Transform target;
     public float targetTolerance;
 
@@ -61,19 +60,6 @@ public class EnemyAI : NetworkBehaviour
         //tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdSetTarget(string target)
-    {
-        SetTarget(targetName, target);
-    }
-
-    public void SetTarget(string oldTarget, string newTarget)
-    {
-        GameObject targetObject = GameObject.Find(newTarget);
-        targetName = targetObject.name;
-        target = targetObject.transform;
-    }
-
     void UpdatePath()
     {
         if(target == null) {  return; }
@@ -94,18 +80,18 @@ public class EnemyAI : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        if(!isServer) { return; }
         if (path == null) { return; }
 
         if (currentWaypoint >= path.vectorPath.Count) { return; }
 
         if(target == null && tempTarget != null)
         {
-            CmdSetTarget(tempTarget.name);
+            target = tempTarget;
         }else if(target == null)
         {
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
-            tempTarget.name = "TempTarget" + Random.Range(0, 5000);
-            CmdSetTarget(tempTarget.name);
+            target = tempTarget;
         }
 
         if (Firepoint)
@@ -116,7 +102,7 @@ public class EnemyAI : NetworkBehaviour
         float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
         if(distanceToPlayer >= DistanceFromPlayer)
         {
-            CmdSetTarget(GetComponent<GetClosestTarget>().Target.transform.name);
+            target = GetComponent<GetClosestTarget>().Target.transform;
         }else
         {
             if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
@@ -124,19 +110,18 @@ public class EnemyAI : NetworkBehaviour
                 if(tempTarget == null)
                 {
                     tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
-                    tempTarget.name = "TempTarget" + Random.Range(0, 5000);
                 }
                 RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
                 if (NewPos)
                 {
                     tempTarget.transform.position = NewPos.transform.position;
-                    CmdSetTarget(tempTarget.name);
+                    target = tempTarget;
                 }
                 else
                 {
                     Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
                     tempTarget.transform.position = ray.GetPoint(runDistance);
-                    CmdSetTarget(tempTarget.name);
+                    target = tempTarget;
                 }
             }
         }
