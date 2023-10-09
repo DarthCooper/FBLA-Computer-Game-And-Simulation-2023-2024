@@ -164,7 +164,7 @@ public class EnemyAI : NetworkBehaviour
 
         if(reachedEndOfPath)
         {
-            OnReachedTarget.Invoke();
+            CmdReachedTarget();
         }
 
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
@@ -183,6 +183,27 @@ public class EnemyAI : NetworkBehaviour
         }
 
         PlayAnim((Vector2)target.transform.position - rb.position);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdReachedTarget()
+    {
+        ServerReachedTarget();
+    }
+
+    [Server]
+    public void ServerReachedTarget()
+    {
+        if(isServer)
+        {
+            RpcReachedTarget();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcReachedTarget()
+    {
+        OnReachedTarget.Invoke();
     }
 
     public void MeleeAttack()
