@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
+using Mirror;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : NetworkBehaviour
 {
-    public Transform target;
+    [SyncVar(hook = "SetTarget")]public Transform target;
     public float targetTolerance;
 
     public UnityEvent OnReachedTarget;
@@ -59,6 +60,17 @@ public class EnemyAI : MonoBehaviour
         //tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdSetTarget(Transform target)
+    {
+        SetTarget(this.target, target);
+    }
+
+    public void SetTarget(Transform oldTarget, Transform newTarget)
+    {
+        target = newTarget;
+    }
+
     void UpdatePath()
     {
         if(target == null) {  return; }
@@ -85,11 +97,11 @@ public class EnemyAI : MonoBehaviour
 
         if(target == null && tempTarget != null)
         {
-            target = tempTarget;
+            CmdSetTarget(tempTarget);
         }else if(target == null)
         {
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
-            target = tempTarget;
+            CmdSetTarget(tempTarget);
         }
 
         if (Firepoint)
@@ -100,7 +112,7 @@ public class EnemyAI : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
         if(distanceToPlayer >= DistanceFromPlayer)
         {
-            target = GetComponent<GetClosestTarget>().Target.transform;
+            CmdSetTarget(GetComponent<GetClosestTarget>().Target.transform);
         }else
         {
             if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
@@ -113,13 +125,13 @@ public class EnemyAI : MonoBehaviour
                 if (NewPos)
                 {
                     tempTarget.transform.position = NewPos.transform.position;
-                    target = tempTarget;
+                    CmdSetTarget(tempTarget);
                 }
                 else
                 {
                     Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
                     tempTarget.transform.position = ray.GetPoint(runDistance);
-                    target = tempTarget;
+                    CmdSetTarget(tempTarget);
                 }
             }
         }
