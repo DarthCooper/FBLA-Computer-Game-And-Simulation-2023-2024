@@ -42,12 +42,13 @@ public class ReviveMarker : NetworkBehaviour
     {
         print("Interact");
         startRevive(true);
-        interactable.beenInteractedWith = false;
+        interactable.beenInteractedWith = true;
     }
 
     public void EndRevive()
     {
         startRevive(false);
+        print("EndInteract");
         interactable.beenInteractedWith = false;
     }
 
