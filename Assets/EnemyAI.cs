@@ -7,7 +7,8 @@ using Mirror;
 
 public class EnemyAI : NetworkBehaviour
 {
-    [SyncVar(hook = "SetTarget")]public Transform target;
+    [SyncVar(hook = "SetTarget")]public string targetName;
+    public Transform target;
     public float targetTolerance;
 
     public UnityEvent OnReachedTarget;
@@ -61,14 +62,16 @@ public class EnemyAI : NetworkBehaviour
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdSetTarget(Transform target)
+    public void CmdSetTarget(string target)
     {
-        SetTarget(this.target, target);
+        SetTarget(targetName, target);
     }
 
-    public void SetTarget(Transform oldTarget, Transform newTarget)
+    public void SetTarget(string oldTarget, string newTarget)
     {
-        target = newTarget;
+        GameObject targetObject = GameObject.Find(newTarget);
+        targetName = targetObject.name;
+        target = targetObject.transform;
     }
 
     void UpdatePath()
@@ -97,11 +100,12 @@ public class EnemyAI : NetworkBehaviour
 
         if(target == null && tempTarget != null)
         {
-            CmdSetTarget(tempTarget);
+            CmdSetTarget(tempTarget.name);
         }else if(target == null)
         {
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
-            CmdSetTarget(tempTarget);
+            tempTarget.name = "TempTarget" + Random.Range(0, 5000);
+            CmdSetTarget(tempTarget.name);
         }
 
         if (Firepoint)
@@ -112,7 +116,7 @@ public class EnemyAI : NetworkBehaviour
         float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
         if(distanceToPlayer >= DistanceFromPlayer)
         {
-            CmdSetTarget(GetComponent<GetClosestTarget>().Target.transform);
+            CmdSetTarget(GetComponent<GetClosestTarget>().Target.transform.name);
         }else
         {
             if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
@@ -120,18 +124,19 @@ public class EnemyAI : NetworkBehaviour
                 if(tempTarget == null)
                 {
                     tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
+                    tempTarget.name = "TempTarget" + Random.Range(0, 5000);
                 }
                 RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
                 if (NewPos)
                 {
                     tempTarget.transform.position = NewPos.transform.position;
-                    CmdSetTarget(tempTarget);
+                    CmdSetTarget(tempTarget.name);
                 }
                 else
                 {
                     Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
                     tempTarget.transform.position = ray.GetPoint(runDistance);
-                    CmdSetTarget(tempTarget);
+                    CmdSetTarget(tempTarget.name);
                 }
             }
         }
