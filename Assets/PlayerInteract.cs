@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Mirror;
 
-public class PlayerInteract : MonoBehaviour
+public class PlayerInteract : NetworkBehaviour
 {
     public bool interact;
 
@@ -23,7 +24,11 @@ public class PlayerInteract : MonoBehaviour
 
     private void Update()
     {
-        if(interact && interactable)
+        if (!isOwned)
+        {
+            return;
+        }
+        if (interact && interactable)
         {
             if(!interactable.beenInteractedWith)
             {
