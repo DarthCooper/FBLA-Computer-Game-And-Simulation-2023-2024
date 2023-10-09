@@ -80,7 +80,11 @@ public class EnemyAI : NetworkBehaviour
 
     private void FixedUpdate()
     {
-        if(!isServer) { return; }
+        if (Firepoint && target != null)
+        {
+            Firepoint.up = target.position - Firepoint.position;
+        }
+        if (!isServer) { return; } //movement will only be ran on the server while the clients recieve the data from the server.
         if (path == null) { return; }
 
         if (currentWaypoint >= path.vectorPath.Count) { return; }
@@ -92,11 +96,6 @@ public class EnemyAI : NetworkBehaviour
         {
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
             target = tempTarget;
-        }
-
-        if (Firepoint)
-        {
-            Firepoint.up = target.position - Firepoint.position;
         }
 
         float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
