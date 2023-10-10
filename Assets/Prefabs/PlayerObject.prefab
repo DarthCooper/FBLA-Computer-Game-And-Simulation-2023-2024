@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 6203871864702825603}
   - component: {fileID: 2208889474004822125}
   - component: {fileID: 7845306695929123669}
+  - component: {fileID: 1051821159834773036}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -331,7 +332,7 @@ MonoBehaviour:
   desiredDash: 0
   dashTime: 0.1
   dashSpeed: 2000
-  TimeBetweenDashes: 1
+  TimeBetweenDashes: 0.5
 --- !u!114 &5587829081801725446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +507,7 @@ MonoBehaviour:
   canBeRevived: 1
   reviveMarker: {fileID: 3408733443353997524, guid: 3bbd7754abdf8eb498457c38f53cc761, type: 3}
   health: 100
+  maxHealth: 100
 --- !u!70 &6203871864702825603
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -570,8 +572,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05edeed717003a240ad617290b1f23b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   interact: 0
   interactable: {fileID: 0}
+--- !u!114 &1051821159834773036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945422061647966874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ae560471c22054285bfa467d579dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  healthSlider: {fileID: 0}
+  stamina: 100
+  maxStamina: 0
+  staminaSlider: {fileID: 0}
+  staminaRebuildDelay: 1
+  staminaRebuildMultiplier: 50
 --- !u!1 &4201950648879876081
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class Health : NetworkBehaviour
     public GameObject reviveMarker;
 
     [SyncVar(hook = "HealthUpdate")] public float health = 100f;
+    [HideInInspector] public float maxHealth = 100f;
 
     public void TakeDamage(float damage)
     {
@@ -78,6 +79,7 @@ public class Health : NetworkBehaviour
 
     private void Awake()
     {
+        maxHealth = health;
         playerMovementController = GetComponent<PlayerMovementController>();
         enemyAI = GetComponent<EnemyAI>();  
         rb = GetComponent<Rigidbody2D>();

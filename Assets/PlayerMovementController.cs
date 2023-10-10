@@ -129,8 +129,9 @@ public class PlayerMovementController : NetworkBehaviour
             var currentSpeed = speed;
             if(movement != Vector2.zero && !aiming)
             {
-                if(sprinting)
+                if(sprinting && GetComponent<PlayerStats>().stamina > 0.5f)
                 {
+                    GetComponent<PlayerStats>().spendStamina(0.5f);
                     currentSpeed = runSpeed;
                 }
                 PlayAnim(lastMovement);
@@ -147,10 +148,14 @@ public class PlayerMovementController : NetworkBehaviour
 
     public void Dash()
     {
-        desiredDash = false;
-        canDash = false;
-        GetComponent<Health>().TakeKnockback(dashTime, lastMovement * dashSpeed);
-        Invoke("ReEnableCanDash", TimeBetweenDashes);
+        if(GetComponent<PlayerStats>().stamina > 25)
+        {
+            desiredDash = false;
+            canDash = false;
+            GetComponent<Health>().TakeKnockback(dashTime, lastMovement * dashSpeed);
+            GetComponent<PlayerStats>().spendStamina(25f);
+            Invoke("ReEnableCanDash", TimeBetweenDashes);
+        }
     }
 
     public void ReEnableCanDash()
