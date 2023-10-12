@@ -11,9 +11,12 @@ public class Interactable : NetworkBehaviour
 
     public bool beenInteractedWith;
 
-    public void Interact()
+    public GameObject Player;
+
+    public void Interact(GameObject Player)
     {
         CmdInteract();
+        this.Player = Player;
     }
 
     [Command(requiresAuthority = false)]

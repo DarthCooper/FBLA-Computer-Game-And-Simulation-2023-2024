@@ -301,6 +301,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1e59e4bf-a0a1-4695-b0bd-876c1af4dab0
     m_ActionName: Player/Sprint[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7845306695929123669}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: OnInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d7e2cda1-45e5-47c1-bad8-be98208a3310
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -576,6 +592,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   interact: 0
+  InventoryOpen: 0
+  inventory: {fileID: 0}
   interactable: {fileID: 0}
 --- !u!114 &1051821159834773036
 MonoBehaviour:
