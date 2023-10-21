@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class Item : MonoBehaviour
+public class Item : NetworkBehaviour
 {
     public string itemName;
     public GameObject itemPrefab;
@@ -34,6 +34,24 @@ public class Item : MonoBehaviour
             Inventory.Instance.AddItem(this);
         }
         Destroy(this.gameObject);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetStack(int stack)
+    {
+        ServerSetStack(stack);
+    }
+
+    [Server]
+    public void ServerSetStack(int stack)
+    {
+        RpcSetStack(stack);
+    }
+
+    [ClientRpc]
+    public void RpcSetStack(int stack)
+    {
+        currentStack = stack;
     }
 }
 public enum ItemType
