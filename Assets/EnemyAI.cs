@@ -52,6 +52,7 @@ public class EnemyAI : NetworkBehaviour
 
         animator = GetComponent<Animator>();
 
+        if(!isServer) { return; }
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
