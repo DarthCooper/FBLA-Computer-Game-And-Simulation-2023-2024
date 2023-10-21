@@ -41,13 +41,18 @@ public class EnemyVision : MonoBehaviour
     {
         if(target == null) { return false; }
         RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position - transform.position, Vector3.Distance(transform.position, target.position), ai.targetLayer);
-        if(hit)
+        foreach(var tag in ai.GetComponent<GetClosestTarget>().TargetTags)
         {
-            return true;
-        }else
-        {
-            return false;
+            if(hit)
+            {
+                if (hit.collider.tag == tag)
+                {
+                    print(hit.collider.name);
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     public void Update()

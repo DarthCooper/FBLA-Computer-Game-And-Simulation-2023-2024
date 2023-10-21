@@ -31,13 +31,13 @@ public class GetClosestTarget : MonoBehaviour
 
     public virtual void GetClosest()
     {
-        float maxDistance = 0;
+        float maxDistance = 10000;
         foreach (var tag in TargetTags)
         {
             foreach (var target in GameObject.FindGameObjectsWithTag(tag))
             {
                 float Distance = Vector2.Distance(transform.position, target.transform.position);
-                if(Distance > maxDistance)
+                if(Distance < maxDistance)
                 {
                     maxDistance = Distance;
                     Target = target;
