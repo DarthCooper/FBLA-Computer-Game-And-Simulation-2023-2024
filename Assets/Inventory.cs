@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
 
     public Slider dropSlider;
     public TMP_Text dropText;
+    bool dropping;
 
     private void Awake()
     {
@@ -51,7 +52,10 @@ public class Inventory : MonoBehaviour
         {
             if(item.itemName == Item.itemName)
             {
-                items.Add(Item);
+                for(int i = 0; i < item.currentStack; i++)
+                {
+                    items.Add(Item);
+                }
             }
         }
         DisplayItems();
@@ -93,6 +97,11 @@ public class Inventory : MonoBehaviour
         {
             player = GameObject.Find("LocalGamePlayer");
         }
+
+        if(dropping)
+        {
+            dropText.text = dropSlider.value.ToString();
+        }
     }
 
     public void DisplayItems()
@@ -105,33 +114,33 @@ public class Inventory : MonoBehaviour
 
         foreach(Item item in items)
         {
-            bool stacked = false;
-            if(item.stackable)
-            {
-                foreach (var slotObject in itemSlots)
+                bool stacked = false;
+                if (item.stackable)
                 {
-                    Slot slot = slotObject.GetComponent<Slot>();
-                    if(slot.item.itemName == item.itemName)
+                    foreach (var slotObject in itemSlots)
                     {
-                        if(slot.currentInSlot < slot.maxObjectsInSlot)
+                        Slot slot = slotObject.GetComponent<Slot>();
+                        if (slot.item.itemName == item.itemName)
                         {
-                            slot.currentInSlot++;
-                            slot.DisplayInSlot();
-                            stacked = true;
+                            if (slot.currentInSlot < slot.maxObjectsInSlot)
+                            {
+                                slot.currentInSlot++;
+                                slot.DisplayInSlot();
+                                stacked = true;
+                            }
                         }
                     }
                 }
-            }
-            if(!stacked)
-            {
-                Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
-                spawnedItem.item = item;
-                spawnedItem.item.inventoryIndex = itemSlots.Count;
-                spawnedItem.maxObjectsInSlot = spawnedItem.item.stackable ? spawnedItem.item.maxStack : 1;
-                spawnedItem.currentInSlot++;
-                spawnedItem.DisplayInSlot();
-                itemSlots.Add(spawnedItem.gameObject);
-            }
+                if (!stacked)
+                {
+                    Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
+                    spawnedItem.item = item;
+                    spawnedItem.item.inventoryIndex = itemSlots.Count;
+                    spawnedItem.maxObjectsInSlot = spawnedItem.item.stackable ? spawnedItem.item.maxStack : 1;
+                    spawnedItem.currentInSlot++;
+                    spawnedItem.DisplayInSlot();
+                    itemSlots.Add(spawnedItem.gameObject);
+                }
         }
     }
 
@@ -164,22 +173,32 @@ public class Inventory : MonoBehaviour
     public void OnSelectDrop()
     {
         dropSlider.maxValue = questionedSlot.currentInSlot;
+        dropping = true;
     }
 
     public void OnDrop()
     {
-        while(questionedSlot.currentInSlot > dropSlider.value)
+        SpawnedDroppedItem((int)dropSlider.value);
+        for (int i = 0; i < dropSlider.value; i++)
         {
             questionedSlot.Drop();
         }
+        dropping = false;
     }
 
     public void OnDropAll()
     {
+        SpawnedDroppedItem(questionedSlot.currentInSlot);
         while(questionedSlot.currentInSlot > 0)
         {
             questionedSlot.Drop();
         }
+        dropping = false;
+    }
+
+    public void SpawnedDroppedItem(int Amount)
+    {
+        player.GetComponent<PlayerInventory>().spawnDroppedItem(questionedSlot.item.itemName, Amount);
     }
 
     public void RemoveItem(Item item)

@@ -20,6 +20,8 @@ public class Item : MonoBehaviour
     public bool stackable;
     public int maxStack;
 
+    public int currentStack = 1;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();

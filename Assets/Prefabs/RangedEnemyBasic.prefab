@@ -246,6 +246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6b2c33738319246b09c7cab3bacd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   target: {fileID: 0}
   targetTolerance: 10
   OnReachedTarget:
@@ -464,7 +467,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  canBeRevived: 0
+  reviveMarker: {fileID: 0}
   health: 100
+  maxHealth: 0
 --- !u!114 &-267719302683505039
 MonoBehaviour:
   m_ObjectHideFlags: 0

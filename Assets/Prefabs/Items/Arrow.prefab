@@ -108,6 +108,7 @@ MonoBehaviour:
   delayBetweenUses: 0.75
   stackable: 1
   maxStack: 20
+  currentStack: 1
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -67,4 +67,17 @@ public class PlayerInventory : NetworkBehaviour
         attack.ChangeSecondaryAttack(itemName);
     }
     #endregion
+
+    public void spawnDroppedItem(string ItemName, int AmountDropped)
+    {
+        CmdSpawnDroppedItem(ItemName, AmountDropped);
+    }
+
+    [Command]
+    public void CmdSpawnDroppedItem(string ItemName, int AmountDropped)
+    {
+        var droppedObject = Instantiate(Inventory.Instance.GetItem(ItemName).gameObject, transform.position, Quaternion.identity);
+        droppedObject.GetComponent<Item>().currentStack = AmountDropped;
+        NetworkServer.Spawn(droppedObject);
+    }
 }

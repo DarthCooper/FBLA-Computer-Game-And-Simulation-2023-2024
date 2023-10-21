@@ -105,6 +105,10 @@ MonoBehaviour:
   itemTexture: {fileID: 0}
   itemType: 0
   inventoryIndex: 0
+  delayBetweenUses: 0
+  stackable: 0
+  maxStack: 0
+  currentStack: 1
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0
