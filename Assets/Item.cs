@@ -31,7 +31,10 @@ public class Item : NetworkBehaviour
     {
         if(interactable.Player)
         {
-            Inventory.Instance.AddItem(this);
+            if(interactable.Player.GetComponent<NetworkIdentity>().isOwned)
+            {
+                Inventory.Instance.AddItem(this);
+            }
         }
         Destroy(this.gameObject);
     }
