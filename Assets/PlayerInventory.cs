@@ -77,7 +77,7 @@ public class PlayerInventory : NetworkBehaviour
     public void CmdSpawnDroppedItem(string ItemName, int AmountDropped)
     {
         var droppedObject = Instantiate(Inventory.Instance.GetItem(ItemName).gameObject, transform.position, Quaternion.identity);
-        droppedObject.GetComponent<Item>().currentStack = AmountDropped;
         NetworkServer.Spawn(droppedObject);
+        droppedObject.GetComponent<Item>().currentStack = AmountDropped;
     }
 }

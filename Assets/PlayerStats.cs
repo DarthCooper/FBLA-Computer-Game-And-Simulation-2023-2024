@@ -73,7 +73,10 @@ public class PlayerStats : NetworkBehaviour
 
     private void OnDisable()
     {
-        healthSlider.value = 0;
+        if (healthSlider)
+        {
+            healthSlider.value = 0;
+        }
     }
 
     public void spendStamina(float staminaDrained)
