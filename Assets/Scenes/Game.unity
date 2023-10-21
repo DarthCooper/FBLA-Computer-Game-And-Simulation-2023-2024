@@ -8687,6 +8687,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2425753687831898560, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
+      propertyPath: syncMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425753687831898560, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
+      propertyPath: syncDirection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4442165571032223498, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: sceneId
       value: 3937581028
@@ -8694,6 +8702,14 @@ PrefabInstance:
     - target: {fileID: 6984096683137273666, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_Name
       value: MeleeEnemyBasic
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919906579309889494, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
+      propertyPath: syncMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919906579309889494, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
+      propertyPath: syncDirection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.x
