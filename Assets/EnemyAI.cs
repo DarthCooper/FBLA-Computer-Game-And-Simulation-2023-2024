@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
 using Mirror;
+using JetBrains.Annotations;
 
 public class EnemyAI : NetworkBehaviour
 {
     public Transform target;
     public float targetTolerance;
+
+    public float waypointTolerance;
+
+    public EnemyStates currentState = EnemyStates.Patroling;
 
     public UnityEvent OnReachedTarget;
 
@@ -86,9 +91,6 @@ public class EnemyAI : NetworkBehaviour
             Firepoint.up = target.position - Firepoint.position;
         }
         if (!isServer) { return; } //movement will only be ran on the server while the clients recieve the data from the server.
-        if (path == null) { return; }
-
-        if (currentWaypoint >= path.vectorPath.Count) { return; }
 
         if(target == null && tempTarget != null)
         {
@@ -98,15 +100,29 @@ public class EnemyAI : NetworkBehaviour
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
             target = tempTarget;
         }
+        if(GetComponent<Patrol>().target == null)
+        {
+            GetComponent<Patrol>().target = tempTarget;
+        }
+
+        if (path == null) { return; }
+        if (currentWaypoint >= path.vectorPath.Count) { return; }
+
+        if(currentState == EnemyStates.Patroling)
+        {
+            target = tempTarget;
+        }
 
         float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
-        if(distanceToPlayer >= DistanceFromPlayer)
+        if(distanceToPlayer >= DistanceFromPlayer && (currentState == EnemyStates.Hunting || currentState == EnemyStates.Fleeing))
         {
             target = GetComponent<GetClosestTarget>().Target.transform;
+            currentState = EnemyStates.Hunting;
         }else
         {
             if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
             {
+                currentState = EnemyStates.Fleeing;
                 if(tempTarget == null)
                 {
                     tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
@@ -128,6 +144,15 @@ public class EnemyAI : NetworkBehaviour
 
         float distanceToTarget = Vector2.Distance(rb.position, target.position);
         RaycastHit2D hit =  Physics2D.Raycast(transform.position, target.position - transform.position, targetTolerance, targetLayer);
+
+        if(currentState == EnemyStates.Patroling)
+        {
+            if(distanceToTarget <= waypointTolerance)
+            {
+                GetComponent<Patrol>().FindNewTarget();
+                target = tempTarget;
+            }
+        }
 
         if(distanceToTarget <= targetTolerance)
         {
@@ -260,5 +285,12 @@ public class EnemyAI : NetworkBehaviour
         canMove = true;
         waitingForReEnable = false;
     }
+}
+
+public enum EnemyStates 
+{
+    Hunting,
+    Patroling,
+    Fleeing,
 }
     

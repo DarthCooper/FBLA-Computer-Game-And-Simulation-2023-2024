@@ -23,7 +23,7 @@ public class GetClosestTarget : MonoBehaviour
     public virtual void SetTarget()
     {
         if (Target == null) { return; }
-        if (GetComponent<EnemyAI>().target != Target.transform && (GetComponent<EnemyAI>().tempTarget == null || GetComponent<EnemyAI>().target != GetComponent<EnemyAI>().tempTarget))
+        if (GetComponent<EnemyAI>().currentState != EnemyStates.Patroling && GetComponent<EnemyAI>().currentState != EnemyStates.Fleeing)
         {
             GetComponent<EnemyAI>().target = Target.transform;
         }

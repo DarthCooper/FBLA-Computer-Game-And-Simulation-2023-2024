@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool hitRequiresResponse = false;
+        print(collision.gameObject.name);
         foreach (var tag in hitableTags)
         {
             if (collision.gameObject.tag == tag)

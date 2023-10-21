@@ -75,7 +75,7 @@ Library: F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutpu
 --linker-options=PdbAltPath="FBLA 2023-2024_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Library\Burst
 --output=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -157,7 +157,7 @@ Library: F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutpu
 --linker-options=PdbAltPath="FBLA 2023-2024_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Library\Burst
 --output=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -273,7 +273,7 @@ Library: F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutpu
 --linker-options=PdbAltPath="FBLA 2023-2024_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Library\Burst
 --output=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -355,7 +355,7 @@ Library: F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutpu
 --linker-options=PdbAltPath="FBLA 2023-2024_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Library\Burst
 --output=F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
