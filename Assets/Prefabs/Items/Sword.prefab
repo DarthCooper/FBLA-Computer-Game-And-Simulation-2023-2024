@@ -103,6 +103,9 @@ MonoBehaviour:
   itemName: Sword
   itemPrefab: {fileID: 8028369058199731947}
   itemTexture: {fileID: 2800000, guid: 4cecafde1350347fd984baee5961a393, type: 3}
+  itemType: 0
+  inventoryIndex: 0
+  delayBetweenUses: 0.75
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +140,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   beenInteractedWith: 0
+  Player: {fileID: 0}
 --- !u!114 &7694449872212761019
 MonoBehaviour:
   m_ObjectHideFlags: 0

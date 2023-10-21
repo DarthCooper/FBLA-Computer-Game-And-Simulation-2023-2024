@@ -11,7 +11,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public bool InventoryOpen = false;
     public GameObject inventory;
-    bool canOpenInventory = true;
+    bool canOpenInventory = false;
 
     public Interactable interactable;
 

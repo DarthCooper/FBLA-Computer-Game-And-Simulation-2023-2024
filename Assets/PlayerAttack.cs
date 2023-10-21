@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Mirror;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerAttack : NetworkBehaviour
 {
@@ -27,10 +28,36 @@ public class PlayerAttack : NetworkBehaviour
 
     bool primary;
 
+    public Dictionary<string, UnityAction> Attacks = new Dictionary<string, UnityAction>();
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        Attacks.Add("", nullAttack);
+        Attacks.Add("Sword", meleeAttack);
+        Attacks.Add("Bow", rangedAttack);
     }
+
+    public void ChangePrimaryAttack(string weapon)
+    {
+        OnPrimaryPressed.RemoveAllListeners();
+        OnPrimaryPressed.AddListener(Attacks[weapon]);
+        if(GetComponent<PlayerInventory>().PrimaryWeapon)
+        {
+            timeBetweenAttack = GetComponent<PlayerInventory>().PrimaryWeapon.delayBetweenUses;
+        }
+    }
+
+    public void ChangeSecondaryAttack(string weapon)
+    {
+        OnSecondaryPressed.RemoveAllListeners();
+        OnSecondaryPressed.AddListener(Attacks[weapon]);
+        if(GetComponent<PlayerInventory>().SecondaryWeapon)
+        {
+            timeBetweenSecondaryAttack = GetComponent<PlayerInventory>().SecondaryWeapon.delayBetweenUses;
+        }
+    }
+
     public void OnPrimaryAttack(InputAction.CallbackContext context)
     {
         if (SceneManager.GetActiveScene().name != "Game") { return; }
@@ -111,6 +138,11 @@ public class PlayerAttack : NetworkBehaviour
     public void meleeAttack()
     {
         anim.SetTrigger("Attack1");
+        ChangeAttack(this.primary);
+    }
+
+    public void nullAttack()
+    {
         ChangeAttack(this.primary);
     }
 

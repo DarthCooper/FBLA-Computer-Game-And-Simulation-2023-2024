@@ -15,6 +15,11 @@ public class Item : MonoBehaviour
 
     public int inventoryIndex;
 
+    public float delayBetweenUses;
+
+    public bool stackable;
+    public int maxStack;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
@@ -34,5 +39,6 @@ public enum ItemType
     Weapon,
     Equipable,
     Useable,
+    Ammo,
     Static
 }

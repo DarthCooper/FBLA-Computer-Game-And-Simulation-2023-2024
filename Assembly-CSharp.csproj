@@ -79,6 +79,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\EnemyAI.cs" />
     <Compile Include="Assets\Slot.cs" />
+    <Compile Include="Assets\PlayerInventory.cs" />
     <Compile Include="Assets\LobbiesListManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />

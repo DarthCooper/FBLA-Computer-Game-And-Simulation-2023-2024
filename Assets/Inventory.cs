@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
+
+    private GameObject player;
 
     public List<GameObject> itemSlots = new List<GameObject>();
     public List<Item> items = new List<Item>();
@@ -26,12 +30,19 @@ public class Inventory : MonoBehaviour
 
     public Item baseItem;
 
+    public GameObject slotOptions;
+    public Slot questionedSlot;
+
+    public Slider dropSlider;
+    public TMP_Text dropText;
+
     private void Awake()
     {
-        if(Instance != this)
+        if (Instance != this)
         {
             Instance = this; 
         }
+        player = GameObject.Find("LocalGamePlayer");
     }
 
     public void AddItem(Item item)
@@ -51,6 +62,39 @@ public class Inventory : MonoBehaviour
         return itemSlots[item.inventoryIndex].GetComponent<Slot>();
     }
 
+    public Item GetItem(string ItemName)
+    {
+        foreach (var Item in ItemList)
+        {
+            if(Item.itemName == ItemName)
+            {
+                return Item;
+            }
+        }
+        return null;
+    }
+
+    private void Update()
+    {
+        if(player != null)
+        {
+            if(player.GetComponent<PlayerInventory>())
+            {
+                if(player.GetComponent<PlayerInventory>().PrimaryWeapon != PrimarySlot.item)
+                {
+                    player.GetComponent<PlayerInventory>().SetPrimaryItem(PrimarySlot.item);
+                }
+                if(player.GetComponent<PlayerInventory>().SecondaryWeapon != SecondarySlot.item)
+                {
+                    player.GetComponent<PlayerInventory>().SetSecondaryItem(SecondarySlot.item);
+                }
+            }
+        }else
+        {
+            player = GameObject.Find("LocalGamePlayer");
+        }
+    }
+
     public void DisplayItems()
     {
         foreach(GameObject slot in itemSlots)
@@ -61,11 +105,92 @@ public class Inventory : MonoBehaviour
 
         foreach(Item item in items)
         {
-            Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
-            spawnedItem.item = item;
-            spawnedItem.item.inventoryIndex = itemSlots.Count;
-            spawnedItem.DisplayInSlot();
-            itemSlots.Add(spawnedItem.gameObject);
+            bool stacked = false;
+            if(item.stackable)
+            {
+                foreach (var slotObject in itemSlots)
+                {
+                    Slot slot = slotObject.GetComponent<Slot>();
+                    if(slot.item.itemName == item.itemName)
+                    {
+                        if(slot.currentInSlot < slot.maxObjectsInSlot)
+                        {
+                            slot.currentInSlot++;
+                            slot.DisplayInSlot();
+                            stacked = true;
+                        }
+                    }
+                }
+            }
+            if(!stacked)
+            {
+                Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
+                spawnedItem.item = item;
+                spawnedItem.item.inventoryIndex = itemSlots.Count;
+                spawnedItem.maxObjectsInSlot = spawnedItem.item.stackable ? spawnedItem.item.maxStack : 1;
+                spawnedItem.currentInSlot++;
+                spawnedItem.DisplayInSlot();
+                itemSlots.Add(spawnedItem.gameObject);
+            }
+        }
+    }
+
+    public void DisplaySlotOptions(Slot slot)
+    {
+        foreach (var itemSlot in itemSlots)
+        {
+            if(slot == itemSlot.GetComponent<Slot>())
+            {
+                slotOptions.transform.position = itemSlot.transform.position;
+                slotOptions.SetActive(true);
+                questionedSlot = slot;
+            }
+        }
+    }
+
+    public void EquipSlot()
+    {
+        SelectedSlot = questionedSlot;
+        questionedSlot = null;
+        slotOptions.SetActive(false);
+    }
+
+    public void ClostSlotOptions()
+    {
+        slotOptions.SetActive(false);
+        questionedSlot = null;
+    }
+
+    public void OnSelectDrop()
+    {
+        dropSlider.maxValue = questionedSlot.currentInSlot;
+    }
+
+    public void OnDrop()
+    {
+        while(questionedSlot.currentInSlot > dropSlider.value)
+        {
+            questionedSlot.Drop();
+        }
+    }
+
+    public void OnDropAll()
+    {
+        while(questionedSlot.currentInSlot > 0)
+        {
+            questionedSlot.Drop();
+        }
+    }
+
+    public void RemoveItem(Item item)
+    {
+        foreach (var heldItem in items)
+        {
+            if(item == heldItem)
+            {
+                items.Remove(heldItem);
+                return;
+            }
         }
     }
 }

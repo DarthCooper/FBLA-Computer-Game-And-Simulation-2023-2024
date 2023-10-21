@@ -10,6 +10,7 @@ public class Slot : MonoBehaviour
     public Item item;
 
     public TMP_Text nameText;
+    public TMP_Text amountText;
     public RawImage itemImage;
 
     public bool equipSlot = false;
@@ -19,10 +20,21 @@ public class Slot : MonoBehaviour
 
     public UnityEvent onEquip;
 
+    public int maxObjectsInSlot;
+    public int currentInSlot;
+
     public void DisplayInSlot()
     {
         itemImage.texture = item.itemTexture;
         nameText.text = item.itemName;
+        if(currentInSlot > 1)
+        {
+            amountText.gameObject.SetActive(true);
+            amountText.text = currentInSlot.ToString();
+        }else
+        {
+            amountText.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -40,7 +52,7 @@ public class Slot : MonoBehaviour
     {
         if(!equipSlot)
         {
-            Inventory.Instance.SelectedSlot = this;
+            Inventory.Instance.DisplaySlotOptions(this);
         }else if(Inventory.Instance.SelectedSlot != null)
         {
             if(Inventory.Instance.SelectedSlot.item.itemType != allowedType) { return; }
@@ -59,5 +71,12 @@ public class Slot : MonoBehaviour
             this.item = Inventory.Instance.baseItem;
             DisplayInSlot();
         }
+    }
+
+    public void Drop()
+    {
+        currentInSlot--;
+        Inventory.Instance.RemoveItem(item);
+        Inventory.Instance.DisplayItems();
     }
 }

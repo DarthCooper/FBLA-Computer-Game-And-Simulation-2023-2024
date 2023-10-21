@@ -105,6 +105,7 @@ MonoBehaviour:
   itemTexture: {fileID: 2800000, guid: c7970d065c27b4d7c9ac2ff73b61733e, type: 3}
   itemType: 0
   inventoryIndex: 0
+  delayBetweenUses: 0.5
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0
