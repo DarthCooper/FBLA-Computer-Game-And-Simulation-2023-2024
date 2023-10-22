@@ -161,8 +161,8 @@ public class PlayerAttack : NetworkBehaviour
             GameObject spawnedProjectile = null;
             spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, firepoint.transform.rotation);
             Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
-            ChangeAttack(this.primary);
         }
+        ChangeAttack(this.primary);
     }
 
     public void ChangeAttack(bool primary)
