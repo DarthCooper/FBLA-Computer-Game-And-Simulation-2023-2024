@@ -15,6 +15,8 @@ public class PlayerAttack : NetworkBehaviour
     public UnityEvent OnPrimaryPressed;
     public UnityEvent OnSecondaryPressed;
 
+    [SyncVar(hook = "SetAmmo")] public int Ammo;
+
     Animator anim;
 
     bool canAttack = true;
@@ -23,7 +25,7 @@ public class PlayerAttack : NetworkBehaviour
     public float timeBetweenAttack = 1f;
     public float timeBetweenSecondaryAttack = 1f;
 
-    public GameObject projectile;
+    public GameObject[] projectiles;
     public Transform firepoint;
 
     bool primary;
@@ -88,6 +90,14 @@ public class PlayerAttack : NetworkBehaviour
         {
             CmdSecondaryAttack();
         }
+
+        if(isOwned)
+        {
+            if(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo))
+            {
+                CmdSetAmmo(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo).currentInSlot);
+            }
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -146,6 +156,17 @@ public class PlayerAttack : NetworkBehaviour
         ChangeAttack(this.primary);
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdSetAmmo(int ammo)
+    {
+        SetAmmo(Ammo, ammo);
+    }
+
+    public void SetAmmo(int oldValue, int newValue)
+    {
+        Ammo = newValue;
+    }
+
     public void rangedAttack()
     {
         if(this.primary)
@@ -155,12 +176,16 @@ public class PlayerAttack : NetworkBehaviour
         {
             if(!canSecondaryAttack) { return; }
         }
-        if(!isOwned) { return; }
-        if(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo))
+        if(Ammo > 0)
         {
-            GameObject spawnedProjectile = null;
-            spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, firepoint.transform.rotation);
-            Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
+            if(GetComponent<PlayerInventory>().Ammo)
+            {
+                GameObject spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, firepoint.transform.rotation);
+                if(isOwned)
+                {
+                    Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
+                }
+            }
         }
         ChangeAttack(this.primary);
     }

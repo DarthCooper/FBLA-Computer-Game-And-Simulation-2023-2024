@@ -55,7 +55,6 @@ public class Slot : MonoBehaviour
 
         if(equipSlot && item)
         {
-            print(item.name);
             if(equipedInSlot == null)
             {
                 equipedInSlot = Inventory.Instance.FindSlot(item);
