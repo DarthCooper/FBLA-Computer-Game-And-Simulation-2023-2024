@@ -100,15 +100,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c1a7a364423554bbb199d4ba246d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   itemName: Arrow
   itemPrefab: {fileID: 8028369058199731947}
   itemTexture: {fileID: 2800000, guid: 4cecafde1350347fd984baee5961a393, type: 3}
   itemType: 3
-  inventoryIndex: 0
+  inventoryIndex: 2
   delayBetweenUses: 0.75
   stackable: 1
   maxStack: 20
   currentStack: 1
+  projectile: {fileID: 1164507450302123576, guid: dd052793d3e89a14ebd5fa8c59644ca2, type: 3}
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0

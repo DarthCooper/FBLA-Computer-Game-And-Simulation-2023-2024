@@ -22,6 +22,8 @@ public class Item : NetworkBehaviour
 
     public int currentStack = 1;
 
+    public GameObject projectile;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();

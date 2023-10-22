@@ -47,7 +47,6 @@ public class EnemyVision : MonoBehaviour
             {
                 if (hit.collider.tag == tag)
                 {
-                    print(hit.collider.name);
                     return true;
                 }
             }

@@ -23,11 +23,13 @@ public class Slot : MonoBehaviour
     public int maxObjectsInSlot;
     public int currentInSlot;
 
+    public Slot equipedInSlot;
+
     public void DisplayInSlot()
     {
         itemImage.texture = item.itemTexture;
         nameText.text = item.itemName;
-        if(currentInSlot > 1)
+        if(currentInSlot > 1 && item.itemName != "" && !equipSlot)
         {
             amountText.gameObject.SetActive(true);
             amountText.text = currentInSlot.ToString();
@@ -42,9 +44,26 @@ public class Slot : MonoBehaviour
         if(equiped)
         {
             GetComponent<Button>().interactable = false;
+            if(equipedInSlot.currentInSlot !=  currentInSlot)
+            {
+                equipedInSlot.currentInSlot = currentInSlot;
+            }
         }else
         {
             GetComponent<Button>().interactable = true;
+        }
+
+        if(equipSlot && item)
+        {
+            print(item.name);
+            if(equipedInSlot == null)
+            {
+                equipedInSlot = Inventory.Instance.FindSlot(item);
+            }
+            if (Inventory.Instance.FindSlot(item).equipedInSlot == null)
+            {
+                Inventory.Instance.FindSlot(item).equipedInSlot = this;
+            }
         }
     }
 
@@ -61,22 +80,33 @@ public class Slot : MonoBehaviour
                 Inventory.Instance.FindSlot(item).equiped = false;
             }
             this.item = Inventory.Instance.SelectedSlot.item;
+            Inventory.Instance.SelectedSlot.equipedInSlot = this;
+            equipedInSlot = Inventory.Instance.SelectedSlot;
             Inventory.Instance.SelectedSlot.equiped = true;
             Inventory.Instance.SelectedSlot = null;
             DisplayInSlot();
             onEquip.Invoke();
         }else if(equipSlot && !Inventory.Instance.SelectedSlot && item)
         {
-            Inventory.Instance.FindSlot(item).equiped = false;
-            this.item = Inventory.Instance.baseItem;
-            DisplayInSlot();
+            UnEquip();
         }
     }
 
     public void Drop()
     {
         currentInSlot--;
+        if(currentInSlot <= 0)
+        {
+            equipedInSlot.UnEquip();
+        }
         Inventory.Instance.RemoveItem(item);
         Inventory.Instance.DisplayItems();
+    }
+
+    public void UnEquip()
+    {
+        Inventory.Instance.FindSlot(item).equiped = false;
+        this.item = Inventory.Instance.baseItem;
+        DisplayInSlot();
     }
 }

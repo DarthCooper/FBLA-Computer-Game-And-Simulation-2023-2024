@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c1a7a364423554bbb199d4ba246d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   itemName: 
   itemPrefab: {fileID: 8028369058199731947}
   itemTexture: {fileID: 0}
@@ -109,6 +112,7 @@ MonoBehaviour:
   stackable: 0
   maxStack: 0
   currentStack: 1
+  projectile: {fileID: 0}
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0

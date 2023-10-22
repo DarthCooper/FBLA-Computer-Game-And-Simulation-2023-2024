@@ -11,6 +11,8 @@ public class PlayerInventory : NetworkBehaviour
     public Item PrimaryWeapon;
     public Item SecondaryWeapon;
 
+    public Item Ammo;
+
     private void Awake()
     {
         attack = GetComponent<PlayerAttack>();
@@ -67,6 +69,36 @@ public class PlayerInventory : NetworkBehaviour
         attack.ChangeSecondaryAttack(itemName);
     }
     #endregion
+
+    #region Set Ammo
+    public void SetAmmo(Item item)
+    {
+        CmdSetAmmo(item.itemName, item.currentStack);
+    }
+    [Command(requiresAuthority = false)]
+    public void CmdSetAmmo(string item, int stack)
+    {
+        if (isServer)
+        {
+            ServerSetAmmo(item, stack);
+        }
+    }
+    [Server]
+    public void ServerSetAmmo(string item, int stack)
+    {
+        RpcSetAmmo(item, stack);
+    }
+    [ClientRpc]
+    public void RpcSetAmmo(string itemName, int stack)
+    {
+        Ammo = Inventory.Instance.GetItem(itemName);
+        if(itemName != "")
+        {
+            Ammo.currentStack = stack;
+        }
+    }
+
+    #endregion 
 
     public void spawnDroppedItem(string ItemName, int AmountDropped)
     {

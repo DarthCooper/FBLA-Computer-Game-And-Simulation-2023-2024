@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Mirror;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInteract : NetworkBehaviour
 {
@@ -37,6 +39,45 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void CheckInventory()
+    {
+        if (inventory.name != "PlayerMenu") { return; }
+        foreach (var image in inventory.GetComponentsInChildren<Image>())
+        {
+            if (!image.gameObject.GetComponentInParent<SlotOptions>())
+            {
+                if (image.isActiveAndEnabled != InventoryOpen)
+                {
+                    image.enabled = InventoryOpen;
+                }
+            }
+        }
+        foreach (var image in inventory.GetComponentsInChildren<RawImage>())
+        {
+            if (!image.gameObject.GetComponentInParent<SlotOptions>())
+            {
+                if (image.isActiveAndEnabled != InventoryOpen)
+                {
+                    image.enabled = InventoryOpen;
+                }
+            }
+        }
+        foreach (var text in inventory.GetComponentsInChildren<TMP_Text>())
+        {
+            if (!text.gameObject.GetComponentInParent<SlotOptions>())
+            {
+                if (text.isActiveAndEnabled != InventoryOpen)
+                {
+                    text.enabled = InventoryOpen;
+                }
+            }
+        }
+        if(!InventoryOpen)
+        {
+            Inventory.Instance.ClostSlotOptions();
+        }
+    }
+
     private void Update()
     {
         if (!isOwned)
@@ -67,11 +108,7 @@ public class PlayerInteract : NetworkBehaviour
         }
         if(inventory)
         {
-            if(inventory.name != "PlayerMenu") { return; }
-            if (InventoryOpen != inventory.activeSelf)
-            {
-                inventory.SetActive(InventoryOpen);
-            }
+            CheckInventory();
         }
     }
 }

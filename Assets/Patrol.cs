@@ -12,7 +12,6 @@ public class Patrol : MonoBehaviour
 
     public void FindNewTarget()
     {
-        print("Called");
         bool positionWorks = false;
         Vector3 position = Vector3.zero;
         int loops = 0;

@@ -155,8 +155,14 @@ public class PlayerAttack : NetworkBehaviour
         {
             if(!canSecondaryAttack) { return; }
         }
-        GameObject bullet = Instantiate(projectile, firepoint.transform.position, firepoint.transform.rotation);
-        ChangeAttack(this.primary);
+        if(!isOwned) { return; }
+        if(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo))
+        {
+            GameObject spawnedProjectile = null;
+            spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, firepoint.transform.rotation);
+            Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
+            ChangeAttack(this.primary);
+        }
     }
 
     public void ChangeAttack(bool primary)

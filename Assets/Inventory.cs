@@ -28,6 +28,9 @@ public class Inventory : MonoBehaviour
     public Slot Equipable3Slot;
     public Slot Equipable4Slot;
 
+    public Slot AmmoSlot;
+    public Slot ConsumableSlot;
+
     public Item baseItem;
 
     public GameObject slotOptions;
@@ -92,6 +95,10 @@ public class Inventory : MonoBehaviour
                 {
                     player.GetComponent<PlayerInventory>().SetSecondaryItem(SecondarySlot.item);
                 }
+                if(player.GetComponent<PlayerInventory>().Ammo != AmmoSlot.item)
+                {
+                    player.GetComponent<PlayerInventory>().SetAmmo(AmmoSlot.item);
+                }
             }
         }else
         {
@@ -114,33 +121,34 @@ public class Inventory : MonoBehaviour
 
         foreach(Item item in items)
         {
-                bool stacked = false;
-                if (item.stackable)
+            bool stacked = false;
+            if (item.stackable)
+            {
+                foreach (var slotObject in itemSlots)
                 {
-                    foreach (var slotObject in itemSlots)
+                    Slot slot = slotObject.GetComponent<Slot>();
+                    if (slot.item.itemName == item.itemName)
                     {
-                        Slot slot = slotObject.GetComponent<Slot>();
-                        if (slot.item.itemName == item.itemName)
+                        if (slot.currentInSlot < slot.maxObjectsInSlot)
                         {
-                            if (slot.currentInSlot < slot.maxObjectsInSlot)
-                            {
-                                slot.currentInSlot++;
-                                slot.DisplayInSlot();
-                                stacked = true;
-                            }
+                            slot.currentInSlot++;
+                            slot.DisplayInSlot();
+                            stacked = true;
                         }
                     }
-                }
-                if (!stacked)
-                {
-                    Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
-                    spawnedItem.item = item;
-                    spawnedItem.item.inventoryIndex = itemSlots.Count;
-                    spawnedItem.maxObjectsInSlot = spawnedItem.item.stackable ? spawnedItem.item.maxStack : 1;
-                    spawnedItem.currentInSlot++;
-                    spawnedItem.DisplayInSlot();
-                    itemSlots.Add(spawnedItem.gameObject);
-                }
+                } 
+            }
+            if (!stacked)
+            {
+                Slot spawnedItem = Instantiate(slotPrefab, inventoryContext).GetComponent<Slot>();
+                spawnedItem.item = item;
+                spawnedItem.item.inventoryIndex = itemSlots.Count;
+                spawnedItem.maxObjectsInSlot = spawnedItem.item.stackable ? spawnedItem.item.maxStack : 1;
+                spawnedItem.currentInSlot++;
+                spawnedItem.DisplayInSlot();
+                itemSlots.Add(spawnedItem.gameObject);
+            }
+            player.GetComponent<PlayerInteract>().CheckInventory();
         }
     }
 
@@ -194,6 +202,32 @@ public class Inventory : MonoBehaviour
             questionedSlot.Drop();
         }
         dropping = false;
+    }
+
+    public void UseItem(Item item)
+    {
+        Slot usedSlot = GetClosestSlot(item);
+        if(!usedSlot) { return; }
+        usedSlot.GetComponent<Slot>().Drop();
+    }
+
+    public Slot GetClosestSlot(Item item)
+    {
+        Slot usedSlot = null;
+        foreach (var slot in itemSlots)
+        {
+            if (slot.GetComponent<Slot>().item)
+            {
+                if(item)
+                {
+                    if (slot.GetComponent<Slot>().item.itemName == item.itemName)
+                    {
+                        usedSlot = slot.GetComponent<Slot>();
+                    }
+                }
+            }
+        }
+        return usedSlot;
     }
 
     public void SpawnedDroppedItem(int Amount)

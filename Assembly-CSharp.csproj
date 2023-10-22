@@ -83,6 +83,7 @@
     <Compile Include="Assets\LobbiesListManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
+    <Compile Include="Assets\SlotOptions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Patrol.cs" />
     <Compile Include="Assets\Manager.cs" />
