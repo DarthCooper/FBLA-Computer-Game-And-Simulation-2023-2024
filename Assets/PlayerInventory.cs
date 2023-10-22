@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 using Unity.VisualScripting;
 
-public class PlayerInventory : NetworkBehaviour
+public class PlayerInventory : NetworkBehaviour, IDataPersistence
 {
     PlayerAttack attack;
 
@@ -12,6 +12,10 @@ public class PlayerInventory : NetworkBehaviour
     public Item SecondaryWeapon;
 
     public Item Ammo;
+
+    GameData gameData;
+
+    public string primaryTest;
 
     private void Awake()
     {
@@ -111,5 +115,34 @@ public class PlayerInventory : NetworkBehaviour
         var droppedObject = Instantiate(Inventory.Instance.GetItem(ItemName).gameObject, transform.position, Quaternion.identity);
         NetworkServer.Spawn(droppedObject);
         droppedObject.GetComponent<Item>().CmdSetStack(AmountDropped);
+    }
+
+    public void LoadData(GameData data)
+    {
+        gameData = data;
+        Invoke("SetData", 1f);
+    }
+
+    public void SetData()
+    {
+        if (gameData.primaryWeapon != string.Empty)
+        {
+            Inventory.Instance.PrimarySlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.primaryWeapon)));
+        }
+        if (gameData.secondaryWeapon != string.Empty)
+        {
+            Inventory.Instance.SecondarySlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.secondaryWeapon)));
+        }
+        if (gameData.ammo != string.Empty)
+        {
+            Inventory.Instance.AmmoSlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.ammo)));
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if(!PrimaryWeapon) { data.primaryWeapon = string.Empty; } else { data.primaryWeapon = PrimaryWeapon.itemName; }
+        if(!SecondaryWeapon) { data.secondaryWeapon = string.Empty; } else { data.secondaryWeapon = SecondaryWeapon.itemName; }
+        if(!Ammo) { data.ammo = string.Empty; } else { data.ammo = Ammo.itemName; }
     }
 }

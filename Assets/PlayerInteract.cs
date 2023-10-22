@@ -41,7 +41,10 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckInventory()
     {
-        if (inventory.name != "PlayerMenu") { return; }
+        while (inventory == null || inventory.name != "PlayerMenu")
+        {
+            SetInventory();
+        }
         foreach (var image in inventory.GetComponentsInChildren<Image>())
         {
             if (!image.gameObject.GetComponentInParent<SlotOptions>())
@@ -78,24 +81,29 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void SetInventory()
+    {
+        if (!inventory && SceneManager.GetActiveScene().name == "Game")
+        {
+            inventory = GameObject.Find("Canvas");
+            if (inventory)
+            {
+                inventory = inventory.transform.Find("Menu").gameObject;
+                if (inventory)
+                {
+                    inventory = inventory.transform.Find("PlayerMenu").gameObject;
+                }
+            }
+        }
+    }
+
     private void Update()
     {
         if (!isOwned)
         {
             return;
         }
-        if(!inventory && SceneManager.GetActiveScene().name == "Game")
-        {
-            inventory = GameObject.Find("Canvas");
-            if(inventory)
-            {
-                inventory = inventory.transform.Find("Menu").gameObject;
-                if(inventory)
-                {
-                    inventory = inventory.transform.Find("PlayerMenu").gameObject;
-                }
-            }
-        }
+        SetInventory();
         if (interact && interactable)
         {
             if(!interactable.beenInteractedWith)

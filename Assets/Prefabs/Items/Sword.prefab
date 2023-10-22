@@ -100,15 +100,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c1a7a364423554bbb199d4ba246d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   itemName: Sword
   itemPrefab: {fileID: 8028369058199731947}
   itemTexture: {fileID: 2800000, guid: 4cecafde1350347fd984baee5961a393, type: 3}
   itemType: 0
-  inventoryIndex: 0
+  inventoryIndex: 2
   delayBetweenUses: 0.75
   stackable: 0
   maxStack: 0
   currentStack: 1
+  projectile: {fileID: 0}
+  componentsToDisable:
+  - {fileID: 1978917651605286589}
+  - {fileID: 5548310365805667415}
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +131,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  id: 6a899821-b65b-4c2d-be92-fa53a74dab6c
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -139,11 +147,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1491518979092590518}
+        m_TargetAssemblyTypeName: Interactable, Assembly-CSharp
+        m_MethodName: collect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnEndInteract:
     m_PersistentCalls:
       m_Calls: []
   beenInteractedWith: 0
   Player: {fileID: 0}
+  collected: 0
 --- !u!114 &7694449872212761019
 MonoBehaviour:
   m_ObjectHideFlags: 0

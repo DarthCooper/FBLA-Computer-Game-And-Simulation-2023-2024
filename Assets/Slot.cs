@@ -57,11 +57,23 @@ public class Slot : MonoBehaviour
         {
             if(equipedInSlot == null)
             {
-                equipedInSlot = Inventory.Instance.FindSlot(item);
+                try
+                {
+                    equipedInSlot = Inventory.Instance.FindSlot(item);
+                }catch
+                {
+                    equipedInSlot = Inventory.Instance.GetClosestSlot(item);
+                }
             }
-            if (Inventory.Instance.FindSlot(item).equipedInSlot == null)
+            if(Inventory.Instance.FindSlot(item))
             {
-                Inventory.Instance.FindSlot(item).equipedInSlot = this;
+                if (Inventory.Instance.FindSlot(item).equipedInSlot == null)
+                {
+                    Inventory.Instance.FindSlot(item).equipedInSlot = this;
+                }
+            }else
+            {
+                UnEquip();
             }
         }
     }
@@ -91,10 +103,30 @@ public class Slot : MonoBehaviour
         }
     }
 
+    public void EquipItem(Slot slot)
+    {
+        if(equipSlot)
+        {
+            if(!slot.item) { return; }
+            if (slot.item.itemType != allowedType) { return; }
+            if (this.item != null)
+            {
+                Inventory.Instance.FindSlot(item).equiped = false;
+            }
+            this.item = slot.item;
+            slot.equipedInSlot = this;
+            equipedInSlot = slot;
+            slot.equiped = true;
+            slot = null;
+            DisplayInSlot();
+            onEquip.Invoke();
+        }
+    }
+
     public void Drop()
     {
         currentInSlot--;
-        if(currentInSlot <= 0)
+        if(currentInSlot <= 0 && equiped)
         {
             equipedInSlot.UnEquip();
         }
@@ -104,7 +136,14 @@ public class Slot : MonoBehaviour
 
     public void UnEquip()
     {
-        Inventory.Instance.FindSlot(item).equiped = false;
+        if(Inventory.Instance.FindSlot(item))
+        {
+            Inventory.Instance.FindSlot(item).equiped = false;
+        }
+        if(Inventory.Instance.AmmoSlot == this)
+        {
+            Inventory.Instance.player.GetComponent<PlayerAttack>().CmdSetAmmo(0);
+        }
         this.item = Inventory.Instance.baseItem;
         DisplayInSlot();
     }

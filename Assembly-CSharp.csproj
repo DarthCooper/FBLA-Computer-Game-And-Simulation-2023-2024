@@ -67,6 +67,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Health.cs" />
+    <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Item.cs" />
     <Compile Include="Assets\ReviveMarker.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Interactable.cs" />
     <Compile Include="Assets\LobbyController.cs" />
+    <Compile Include="Assets\DataPersistence\DataPersistenceManager.cs" />
+    <Compile Include="Assets\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\FindPlayer.cs" />
@@ -100,6 +103,7 @@
     <Compile Include="Assets\EnemyVision.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\DataPersitantObject.cs" />
     <Compile Include="Assets\Inventory.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -119,6 +123,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\GetClosestEnemy.cs" />
     <Compile Include="Assets\PlayerStats.cs" />
+    <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
+    <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\CustomNetworkManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\SteamLobby.cs" />

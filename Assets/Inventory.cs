@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IDataPersistence
 {
     public static Inventory Instance;
 
-    private GameObject player;
+    [HideInInspector] public GameObject player;
 
     public List<GameObject> itemSlots = new List<GameObject>();
     public List<Item> items = new List<Item>();
@@ -66,7 +66,13 @@ public class Inventory : MonoBehaviour
 
     public Slot FindSlot(Item item)
     {
-        return itemSlots[item.inventoryIndex].GetComponent<Slot>();
+        try
+        {
+            return itemSlots[item.inventoryIndex].GetComponent<Slot>();
+        }catch
+        {
+            return null;
+        }
     }
 
     public Item GetItem(string ItemName)
@@ -148,7 +154,10 @@ public class Inventory : MonoBehaviour
                 spawnedItem.DisplayInSlot();
                 itemSlots.Add(spawnedItem.gameObject);
             }
-            player.GetComponent<PlayerInteract>().CheckInventory();
+            if(player)
+            {
+                player.GetComponent<PlayerInteract>().CheckInventory();
+            }
         }
     }
 
@@ -244,6 +253,31 @@ public class Inventory : MonoBehaviour
                 items.Remove(heldItem);
                 return;
             }
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        items.Clear();
+        foreach (var itemName in data.items)
+        {
+            foreach (var item in ItemList)
+            {
+                if(itemName == item.itemName)
+                {
+                    items.Add(item);
+                }
+            }
+        }
+        DisplayItems();
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.items.Clear();
+        foreach (var item in items)
+        {
+            data.items.Add(item.itemName);
         }
     }
 }

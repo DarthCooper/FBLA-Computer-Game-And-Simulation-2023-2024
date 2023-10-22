@@ -6,7 +6,7 @@ using Mirror;
 using UnityEngine.SceneManagement;
 using Steamworks;
 
-public class PlayerMovementController : NetworkBehaviour
+public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 {
     Vector2 movement = Vector2.zero;
     Vector2 lastMovement = Vector2.zero;
@@ -42,13 +42,22 @@ public class PlayerMovementController : NetworkBehaviour
         animator = GetComponent<Animator>();
     }
 
+    public void LoadData(GameData data)
+    {
+        this.transform.position = data.playerPosition;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.playerPosition = this.transform.position;
+    }
+
     private void FixedUpdate()
     {
         if(SceneManager.GetActiveScene().name == "Game")
         {
             if(PlayerModel.activeSelf == false)
             {
-                SetSpawnPosition();
                 PlayerModel.SetActive(true);
             }
 
@@ -61,11 +70,6 @@ public class PlayerMovementController : NetworkBehaviour
                 Movement();
             }
         }
-    }
-
-    public void SetSpawnPosition()
-    {
-        transform.position = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -24,6 +24,8 @@ public class Item : NetworkBehaviour
 
     public GameObject projectile;
 
+    public Component[] componentsToDisable;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
@@ -38,7 +40,27 @@ public class Item : NetworkBehaviour
                 Inventory.Instance.AddItem(this);
             }
         }
-        Destroy(this.gameObject);
+        DisableObject();
+    }
+
+    public void DisableObject()
+    {
+        foreach(var component in componentsToDisable)
+        {
+            DisableComponent(component);
+        }
+    }
+
+    void DisableComponent(Component component)
+    {
+        if (component is Renderer)
+        {
+            (component as Renderer).enabled = false;
+        }
+        else if (component is Collider)
+        {
+            (component as Collider).enabled = false;
+        }
     }
 
     [Command(requiresAuthority = false)]

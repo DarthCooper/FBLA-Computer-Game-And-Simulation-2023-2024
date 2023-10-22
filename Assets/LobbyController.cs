@@ -203,4 +203,15 @@ public class LobbyController : MonoBehaviour
     {
         LocalplayerController.CanStartGame(SceneName);
     }
+
+    public void OnNewGameClicked(string SceneName)
+    {
+        DataPersistenceManager.instance.NewGame();
+        StartGame(SceneName);
+    }
+
+    public void OnLoadGameClicked(string SceneName)
+    {
+        StartGame(SceneName);
+    }
 }

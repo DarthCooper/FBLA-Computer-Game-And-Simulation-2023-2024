@@ -6,6 +6,14 @@ using Mirror;
 
 public class Interactable : NetworkBehaviour
 {
+    public string id;
+
+    [ContextMenu("Generate guid for id")]
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     public UnityEvent OnInteract;
     public UnityEvent OnEndInteract;
 
@@ -13,8 +21,11 @@ public class Interactable : NetworkBehaviour
 
     public GameObject Player;
 
+    public bool collected;
+
     public void Interact(GameObject Player)
     {
+        if(collected) { return; }
         CmdInteract();
         this.Player = Player;
     }
@@ -61,5 +72,30 @@ public class Interactable : NetworkBehaviour
     void RpcEndInteract()
     {
         OnEndInteract.Invoke();
+    }
+
+    public void collect()
+    {
+        collected = true;
+    }
+
+    public void LoadData(GameData data)
+    {
+        print("Load");
+        data.itemsCollected.TryGetValue(id, out collected);
+        if(collected)
+        {
+            GetComponent<Item>().DisableObject();
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if(data.itemsCollected.ContainsKey(id))
+        {
+            data.itemsCollected.Remove(id);
+        }
+        data.itemsCollected.Add(id, collected);
+        print("Saved");
     }
 }

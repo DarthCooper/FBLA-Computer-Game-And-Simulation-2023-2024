@@ -478,9 +478,10 @@ MonoBehaviour:
   OnSecondaryPressed:
     m_PersistentCalls:
       m_Calls: []
+  Ammo: 0
   timeBetweenAttack: 1
   timeBetweenSecondaryAttack: 0.5
-  projectile: {fileID: 1164507450302123576, guid: dd052793d3e89a14ebd5fa8c59644ca2, type: 3}
+  projectiles: []
   firepoint: {fileID: 1739220308583516291}
 --- !u!114 &2476981166703122982
 MonoBehaviour:
@@ -610,6 +611,7 @@ MonoBehaviour:
   syncInterval: 0
   PrimaryWeapon: {fileID: 0}
   SecondaryWeapon: {fileID: 0}
+  Ammo: {fileID: 0}
 --- !u!1 &4201950648879876081
 GameObject:
   m_ObjectHideFlags: 0
