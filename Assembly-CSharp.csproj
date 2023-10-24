@@ -87,6 +87,7 @@
     <Compile Include="Assets\SlotOptions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Patrol.cs" />
+    <Compile Include="Assets\DataPersistence\SaveSlotsMenu.cs" />
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\Interactable.cs" />
     <Compile Include="Assets\LobbyController.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Assets\GetClosestEnemy.cs" />
     <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
+    <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\CustomNetworkManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

@@ -14,6 +14,9 @@ public class DataPersistenceManager : MonoBehaviour
     private GameData gameData;
     public List<IDataPersistence> dataPersistenceObjects = new List<IDataPersistence>();
     private FileDataHandler dataHandler;
+
+    private string selectedProfileId = "";
+
     public static DataPersistenceManager instance { get; private set; }
 
     private void Awake()
@@ -28,6 +31,8 @@ public class DataPersistenceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+
+        this.selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
     }
 
     private void OnEnable()
@@ -54,6 +59,12 @@ public class DataPersistenceManager : MonoBehaviour
         SaveGame();
     }
 
+    public void ChangeSelectedProfileId(string newProfileId)
+    {
+        this.selectedProfileId = newProfileId;
+        LoadGame();
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
@@ -61,7 +72,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler.Load(selectedProfileId);
 
         if(this.gameData == null)
         {
@@ -88,7 +99,9 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(ref gameData);
         }
 
-        dataHandler.Save(gameData);
+        this.gameData.lastUpdated = System.DateTime.Now.ToBinary();
+
+        dataHandler.Save(gameData, selectedProfileId);
     }
 
     private void OnApplicationQuit()
@@ -101,5 +114,10 @@ public class DataPersistenceManager : MonoBehaviour
         IEnumerable<IDataPersistence> dataPersistenceObjects = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
         dataPersistenceObjects.Concat(FindObjectsOfType<NetworkBehaviour>().OfType<IDataPersistence>());
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+
+    public Dictionary<string, GameData> GetAllProfilesGameData()
+    {
+        return dataHandler.LoadAllProfiles();
     }
 }

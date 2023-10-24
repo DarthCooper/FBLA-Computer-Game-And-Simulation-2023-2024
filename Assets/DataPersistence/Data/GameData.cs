@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public long lastUpdated;
+
     public List<string> items;
 
     public Vector3 playerPosition;
