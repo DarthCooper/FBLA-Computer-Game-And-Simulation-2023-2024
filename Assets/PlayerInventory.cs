@@ -141,6 +141,8 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        if(!isLocalPlayer) return;
+        print("saving");
         if(!PrimaryWeapon) { data.primaryWeapon = string.Empty; } else { data.primaryWeapon = PrimaryWeapon.itemName; }
         if(!SecondaryWeapon) { data.secondaryWeapon = string.Empty; } else { data.secondaryWeapon = SecondaryWeapon.itemName; }
         if(!Ammo) { data.ammo = string.Empty; } else { data.ammo = Ammo.itemName; }

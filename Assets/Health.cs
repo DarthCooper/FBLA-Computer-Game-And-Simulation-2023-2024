@@ -16,9 +16,19 @@ public class Health : NetworkBehaviour
     [SyncVar(hook = "HealthUpdate")] public float health = 100f;
     [HideInInspector] public float maxHealth = 100f;
 
+    bool needsToSetHealth;
+    float savedHealth;
+
     public void TakeDamage(float damage)
     {
         CmdSetHealth(this.health - damage);
+    }
+
+    public void SetHealth(float health)
+    {
+        needsToSetHealth = true;
+        savedHealth = health;
+        CmdSaveSetHealth(savedHealth);
     }
 
     public void Heal(float healAmount)
@@ -30,6 +40,22 @@ public class Health : NetworkBehaviour
     private void CmdSetHealth(float health)
     {
         HealthUpdate(this.health, health);
+    }
+
+    [Command(requiresAuthority = false)]
+    private void CmdSaveSetHealth(float health)
+    {
+        needsToSetHealth = false;
+        print("called");
+        HealthUpdate(this.health, health);
+    }
+
+    private void Update()
+    {
+        if (needsToSetHealth)
+        {
+            CmdSaveSetHealth(savedHealth);
+        }
     }
 
     public void HealthUpdate(float OldValue, float NewValue)
@@ -79,7 +105,6 @@ public class Health : NetworkBehaviour
 
     private void Awake()
     {
-        maxHealth = health;
         playerMovementController = GetComponent<PlayerMovementController>();
         enemyAI = GetComponent<EnemyAI>();  
         rb = GetComponent<Rigidbody2D>();

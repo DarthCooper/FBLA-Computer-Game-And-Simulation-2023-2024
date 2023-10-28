@@ -125,6 +125,7 @@
     <Compile Include="Assets\GetClosestEnemy.cs" />
     <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
+    <Compile Include="Assets\DataPersistantEnemy.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\CustomNetworkManager.cs" />

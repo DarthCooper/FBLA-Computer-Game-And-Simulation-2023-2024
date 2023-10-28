@@ -49,6 +49,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
+        if(!isOwned) { return; }
         data.playerPosition = this.transform.position;
     }
 

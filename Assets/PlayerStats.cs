@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 
-public class PlayerStats : NetworkBehaviour
+public class PlayerStats : NetworkBehaviour, IDataPersistence
 {
     Health health;
     public Slider healthSlider;
@@ -84,5 +84,20 @@ public class PlayerStats : NetworkBehaviour
         stamina -= staminaDrained;
         buildingStamina = false;
         staminaRebuildDelay = maxStaminaRebuildDelay;
+    }
+
+    public void LoadData(GameData data)
+    {
+        health.maxHealth = data.maxHealth;
+        health.health = data.health;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if(isOwned)
+        {
+            health.maxHealth = data.maxHealth;
+            data.health = health.health;
+        }
     }
 }

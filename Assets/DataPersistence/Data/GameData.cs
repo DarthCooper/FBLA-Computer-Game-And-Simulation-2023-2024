@@ -13,9 +13,15 @@ public class GameData
 
     public SerializableDictionary<string, bool> itemsCollected;
 
+    public SerializableDictionary<string, float> EnemiesHealth;
+    public SerializableDictionary<string, Vector3> EnemiesPos;
+
     public string primaryWeapon;
     public string secondaryWeapon;
     public string ammo;
+
+    public float health;
+    public float maxHealth;
 
     // the values definied in this constructor will be the default values the game starts with when there's no data to load
     public GameData()
@@ -23,8 +29,12 @@ public class GameData
         items = new List<string>();
         playerPosition = Vector3.zero;
         itemsCollected = new SerializableDictionary<string, bool>();
+        EnemiesHealth = new SerializableDictionary<string, float>();
+        EnemiesPos = new SerializableDictionary<string, Vector3>();
         primaryWeapon = string.Empty;
         secondaryWeapon = string.Empty;
         ammo = string.Empty;
+        health = 100;
+        maxHealth = 100;
     }
 }

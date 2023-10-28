@@ -4,10 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
 using Mirror;
-using JetBrains.Annotations;
 
 public class EnemyAI : NetworkBehaviour
 {
+    public string id;
+
+    [ContextMenu("Generate guid for id")]
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
     public Transform target;
     public float targetTolerance;
 
