@@ -12,18 +12,27 @@ public class PlayerAttack : NetworkBehaviour
     public bool Attacking;
     public bool secondaryAttacking;
 
+    public bool usingConsumable;
+
     public UnityEvent OnPrimaryPressed;
     public UnityEvent OnSecondaryPressed;
 
+    public UnityEvent OnConsumableUsed;
+
     [SyncVar(hook = "SetAmmo")] public int Ammo;
+    [SyncVar(hook = "SetConsumables")] public int ConsumableAmount;
 
     Animator anim;
 
     bool canAttack = true;
     bool canSecondaryAttack = true;
 
+    public bool canUseConsumable = true;
+
     public float timeBetweenAttack = 1f;
     public float timeBetweenSecondaryAttack = 1f;
+
+    public float timeBetweenConsumableUse = 1f;
 
     public GameObject[] projectiles;
     public Transform firepoint;
@@ -31,6 +40,7 @@ public class PlayerAttack : NetworkBehaviour
     bool primary;
 
     public Dictionary<string, UnityAction> Attacks = new Dictionary<string, UnityAction>();
+    public Dictionary<string, UnityAction> Consumables = new Dictionary<string, UnityAction>();
 
     private void Awake()
     {
@@ -38,6 +48,9 @@ public class PlayerAttack : NetworkBehaviour
         Attacks.Add("", nullAttack);
         Attacks.Add("Sword", meleeAttack);
         Attacks.Add("Bow", rangedAttack);
+
+        Consumables.Add("", nullAttack);
+        Consumables.Add("SmallHealth", SmallHealth);
     }
 
     public void ChangePrimaryAttack(string weapon)
@@ -60,6 +73,12 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
+    public void ChangeConsumable(string consumable)
+    {
+        OnConsumableUsed.RemoveAllListeners();
+        OnConsumableUsed.AddListener(Consumables[consumable]);
+    }
+
     public void OnPrimaryAttack(InputAction.CallbackContext context)
     {
         if (SceneManager.GetActiveScene().name != "Game") { return; }
@@ -78,6 +97,15 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
+    public void OnConsumablePressed(InputAction.CallbackContext context)
+    {
+        if(SceneManager.GetActiveScene().name != "Game") { return; }
+        if(canUseConsumable)
+        {
+            usingConsumable |= context.ReadValueAsButton();
+        }
+    }
+
     private void Update()
     {
         if (SceneManager.GetActiveScene().name != "Game") { return; }
@@ -90,12 +118,20 @@ public class PlayerAttack : NetworkBehaviour
         {
             CmdSecondaryAttack();
         }
+        if(usingConsumable && isOwned)
+        {
+            CmdConsumable();
+        }
 
         if(isOwned)
         {
             if(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo))
             {
                 CmdSetAmmo(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Ammo).currentInSlot);
+            }
+            if(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Consumable))
+            {
+                CmdSetConsumables(Inventory.Instance.GetClosestSlot(GetComponent<PlayerInventory>().Consumable).currentInSlot);
             }
         }
     }
@@ -144,11 +180,43 @@ public class PlayerAttack : NetworkBehaviour
         OnSecondaryPressed.Invoke();
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdConsumable()
+    {
+        ServerConsumable();
+    }
+
+    [Server]
+    public void ServerConsumable()
+    {
+        if(isServer)
+        {
+            RpcConsumable();
+        }
+    }
+
+    [ClientRpc]
+    public void RpcConsumable()
+    {
+        OnConsumableUsed.Invoke();
+    }
+
 
     public void meleeAttack()
     {
         anim.SetTrigger("Attack1");
         ChangeAttack(this.primary);
+    }
+
+    public void SmallHealth()
+    {
+        if(canUseConsumable && ConsumableAmount > 0)
+        {
+            GetComponent<Health>().Heal(25);
+            ChangeConsumableUse();
+            Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Consumable);
+        }
+        usingConsumable = false;
     }
 
     public void nullAttack()
@@ -165,6 +233,17 @@ public class PlayerAttack : NetworkBehaviour
     public void SetAmmo(int oldValue, int newValue)
     {
         Ammo = newValue;
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetConsumables(int consumables)
+    {
+        SetConsumables(ConsumableAmount, consumables);
+    }
+
+    public void SetConsumables(int oldValue, int newValue)
+    {
+        ConsumableAmount = newValue;
     }
 
     public void rangedAttack()
@@ -206,6 +285,13 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
+    public void ChangeConsumableUse()
+    {
+        canUseConsumable = false;
+        usingConsumable = false;
+        Invoke(nameof(ResetConsumable), timeBetweenConsumableUse);
+    }
+
     void ResetAttack()
     {
         canAttack = true;
@@ -214,5 +300,10 @@ public class PlayerAttack : NetworkBehaviour
     void ResetSecondaryAttack()
     {
         canSecondaryAttack = true;
+    }
+
+    void ResetConsumable()
+    {
+        canUseConsumable = true;
     }
 }

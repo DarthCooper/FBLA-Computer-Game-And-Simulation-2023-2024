@@ -136,6 +136,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         {
             Consumable.currentStack = stack;
         }
+        attack.ChangeConsumable(itemName);
     }
 
     #endregion 

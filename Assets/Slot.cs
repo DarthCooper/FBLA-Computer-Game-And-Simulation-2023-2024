@@ -144,6 +144,10 @@ public class Slot : MonoBehaviour
         {
             Inventory.Instance.player.GetComponent<PlayerAttack>().CmdSetAmmo(0);
         }
+        if(Inventory.Instance.ConsumableSlot == this)
+        {
+            Inventory.Instance.player.GetComponent<PlayerAttack>().CmdSetConsumables(0);
+        }
         this.item = Inventory.Instance.baseItem;
         DisplayInSlot();
     }

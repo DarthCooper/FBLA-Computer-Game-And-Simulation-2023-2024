@@ -318,6 +318,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d7e2cda1-45e5-47c1-bad8-be98208a3310
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3634896930530759376}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: CmdConsumable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c677a8db-7f9f-4d24-a29a-dffb9da3f360
+    m_ActionName: Player/UseConsumable[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -472,15 +488,20 @@ MonoBehaviour:
   syncInterval: 0
   Attacking: 0
   secondaryAttacking: 0
+  usingConsumable: 0
   OnPrimaryPressed:
     m_PersistentCalls:
       m_Calls: []
   OnSecondaryPressed:
     m_PersistentCalls:
       m_Calls: []
+  OnConsumableUsed:
+    m_PersistentCalls:
+      m_Calls: []
   Ammo: 0
   timeBetweenAttack: 1
   timeBetweenSecondaryAttack: 0.5
+  timeBetweenConsumableUse: 20
   projectiles: []
   firepoint: {fileID: 1739220308583516291}
 --- !u!114 &2476981166703122982
@@ -612,6 +633,8 @@ MonoBehaviour:
   PrimaryWeapon: {fileID: 0}
   SecondaryWeapon: {fileID: 0}
   Ammo: {fileID: 0}
+  Consumable: {fileID: 0}
+  primaryTest: 
 --- !u!1 &4201950648879876081
 GameObject:
   m_ObjectHideFlags: 0
