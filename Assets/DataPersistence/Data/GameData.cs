@@ -19,6 +19,7 @@ public class GameData
     public string primaryWeapon;
     public string secondaryWeapon;
     public string ammo;
+    public string consumable;
 
     public float health;
     public float maxHealth;

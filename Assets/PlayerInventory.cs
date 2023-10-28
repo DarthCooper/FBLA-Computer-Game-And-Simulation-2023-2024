@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerInventory : NetworkBehaviour, IDataPersistence
 {
@@ -12,6 +12,8 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     public Item SecondaryWeapon;
 
     public Item Ammo;
+
+    public Item Consumable;
 
     GameData gameData;
 
@@ -105,6 +107,37 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         }
     }
 
+    #endregion
+
+    #region Set Consumable
+    public void SetConsumable(Item item)
+    {
+        if (!item || item.itemName == string.Empty) { CmdSetConsumable("", 0); return; }
+        CmdSetConsumable(item.itemName, item.currentStack);
+    }
+    [Command(requiresAuthority = false)]
+    public void CmdSetConsumable(string item, int stack)
+    {
+        if (isServer)
+        {
+            ServerSetConsumable(item, stack);
+        }
+    }
+    [Server]
+    public void ServerSetConsumable(string item, int stack)
+    {
+        RpcSetConsumable(item, stack);
+    }
+    [ClientRpc]
+    public void RpcSetConsumable(string itemName, int stack)
+    {
+        Consumable = Inventory.Instance.GetItem(itemName);
+        if (itemName != "")
+        {
+            Consumable.currentStack = stack;
+        }
+    }
+
     #endregion 
 
     public void spawnDroppedItem(string ItemName, int AmountDropped)
@@ -140,14 +173,18 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         {
             Inventory.Instance.AmmoSlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.ammo)));
         }
+        if(gameData.consumable != string.Empty)
+        {
+            Inventory.Instance.ConsumableSlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.consumable)));
+        }
     }
 
     public void SaveData(ref GameData data)
     {
         if(!isLocalPlayer) return;
-        print("saving");
         if(!PrimaryWeapon) { data.primaryWeapon = string.Empty; } else { data.primaryWeapon = PrimaryWeapon.itemName; }
         if(!SecondaryWeapon) { data.secondaryWeapon = string.Empty; } else { data.secondaryWeapon = SecondaryWeapon.itemName; }
         if(!Ammo) { data.ammo = string.Empty; } else { data.ammo = Ammo.itemName; }
+        if(!Consumable) { data.consumable = string.Empty; } else { data.consumable = Consumable.itemName; }
     }
 }

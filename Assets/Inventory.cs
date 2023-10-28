@@ -105,6 +105,10 @@ public class Inventory : MonoBehaviour, IDataPersistence
                 {
                     player.GetComponent<PlayerInventory>().SetAmmo(AmmoSlot.item);
                 }
+                if(player.GetComponent<PlayerInventory>().Consumable != ConsumableSlot.item)
+                {
+                    player.GetComponent<PlayerInventory>().SetConsumable(ConsumableSlot.item);
+                }
             }
         }else
         {
