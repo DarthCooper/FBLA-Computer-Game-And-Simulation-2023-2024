@@ -909,4 +909,4 @@ MonoBehaviour:
   hitableTags:
   - Player
   knockBack: 2000
-  damage: 10
+  damage: 20

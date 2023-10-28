@@ -25,6 +25,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     #region Set Primary Weapon
     public void SetPrimaryItem(Item item)
     {
+        if(!item || item.itemName == string.Empty) { CmdSetPrimary(""); return; }
         CmdSetPrimary(item.itemName);
     }
     [Command(requiresAuthority = false)]
@@ -51,6 +52,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     #region Set Secondary Weapon
     public void SetSecondaryItem(Item item)
     {
+        if (!item || item.itemName == string.Empty) { CmdSetSecondary(""); return; }
         CmdSetSecondary(item.itemName);
     }
     [Command(requiresAuthority = false)]
@@ -77,6 +79,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     #region Set Ammo
     public void SetAmmo(Item item)
     {
+        if (!item || item.itemName == string.Empty) { CmdSetAmmo("", 0); return; }
         CmdSetAmmo(item.itemName, item.currentStack);
     }
     [Command(requiresAuthority = false)]

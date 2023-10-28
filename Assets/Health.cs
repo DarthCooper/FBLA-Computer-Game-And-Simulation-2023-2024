@@ -46,7 +46,6 @@ public class Health : NetworkBehaviour
     private void CmdSaveSetHealth(float health)
     {
         needsToSetHealth = false;
-        print("called");
         HealthUpdate(this.health, health);
     }
 

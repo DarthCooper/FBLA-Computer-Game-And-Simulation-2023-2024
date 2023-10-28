@@ -198,4 +198,4 @@ MonoBehaviour:
   - Player
   speed: 15
   knockBack: 500
-  damage: 15
+  damage: 25

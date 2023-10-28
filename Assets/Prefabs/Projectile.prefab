@@ -198,4 +198,4 @@ MonoBehaviour:
   - Enemy
   speed: 15
   knockBack: 2000
-  damage: 10
+  damage: 20

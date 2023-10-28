@@ -105,4 +105,9 @@ public class SteamLobby : MonoBehaviour
     {
         LobbiesListManager.instance.DisplayLobbies(lobbyIds, result);
     }
+
+    public void ChangeScene(string sceneName)
+    {
+        manager.StartGame(sceneName);
+    }
 }
