@@ -2090,6 +2090,10 @@ PrefabInstance:
       propertyPath: searchRadius
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7626629888918886712, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 45.9946

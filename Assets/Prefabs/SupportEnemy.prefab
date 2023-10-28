@@ -173,6 +173,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  id: 
   target: {fileID: 0}
   targetTolerance: 3
   waypointTolerance: 2
@@ -444,7 +445,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   searchRadius: 16
-  positions: []
   targetLayers:
     serializedVersion: 2
     m_Bits: 9
@@ -531,7 +531,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 24
+  m_Radius: 48
 --- !u!58 &496534573911574643
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 8
+  m_Radius: 16
 --- !u!1 &5670839057316323358
 GameObject:
   m_ObjectHideFlags: 0
