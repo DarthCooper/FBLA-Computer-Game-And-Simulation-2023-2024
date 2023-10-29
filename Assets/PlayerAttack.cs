@@ -48,6 +48,7 @@ public class PlayerAttack : NetworkBehaviour
         Attacks.Add("", nullAttack);
         Attacks.Add("Sword", meleeAttack);
         Attacks.Add("Bow", rangedAttack);
+        Attacks.Add("Shotgun", shotgunAttack);
 
         Consumables.Add("", nullAttack);
         Consumables.Add("SmallHealth", SmallHealth);
@@ -261,6 +262,38 @@ public class PlayerAttack : NetworkBehaviour
             {
                 GameObject spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, firepoint.transform.rotation);
                 if(isOwned)
+                {
+                    Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
+                }
+            }
+        }
+        ChangeAttack(this.primary);
+    }
+
+    public void shotgunAttack()
+    {
+        if (this.primary)
+        {
+            if (!canAttack) { return; }
+        }
+        else
+        {
+            if (!canSecondaryAttack) { return; }
+        }
+        if (Ammo > 0)
+        {
+            if (GetComponent<PlayerInventory>().Ammo)
+            {
+                for(int i = 0; i < 15; i++)
+                {
+                    var spread = firepoint.transform.rotation;
+                    spread.x += UnityEngine.Random.Range(-0.5f, 0.5f);
+                    spread.y += UnityEngine.Random.Range(-0.5f, 0.5f);
+                    GameObject spawnedProjectile = Instantiate(GetComponent<PlayerInventory>().Ammo.projectile, firepoint.transform.position, spread);
+                    spawnedProjectile.GetComponent<Projectile>().damage = spawnedProjectile.GetComponent<Projectile>().damage / 5;
+                    spawnedProjectile.GetComponent<Projectile>().speed = spawnedProjectile.GetComponent<Projectile>().speed * 1.5f;
+                }
+                if (isOwned)
                 {
                     Inventory.Instance.UseItem(GetComponent<PlayerInventory>().Ammo);
                 }

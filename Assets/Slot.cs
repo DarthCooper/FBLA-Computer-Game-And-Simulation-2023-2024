@@ -70,6 +70,7 @@ public class Slot : MonoBehaviour
                 if (Inventory.Instance.FindSlot(item).equipedInSlot == null)
                 {
                     Inventory.Instance.FindSlot(item).equipedInSlot = this;
+                    Inventory.Instance.FindSlot(item).equiped = this;
                 }
             }else
             {
@@ -136,9 +137,12 @@ public class Slot : MonoBehaviour
 
     public void UnEquip()
     {
-        if(Inventory.Instance.FindSlot(item))
+        if (Inventory.Instance.FindSlot(item))
         {
             Inventory.Instance.FindSlot(item).equiped = false;
+        }else if(Inventory.Instance.GetClosestSlot(item))
+        {
+            Inventory.Instance.GetClosestSlot(item).equiped = false;
         }
         if(Inventory.Instance.AmmoSlot == this)
         {

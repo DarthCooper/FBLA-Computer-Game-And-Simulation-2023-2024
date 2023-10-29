@@ -56,12 +56,12 @@ public class EnemyVision : MonoBehaviour
 
     public void Update()
     {
-        if(canSeeTarget() && ai.currentState != EnemyStates.Fleeing)
+        if(canSeeTarget() && ai.currentState != EnemyStates.Fleeing && ai.currentState != EnemyStates.Hunting)
         {
             ai.currentState = EnemyStates.Hunting;
             HuntingSight.enabled = true;
             PatrollingSight.enabled = false;
-        }else if(ai.currentState != EnemyStates.Fleeing)
+        }else if(ai.currentState != EnemyStates.Fleeing && target == null)
         {
             ai.currentState = EnemyStates.Patroling;
             HuntingSight.enabled = false;

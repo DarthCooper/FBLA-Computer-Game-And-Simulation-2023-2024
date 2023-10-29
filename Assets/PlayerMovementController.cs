@@ -35,6 +35,8 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     public float TimeBetweenDashes = 1f;
 
+    public GameObject attackSprite;
+
     private void Awake()
     {
         PlayerModel.SetActive(false);
@@ -44,12 +46,16 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        attackSprite.SetActive(false);
+        Time.timeScale = 1f;
         this.transform.position = data.playerPosition;
     }
 
     public void SaveData(ref GameData data)
     {
-        if(!isOwned) { return; }
+        attackSprite.SetActive(false);
+        Time.timeScale = 1f;
+        if (!isOwned) { return; }
         data.playerPosition = this.transform.position;
     }
 

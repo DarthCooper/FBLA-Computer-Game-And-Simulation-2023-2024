@@ -366,6 +366,7 @@ MonoBehaviour:
   dashTime: 0.1
   dashSpeed: 2000
   TimeBetweenDashes: 0.5
+  attackSprite: {fileID: 7712626547458190379}
 --- !u!114 &5587829081801725446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +500,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Ammo: 0
+  ConsumableAmount: 0
+  canUseConsumable: 1
   timeBetweenAttack: 1
   timeBetweenSecondaryAttack: 0.5
   timeBetweenConsumableUse: 20
