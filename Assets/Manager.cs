@@ -2,13 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
+using System;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager Instance;
+
     public PlayerObjectController[] players;
+
+    public MiscEvents miscEvents;
+    public QuestEvents questEvents;
 
     private void Awake()
     {
+        if (Instance != this)
+        {
+            Instance = this;
+        }
+        miscEvents = new MiscEvents();
+        questEvents = new QuestEvents();
         DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0;
@@ -39,6 +52,14 @@ public class Manager : MonoBehaviour
     public void FindPlayers()
     {
         players = FindObjectsOfType(typeof(PlayerObjectController)) as PlayerObjectController[];
+    }
+
+    public void ReadItem(Item item)
+    {
+        if (item.itemType == ItemType.Ammo)
+        {
+            miscEvents.ArrowCollected();
+        }
     }
 
     public void CheckPlayersHealth()
