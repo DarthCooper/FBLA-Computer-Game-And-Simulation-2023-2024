@@ -128,9 +128,9 @@ public class Slot : MonoBehaviour
         if(currentInSlot <= 0 && equiped && !usingItem)
         {
             equipedInSlot.UnEquip();
-        }else if(usingItem)
+        }else if(currentInSlot <= 0 && equiped && usingItem)
         {
-            if (Inventory.Instance.GetClosestSlot(this.item) != null)
+            if (Inventory.Instance.GetClosestSlot(this.item) != null || Inventory.Instance.GetClosestSlot(this.item) != this)
             {
                 Slot newSlot = Inventory.Instance.GetClosestSlot(this.item);
                 equipedInSlot.EquipItem(newSlot);
