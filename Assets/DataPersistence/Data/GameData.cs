@@ -24,6 +24,8 @@ public class GameData
     public float health;
     public float maxHealth;
 
+    public SerializableDictionary<string, string> questData;
+
     // the values definied in this constructor will be the default values the game starts with when there's no data to load
     public GameData()
     {
