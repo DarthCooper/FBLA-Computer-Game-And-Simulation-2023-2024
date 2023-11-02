@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Steamworks;
 
 public class Inventory : MonoBehaviour, IDataPersistence
 {
@@ -203,7 +204,7 @@ public class Inventory : MonoBehaviour, IDataPersistence
         SpawnedDroppedItem((int)dropSlider.value);
         for (int i = 0; i < dropSlider.value; i++)
         {
-            questionedSlot.Drop();
+            questionedSlot.Drop(false);
         }
         dropping = false;
     }
@@ -213,7 +214,7 @@ public class Inventory : MonoBehaviour, IDataPersistence
         SpawnedDroppedItem(questionedSlot.currentInSlot);
         while(questionedSlot.currentInSlot > 0)
         {
-            questionedSlot.Drop();
+            questionedSlot.Drop(false);
         }
         dropping = false;
     }
@@ -222,7 +223,7 @@ public class Inventory : MonoBehaviour, IDataPersistence
     {
         Slot usedSlot = GetClosestSlot(item);
         if(!usedSlot) { return; }
-        usedSlot.GetComponent<Slot>().Drop();
+        usedSlot.GetComponent<Slot>().Drop(true);
     }
 
     public Slot GetClosestSlot(Item item)

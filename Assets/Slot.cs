@@ -43,14 +43,12 @@ public class Slot : MonoBehaviour
     {
         if(equiped)
         {
-            GetComponent<Button>().interactable = false;
             if(equipedInSlot.currentInSlot !=  currentInSlot)
             {
                 equipedInSlot.currentInSlot = currentInSlot;
             }
         }else
         {
-            GetComponent<Button>().interactable = true;
         }
 
         if(equipSlot && item)
@@ -124,12 +122,22 @@ public class Slot : MonoBehaviour
         }
     }
 
-    public void Drop()
+    public void Drop(bool usingItem)
     {
         currentInSlot--;
-        if(currentInSlot <= 0 && equiped)
+        if(currentInSlot <= 0 && equiped && !usingItem)
         {
             equipedInSlot.UnEquip();
+        }else if(usingItem)
+        {
+            if (Inventory.Instance.GetClosestSlot(this.item) != null)
+            {
+                Slot newSlot = Inventory.Instance.GetClosestSlot(this.item);
+                equipedInSlot.EquipItem(newSlot);
+            }else
+            {
+                equipedInSlot.UnEquip();
+            }
         }
         Inventory.Instance.RemoveItem(item);
         Inventory.Instance.DisplayItems();
