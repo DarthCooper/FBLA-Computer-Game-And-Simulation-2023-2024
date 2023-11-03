@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public abstract class QuestStep : MonoBehaviour
+public abstract class QuestStep : NetworkBehaviour
 {
     private bool isFinished = false;
     public string questId;

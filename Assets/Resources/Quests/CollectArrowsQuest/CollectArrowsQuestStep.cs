@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class CollectArrowsQuestStep : QuestStep
 {
@@ -22,13 +23,33 @@ public class CollectArrowsQuestStep : QuestStep
     {
         if(arrowsCollected < arrowsToComplete)
         {
-            arrowsCollected++;
+            CmdChangeArrowsCollected();
             UpdateState();
         }
+    }
 
-        if(arrowsCollected >= arrowsToComplete)
+    [Command(requiresAuthority = false)]
+    public void CmdChangeArrowsCollected()
+    {
+        ServerChangeArrows();
+    }
+
+    [Server]
+    public void ServerChangeArrows()
+    {
+        RpcChangeArrows();
+    }
+
+    [ClientRpc]
+    public void RpcChangeArrows()
+    {
+        arrowsCollected++;
+        if(isClient)
         {
-            FinishQuestStep();
+            if (arrowsCollected >= arrowsToComplete)
+            {
+                FinishQuestStep();
+            }
         }
     }
 
