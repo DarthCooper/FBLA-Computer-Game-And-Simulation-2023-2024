@@ -1,3 +1,4 @@
+using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,11 @@ public class QuestManager : MonoBehaviour, IDataPersistence
 
     private int currentPlayerLevel = 0;
 
+    private GameObject player;
+
     bool needToLoad = false;
+
+    public static bool isServer = false;
 
     private void Awake()
     {
@@ -41,6 +46,8 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     {
         CheckToSpawnQuest(QuestState.REQUIREMENTS_NOT_MET);
         InvokeRepeating(nameof(CheckLoadData), 0.1f, 10f);
+        player = GameObject.Find("LocalGamePlayer");
+        isServer = player.GetComponent<NetworkIdentity>().isServer;
     }
 
     public void CheckToSpawnQuest(QuestState state)

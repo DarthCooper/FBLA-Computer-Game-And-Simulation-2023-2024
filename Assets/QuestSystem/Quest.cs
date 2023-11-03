@@ -48,7 +48,7 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        if (questStepPrefab != null)
+        if (questStepPrefab != null && QuestManager.isServer)
         {
             QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
             NetworkServer.Spawn(questStep.gameObject);
