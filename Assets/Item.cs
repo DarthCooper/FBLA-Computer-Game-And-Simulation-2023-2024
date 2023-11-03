@@ -33,11 +33,12 @@ public class Item : NetworkBehaviour
 
     public void PickUp()
     {
-        if(interactable.Player)
+        if(interactable.Player && !interactable.beenInteractedWith)
         {
             if(interactable.Player.GetComponent<NetworkIdentity>().isOwned)
             {
                 Inventory.Instance.AddItem(this);
+                interactable.beenInteractedWith = true;
             }
         }
         DisableObject();
