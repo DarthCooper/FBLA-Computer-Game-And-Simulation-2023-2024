@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - ReviveMarker
+  - QuestIdentifier
   layers:
   - Default
   - TransparentFX

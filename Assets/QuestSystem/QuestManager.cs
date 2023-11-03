@@ -2,6 +2,7 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour, IDataPersistence
@@ -46,6 +47,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     {
         CheckToSpawnQuest(QuestState.REQUIREMENTS_NOT_MET);
         InvokeRepeating(nameof(CheckLoadData), 0.1f, 10f);
+        InvokeRepeating(nameof(SetQuestsTransform), 0f, 5f);
         player = GameObject.Find("LocalGamePlayer");
         isServer = player.GetComponent<NetworkIdentity>().isServer;
     }
@@ -94,6 +96,17 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             if(quest.state == QuestState.REQUIREMENTS_NOT_MET && CheckRequirementsMet(quest))
             {
                 ChangeQuestState(quest.info.id, QuestState.CAN_START);
+            }
+        }
+    }
+
+    public void SetQuestsTransform()
+    {
+        GameObject[] questSteps = GameObject.FindGameObjectsWithTag("QuestIdentifier");
+        foreach (var quest in questSteps){
+            if(quest.transform.parent != this.transform)
+            {
+                quest.transform.SetParent(this.transform);
             }
         }
     }
