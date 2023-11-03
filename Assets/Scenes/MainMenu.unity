@@ -1552,6 +1552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c553e9170431ea242b08dfaecdf2dbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: []
 --- !u!4 &342432881
 Transform:
   m_ObjectHideFlags: 0
@@ -3332,6 +3333,7 @@ MonoBehaviour:
   - {fileID: 8028369058199731947, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
   - {fileID: 8028369058199731947, guid: aeda60527d36464409f29257a20e283d, type: 3}
   - {fileID: 8028369058199731947, guid: 451a868b1895f12469df47e92da093dc, type: 3}
+  - {fileID: 1409073945696819791, guid: 32144425fac1df9469702812390d87de, type: 3}
   snapshotSettings:
     bufferTimeMultiplier: 2
     bufferLimit: 32
