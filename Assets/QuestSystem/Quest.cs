@@ -44,7 +44,6 @@ public class Quest
 
     public bool CurrentStepExists()
     {
-        Debug.Log(currentQuestStepIndex);
         return(currentQuestStepIndex < info.questStepPrefabs.Length);
     }
 
@@ -56,10 +55,16 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        if (questStepPrefab != null && QuestManager.isServer)
+        if (questStepPrefab != null)
         {
-            ServerSetVariables(parentTransform.gameObject.name);
+            CmdSetVariables(parentTransform.gameObject.name);
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetVariables(string parentName)
+    {
+        ServerSetVariables(parentName);
     }
 
     [Server]

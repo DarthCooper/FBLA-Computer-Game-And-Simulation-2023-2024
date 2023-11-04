@@ -53,7 +53,6 @@ public class QuestPoint : MonoBehaviour
 
     private void QuestStateChange(Quest quest, QuestState state)
     {
-        print("Changing");
         if(quest.info.id.Equals(questId))
         {
             quest.state = state;
