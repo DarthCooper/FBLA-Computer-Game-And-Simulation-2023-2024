@@ -28,5 +28,9 @@ public class CustomNetworkManager : NetworkManager
     public void StartGame(string SceneName)
     {
         ServerChangeScene(SceneName);
+        if(Manager.Instance != null)
+        {
+            DontDestroyOnLoad(Manager.Instance.gameObject);
+        }
     }
 }

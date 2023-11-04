@@ -23,14 +23,9 @@ public class Manager : NetworkBehaviour
         }
         miscEvents = new MiscEvents();
         questEvents = new QuestEvents();
-        DontDestroyOnLoad(gameObject);
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0;
         InvokeRepeating(nameof(CheckPlayersHealth), 0, 2f);
-    }
-
-    private void OnEnable()
-    {
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
@@ -48,6 +43,7 @@ public class Manager : NetworkBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
+        DontDestroyOnLoad(gameObject);
     }
 
     public void FindPlayers()
