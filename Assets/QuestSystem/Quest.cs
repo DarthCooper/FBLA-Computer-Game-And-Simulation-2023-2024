@@ -61,6 +61,9 @@ public class Quest
         {
             questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
             NetworkServer.Spawn(questStep.gameObject);
+        }
+        if(questStep)
+        {
             CmdSetVariables(questStep.gameObject.name);
         }
     }
