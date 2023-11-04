@@ -58,7 +58,10 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         {
             if (quest.state == QuestState.IN_PROGRESS)
             {
-                quest.InstatiateCurrentQuestStep(this.transform);
+                if(isServer)
+                {
+                    quest.InstatiateCurrentQuestStep(this.transform);
+                }
             }
             ChangeQuestState(quest.info.id, state);
         }
@@ -126,7 +129,10 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     private void StartQuest(string id)
     {
         Quest quest = GetQuestById(id);
-        quest.InstatiateCurrentQuestStep(this.transform);
+        if(isServer)
+        {
+            quest.InstatiateCurrentQuestStep(this.transform);
+        }
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
         Debug.Log("Start Quest: " +  id);
         StartCoroutine(nameof(AddQuest), quest);
@@ -145,7 +151,10 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         quest.MoveToNextStep();
         if(quest.CurrentStepExists())
         {
-            quest.InstatiateCurrentQuestStep(this.transform);
+            if(isServer)
+            {
+                quest.InstatiateCurrentQuestStep(this.transform);
+            }
         }else
         {
             ChangeQuestState(quest.info.id, QuestState.CAN_FINISH);
