@@ -129,6 +129,12 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         quest.InstatiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
         Debug.Log("Start Quest: " +  id);
+        StartCoroutine(nameof(AddQuest), quest);
+    }
+
+    IEnumerator AddQuest(Quest quest)
+    {
+        yield return new WaitForSeconds(0.5f);
         Journal.Instance.AddQuest(quest);
     }
 
