@@ -56,14 +56,20 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        if (questStepPrefab != null)
+        if (questStepPrefab != null && QuestManager.isServer)
         {
-            CmdSetVariables(parentTransform.gameObject.name);
+            ServerSetVariables(parentTransform.gameObject.name);
         }
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdSetVariables(string parentName)
+    [Server]
+    public void ServerSetVariables(string parentName)
+    {
+        RpcSetVariables(parentName);
+    }
+
+    [ClientRpc]
+    public void RpcSetVariables(string parentName)
     {
         Transform parentTransform = GameObject.Find(parentName).transform;
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
