@@ -58,12 +58,12 @@ public class Quest
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
         if (questStepPrefab != null)
         {
-            RpcSetVariables(parentTransform.gameObject.name);
+            CmdSetVariables(parentTransform.gameObject.name);
         }
     }
 
-    [ClientRpc(includeOwner = true)]
-    public void RpcSetVariables(string parentName)
+    [Command(requiresAuthority = false)]
+    public void CmdSetVariables(string parentName)
     {
         Transform parentTransform = GameObject.Find(parentName).transform;
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
