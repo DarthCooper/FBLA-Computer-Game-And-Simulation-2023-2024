@@ -56,7 +56,7 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        if (questStepPrefab != null && QuestManager.isServer)
+        if (questStepPrefab != null)
         {
             RpcSetVariables(parentTransform.gameObject.name);
         }
@@ -70,6 +70,7 @@ public class Quest
         QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
         NetworkServer.Spawn(questStep.gameObject);
         questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);
+        Debug.Log(questStep.questId);
         questSteps.Add(questStep);
     }
 
