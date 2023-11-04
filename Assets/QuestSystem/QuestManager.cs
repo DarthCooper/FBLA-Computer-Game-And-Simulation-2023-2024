@@ -49,7 +49,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         InvokeRepeating(nameof(CheckLoadData), 0.1f, 10f);
         InvokeRepeating(nameof(SetQuestsTransform), 0f, 5f);
         player = GameObject.Find("LocalGamePlayer");
-        isServer = player.GetComponent<NetworkIdentity>().isOwned;
+        isServer = player.GetComponent<NetworkIdentity>().isServer;
     }
 
     public void CheckToSpawnQuest(QuestState state)
