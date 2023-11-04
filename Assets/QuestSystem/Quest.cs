@@ -44,6 +44,7 @@ public class Quest
 
     public bool CurrentStepExists()
     {
+        Debug.Log(currentQuestStepIndex);
         return(currentQuestStepIndex < info.questStepPrefabs.Length);
     }
 
@@ -55,13 +56,14 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
+        QuestStep questStep = null;
         if (questStepPrefab != null && QuestManager.isServer)
         {
-            QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
+            questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
             NetworkServer.Spawn(questStep.gameObject);
             questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);//May need to do object pooling
-            questSteps.Add(questStep);
         }
+        questSteps.Add(questStep);
     }
 
     private GameObject GetCurrentQuestStepPrefab()
