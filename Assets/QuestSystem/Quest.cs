@@ -10,6 +10,8 @@ public class Quest
     private int currentQuestStepIndex;
     private QuestStepState[] questStepStates;
 
+    public List<QuestStep> questSteps = new List<QuestStep>();
+
     public Quest(QuestInfoSO questInfo)
     {
         this.info = questInfo;
@@ -45,6 +47,11 @@ public class Quest
         return(currentQuestStepIndex < info.questStepPrefabs.Length);
     }
 
+    public QuestStep GetCurrentStep()
+    {
+        return questSteps[currentQuestStepIndex];
+    }
+
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
@@ -52,7 +59,8 @@ public class Quest
         {
             QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
             NetworkServer.Spawn(questStep.gameObject);
-            questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);//May need to do object pooling
+            questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);//May need to do object pooling
+            questSteps.Add(questStep);
         }
     }
 

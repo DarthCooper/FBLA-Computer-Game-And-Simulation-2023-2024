@@ -44,6 +44,8 @@ public class CollectArrowsQuestStep : QuestStep
     public void RpcChangeArrows()
     {
         arrowsCollected++;
+        progress = ("" + arrowsCollected + "/" + arrowsToComplete);
+        Journal.Instance.DisplayQuests();
         if(isClient)
         {
             if (arrowsCollected >= arrowsToComplete)

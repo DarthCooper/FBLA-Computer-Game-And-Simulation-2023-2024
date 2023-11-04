@@ -129,6 +129,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         quest.InstatiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
         Debug.Log("Start Quest: " +  id);
+        Journal.Instance.AddQuest(quest);
     }
 
     private void AdvanceQuest(string id)
@@ -152,6 +153,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         ClaimRewards(quest);
         ChangeQuestState(quest.info.id, QuestState.FINISHED);
         Debug.Log("Finish Quest" + id);
+        Journal.Instance.RemoveQuest(quest);
     }
 
     public void ClaimRewards(Quest quest)

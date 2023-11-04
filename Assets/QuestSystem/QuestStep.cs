@@ -9,10 +9,15 @@ public abstract class QuestStep : NetworkBehaviour
     public string questId;
     private int stepIndex = 0;
 
-    public void InitializeQuestStep(string questId, int stepIndex, string questStepState)
+    public Quest quest;
+
+    public string progress;
+
+    public void InitializeQuestStep(string questId, int stepIndex, string questStepState, Quest quest)
     {
         this.questId = questId;
         this.stepIndex = stepIndex;
+        this.quest = quest;
         if(questStepState != null && questStepState != "")
         {
             SetQuestStepState(questStepState);

@@ -40,13 +40,14 @@ public class QuestPoint : MonoBehaviour
         {
             return;
         }
-        GetComponent<Interactable>().beenInteractedWith = true;
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
             Manager.Instance.questEvents.StartQuest(questId);
+            GetComponent<Interactable>().beenInteractedWith = true;
         }else if(currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
         {
             Manager.Instance.questEvents.FinishQuest(questId);
+            GetComponent<Interactable>().beenInteractedWith = true;
         }
     }
 

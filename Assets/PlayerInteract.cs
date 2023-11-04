@@ -15,6 +15,10 @@ public class PlayerInteract : NetworkBehaviour
     public GameObject inventory;
     bool canOpenInventory = false;
 
+    public bool JournalOpen = false;
+    public GameObject journal;
+    bool canOpenJournal = false;
+
     public Interactable interactable;
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -31,11 +35,27 @@ public class PlayerInteract : NetworkBehaviour
         canOpenInventory = context.ReadValueAsButton();
     }
 
+    public void OnJournal(InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton() && !canOpenJournal)
+        {
+            JournalOpen = !JournalOpen;
+        }
+        canOpenJournal = context.ReadValueAsButton();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Interactable>() != null)
         {
             interactable = collision.gameObject.GetComponent<Interactable>();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.GetComponent<Interactable>() != null)
+        {
+            interactable = null;
         }
     }
 
@@ -45,6 +65,40 @@ public class PlayerInteract : NetworkBehaviour
         {
             SetInventory();
         }
+        EnableDisableInventory();
+        if (!InventoryOpen)
+        {
+            Inventory.Instance.ClostSlotOptions();
+        }
+    }
+
+    public void CheckJournal()
+    {
+        while (journal == null || journal.name != "PlayerJournal")
+        {
+            SetJournal();
+        }
+        EnableDisableJournal();
+    }
+
+    public void SetInventory()
+    {
+        if (!inventory && SceneManager.GetActiveScene().name == "Game")
+        {
+            inventory = GameObject.Find("Canvas");
+            if (inventory)
+            {
+                inventory = inventory.transform.Find("Menu").gameObject;
+                if (inventory)
+                {
+                    inventory = inventory.transform.Find("PlayerMenu").gameObject;
+                }
+            }
+        }
+    }
+
+    public void EnableDisableInventory()
+    {
         foreach (var image in inventory.GetComponentsInChildren<Image>())
         {
             if (!image.gameObject.GetComponentInParent<SlotOptions>())
@@ -75,23 +129,35 @@ public class PlayerInteract : NetworkBehaviour
                 }
             }
         }
-        if(!InventoryOpen)
+    }
+
+    public void EnableDisableJournal()
+    {
+        foreach (var image in journal.GetComponentsInChildren<Image>())
         {
-            Inventory.Instance.ClostSlotOptions();
+            image.enabled = JournalOpen;
+        }
+        foreach (var image in journal.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = JournalOpen;
+        }
+        foreach (var text in journal.GetComponentsInChildren<TMP_Text>())
+        {
+            text.enabled = JournalOpen;
         }
     }
 
-    public void SetInventory()
+    public void SetJournal()
     {
-        if (!inventory && SceneManager.GetActiveScene().name == "Game")
+        if (!journal && SceneManager.GetActiveScene().name == "Game")
         {
-            inventory = GameObject.Find("Canvas");
-            if (inventory)
+            journal = GameObject.Find("Canvas");
+            if (journal)
             {
-                inventory = inventory.transform.Find("Menu").gameObject;
-                if (inventory)
+                journal = journal.transform.Find("Journal").gameObject;
+                if (journal)
                 {
-                    inventory = inventory.transform.Find("PlayerMenu").gameObject;
+                    journal = journal.transform.Find("PlayerJournal").gameObject;
                 }
             }
         }
@@ -104,6 +170,7 @@ public class PlayerInteract : NetworkBehaviour
             return;
         }
         SetInventory();
+        SetJournal();
         if (interact && interactable)
         {
             if(!interactable.beenInteractedWith)
@@ -117,6 +184,10 @@ public class PlayerInteract : NetworkBehaviour
         if(inventory)
         {
             CheckInventory();
+        }
+        if(journal)
+        {
+            CheckJournal();
         }
     }
 }

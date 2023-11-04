@@ -69,6 +69,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Health.cs" />
     <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
+    <Compile Include="Assets\Journal.cs" />
     <Compile Include="Assets\MiscEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Item.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\EnemyAI.cs" />
+    <Compile Include="Assets\QuestSlot.cs" />
     <Compile Include="Assets\Slot.cs" />
     <Compile Include="Assets\PlayerInventory.cs" />
     <Compile Include="Assets\LobbiesListManager.cs" />

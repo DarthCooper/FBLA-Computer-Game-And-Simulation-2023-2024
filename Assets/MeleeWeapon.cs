@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Mirror;
 
 public class MeleeWeapon : MonoBehaviour
 {
@@ -32,8 +33,11 @@ public class MeleeWeapon : MonoBehaviour
             hitObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;  
         }
         Time.timeScale = 0.1f;
-        Invoke("ResetTime", 0.1250f);
-        Invoke("ApplyKnockbackWithTimeScale", 0.05f);
+        if(hitObject.GetComponent<NetworkIdentity>().isOwned)
+        {
+            StartCoroutine(nameof(ResetTime), 0.1250f);
+            StartCoroutine(nameof(ApplyKnockbackWithTimeScale), 0.05f);
+        }
         hitObject.GetComponent<Health>().TakeDamage(damage);
     }
 
@@ -47,8 +51,9 @@ public class MeleeWeapon : MonoBehaviour
         hitObject.GetComponent<Health>().TakeDamage(damage);
     }
 
-    public void ApplyKnockbackWithTimeScale()
+    IEnumerator ApplyKnockbackWithTimeScale(float time)
     {
+        yield return new WaitForSeconds(time);
         Time.timeScale = 0.25f;
         Vector2 direction = (hitObject.transform.position - transform.position).normalized;
         Vector2 force = direction * knockBack;
@@ -62,8 +67,9 @@ public class MeleeWeapon : MonoBehaviour
         hitObject.GetComponent<Health>().TakeKnockback(0.25f, force);
     }
 
-    void ResetTime()
+    IEnumerator ResetTime(float time)
     {
+        yield return new WaitForSeconds(time);
         Time.timeScale = 1.0f;
     }
 }
