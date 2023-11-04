@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System;
+using Mirror;
 
-public class Manager : MonoBehaviour
+public class Manager : NetworkBehaviour
 {
     public static Manager Instance;
 
@@ -56,6 +57,25 @@ public class Manager : MonoBehaviour
 
     public void ReadItem(Item item)
     {
+        CmdReadItem(item.itemName);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdReadItem(string itemName)
+    {
+        ServerReadItem(itemName);
+    }
+
+    [Server]
+    public void ServerReadItem(string itemName)
+    {
+        RpcReadItem(itemName);
+    }
+
+    [ClientRpc]
+    public void RpcReadItem(string itemName)
+    {
+        Item item = Inventory.Instance.GetItem(itemName);
         if (item.itemType == ItemType.Ammo)
         {
             miscEvents.ArrowCollected();

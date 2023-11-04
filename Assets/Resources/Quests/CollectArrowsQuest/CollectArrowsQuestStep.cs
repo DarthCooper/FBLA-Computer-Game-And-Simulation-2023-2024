@@ -23,8 +23,14 @@ public class CollectArrowsQuestStep : QuestStep
     {
         if(arrowsCollected < arrowsToComplete)
         {
-            CmdChangeArrowsCollected();
+            arrowsCollected++;
+            progress = ("" + arrowsCollected + "/" + arrowsToComplete);
+            Journal.Instance.DisplayQuests();
             UpdateState();
+        }
+        if (arrowsCollected >= arrowsToComplete)
+        {
+            FinishQuestStep();
         }
     }
 
