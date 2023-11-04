@@ -61,8 +61,15 @@ public class Quest
         {
             questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
             NetworkServer.Spawn(questStep.gameObject);
-            questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);//May need to do object pooling
+            CmdSetVariables(questStep.gameObject.name);
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetVariables(string questStepName)
+    {
+        QuestStep questStep = GameObject.Find(questStepName).GetComponent<QuestStep>();
+        questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);
         questSteps.Add(questStep);
     }
 
