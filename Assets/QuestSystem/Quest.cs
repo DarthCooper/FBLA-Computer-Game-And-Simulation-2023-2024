@@ -56,22 +56,20 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        QuestStep questStep = null;
         if (questStepPrefab != null && QuestManager.isServer)
         {
-            questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
-            NetworkServer.Spawn(questStep.gameObject);
-        }
-        if(questStep)
-        {
-            CmdSetVariables(questStep.gameObject.name);
+            CmdSetVariables(parentTransform.gameObject.name);
         }
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdSetVariables(string questStepName)
+    public void CmdSetVariables(string parentName)
     {
-        QuestStep questStep = GameObject.Find(questStepName).GetComponent<QuestStep>();
+        Transform parentTransform = GameObject.Find(parentName).transform;
+        GameObject questStepPrefab = GetCurrentQuestStepPrefab();
+        QuestStep questStep = null;
+        questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
+        NetworkServer.Spawn(questStep.gameObject);
         questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);
         questSteps.Add(questStep);
     }
