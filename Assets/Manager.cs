@@ -54,6 +54,13 @@ public class Manager : NetworkBehaviour
     public void ReadItem(Item item)
     {
         CmdReadItem(item.itemName);
+        if(!isServer)
+        {
+            if (item.itemType == ItemType.Ammo)
+            {
+                miscEvents.ArrowCollected();
+            }
+        }
     }
 
     [Command(requiresAuthority = false)]
