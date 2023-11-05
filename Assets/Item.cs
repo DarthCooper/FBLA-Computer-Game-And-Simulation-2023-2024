@@ -26,6 +26,8 @@ public class Item : NetworkBehaviour
 
     public Component[] componentsToDisable;
 
+    bool beenPickedUp = false;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
@@ -33,13 +35,13 @@ public class Item : NetworkBehaviour
 
     public void PickUp()
     {
-        if(interactable.Player)
+        if(interactable.Player && !beenPickedUp)
         {
             if(interactable.Player.GetComponent<NetworkIdentity>().isOwned)
             {
                 Inventory.Instance.AddItem(this);
             }
-            interactable.beenInteractedWith = true;
+            beenPickedUp = true;
         }
         DisableObject();
     }
