@@ -48,6 +48,7 @@ public class Item : NetworkBehaviour
     {
         if(interactable.beenInteractedWith) { return; }
         Manager.Instance.ReadItem(this);
+        interactable.beenInteractedWith = true;
     }
 
     public void DisableObject()
