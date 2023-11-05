@@ -65,7 +65,8 @@ public class Manager : NetworkBehaviour
     public void CheckPlayersHealth()
     {
         FindPlayers();
-        if(players.Length <= 0) { return; }
+        if(SceneManager.GetActiveScene().name != "Game") { return; }
+        if(players.Length <= 0) { ReloadLevel(); return; }
         bool allDead = true;
         foreach (PlayerObjectController player in players)
         {
@@ -79,12 +80,17 @@ public class Manager : NetworkBehaviour
         }
         if(allDead)
         {
-            DataPersistenceManager.instance.LoadGame();
-            foreach (PlayerObjectController player in players)
-            {
-                player.GetComponent<Health>().SetHealth(player.GetComponent<Health>().maxHealth);
-            }
-            GameObject.FindObjectOfType<CustomNetworkManager>().StartGame("Game");
+            ReloadLevel();
         }
+    }
+
+    public void ReloadLevel()
+    {
+        DataPersistenceManager.instance.LoadGame();
+        foreach (PlayerObjectController player in players)
+        {
+            player.GetComponent<Health>().SetHealth(player.GetComponent<Health>().maxHealth);
+        }
+        GameObject.FindObjectOfType<CustomNetworkManager>().StartGame("Game");
     }
 }

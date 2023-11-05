@@ -47,28 +47,20 @@ public class Slot : MonoBehaviour
             {
                 equipedInSlot.currentInSlot = currentInSlot;
             }
-        }else
-        {
         }
 
         if(equipSlot && item)
         {
             if(equipedInSlot == null)
             {
-                try
-                {
-                    equipedInSlot = Inventory.Instance.FindSlot(item);
-                }catch
-                {
-                    equipedInSlot = Inventory.Instance.GetClosestSlot(item);
-                }
+                equipedInSlot = Inventory.Instance.GetClosestSlot(item);
             }
-            if(Inventory.Instance.FindSlot(item))
+            if(Inventory.Instance.GetClosestSlot(item))
             {
-                if (Inventory.Instance.FindSlot(item).equipedInSlot == null)
+                if (Inventory.Instance.GetClosestSlot(item).equipedInSlot == null)
                 {
-                    Inventory.Instance.FindSlot(item).equipedInSlot = this;
-                    Inventory.Instance.FindSlot(item).equiped = this;
+                    Inventory.Instance.GetClosestSlot(item).equipedInSlot = this;
+                    Inventory.Instance.GetClosestSlot(item).equiped = this;
                 }
             }else
             {

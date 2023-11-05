@@ -42,6 +42,7 @@ public class Item : NetworkBehaviour
                 Inventory.Instance.AddItem(this);
             }
             beenPickedUp = true;
+            interactable.beenInteractedWith = true;
         }
         DisableObject();
     }
@@ -68,9 +69,9 @@ public class Item : NetworkBehaviour
         {
             (component as Renderer).enabled = false;
         }
-        else if (component is Collider)
+        else if (component is Collider2D)
         {
-            (component as Collider).enabled = false;
+            (component as Collider2D).enabled = false;
         }
     }
 
