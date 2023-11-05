@@ -46,6 +46,7 @@ public class Item : NetworkBehaviour
 
     public void ReadItem()
     {
+        if(interactable.beenInteractedWith) { return; }
         Manager.Instance.ReadItem(this);
     }
 

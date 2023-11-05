@@ -2165,7 +2165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00027851982}
+  m_AnchoredPosition: {x: 0, y: 0.00033512304}
   m_SizeDelta: {x: 0, y: 99.9006}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &184139714
@@ -3570,6 +3570,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1642724737}
     m_Modifications:
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReadItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PickUp
+      objectReference: {fileID: 0}
     - target: {fileID: 1587577508505097853, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.693518
@@ -9549,8 +9557,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReadItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -10183,8 +10195,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReadItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -11117,30 +11133,34 @@ PrefabInstance:
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1175435415}
+      objectReference: {fileID: 1175435416}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1175435416}
+      objectReference: {fileID: 1175435415}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: collect
-      objectReference: {fileID: 0}
-    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReadItem
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: collect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Interactable, Assembly-CSharp
+      value: Item, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: Item, Assembly-CSharp
+      value: Interactable, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -12019,7 +12039,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1527785369}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99991065
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -18457,8 +18477,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
-      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReadItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
+      propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 1491518979092590518, guid: 9ccf36364d396184e9c6cbc2f5dc0b23, type: 3}
       propertyPath: OnInteract.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
