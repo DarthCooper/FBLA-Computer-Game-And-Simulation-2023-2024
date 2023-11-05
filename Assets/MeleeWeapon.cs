@@ -32,12 +32,7 @@ public class MeleeWeapon : MonoBehaviour
         {
             hitObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;  
         }
-        if(hitObject.GetComponent<NetworkIdentity>().isOwned)
-        {
-            Time.timeScale = 0.1f;
-            StartCoroutine(nameof(ResetTime), 0.1250f);
-            StartCoroutine(nameof(ApplyKnockbackWithTimeScale), 0.05f);
-        }
+        ApplyKnockback();
         hitObject.GetComponent<Health>().TakeDamage(damage);
     }
 

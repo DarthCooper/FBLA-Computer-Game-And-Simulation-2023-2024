@@ -197,5 +197,5 @@ MonoBehaviour:
   ignoreTags:
   - Enemy
   speed: 15
-  knockBack: 2000
+  knockBack: 750
   damage: 20

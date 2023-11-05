@@ -89,6 +89,23 @@ public class FileDataHandler
         }
     }
 
+    public void DeleteSave(string profileId)
+    {
+        if(profileId == null)
+        {
+            return;
+        }
+        string fullPath = Path.Combine(dataDirPath, profileId ,dataFileName);
+        try
+        {
+            Directory.Delete(fullPath);
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Error occured when trying to delete data from file: " + fullPath + "\n" + e);
+        }
+    }
+
     public Dictionary<string, GameData> LoadAllProfiles()
     {
         Dictionary<string, GameData> profileDictionary = new Dictionary<string, GameData>();

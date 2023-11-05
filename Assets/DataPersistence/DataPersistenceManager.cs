@@ -86,6 +86,11 @@ public class DataPersistenceManager : MonoBehaviour
 
     }
 
+    public void DeleteSave()
+    {
+        dataHandler.DeleteSave(selectedProfileId);
+    }
+
     public void SaveGame()
     {
         if(this.gameData == null)

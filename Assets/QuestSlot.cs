@@ -20,4 +20,10 @@ public class QuestSlot : MonoBehaviour
             progressText.text = step.progress;
         }
     }
+
+    public void SelectQuest()
+    {
+        Journal journal = GetComponentInParent<Journal>();
+        journal.SelectQuest(this);
+    }
 }
