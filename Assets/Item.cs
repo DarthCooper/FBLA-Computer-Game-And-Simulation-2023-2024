@@ -38,8 +38,8 @@ public class Item : NetworkBehaviour
             if(interactable.Player.GetComponent<NetworkIdentity>().isOwned)
             {
                 Inventory.Instance.AddItem(this);
-                interactable.beenInteractedWith = true;
             }
+            interactable.beenInteractedWith = true;
         }
         DisableObject();
     }

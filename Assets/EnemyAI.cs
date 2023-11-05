@@ -138,17 +138,20 @@ public class EnemyAI : NetworkBehaviour
                 {
                     tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
                 }
-                RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
-                if (NewPos)
+                if(GetComponent<GetClosestTarget>().Target)
                 {
-                    tempTarget.transform.position = NewPos.transform.position;
-                    target = tempTarget;
-                }
-                else
-                {
-                    Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
-                    tempTarget.transform.position = ray.GetPoint(runDistance);
-                    target = tempTarget;
+                    RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
+                    if (NewPos)
+                    {
+                        tempTarget.transform.position = NewPos.transform.position;
+                        target = tempTarget;
+                    }
+                    else
+                    {
+                        Ray2D ray = new Ray2D(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position);
+                        tempTarget.transform.position = ray.GetPoint(runDistance);
+                        target = tempTarget;
+                    }
                 }
             }
         }
