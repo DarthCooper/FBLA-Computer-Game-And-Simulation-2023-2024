@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MouseWheel",
+                    "type": "PassThrough",
+                    "id": "f186880e-5e96-4850-8c21-0604eac282ad",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -486,6 +495,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Journal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eb5dd681-a2e1-4fdf-9a1d-9ecc3dd806b8",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MouseWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

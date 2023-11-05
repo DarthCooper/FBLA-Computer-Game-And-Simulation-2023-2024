@@ -9,6 +9,7 @@ public class CollectArrowsQuestStep : QuestStep
 
     private int arrowsToComplete = 14;
 
+
     private void OnEnable()
     {
         Manager.Instance.miscEvents.onArrowCollected += ArrowCollected;
@@ -32,6 +33,11 @@ public class CollectArrowsQuestStep : QuestStep
         {
             FinishQuestStep();
         }
+    }
+
+    private void Update()
+    {
+        progress = ("" + arrowsCollected + "/" + arrowsToComplete);
     }
 
     [Command(requiresAuthority = false)]

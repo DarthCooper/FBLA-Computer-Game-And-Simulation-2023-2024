@@ -1,3 +1,4 @@
+using Steamworks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class GameData
     public List<string> items;
 
     public Vector3 playerPosition;
+
+    public string selectedQuest;
 
     public SerializableDictionary<string, bool> itemsCollected;
 

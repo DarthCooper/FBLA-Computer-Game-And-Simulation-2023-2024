@@ -59,6 +59,9 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstatiateCurrentQuestStep(this.transform);
+            }else if(quest.state == QuestState.CAN_FINISH)
+            {
+                Journal.Instance.AddQuest(quest);
             }
             ChangeQuestState(quest.info.id, state);
         }
@@ -129,13 +132,6 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         quest.InstatiateCurrentQuestStep(this.transform);
         ChangeQuestState(quest.info.id, QuestState.IN_PROGRESS);
         Debug.Log("Start Quest: " +  id);
-        StartCoroutine(nameof(AddQuest), quest);
-    }
-
-    IEnumerator AddQuest(Quest quest)
-    {
-        yield return new WaitForSeconds(0.5f);
-        Journal.Instance.AddQuest(quest);
     }
 
     private void AdvanceQuest(string id)

@@ -12,6 +12,7 @@ public abstract class QuestStep : NetworkBehaviour
     public Quest quest;
 
     public string progress;
+    public string maxProgress;
 
     public void InitializeQuestStep(string questId, int stepIndex, string questStepState, Quest quest)
     {

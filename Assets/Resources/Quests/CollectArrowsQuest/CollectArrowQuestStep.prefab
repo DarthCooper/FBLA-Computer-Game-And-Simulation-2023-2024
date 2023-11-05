@@ -49,6 +49,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   questId: CollectArrowsQuest
+  progress: 
+  maxProgress: 14/14
 --- !u!114 &2705339640594544938
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ public class Item : NetworkBehaviour
         {
             DisableComponent(component);
         }
+        //interactable.SelectableGraphics.transform.parent.gameObject.SetActive(false);
     }
 
     void DisableComponent(Component component)

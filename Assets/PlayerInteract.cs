@@ -11,6 +11,8 @@ public class PlayerInteract : NetworkBehaviour
 {
     public bool interact;
 
+    float mouse = 0;
+
     public bool InventoryOpen = false;
     public GameObject inventory;
     bool canOpenInventory = false;
@@ -19,6 +21,7 @@ public class PlayerInteract : NetworkBehaviour
     public GameObject journal;
     bool canOpenJournal = false;
 
+    public List<Interactable> interactables = new List<Interactable>();
     public Interactable interactable;
 
     public void OnInteract(InputAction.CallbackContext context)
@@ -44,18 +47,24 @@ public class PlayerInteract : NetworkBehaviour
         canOpenJournal = context.ReadValueAsButton();
     }
 
+    public void OnMouseScroll(InputAction.CallbackContext context)
+    {
+        mouse += context.ReadValue<Vector2>().normalized.y;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Interactable>() != null)
         {
-            interactable = collision.gameObject.GetComponent<Interactable>();
+            interactables.Add(collision.gameObject.GetComponent<Interactable>());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Interactable>() != null)
         {
-            interactable = null;
+            interactables.Remove(collision.gameObject.GetComponent<Interactable>());
+            collision.gameObject.GetComponent<Interactable>().ChangeSelectableView(false);
         }
     }
 
@@ -171,6 +180,22 @@ public class PlayerInteract : NetworkBehaviour
         }
         SetInventory();
         SetJournal();
+        if(interactables.Count > 0)
+        {
+            interactable = interactables[Mathf.Abs((int)mouse) % interactables.Count];
+            interactable.ChangeSelectableView(true);
+        }
+        else
+        {
+            interactable = null;
+        }
+        foreach(var interactable in interactables)
+        {
+            if(interactable != this.interactable)
+            {
+                interactable.ChangeSelectableView(false);
+            }
+        }
         if (interact && interactable)
         {
             if(!interactable.beenInteractedWith)

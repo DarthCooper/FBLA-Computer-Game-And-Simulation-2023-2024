@@ -8,6 +8,7 @@ public class QuestSlot : MonoBehaviour
     public string questName;
     public QuestStep step;
     public string description;
+    public string maxProgress;
 
     public TMP_Text NameText;
     public TMP_Text progressText;
@@ -18,6 +19,22 @@ public class QuestSlot : MonoBehaviour
         if(step != null)
         {
             progressText.text = step.progress;
+        }
+        else
+        {
+            progressText.text = maxProgress;
+        }
+    }
+
+    private void Update()
+    {
+        if (step != null)
+        {
+            progressText.text = step.progress;
+        }
+        else
+        {
+            progressText.text = maxProgress;
         }
     }
 

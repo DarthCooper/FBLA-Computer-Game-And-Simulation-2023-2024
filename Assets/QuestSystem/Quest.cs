@@ -61,6 +61,7 @@ public class Quest
             //NetworkServer.Spawn(questStep.gameObject);
             questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);
             questSteps.Add(questStep);
+            Journal.Instance.AddQuest(this);
         }
     }
 

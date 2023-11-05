@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Journal : MonoBehaviour
+public class Journal : MonoBehaviour, IDataPersistence
 {
     public static Journal Instance;
 
@@ -61,6 +61,7 @@ public class Journal : MonoBehaviour
             {
                 slot.step = quest.GetCurrentStep();
             }
+            slot.maxProgress = quest.info.questStepPrefabs[quest.info.questStepPrefabs.Length - 1].GetComponent<QuestStep>().maxProgress;
             slot.SetValues();
             slot.GetComponent<Button>().onClick.AddListener(slot.SelectQuest);
             if(slot.questName == lastSelectedQuestName)
@@ -78,6 +79,10 @@ public class Journal : MonoBehaviour
         {
             questNameText.text = string.Empty;
             questProgressText.text = string.Empty;
+        }else
+        {
+            questNameText.text = selectedSlot.questName;
+            questProgressText.text = selectedSlot.progressText.text;
         }
     }
 
@@ -87,5 +92,15 @@ public class Journal : MonoBehaviour
         questNameText.text = selectedSlot.questName;
         questProgressText.text = selectedSlot.progressText.text;
         lastSelectedQuestName = selectedSlot.questName;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.lastSelectedQuestName = data.selectedQuest;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.selectedQuest = this.lastSelectedQuestName;
     }
 }

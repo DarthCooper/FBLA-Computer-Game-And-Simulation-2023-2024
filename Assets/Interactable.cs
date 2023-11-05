@@ -17,6 +17,8 @@ public class Interactable : NetworkBehaviour
     public UnityEvent OnInteract;
     public UnityEvent OnEndInteract;
 
+    public GameObject SelectableGraphics;
+
     public bool beenInteractedWith;
 
     public GameObject Player;
@@ -97,5 +99,11 @@ public class Interactable : NetworkBehaviour
         }
         data.itemsCollected.Add(id, collected);
         print("Saved");
+    }
+
+    public void ChangeSelectableView(bool inRange)
+    {
+        if (collected) { inRange = false; }
+        SelectableGraphics.SetActive(inRange);
     }
 }
