@@ -53,8 +53,7 @@ public class Manager : NetworkBehaviour
 
     public void ReadItem(Item item)
     {
-        CmdReadItem(item.itemName);
-        if(!isServer)
+        for(int i = 0; i < item.currentStack; i++)
         {
             if (item.itemType == ItemType.Ammo)
             {
@@ -63,30 +62,9 @@ public class Manager : NetworkBehaviour
         }
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdReadItem(string itemName)
-    {
-        ServerReadItem(itemName);
-    }
-
-    [Server]
-    public void ServerReadItem(string itemName)
-    {
-        RpcReadItem(itemName);
-    }
-
-    [ClientRpc]
-    public void RpcReadItem(string itemName)
-    {
-        Item item = Inventory.Instance.GetItem(itemName);
-        if (item.itemType == ItemType.Ammo)
-        {
-            miscEvents.ArrowCollected();
-        }
-    }
-
     public void CheckPlayersHealth()
     {
+        FindPlayers();
         if(players.Length <= 0) { return; }
         bool allDead = true;
         foreach (PlayerObjectController player in players)

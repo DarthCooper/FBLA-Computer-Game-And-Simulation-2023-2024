@@ -59,7 +59,6 @@ public class Inventory : MonoBehaviour, IDataPersistence
                 for(int i = 0; i < item.currentStack; i++)
                 {
                     items.Add(Item);
-                    Manager.Instance.ReadItem(item);
                 }
             }
         }
