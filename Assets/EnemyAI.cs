@@ -120,7 +120,11 @@ public class EnemyAI : NetworkBehaviour
             target = tempTarget;
         }
 
-        float distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
+        float distanceToPlayer = 0;
+        if(GetComponent<GetClosestTarget>().Target)
+        {
+            distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
+        }
         if(distanceToPlayer >= DistanceFromPlayer && (currentState == EnemyStates.Hunting || currentState == EnemyStates.Fleeing))
         {
             target = GetComponent<GetClosestTarget>().Target.transform;
