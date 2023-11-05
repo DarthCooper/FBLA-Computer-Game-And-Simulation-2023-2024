@@ -224,7 +224,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 8028369058199731947}
   itemTexture: {fileID: 2800000, guid: 4cecafde1350347fd984baee5961a393, type: 3}
   itemType: 3
-  inventoryIndex: 0
+  inventoryIndex: 6
   delayBetweenUses: 0.75
   stackable: 1
   maxStack: 20

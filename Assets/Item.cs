@@ -33,7 +33,7 @@ public class Item : NetworkBehaviour
 
     public void PickUp()
     {
-        if(interactable.Player && !interactable.beenInteractedWith)
+        if(interactable.Player)
         {
             if(interactable.Player.GetComponent<NetworkIdentity>().isOwned)
             {
