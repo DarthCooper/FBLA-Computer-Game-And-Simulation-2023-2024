@@ -92,7 +92,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void SetInventory()
     {
-        if (!inventory && SceneManager.GetActiveScene().name == "Game")
+        if (!inventory && Manager.Instance.settings.isPlayable)
         {
             inventory = GameObject.Find("Canvas");
             if (inventory)
@@ -158,7 +158,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void SetJournal()
     {
-        if (!journal && SceneManager.GetActiveScene().name == "Game")
+        if (!journal && Manager.Instance.settings.isPlayable)
         {
             journal = GameObject.Find("Canvas");
             if (journal)

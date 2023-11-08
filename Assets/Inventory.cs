@@ -41,6 +41,10 @@ public class Inventory : MonoBehaviour, IDataPersistence
     public TMP_Text dropText;
     bool dropping;
 
+    public List<string> savedItems;
+
+    public bool itemsLoaded;
+
     private void Awake()
     {
         if (Instance != this)
@@ -263,18 +267,25 @@ public class Inventory : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        savedItems = data.items;
+        Invoke(nameof(SetSavedItems), 1f);
+    }
+
+    public void SetSavedItems()
+    {
         items.Clear();
-        foreach (var itemName in data.items)
+        foreach (var itemName in savedItems)
         {
             foreach (var item in ItemList)
             {
-                if(itemName == item.itemName)
+                if (itemName == item.itemName)
                 {
                     items.Add(item);
                 }
             }
         }
         DisplayItems();
+        itemsLoaded = true;
     }
 
     public void SaveData(ref GameData data)

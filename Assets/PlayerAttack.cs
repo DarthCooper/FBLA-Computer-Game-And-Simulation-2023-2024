@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Mirror;
-using UnityEngine.SceneManagement;
 using System;
 
 public class PlayerAttack : NetworkBehaviour
@@ -82,7 +81,7 @@ public class PlayerAttack : NetworkBehaviour
 
     public void OnPrimaryAttack(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().name != "Game") { return; }
+        if (!Manager.Instance.settings.isPlayable) { return; }
         if (canAttack)
         {
             Attacking |= context.ReadValueAsButton();
@@ -91,7 +90,7 @@ public class PlayerAttack : NetworkBehaviour
 
     public void OnSecondaryAttack(InputAction.CallbackContext context)
     {
-        if (SceneManager.GetActiveScene().name != "Game") { return; }
+        if (!Manager.Instance.settings.isPlayable) { return; }
         if (canSecondaryAttack)
         {
             secondaryAttacking |= context.ReadValueAsButton();
@@ -100,7 +99,7 @@ public class PlayerAttack : NetworkBehaviour
 
     public void OnConsumablePressed(InputAction.CallbackContext context)
     {
-        if(SceneManager.GetActiveScene().name != "Game") { return; }
+        if(!Manager.Instance.settings.isPlayable) { return; }
         if(canUseConsumable)
         {
             usingConsumable |= context.ReadValueAsButton();
@@ -109,7 +108,7 @@ public class PlayerAttack : NetworkBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "Game") { return; }
+        if (!Manager.Instance.settings.isPlayable) { return; }
 
         if (Attacking && isOwned)
         {

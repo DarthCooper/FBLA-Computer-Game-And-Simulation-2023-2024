@@ -61,7 +61,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     private void FixedUpdate()
     {
-        if(SceneManager.GetActiveScene().name == "Game")
+        if(Manager.Instance.settings.isPlayable)
         {
             if(PlayerModel.activeSelf == false)
             {

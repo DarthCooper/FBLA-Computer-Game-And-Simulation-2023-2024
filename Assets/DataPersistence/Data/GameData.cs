@@ -10,6 +10,8 @@ public class GameData
 
     public List<string> items;
 
+    public string lastScene;
+
     public Vector3 playerPosition;
 
     public string selectedQuest;
@@ -33,6 +35,7 @@ public class GameData
     public GameData()
     {
         items = new List<string>();
+        lastScene = "Opening";
         playerPosition = Vector3.zero;
         itemsCollected = new SerializableDictionary<string, bool>();
         EnemiesHealth = new SerializableDictionary<string, float>();

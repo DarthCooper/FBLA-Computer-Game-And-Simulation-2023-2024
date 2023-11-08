@@ -98,6 +98,7 @@ public class Slot : MonoBehaviour
     {
         if(equipSlot)
         {
+            if(!slot) { return; }
             if(!slot.item) { return; }
             if (slot.item.itemType != allowedType) { return; }
             if (this.item != null)

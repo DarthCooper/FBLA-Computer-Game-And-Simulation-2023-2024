@@ -10,6 +10,12 @@ public class Manager : NetworkBehaviour
 {
     public static Manager Instance;
 
+    private CustomNetworkManager networkManager;
+
+    private SceneSaver sceneSaver;
+
+    public SceneSettings settings;
+
     public PlayerObjectController[] players;
 
     public MiscEvents miscEvents;
@@ -21,6 +27,7 @@ public class Manager : NetworkBehaviour
         {
             Instance = this;
         }
+        FindSettings();
         miscEvents = new MiscEvents();
         questEvents = new QuestEvents();
         Application.targetFrameRate = 60;
@@ -28,6 +35,8 @@ public class Manager : NetworkBehaviour
         InvokeRepeating(nameof(CheckPlayersHealth), 0, 2f);
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
+        sceneSaver = GetComponent<SceneSaver>();
+        networkManager = GameObject.Find("NetworkManager").GetComponent<CustomNetworkManager>();
     }
 
     private void OnDisable()
@@ -39,6 +48,15 @@ public class Manager : NetworkBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         FindPlayers();
+        FindSettings();
+    }
+
+    private void Update()
+    {
+        if(settings == null)
+        {
+            FindSettings();
+        }
     }
 
     public void OnSceneUnloaded(Scene scene)
@@ -49,6 +67,11 @@ public class Manager : NetworkBehaviour
     public void FindPlayers()
     {
         players = FindObjectsOfType(typeof(PlayerObjectController)) as PlayerObjectController[];
+    }
+
+    public void FindSettings()
+    {
+        settings = FindObjectOfType(typeof(SceneSettings)) as SceneSettings;
     }
 
     public void ReadItem(Item item)
@@ -92,5 +115,10 @@ public class Manager : NetworkBehaviour
             player.GetComponent<Health>().SetHealth(player.GetComponent<Health>().maxHealth);
         }
         GameObject.FindObjectOfType<CustomNetworkManager>().StartGame("Game");
+    }
+
+    public void LoadNewLevel(string name)
+    {
+        networkManager.StartGame(name);
     }
 }

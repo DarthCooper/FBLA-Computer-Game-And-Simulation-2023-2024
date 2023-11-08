@@ -19,9 +19,19 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
 
     public string primaryTest;
 
+    bool setData;
+
     private void Awake()
     {
         attack = GetComponent<PlayerAttack>();
+    }
+
+    public void Update()
+    {
+        if (!setData && Inventory.Instance != null)
+        {
+            SetData();
+        }
     }
 
     #region Set Primary Weapon
@@ -157,11 +167,11 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         gameData = data;
-        Invoke("SetData", 1f);
     }
 
     public void SetData()
     {
+        if(Inventory.Instance == null || !Inventory.Instance.itemsLoaded) { return; }
         if (gameData.primaryWeapon != string.Empty)
         {
             Inventory.Instance.PrimarySlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.primaryWeapon)));
@@ -178,6 +188,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         {
             Inventory.Instance.ConsumableSlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.consumable)));
         }
+        setData = true;
     }
 
     public void SaveData(ref GameData data)
