@@ -33,6 +33,8 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
 
         this.selectedProfileId = dataHandler.GetMostRecentlyUpdatedProfileId();
+
+        InvokeRepeating(nameof(SaveGame), 600f, 600f);
     }
 
     private void OnEnable()
