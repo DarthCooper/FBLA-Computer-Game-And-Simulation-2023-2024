@@ -5,23 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSaver : MonoBehaviour, IDataPersistence
 {
-    public string SceneToLoad;
+    public string SceneToLoad = "Opening";
 
     public void LoadData(GameData data)
     {
         SceneToLoad = data.lastScene;
     }
 
-    public void Update()
-    {
-        if(SceneManager.GetActiveScene().name != SceneToLoad)
-        {
-            SceneToLoad = SceneManager.GetActiveScene().name;
-        }
-    }
-
     public void SaveData(ref GameData data)
     {
-        data.lastScene = SceneToLoad;  
+        data.lastScene = SceneManager.GetActiveScene().name;  
     }
 }

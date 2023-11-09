@@ -27,7 +27,7 @@ public class LobbyController : MonoBehaviour
 
     private CustomNetworkManager manager;
 
-    private CustomNetworkManager Manager
+    private CustomNetworkManager NetManager
     {
         get
         {
@@ -64,7 +64,7 @@ public class LobbyController : MonoBehaviour
     {
         bool AllReady = false;
 
-        foreach (var player in Manager.GamePlayers)
+        foreach (var player in NetManager.GamePlayers)
         {
             if(player.Ready)
             {
@@ -93,16 +93,16 @@ public class LobbyController : MonoBehaviour
 
     public void UpdateLobbyName()
     {
-        CurrentLobbyID = Manager.GetComponent<SteamLobby>().CurrentLobbyID;
+        CurrentLobbyID = NetManager.GetComponent<SteamLobby>().CurrentLobbyID;
         LobbyNameText.text = SteamMatchmaking.GetLobbyData(new CSteamID(CurrentLobbyID), "name");
     }
 
     public void UpdatePlayerList()
     {
         if(!PlayerItemCreated) { CreateHostPlayerItem(); }
-        if(PlayerListItems.Count < Manager.GamePlayers.Count) { CreateClientPlayerItem(); }
-        if(PlayerListItems.Count > Manager.GamePlayers.Count) { RemovePlayerItem(); }
-        if(PlayerListItems.Count == Manager.GamePlayers.Count) { UpdatePlayerItem(); }
+        if(PlayerListItems.Count < NetManager.GamePlayers.Count) { CreateClientPlayerItem(); }
+        if(PlayerListItems.Count > NetManager.GamePlayers.Count) { RemovePlayerItem(); }
+        if(PlayerListItems.Count == NetManager.GamePlayers.Count) { UpdatePlayerItem(); }
     }
 
     public void FindLocalPlayer()
@@ -113,7 +113,7 @@ public class LobbyController : MonoBehaviour
 
     public void CreateHostPlayerItem()
     {
-        foreach (var player in Manager.GamePlayers)
+        foreach (var player in NetManager.GamePlayers)
         {
             GameObject NewPlayerItem = Instantiate(PlayerListItemPrefab) as GameObject;
             PlayerListItem NewPlayerItemScript = NewPlayerItem.GetComponent<PlayerListItem>();
@@ -134,7 +134,7 @@ public class LobbyController : MonoBehaviour
 
     public void CreateClientPlayerItem()
     {
-        foreach (var player in Manager.GamePlayers)
+        foreach (var player in NetManager.GamePlayers)
         {
             if(!PlayerListItems.Any(b => b.ConnectionID == player.ConnectionID))
             {
@@ -157,7 +157,7 @@ public class LobbyController : MonoBehaviour
 
     public void UpdatePlayerItem()
     {
-        foreach(var player in Manager.GamePlayers)
+        foreach(var player in NetManager.GamePlayers)
         {
             foreach (var PlayerListItemScript in PlayerListItems)
             {
@@ -182,7 +182,7 @@ public class LobbyController : MonoBehaviour
 
         foreach (var playerlistItem in PlayerListItems)
         {
-            if(!Manager.GamePlayers.Any(b=> b.ConnectionID == playerlistItem.ConnectionID))
+            if(!NetManager.GamePlayers.Any(b=> b.ConnectionID == playerlistItem.ConnectionID))
             {
                 playerListItemToRemove.Add(playerlistItem);
             }
@@ -204,14 +204,9 @@ public class LobbyController : MonoBehaviour
         LocalplayerController.CanStartGame(SceneName);
     }
 
-    public void OnNewGameClicked(string SceneName)
+    public void StartLoadedGame()
     {
-        DataPersistenceManager.instance.NewGame();
-        StartGame(SceneName);
+        LocalplayerController.CanStartGame(Manager.Instance.GetComponent<SceneSaver>().SceneToLoad);
     }
 
-    public void OnLoadGameClicked(string SceneName)
-    {
-        StartGame(SceneName);
-    }
 }

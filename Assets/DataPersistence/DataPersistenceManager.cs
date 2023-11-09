@@ -49,6 +49,11 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Invoke(nameof(LoadOnSceneChange), 0.1f);   
+    }
+
+    public void LoadOnSceneChange()
+    {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         print(dataPersistenceObjects.Count);
         LoadGame();

@@ -379,8 +379,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2005472756}
         m_TargetAssemblyTypeName: LobbyController, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 5
+        m_MethodName: StartLoadedGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c804c10df270844ad7b0de01a85e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneToLoad: 
+  SceneToLoad: Opening
 --- !u!1 &1445987630
 GameObject:
   m_ObjectHideFlags: 0

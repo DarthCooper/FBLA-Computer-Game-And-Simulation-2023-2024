@@ -56,7 +56,6 @@ public class Item : NetworkBehaviour
 
     public void DisableObject()
     {
-        print("Disable");
         foreach(var component in componentsToDisable)
         {
             DisableComponent(component);
