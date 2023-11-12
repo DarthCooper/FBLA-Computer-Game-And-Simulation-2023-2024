@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.87843144, g: 0.7843138, b: 0.29411766, a: 1}
   m_FlipX: 0
@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 8558599811735591146}
   - component: {fileID: 2886947511109106772}
   - component: {fileID: 4289575614718998063}
+  - component: {fileID: 2893788661673151824}
+  - component: {fileID: 6848372527521127462}
   m_Layer: 7
   m_Name: SupportEnemy
   m_TagString: Enemy
@@ -173,7 +175,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  id: 
+  id: 7a2020ef-a54c-42dc-9713-a3dbe880ea73
   target: {fileID: 0}
   targetTolerance: 3
   waypointTolerance: 2
@@ -432,6 +434,40 @@ MonoBehaviour:
   positionPrecision: 0.01
   scalePrecision: 0.01
 --- !u!114 &4289575614718998063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659294898888160045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e3426b92c30924da02d94e96da9388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  searchRadius: 16
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 9
+--- !u!114 &2893788661673151824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659294898888160045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e3426b92c30924da02d94e96da9388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  searchRadius: 16
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 9
+--- !u!114 &6848372527521127462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -930,7 +966,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.9411765, g: 0.84525573, b: 0.31764704, a: 1}
   m_FlipX: 0

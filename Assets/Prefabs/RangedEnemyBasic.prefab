@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.3019608, g: 0.9058824, b: 0.3529412, a: 1}
   m_FlipX: 0
@@ -250,10 +250,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  id: 
+  id: a2aebd92-d2cd-4ad4-b5d4-3cd514fe9d7e
   target: {fileID: 0}
   targetTolerance: 10
-  waypointTolerance: 1
+  waypointTolerance: 2
   currentState: 1
   OnReachedTarget:
     m_PersistentCalls:
@@ -270,11 +270,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 350
+  speed: 700
   nextWaypointDistance: 3
   reachedEndOfPath: 0
   runIfPlayerIsClose: 1
-  runDistance: 10
+  runDistance: 7
   DistanceFromPlayer: 5
   runLayer:
     serializedVersion: 2
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  searchRadius: 15
+  searchRadius: 18
   targetLayers:
     serializedVersion: 2
     m_Bits: 9
@@ -736,7 +736,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31764704, g: 0.9411765, b: 0.36356366, a: 1}
   m_FlipX: 0

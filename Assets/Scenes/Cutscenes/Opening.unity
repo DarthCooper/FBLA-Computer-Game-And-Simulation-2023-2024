@@ -636,6 +636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayable: 0
   isSavable: 1
+  sceneChanger: {fileID: 0}
 --- !u!4 &877013524
 Transform:
   m_ObjectHideFlags: 0
@@ -663,8 +664,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082361752bc35904ba0578eca22369c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newSceneNames:
+  - Ye_ol_hole
   timeTillChange: 3
-  newSceneName: Game
 --- !u!1 &882846471
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
 
     public string primaryTest;
 
-    bool setData;
+    public bool setData;
 
     private void Awake()
     {
@@ -28,9 +28,9 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
 
     public void Update()
     {
-        if (!setData && Inventory.Instance != null)
+        if (!setData && Inventory.Instance != null && gameData != null)
         {
-            SetData();
+            Invoke(nameof(SetData), 0.25f);
         }
     }
 
@@ -198,5 +198,6 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         if(!SecondaryWeapon) { data.secondaryWeapon = string.Empty; } else { data.secondaryWeapon = SecondaryWeapon.itemName; }
         if(!Ammo) { data.ammo = string.Empty; } else { data.ammo = Ammo.itemName; }
         if(!Consumable) { data.consumable = string.Empty; } else { data.consumable = Consumable.itemName; }
+        setData = false;
     }
 }

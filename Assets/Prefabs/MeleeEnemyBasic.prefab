@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
   m_FlipX: 0
@@ -337,10 +337,10 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  id: 
+  id: a3528fc6-fa42-4f6f-9e53-dd7f8799b155
   target: {fileID: 0}
   targetTolerance: 2
-  waypointTolerance: 1
+  waypointTolerance: 2
   currentState: 1
   OnReachedTarget:
     m_PersistentCalls:
@@ -357,7 +357,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 350
+  speed: 600
   nextWaypointDistance: 3
   reachedEndOfPath: 0
   runIfPlayerIsClose: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   Firepoint: {fileID: 0}
   targetLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 9
 --- !u!50 &3868151615024046155
 Rigidbody2D:
   serializedVersion: 4
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  searchRadius: 10
+  searchRadius: 15
   targetLayers:
     serializedVersion: 2
     m_Bits: 9
@@ -704,7 +704,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31833914, g: 0.81231344, b: 0.9411765, a: 1}
   m_FlipX: 0
@@ -791,7 +791,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

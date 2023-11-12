@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimedSceneChange : MonoBehaviour
+public class TimedSceneChange : SceneChange
 {
     public float timeTillChange = 120f;
-    public string newSceneName;
-    bool changedScene;
 
     // Update is called once per frame
     void Update()
     {
         timeTillChange -= Time.deltaTime;
-        if(timeTillChange < 0 && !changedScene)
+        if(timeTillChange < 0)
         {
-            changedScene = true;
-            GetComponent<SceneSettings>().ChangeScene(newSceneName);
+            ChangeScene(newSceneNames[0]);
         }
     }
 }

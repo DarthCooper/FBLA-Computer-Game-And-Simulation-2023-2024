@@ -21,6 +21,11 @@ public class PlayerInteract : NetworkBehaviour
     public GameObject journal;
     bool canOpenJournal = false;
 
+    public bool reading = false;
+    public GameObject readingPage;
+    bool canRead = false;
+    public string message;
+
     public List<Interactable> interactables = new List<Interactable>();
     public Interactable interactable;
 
@@ -45,6 +50,21 @@ public class PlayerInteract : NetworkBehaviour
             JournalOpen = !JournalOpen;
         }
         canOpenJournal = context.ReadValueAsButton();
+    }
+
+    public void Read(string message)
+    {
+        if(!canRead)
+        {
+            reading = !reading;
+        }
+        this.message = message;
+        canRead = true;
+    }
+
+    public void ResetCanRead()
+    {
+        canRead = false;
     }
 
     public void OnMouseScroll(InputAction.CallbackContext context)
@@ -88,6 +108,15 @@ public class PlayerInteract : NetworkBehaviour
             SetJournal();
         }
         EnableDisableJournal();
+    }
+
+    public void CheckReading()
+    {
+        while(readingPage == null ||  readingPage.name != "Sign")
+        {
+            SetReadingPage();
+        }
+        EnableDisableRead();
     }
 
     public void SetInventory()
@@ -172,6 +201,45 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void EnableDisableRead()
+    {
+        if(reading && readingPage)
+        {
+            readingPage.GetComponentInParent<ReadPage>().SetMessage(message);
+        }else if(readingPage)
+        {
+            readingPage.GetComponentInParent<ReadPage>().SetMessage("");
+        }
+        foreach (var image in readingPage.GetComponentsInChildren<Image>())
+        {
+            image.enabled = reading;
+        }
+        foreach (var image in readingPage.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = reading;
+        }
+        foreach (var text in readingPage.GetComponentsInChildren<TMP_Text>())
+        {
+            text.enabled = reading;
+        }
+    }
+
+    public void SetReadingPage()
+    {
+        if (!readingPage && Manager.Instance.settings.isPlayable)
+        {
+            readingPage = GameObject.Find("Canvas");
+            if (readingPage)
+            {
+                readingPage = readingPage.transform.Find("Readable").gameObject;
+                if (readingPage)
+                {
+                    readingPage = readingPage.transform.Find("Sign").gameObject;
+                }
+            }
+        }
+    }
+
     private void Update()
     {
         if (!isOwned)
@@ -180,6 +248,7 @@ public class PlayerInteract : NetworkBehaviour
         }
         SetInventory();
         SetJournal();
+        SetReadingPage();
         if(interactables.Count > 0)
         {
             interactable = interactables[Mathf.Abs((int)mouse) % interactables.Count];
@@ -213,6 +282,10 @@ public class PlayerInteract : NetworkBehaviour
         if(journal)
         {
             CheckJournal();
+        }
+        if(readingPage)
+        {
+            CheckReading();
         }
     }
 }
