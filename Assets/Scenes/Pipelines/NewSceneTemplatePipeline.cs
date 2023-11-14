@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditor.SceneTemplate;
 
 public class NewSceneTemplatePipeline : ISceneTemplatePipeline
@@ -18,3 +19,4 @@ public class NewSceneTemplatePipeline : ISceneTemplatePipeline
         
     }
 }
+#endif
