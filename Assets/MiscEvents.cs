@@ -11,4 +11,14 @@ public class MiscEvents
             onArrowCollected();
         }
     }
+
+    public event Action onWaveEnemyKilled;
+
+    public void WaveEnemyKilled()
+    {
+        if(onWaveEnemyKilled != null)
+        {
+            onWaveEnemyKilled();
+        }
+    }
 }

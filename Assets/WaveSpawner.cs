@@ -54,6 +54,7 @@ public class WaveSpawner : NetworkBehaviour
                     if (Enemies[i].GetComponent<Health>().health <= 0)
                     {
                         Enemies.RemoveAt(i);
+                        Manager.Instance.miscEvents.WaveEnemyKilled();
                     }
                 }
             }

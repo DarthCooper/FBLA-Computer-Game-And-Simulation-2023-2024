@@ -111,6 +111,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\SceneChange.cs" />
+    <Compile Include="Assets\Resources\Quests\Arena1(Red)\ArenaWaveStep.cs" />
     <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\EnemyVision.cs" />
     <Compile Include="Assets\Readable.cs" />

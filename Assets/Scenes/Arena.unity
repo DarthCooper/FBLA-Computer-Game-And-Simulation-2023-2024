@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73b4c49823bd6742838066a73b96ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questInfoForPoint: {fileID: 11400000, guid: 89148ac818f06604695066dccf700c53, type: 2}
+  questInfoForPoint: {fileID: 11400000, guid: 0a9cd73719514fa49b811b17233901df, type: 2}
   startPoint: 1
   finishPoint: 1
 --- !u!58 &629715117
