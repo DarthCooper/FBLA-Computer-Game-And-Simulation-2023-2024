@@ -918,6 +918,8 @@ GameObject:
   - component: {fileID: 629715115}
   - component: {fileID: 629715114}
   - component: {fileID: 629715113}
+  - component: {fileID: 629715117}
+  - component: {fileID: 629715116}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -968,6 +970,7 @@ MonoBehaviour:
   - {fileID: 1307899203}
   maxTimePerWave: 0
   curTimeInWave: 0
+  Enemies: []
   waves:
   - TimeToComplete: 120
     enemies:
@@ -992,6 +995,7 @@ MonoBehaviour:
     - {fileID: 6984096683137273666, guid: 315df1dc56521dc4c978862a8aedb79a, type: 3}
     - {fileID: 659294898888160045, guid: 6e883724d9078704c87bedb8e724c6ef, type: 3}
   currentWave: 0
+  quest: {fileID: 629715116}
 --- !u!4 &629715115
 Transform:
   m_ObjectHideFlags: 0
@@ -1007,6 +1011,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &629715116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629715112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b4c49823bd6742838066a73b96ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questInfoForPoint: {fileID: 11400000, guid: 89148ac818f06604695066dccf700c53, type: 2}
+  startPoint: 1
+  finishPoint: 1
+--- !u!58 &629715117
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629715112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 50, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.0001
 --- !u!1 &703539720
 GameObject:
   m_ObjectHideFlags: 0

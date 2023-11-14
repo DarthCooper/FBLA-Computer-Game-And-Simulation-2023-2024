@@ -18,6 +18,8 @@ public class WaveSpawner : NetworkBehaviour
 
     bool currentWavedSpawned;
 
+    public QuestPoint quest;
+
     private void Update()
     {
         CheckEnemiesLength();
@@ -60,6 +62,10 @@ public class WaveSpawner : NetworkBehaviour
 
     public void spawnWave()
     {
+        if(quest)
+        {
+            quest.StartQuest();
+        }
         if(!isServer) { return; }
         for(int i = 0; i < waves[currentWave].enemies.Length; i++)
         {

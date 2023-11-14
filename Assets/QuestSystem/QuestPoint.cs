@@ -36,18 +36,27 @@ public class QuestPoint : MonoBehaviour
 
     public void StartQuest()
     {
-        if(!playerIsNear || GetComponent<Interactable>().beenInteractedWith)
+        if(GetComponent<Interactable>())
         {
-            return;
+            if(!playerIsNear || GetComponent<Interactable>().beenInteractedWith)
+            {
+                return;
+            }
         }
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
             Manager.Instance.questEvents.StartQuest(questId);
-            GetComponent<Interactable>().beenInteractedWith = true;
+            if(GetComponent<Interactable>())
+            {
+                GetComponent<Interactable>().beenInteractedWith = true;
+            }
         }else if(currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
         {
             Manager.Instance.questEvents.FinishQuest(questId);
-            GetComponent<Interactable>().beenInteractedWith = true;
+            if (GetComponent<Interactable>())
+            {
+                GetComponent<Interactable>().beenInteractedWith = true;
+            }
         }
     }
 
@@ -57,7 +66,10 @@ public class QuestPoint : MonoBehaviour
         {
             quest.state = state;
             currentQuestState = quest.state;
-            questIcon.SetState(currentQuestState, startPoint, finishPoint);
+            if(questIcon)
+            {
+                questIcon.SetState(currentQuestState, startPoint, finishPoint);
+            }
         }
     }
 
