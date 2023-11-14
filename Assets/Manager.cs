@@ -21,6 +21,8 @@ public class Manager : NetworkBehaviour
     public MiscEvents miscEvents;
     public QuestEvents questEvents;
 
+    [SyncVar(hook = nameof(SetDontDestroyOnLoad))]public bool destroyOnLoad;
+
     private void Awake()
     {
         if (Instance != this)
@@ -37,6 +39,11 @@ public class Manager : NetworkBehaviour
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         sceneSaver = GetComponent<SceneSaver>();
         networkManager = GameObject.Find("NetworkManager").GetComponent<CustomNetworkManager>();
+    }
+
+    private void Start()
+    {
+        CmdSetDontDestroyOnLoad();
     }
 
     private void OnDisable()
@@ -56,6 +63,10 @@ public class Manager : NetworkBehaviour
         if(settings == null)
         {
             FindSettings();
+        }
+        if(destroyOnLoad)
+        {
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -124,5 +135,16 @@ public class Manager : NetworkBehaviour
     public void LoadNewLevel(string name)
     {
         networkManager.StartGame(name);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetDontDestroyOnLoad()
+    {
+        SetDontDestroyOnLoad(destroyOnLoad, true);
+    }
+
+    public void SetDontDestroyOnLoad(bool oldValue, bool newValue)
+    {
+        destroyOnLoad = newValue;
     }
 }

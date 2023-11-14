@@ -676,6 +676,7 @@ MonoBehaviour:
   Ammo: {fileID: 0}
   Consumable: {fileID: 0}
   primaryTest: 
+  setData: 0
 --- !u!1 &4201950648879876081
 GameObject:
   m_ObjectHideFlags: 0

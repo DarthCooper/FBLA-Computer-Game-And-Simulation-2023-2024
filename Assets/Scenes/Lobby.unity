@@ -1335,6 +1335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayable: 0
   isSavable: 0
+  sceneChanger: {fileID: 0}
 --- !u!4 &1108298807
 Transform:
   m_ObjectHideFlags: 0
