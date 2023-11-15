@@ -29,11 +29,17 @@ public class Slot : MonoBehaviour
     {
         itemImage.texture = item.itemTexture;
         nameText.text = item.itemName;
-        if(currentInSlot > 1 && item.itemName != "" && !equipSlot)
+        SetAmountText();
+    }
+
+    public void SetAmountText()
+    {
+        if (currentInSlot > 1 && item.itemName != "")
         {
             amountText.gameObject.SetActive(true);
             amountText.text = currentInSlot.ToString();
-        }else
+        }
+        else
         {
             amountText.gameObject.SetActive(false);
         }
@@ -43,9 +49,12 @@ public class Slot : MonoBehaviour
     {
         if(equiped)
         {
-            if(equipedInSlot.currentInSlot !=  currentInSlot)
+            if(equipedInSlot)
             {
-                equipedInSlot.currentInSlot = currentInSlot;
+                if(equipedInSlot.currentInSlot !=  currentInSlot)
+                {
+                    equipedInSlot.currentInSlot = currentInSlot;
+                }
             }
         }
 
@@ -66,6 +75,8 @@ public class Slot : MonoBehaviour
             {
                 UnEquip();
             }
+            currentInSlot = Inventory.Instance.amountOfItem(item);
+            SetAmountText();
         }
     }
 

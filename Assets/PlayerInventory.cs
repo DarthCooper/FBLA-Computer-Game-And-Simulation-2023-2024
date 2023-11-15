@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public class PlayerInventory : NetworkBehaviour, IDataPersistence
 {
@@ -21,6 +22,12 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
 
     public bool setData;
 
+    public Slot PrimaryWeaponSlot;
+    public Slot PrimaryConsumableSlot;
+    public Slot SecondaryWeaponSlot;
+    public Slot SecondaryConsumableSlot;
+
+
     private void Awake()
     {
         attack = GetComponent<PlayerAttack>();
@@ -32,6 +39,66 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
         {
             Invoke(nameof(SetData), 0.25f);
         }
+        if(!Manager.Instance.settings.isPlayable) { return; }
+        if(PrimaryWeaponSlot == null)
+        {
+            PrimaryWeaponSlot = FindSlot("PrimaryWeapon");
+        }
+        if(PrimaryConsumableSlot == null)
+        {
+            PrimaryConsumableSlot = FindSlot("PrimaryConsumable");
+        }
+        if(SecondaryWeaponSlot == null)
+        {
+            SecondaryWeaponSlot = FindSlot("SecondaryWeapon");
+        }
+        if(SecondaryConsumableSlot == null)
+        {
+            SecondaryConsumableSlot = FindSlot("SecondaryConsumable");
+        }
+
+        DetermineSlot(PrimaryWeaponSlot, PrimaryWeapon);
+        DetermineSlot(SecondaryWeaponSlot, SecondaryWeapon);
+        DetermineSlot(PrimaryConsumableSlot, Consumable);
+        DetermineSlot(SecondaryConsumableSlot, Ammo);
+    }
+
+    public void DetermineSlot(Slot slot, Item item)
+    {
+        if (slot && item)
+        {
+            slot.gameObject.SetActive(true);
+            slot.item = item;
+            slot.DisplayInSlot();
+        }
+        else if (slot && item == null)
+        {
+            slot.item = Inventory.Instance.baseItem;
+            slot.currentInSlot = 0;
+            slot.DisplayInSlot();
+            slot.gameObject.SetActive(false);
+        }
+    }
+
+    public Slot FindSlot(string slotName)
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        if(canvas)
+        {
+            Transform PlayerTools = canvas.transform.Find("PlayerTools");
+            if (PlayerTools)
+            {
+                Transform questionedSlot = PlayerTools.Find(slotName);
+                if(questionedSlot != null)
+                {
+                    if(questionedSlot.GetComponent<Slot>())
+                    {
+                        return questionedSlot.GetComponent<Slot>();
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     #region Set Primary Weapon

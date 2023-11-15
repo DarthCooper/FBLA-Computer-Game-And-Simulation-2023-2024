@@ -20,6 +20,8 @@ public class WaveSpawner : NetworkBehaviour
 
     public QuestPoint quest;
 
+    public string questID;
+
     private void Update()
     {
         CheckEnemiesLength();
@@ -34,6 +36,14 @@ public class WaveSpawner : NetworkBehaviour
         }else if(currentWave >= waves.Length && Enemies.Count <= 0)
         {
             Debug.Log("You have won!");
+        }
+        QuestStep[] steps= GameObject.FindObjectsOfType<QuestStep>();
+        for(int i = 0; i < steps.Length; i++)
+        {
+            if (steps[i].GetType().Equals(typeof(ArenaWaveStep)))
+            {
+                steps[i].GetComponent<ArenaWaveStep>().time = curTimeInWave;
+            }
         }
     }
 
@@ -68,10 +78,16 @@ public class WaveSpawner : NetworkBehaviour
             quest.StartQuest();
         }
         if(!isServer) { return; }
+        List<Transform> NewSpawnPoints = new List<Transform>(spawnPoints);
         for(int i = 0; i < waves[currentWave].enemies.Length; i++)
         {
-            int spawnpointIndex = Random.Range(0, spawnPoints.Length - 1);
-            GameObject enemy = Instantiate(waves[currentWave].enemies[i], spawnPoints[spawnpointIndex].position, Quaternion.identity);
+            if(NewSpawnPoints.Count <= 0)
+            {
+                NewSpawnPoints = new List<Transform>(spawnPoints);
+            }
+            int spawnpointIndex = Random.Range(0, NewSpawnPoints.Count - 1);
+            GameObject enemy = Instantiate(waves[currentWave].enemies[i], NewSpawnPoints[spawnpointIndex].position, Quaternion.identity);
+            NewSpawnPoints.RemoveAt(spawnpointIndex);
             NetworkServer.Spawn(enemy);
             Enemies.Add(enemy);
         }

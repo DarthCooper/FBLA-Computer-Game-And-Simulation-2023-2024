@@ -92,6 +92,20 @@ public class Inventory : MonoBehaviour, IDataPersistence
         return null;
     }
 
+    public int amountOfItem(Item item)
+    {
+        int amount = 0;
+        foreach (var heldItem in itemSlots)
+        {
+            var slot = heldItem.GetComponent<Slot>();
+            if(slot.item.itemName == item.itemName)
+            {
+                amount += slot.currentInSlot;
+            }
+        }
+        return amount;
+    }
+
     private void Update()
     {
         if(player != null)
