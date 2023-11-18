@@ -7,13 +7,24 @@ public class SceneSaver : MonoBehaviour, IDataPersistence
 {
     public string SceneToLoad = "Opening";
 
+    public string currentScene;
+
     public void LoadData(GameData data)
     {
         SceneToLoad = data.lastScene;
     }
 
+    void Update()
+    {
+        if(currentScene != SceneManager.GetActiveScene().name && Manager.Instance.settings.isSavable)
+        {
+            currentScene = SceneManager.GetActiveScene().name;
+        }
+    }
+
     public void SaveData(ref GameData data)
     {
-        data.lastScene = SceneManager.GetActiveScene().name;  
+        print("Saving");
+        data.lastScene = currentScene;
     }
 }

@@ -21,6 +21,9 @@ public class GameData
     public SerializableDictionary<string, float> EnemiesHealth;
     public SerializableDictionary<string, Vector3> EnemiesPos;
 
+    public SerializableDictionary<string, Vector3> NPCPos;
+    public SerializableDictionary<string, int> NPCStep;
+
     public string primaryWeapon;
     public string secondaryWeapon;
     public string ammo;
@@ -40,6 +43,8 @@ public class GameData
         itemsCollected = new SerializableDictionary<string, bool>();
         EnemiesHealth = new SerializableDictionary<string, float>();
         EnemiesPos = new SerializableDictionary<string, Vector3>();
+        NPCPos = new SerializableDictionary<string, Vector3>();
+        NPCStep = new SerializableDictionary<string, int>();
         primaryWeapon = string.Empty;
         secondaryWeapon = string.Empty;
         ammo = string.Empty;

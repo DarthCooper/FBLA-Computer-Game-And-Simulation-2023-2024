@@ -59,6 +59,7 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         print(dataPersistenceObjects.Count);
         LoadGame();
+        SaveGame();
     }
 
     public void OnSceneUnloaded(Scene scene)

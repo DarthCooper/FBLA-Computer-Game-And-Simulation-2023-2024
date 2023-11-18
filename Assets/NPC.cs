@@ -7,6 +7,8 @@ using Mirror;
 
 public class NPC : NetworkBehaviour
 {
+    public string NPCName;
+
     public NPCStep[] steps;
 
     public int currentStepIndex = 0;
@@ -90,8 +92,13 @@ public class NPC : NetworkBehaviour
         float distToTarget = Vector2.Distance(rb.position, target.position);
         if (distToTarget <= targetTolerance)
         {
-            StopMovement();
-            EndStep();
+            if(currentStepIndex >= steps.Length)
+            {
+                StopMovement();
+            }else
+            {
+                EndStep();
+            }
         }
     }
 

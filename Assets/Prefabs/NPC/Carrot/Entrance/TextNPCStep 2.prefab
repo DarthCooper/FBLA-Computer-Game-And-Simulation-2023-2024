@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
   text: Follow me, I'll explain when we're safe!
-  timeToDisplay: 4
+  timeToDisplay: 2
