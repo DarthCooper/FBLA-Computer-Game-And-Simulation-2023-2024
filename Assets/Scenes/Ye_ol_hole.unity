@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.52
+      value: 49.74
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -970,7 +970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 51.9
+      value: 56.5
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 9d5f089cbe4971d4cbd3aaafd0a17a00, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2018,7 +2018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 315df1dc56521dc4c978862a8aedb79a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.8
+      value: 52.6
       objectReference: {fileID: 0}
     - target: {fileID: 9173732031589095596, guid: 315df1dc56521dc4c978862a8aedb79a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2475,6 +2475,54 @@ PrefabInstance:
       value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 1104354811}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: steps.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[3]'
+      value: 
+      objectReference: {fileID: -8008837530163711470, guid: 29afd0522b7b340419e185833b66f35e, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[4]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 6d7e3192c71a2e141a82a4e0aacee054, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[5]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 0c31be2c30907e44799ec2ac82fdf326, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[6]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 7d747d4563a16874cba93bd6999bd058, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[7]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 180264674be4de447823cb58cd8188cb, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[8]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: e3205c00469fa8c4c8fe8fe42b96b348, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[9]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 79a8da74860a78f49aafefe331331873, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[10]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: b5bcb1f6f56de7d438f4d40b9a25cee0, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[11]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: b5bcb1f6f56de7d438f4d40b9a25cee0, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[12]'
+      value: 
+      objectReference: {fileID: -4265058691704152153, guid: e61d3fc3ebd9f144b879e5940a52210a, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: waypoints.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -2502,6 +2550,34 @@ PrefabInstance:
       propertyPath: 'waypoints.Array.data[5]'
       value: 
       objectReference: {fileID: 956228100}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1104354809}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableOnFinish
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NPC, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: OnFinishSteps.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8604830467323741491, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.9784312
@@ -2545,19 +2621,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2777627563745907192, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1104354811}
   m_SourcePrefab: {fileID: 100100000, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
 --- !u!114 &1104354809 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
   m_PrefabInstance: {fileID: 1104354808}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1104354810}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19382ee6c5c2bea4eb6721b325a2c456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1104354810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2777627563745907192, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+  m_PrefabInstance: {fileID: 1104354808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104354811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104354810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b4c49823bd6742838066a73b96ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questInfoForPoint: {fileID: 11400000, guid: 5a273fada44326c4294abf5254b91725, type: 2}
+  startPoint: 1
+  finishPoint: 1
+  currentQuestState: 0
 --- !u!1 &1121683355
 GameObject:
   m_ObjectHideFlags: 0
@@ -4171,6 +4271,14 @@ PrefabInstance:
       propertyPath: newScene
       value: Arena
       objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToFinish.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToFinish.Array.data[0]'
+      value: FollowTheCarrot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5065,6 +5173,26 @@ PrefabInstance:
     - target: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: newScene
+      value: Village
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: exitPos.x
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: exitPos.y
+      value: -11.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToFinish.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToFinish.Array.data[0]'
+      value: FollowTheCarrot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

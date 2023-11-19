@@ -21,4 +21,14 @@ public class MiscEvents
             onWaveEnemyKilled();
         }
     }
+
+    public event Action onPositionReached;
+
+    public void NpcPositionReached()
+    {
+        if(onPositionReached != null)
+        {
+            onPositionReached();
+        }
+    }
 }

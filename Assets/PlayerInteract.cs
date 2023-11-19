@@ -26,6 +26,10 @@ public class PlayerInteract : NetworkBehaviour
     bool canRead = false;
     public string message;
 
+    public bool PauseMenuOpen = false;
+    public GameObject pauseMenu;
+    bool canPause = false;
+
     public List<Interactable> interactables = new List<Interactable>();
     public Interactable interactable;
 
@@ -50,6 +54,15 @@ public class PlayerInteract : NetworkBehaviour
             JournalOpen = !JournalOpen;
         }
         canOpenJournal = context.ReadValueAsButton();
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if(context.ReadValueAsButton() && !canPause)
+        {
+            PauseMenuOpen = !PauseMenuOpen;
+        }
+        canPause = context.ReadValueAsButton();
     }
 
     public void Read(string message)
@@ -117,6 +130,15 @@ public class PlayerInteract : NetworkBehaviour
             SetReadingPage();
         }
         EnableDisableRead();
+    }
+
+    public void CheckPauseMenu()
+    {
+        while(pauseMenu == null || pauseMenu.name != "PauseMenu")
+        {
+            SetPauseMenu();
+        }
+        EnableDisablePauseMenu();
     }
 
     public void SetInventory()
@@ -201,6 +223,34 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void SetPauseMenu()
+    {
+        if(!pauseMenu &&  Manager.Instance.settings.isPlayable)
+        {
+            pauseMenu = GameObject.Find("Canvas");
+            if(pauseMenu)
+            {
+                pauseMenu = pauseMenu.transform.Find("PauseMenu").gameObject;
+            }
+        }
+    }
+
+    public void EnableDisablePauseMenu()
+    {
+        foreach (var image in pauseMenu.GetComponentsInChildren<Image>())
+        {
+            image.enabled = PauseMenuOpen;
+        }
+        foreach (var image in pauseMenu.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = PauseMenuOpen;
+        }
+        foreach (var text in pauseMenu.GetComponentsInChildren<TMP_Text>())
+        {
+            text.enabled = PauseMenuOpen;
+        }
+    }
+
     public void EnableDisableRead()
     {
         if(reading && readingPage)
@@ -249,6 +299,7 @@ public class PlayerInteract : NetworkBehaviour
         SetInventory();
         SetJournal();
         SetReadingPage();
+        SetPauseMenu();
         if(interactables.Count > 0)
         {
             interactable = interactables[Mathf.Abs((int)mouse) % interactables.Count];
@@ -286,6 +337,10 @@ public class PlayerInteract : NetworkBehaviour
         if(readingPage)
         {
             CheckReading();
+        }
+        if(pauseMenu)
+        {
+            CheckPauseMenu();
         }
     }
 }

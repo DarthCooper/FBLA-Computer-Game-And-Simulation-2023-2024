@@ -25,7 +25,7 @@ public abstract class QuestStep : NetworkBehaviour
         }
     }
 
-    protected void FinishQuestStep()
+    public void FinishQuestStep()
     {
         if(!isFinished)
         {

@@ -14,7 +14,7 @@ public class QuestPoint : MonoBehaviour
 
     private bool playerIsNear = false;
     private string questId;
-    private QuestState currentQuestState;
+    public QuestState currentQuestState;
 
     private QuestIcon questIcon;
 

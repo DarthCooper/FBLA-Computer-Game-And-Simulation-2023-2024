@@ -60,6 +60,10 @@ public class Manager : NetworkBehaviour
 
     private void Update()
     {
+        if(Instance != this)
+        {
+            Instance = this;
+        }
         if(settings == null)
         {
             FindSettings();

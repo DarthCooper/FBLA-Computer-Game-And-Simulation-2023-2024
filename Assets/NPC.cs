@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Pathfinding;
 using Mirror;
+using UnityEngine.Events;
 
 public class NPC : NetworkBehaviour
 {
@@ -36,10 +37,16 @@ public class NPC : NetworkBehaviour
 
     public Transform[] waypoints;
 
+    public UnityEvent OnFinishSteps;
+
+    public QuestPoint quest;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+
+        quest = GetComponent<QuestPoint>();
 
         if (!isServer) { return; }
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -77,29 +84,29 @@ public class NPC : NetworkBehaviour
         Vector2 force = direction * speed * Time.fixedDeltaTime;
 
 
-        if (canMove)
-        {
-            rb.AddForce(force);
-        }
-
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
-
-        float distToTarget = Vector2.Distance(rb.position, target.position);
-        if (distToTarget <= targetTolerance)
+        if (canMove)
         {
-            if(currentStepIndex >= steps.Length)
+            rb.AddForce(force);
+
+            float distToTarget = Vector2.Distance(rb.position, target.position);
+            if (distToTarget <= targetTolerance)
             {
-                StopMovement();
-            }else
-            {
-                EndStep();
+                if(currentStepIndex >= steps.Length)
+                {
+                    StopMovement();
+                }else
+                {
+                    EndStep();
+                }
             }
         }
+
     }
 
 
@@ -126,6 +133,10 @@ public class NPC : NetworkBehaviour
     public void EndStep()
     {
         currentStepIndex++;
+        if (currentStepIndex >= steps.Length)
+        {
+            OnFinishSteps.Invoke();
+        }
         ExecuteStep();
     }
 
@@ -158,5 +169,17 @@ public class NPC : NetworkBehaviour
     {
         canMove = false;
         rb.velocity = Vector3.zero;
+    }
+
+    public void DisableOnFinish()
+    {
+        foreach(var component in GetComponentsInChildren<SpriteRenderer>())
+        {
+            component.enabled = false;
+        }
+        foreach (var component in GetComponentsInChildren<Collider2D>())
+        {
+            component.enabled = false;
+        }
     }
 }

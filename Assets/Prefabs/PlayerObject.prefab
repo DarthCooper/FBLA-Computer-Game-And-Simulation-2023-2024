@@ -157,47 +157,47 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 7930d630-9dcc-4240-83a1-322089173317
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f526a409-2c19-4b68-bdb1-28fba4339e12
-    m_ActionName: Player/Look[/Mouse/delta]
+    m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 6c7bd8f4-a358-454d-b2e7-81a3f69207d4
-    m_ActionName: Player/Fire[/Mouse/leftButton]
+    m_ActionName: 'Player/Fire[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 9a682470-0b9e-45b7-8e3b-cb0819e777b3
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: f793f307-2455-4700-9fa4-2bc0487aaec7
-    m_ActionName: UI/Submit[/Keyboard/enter]
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 4038171e-7f22-4f21-aa03-6f2c8e529cc8
-    m_ActionName: UI/Cancel[/Keyboard/escape]
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 13fa1f0e-5b46-499c-beee-759f64207979
-    m_ActionName: UI/Point[/Mouse/position]
+    m_ActionName: 'UI/Point[/Mouse/position]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b5fe9e83-dd0a-40ba-ba24-a56475e07f44
-    m_ActionName: UI/Click[/Mouse/leftButton]
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: b766a23a-22a0-4f80-afa0-a4632ad02f39
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: fa1aabe6-c53f-44dc-8b33-8cb247a3b580
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 310148d6-cc79-48dc-98fa-bc5482606473
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: bbcbf4cf-bda5-4682-b484-af9c4e577bdf
@@ -221,7 +221,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 151345dd-44f6-4e33-ab10-14d722ade610
-    m_ActionName: Player/PrimaryAttack[/Mouse/leftButton]
+    m_ActionName: 'Player/PrimaryAttack[/Mouse/leftButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1740806932920169665}
@@ -237,7 +237,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 77fccff8-ec29-4d77-afc7-a5e906a67517
-    m_ActionName: Player/Dash[/Keyboard/space]
+    m_ActionName: 'Player/Dash[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7845306695929123669}
@@ -253,7 +253,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ff0c24dd-868d-496d-9c46-afeff84d60bb
-    m_ActionName: Player/Interact[/Keyboard/e]
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3634896930530759376}
@@ -285,7 +285,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: f5614c73-2ffa-433f-b74e-7371d4540a95
-    m_ActionName: Player/Aim[/Mouse/middleButton]
+    m_ActionName: 'Player/Aim[/Mouse/middleButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1740806932920169665}
@@ -301,7 +301,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 1e59e4bf-a0a1-4695-b0bd-876c1af4dab0
-    m_ActionName: Player/Sprint[/Keyboard/shift]
+    m_ActionName: 'Player/Sprint[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7845306695929123669}
@@ -333,7 +333,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: c677a8db-7f9f-4d24-a29a-dffb9da3f360
-    m_ActionName: Player/UseConsumable[/Keyboard/h]
+    m_ActionName: 'Player/UseConsumable[/Keyboard/h]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7845306695929123669}
@@ -349,7 +349,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: edb50b63-4f59-4fab-afe6-0b77af921d9f
-    m_ActionName: Player/Journal[/Keyboard/j]
+    m_ActionName: 'Player/Journal[/Keyboard/j]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7845306695929123669}
@@ -365,7 +365,23 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: f186880e-5e96-4850-8c21-0604eac282ad
-    m_ActionName: Player/MouseWheel[/Mouse/scroll/y]
+    m_ActionName: 'Player/MouseWheel[/Mouse/scroll/y]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7845306695929123669}
+        m_TargetAssemblyTypeName: PlayerInteract, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a26a1f4d-d3af-4762-a677-e21514477288
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -485,7 +501,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &4439315438948236271
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -499,6 +515,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -566,6 +583,7 @@ CapsuleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945422061647966874}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -589,7 +607,8 @@ CapsuleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.11808205}
   m_Size: {x: 0.5, y: 0.9277048}
   m_Direction: 0
@@ -633,6 +652,8 @@ MonoBehaviour:
   reading: 0
   readingPage: {fileID: 0}
   message: 
+  PauseMenuOpen: 0
+  pauseMenu: {fileID: 0}
   interactables: []
   interactable: {fileID: 0}
 --- !u!114 &1051821159834773036
@@ -677,6 +698,10 @@ MonoBehaviour:
   Consumable: {fileID: 0}
   primaryTest: 
   setData: 0
+  PrimaryWeaponSlot: {fileID: 0}
+  PrimaryConsumableSlot: {fileID: 0}
+  SecondaryWeaponSlot: {fileID: 0}
+  SecondaryConsumableSlot: {fileID: 0}
 --- !u!1 &4201950648879876081
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +783,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -844,6 +871,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -887,6 +916,7 @@ PolygonCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6083224555241550781}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -910,7 +940,8 @@ PolygonCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}

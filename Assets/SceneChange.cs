@@ -7,11 +7,12 @@ public class SceneChange : MonoBehaviour
     public string[] newSceneNames;
     bool changedScene = false;
 
-    public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName, float xPos = 0, float yPos = 0)
     {
         if(!changedScene)
         {
-            GameObject.Find("LocalGamePlayer").transform.position = Vector3.zero;
+            Vector3 pos = new Vector3 (xPos, yPos);
+            GameObject.Find("LocalGamePlayer").transform.position = pos;
             DataPersistenceManager.instance.SaveGame();
             changedScene = true;
             GetComponent<SceneSettings>().ChangeScene(sceneName);

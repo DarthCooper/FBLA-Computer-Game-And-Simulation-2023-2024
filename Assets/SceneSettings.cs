@@ -14,6 +14,14 @@ public class SceneSettings : MonoBehaviour
         sceneChanger = GetComponent<SceneChange>();
     }
 
+    private void Update()
+    {
+        if(!sceneChanger)
+        {
+            sceneChanger = GetComponent<SceneChange>();
+        }
+    }
+
     public void ChangeScene(string name)
     {
        Manager.Instance.LoadNewLevel(name);

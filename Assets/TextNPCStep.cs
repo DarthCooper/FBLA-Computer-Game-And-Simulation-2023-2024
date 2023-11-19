@@ -9,6 +9,8 @@ public class TextNPCStep : NPCStep
 
     public float timeToDisplay;
 
+    public bool stopMovement;
+
     public override void Execute()
     {
         if(npc == null)
@@ -16,6 +18,10 @@ public class TextNPCStep : NPCStep
             npc = GetComponentInParent<NPC>();
         }
         npc.DisplayText(text);
+        if(stopMovement)
+        {
+            npc.StopMovement();
+        }
     }
 
     private void Update()
