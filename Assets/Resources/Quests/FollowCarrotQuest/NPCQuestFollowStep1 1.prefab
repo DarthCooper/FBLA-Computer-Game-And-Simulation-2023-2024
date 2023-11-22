@@ -65,6 +65,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  questStepID: 2
   questId: FollowTheCarrot
   progress: 
   maxProgress: 0

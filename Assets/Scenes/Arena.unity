@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 374358566}
   - component: {fileID: 374358565}
   - component: {fileID: 374358564}
+  - component: {fileID: 374358567}
   m_Layer: 3
   m_Name: Rock (3)
   m_TagString: Untagged
@@ -765,6 +766,33 @@ SpriteShapeRenderer:
     m_Center: {x: 0.9274547, y: -0.8893008, z: 0}
     m_Extent: {x: 3.7351785, y: 4.39825, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &374358567
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374358562}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &375474254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1112,6 +1140,7 @@ GameObject:
   - component: {fileID: 727018350}
   - component: {fileID: 727018349}
   - component: {fileID: 727018348}
+  - component: {fileID: 727018351}
   m_Layer: 3
   m_Name: Rock (1)
   m_TagString: Untagged
@@ -1395,6 +1424,33 @@ SpriteShapeRenderer:
     m_Center: {x: -1.3760214, y: 0.086208105, z: 0}
     m_Extent: {x: 2.2205527, y: 3.4184844, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &727018351
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727018346}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &759691871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2392,7 @@ GameObject:
   - component: {fileID: 1065114016}
   - component: {fileID: 1065114018}
   - component: {fileID: 1065114017}
+  - component: {fileID: 1065114019}
   m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
@@ -2479,6 +2536,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1065114019
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065114015}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1081297918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2886,6 +2970,7 @@ GameObject:
   - component: {fileID: 1270386505}
   - component: {fileID: 1270386504}
   - component: {fileID: 1270386503}
+  - component: {fileID: 1270386506}
   m_Layer: 3
   m_Name: Rock (2)
   m_TagString: Untagged
@@ -3177,6 +3262,33 @@ SpriteShapeRenderer:
     m_Center: {x: 0.528806, y: -0.9420123, z: 0}
     m_Extent: {x: 4.12538, y: 4.446705, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &1270386506
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270386501}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1307899202
 GameObject:
   m_ObjectHideFlags: 0
@@ -3421,6 +3533,7 @@ GameObject:
   - component: {fileID: 1686781988}
   - component: {fileID: 1686781987}
   - component: {fileID: 1686781986}
+  - component: {fileID: 1686781989}
   m_Layer: 3
   m_Name: Rock
   m_TagString: Untagged
@@ -3692,6 +3805,33 @@ SpriteShapeRenderer:
     m_Center: {x: -0.67012477, y: 1.0064219, z: 0}
     m_Extent: {x: 2.1562243, y: 2.5019672, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &1686781989
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686781984}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1699925726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,6 +4079,7 @@ GameObject:
   - component: {fileID: 1843678882}
   - component: {fileID: 1843678881}
   - component: {fileID: 1843678880}
+  - component: {fileID: 1843678883}
   m_Layer: 3
   m_Name: Rock (4)
   m_TagString: Untagged
@@ -4254,6 +4395,33 @@ SpriteShapeRenderer:
     m_Center: {x: 1.608643, y: -1.68202, z: 0}
     m_Extent: {x: 3.0566225, y: 3.605531, z: 0}
   m_SpriteSortPoint: 0
+--- !u!50 &1843678883
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843678878}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1857652055
 PrefabInstance:
   m_ObjectHideFlags: 0

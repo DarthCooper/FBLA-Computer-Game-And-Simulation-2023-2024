@@ -48,6 +48,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  questStepID: 1
   questId: CollectArrowsQuest
   progress: 
   maxProgress: 14/14

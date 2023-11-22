@@ -6,6 +6,7 @@ using Mirror;
 public abstract class QuestStep : NetworkBehaviour
 {
     private bool isFinished = false;
+    public string questStepID;
     public string questId;
     private int stepIndex = 0;
 
@@ -32,6 +33,7 @@ public abstract class QuestStep : NetworkBehaviour
             isFinished = true;
             Manager.Instance.questEvents.AdvanceQuest(questId);
             Destroy(gameObject);
+            Journal.Instance.RemoveQuest(quest);
         }
     }
 

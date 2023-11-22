@@ -35,9 +35,16 @@ public class Journal : MonoBehaviour, IDataPersistence
 
     public void AddQuest(Quest quest)
     {
-        if(selectedSlot != null)
+        if(!quest.info.previouslyLoaded)
         {
-            unselectQuest();
+            if(quest.info.autoEquip)
+            {
+                if(selectedSlot != null)
+                {
+                    fullyUnselectQuest();
+                }
+                lastSelectedQuestName = quest.info.displayName;
+            }
         }
         questSteps.Add(quest);
         DisplayQuests();

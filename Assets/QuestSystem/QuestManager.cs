@@ -143,9 +143,12 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         bool alreadySpawned = false;
         foreach (var step in steps)
         {
-            if (step.questId == questStep.questId)
+            if(step.questId == questStep.questId)
             {
-                alreadySpawned = true;
+                if (step.questStepID == questStep.questStepID)
+                {
+                    alreadySpawned = true;
+                }
             }
         }
         return alreadySpawned;

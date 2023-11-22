@@ -18,7 +18,8 @@ public class Quest
         this.state = QuestState.REQUIREMENTS_NOT_MET;
         this.currentQuestStepIndex = 0;
         this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
-        for(int i = 0; i < questStepStates.Length; i++)
+        this.info.previouslyLoaded = false;
+        for (int i = 0; i < questStepStates.Length; i++)
         {
             questStepStates[i] = new QuestStepState();
         }
@@ -30,6 +31,7 @@ public class Quest
         this.state = questState;
         this.currentQuestStepIndex = currentQuestStepIndex;
         this.questStepStates = questStepStates;
+        this.info.previouslyLoaded = true;
 
         if (this.questStepStates.Length != this.info.questStepPrefabs.Length)
         {

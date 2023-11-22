@@ -12,6 +12,10 @@ public class QuestInfoSO : ScriptableObject
 
     public string questDescription;
 
+    public bool autoEquip;
+
+    public bool previouslyLoaded;
+
     [Header("Requirements")]
     public int levelRequirement;
     public QuestInfoSO[] questPrerequisites;
