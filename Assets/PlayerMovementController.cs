@@ -76,6 +76,12 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
                 }
                 Movement();
             }
+        }else
+        {
+            if(PlayerModel.activeSelf == true)
+            {
+                PlayerModel.SetActive(false);
+            }
         }
     }
 

@@ -73,6 +73,8 @@ MonoBehaviour:
   NPCnames:
   - Carrot
   - Carrot2
+  - Carrot3
+  - Carrot4
   npc: {fileID: 0}
   player: {fileID: 0}
   tolerance: 5

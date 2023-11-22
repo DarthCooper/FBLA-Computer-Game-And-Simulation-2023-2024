@@ -26,5 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Village.unity
     guid: a514c990ecf666446b556436a6be00f0
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/Explanation.unity
+    guid: c22f7bef485853e4fa47626173f3e458
+  - enabled: 1
+    path: Assets/Scenes/TownHall.unity
+    guid: 7b45a6b9274b23b43813e37585b2142e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

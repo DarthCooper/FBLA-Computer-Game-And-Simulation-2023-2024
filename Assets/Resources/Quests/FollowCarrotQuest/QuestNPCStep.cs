@@ -65,6 +65,13 @@ public class QuestNPCStep : QuestStep
         NPC[] npcs = GameObject.FindObjectsByType<NPC>(FindObjectsSortMode.None);
         foreach (NPC npc in npcs)
         {
+            if(NPCManager.NPCsCompleted.ContainsKey(npc.NPCName))
+            {
+                if (NPCManager.NPCsCompleted[npc.NPCName])
+                {
+                    continue;
+                }
+            }
             foreach (string name in NPCnames)
             {
                 if(npc.NPCName == name)

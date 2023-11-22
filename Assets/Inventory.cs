@@ -248,16 +248,19 @@ public class Inventory : MonoBehaviour, IDataPersistence
         Slot usedSlot = null;
         foreach (var slot in itemSlots)
         {
-            if (slot.GetComponent<Slot>().item)
+            if(slot.GetComponent<Slot>())
             {
-                if(item)
+                if (slot.GetComponent<Slot>().item)
                 {
-                    if (slot.GetComponent<Slot>().item.itemName == item.itemName)
+                    if(item)
                     {
-                        usedSlot = slot.GetComponent<Slot>();
+                        if (slot.GetComponent<Slot>().item.itemName == item.itemName)
+                        {
+                            usedSlot = slot.GetComponent<Slot>();
+                        }
                     }
                 }
-            }
+            } 
         }
         return usedSlot;
     }

@@ -41,10 +41,10 @@ public class DataPersistantNPC : MonoBehaviour, IDataPersistence
                 if(id == NPC.NPCName)
                 {
                     NPC.currentStepIndex = NPCStep[id];
-                }
-                if (NPCStep[id] >= NPC.steps.Length)
-                {
-                    NPC.OnFinishSteps.Invoke();
+                    if (NPCStep[id] >= NPC.steps.Length)
+                    {
+                        NPC.OnFinishSteps.Invoke();
+                    }
                 }
             }
         }

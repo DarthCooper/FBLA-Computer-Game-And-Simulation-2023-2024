@@ -10,6 +10,8 @@ public class NPC : NetworkBehaviour
 {
     public string NPCName;
 
+    public string[] prerequisites; 
+
     public NPCStep[] steps;
 
     public int currentStepIndex = 0;
@@ -40,6 +42,8 @@ public class NPC : NetworkBehaviour
     public UnityEvent OnFinishSteps;
 
     public QuestPoint quest;
+
+    bool canRun = true;
 
     void Start()
     {
@@ -73,6 +77,11 @@ public class NPC : NetworkBehaviour
     private void Update()
     {
         move();
+    }
+
+    private void Awake()
+    {
+        checkIfRequirementsMet();
     }
 
     public void move()
@@ -109,9 +118,35 @@ public class NPC : NetworkBehaviour
 
     }
 
+    public bool checkIfRequirementsMet()
+    {
+        foreach (var pre in prerequisites)
+        {
+            if (NPCManager.NPCsCompleted.ContainsKey(pre))
+            {
+                if (!NPCManager.NPCsCompleted[pre])
+                {
+                    DisableOnFinish();
+                    return false;
+                }
+                else
+                {
+                    EnableOnFinish();
+                }
+            }
+            else
+            {
+                DisableOnFinish();
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void ExecuteStep()
     {
+        if(!checkIfRequirementsMet()) { return; }
+        if(!canRun) { return; }
         if(currentStep)
         {
             Destroy(currentStep.gameObject);
@@ -136,6 +171,8 @@ public class NPC : NetworkBehaviour
         if (currentStepIndex >= steps.Length)
         {
             OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
+            print("finished");
         }
         ExecuteStep();
     }
@@ -173,6 +210,7 @@ public class NPC : NetworkBehaviour
 
     public void DisableOnFinish()
     {
+        canRun = false;
         foreach(var component in GetComponentsInChildren<SpriteRenderer>())
         {
             component.enabled = false;
@@ -180,6 +218,19 @@ public class NPC : NetworkBehaviour
         foreach (var component in GetComponentsInChildren<Collider2D>())
         {
             component.enabled = false;
+        }
+    }
+
+    public void EnableOnFinish()
+    {
+        canRun = true;
+        foreach (var component in GetComponentsInChildren<SpriteRenderer>())
+        {
+            component.enabled = true;
+        }
+        foreach (var component in GetComponentsInChildren<Collider2D>())
+        {
+            component.enabled = true;
         }
     }
 }
