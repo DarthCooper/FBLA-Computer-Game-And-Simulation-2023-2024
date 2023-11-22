@@ -35,6 +35,10 @@ public class Journal : MonoBehaviour, IDataPersistence
 
     public void AddQuest(Quest quest)
     {
+        if(selectedSlot != null)
+        {
+            unselectQuest();
+        }
         questSteps.Add(quest);
         DisplayQuests();
     }
@@ -92,6 +96,23 @@ public class Journal : MonoBehaviour, IDataPersistence
         questNameText.text = selectedSlot.questName;
         questProgressText.text = selectedSlot.progressText.text;
         lastSelectedQuestName = selectedSlot.questName;
+    }
+
+    public void unselectQuest()
+    {
+        selectedSlot = null;
+        questNameText.text = string.Empty;
+        questProgressText.text = string.Empty;
+        lastSelectedQuestName = string.Empty;
+    }
+
+    public void fullyUnselectQuest()
+    {
+        selectedSlot = null;
+        questNameText.text = string.Empty;
+        questProgressText.text = string.Empty;
+        lastSelectedQuestName = string.Empty;
+        lastSelectedQuestName = string.Empty;
     }
 
     public void LoadData(GameData data)

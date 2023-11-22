@@ -45,8 +45,9 @@ public class QuestPoint : MonoBehaviour
         }
         if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
+            print("StartingQuest");
             Manager.Instance.questEvents.StartQuest(questId);
-            if(GetComponent<Interactable>())
+            if(GetComponent<Interactable>() && !finishPoint)
             {
                 GetComponent<Interactable>().beenInteractedWith = true;
             }

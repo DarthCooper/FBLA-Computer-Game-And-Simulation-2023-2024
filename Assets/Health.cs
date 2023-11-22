@@ -19,6 +19,8 @@ public class Health : NetworkBehaviour
     bool needsToSetHealth;
     float savedHealth;
 
+    public GameObject[] itemsToSpawn;
+
     public void TakeDamage(float damage)
     {
         CmdSetHealth(this.health - damage);
@@ -70,8 +72,22 @@ public class Health : NetworkBehaviour
         }
     }
 
+    [Command(requiresAuthority = false)]
+    public void CmdSpawnItems()
+    {
+        foreach (var item in itemsToSpawn)
+        {
+            var Item = Instantiate(item, transform.position, transform.rotation);
+            NetworkServer.Spawn(Item);
+        }
+    }
+
     void checkIfDead()
     {
+        if (health <= 0 && itemsToSpawn.Length > 0 && gameObject.activeSelf)
+        {
+            CmdSpawnItems();
+        }
         if (health <= 0 && !canBeRevived)
         {
             gameObject.SetActive(false);

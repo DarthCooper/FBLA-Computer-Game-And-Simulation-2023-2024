@@ -1325,6 +1325,7 @@ MonoBehaviour:
   - {fileID: 6402922954368474776, guid: 9cadeceaabf54c745b4b8789ffac95df, type: 3}
   - {fileID: 6402922954368474776, guid: 8bd796afcce40fe47bf88926db8b6269, type: 3}
   - {fileID: 6402922954368474776, guid: 24edc4bcc579784449090743726d24f7, type: 3}
+  - {fileID: 6402922954368474776, guid: c114c07ec3d6da04b8b24690f29b8940, type: 3}
   SelectedSlot: {fileID: 0}
   PrimarySlot: {fileID: 1345420196398992778}
   SecondarySlot: {fileID: 3984438303434881436}
@@ -4158,7 +4159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00046268303}
+  m_AnchoredPosition: {x: 0, y: -0.00000958129}
   m_SizeDelta: {x: 0, y: 99.9006}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5277513089207828490

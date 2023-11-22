@@ -1032,6 +1032,7 @@ MonoBehaviour:
   questInfoForPoint: {fileID: 11400000, guid: 0a9cd73719514fa49b811b17233901df, type: 2}
   startPoint: 1
   finishPoint: 1
+  currentQuestState: 0
 --- !u!58 &629715117
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3347,6 +3348,67 @@ Transform:
   - {fileID: 1857652057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1659013488
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405500884971123571, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: sceneId
+      value: 1717797391
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737820616180537101, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_Name
+      value: QuestPoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
 --- !u!1 &1686781984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,6 +3858,75 @@ Transform:
   - {fileID: 1307899203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1830572018
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753725913187099561, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821331997875850919, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: startPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821331997875850919, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: finishPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6405500884971123571, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: sceneId
+      value: 560280549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8737820616180537101, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
+      propertyPath: m_Name
+      value: QuestPoint (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3b26852fd93d4c448f3ce467ef0b1e1, type: 3}
 --- !u!1 &1843678878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadQuestState: 1
+  steps: []
 --- !u!4 &1962190450
 Transform:
   m_ObjectHideFlags: 0
@@ -4960,3 +5092,5 @@ SceneRoots:
   - {fileID: 2079636400}
   - {fileID: 629715115}
   - {fileID: 1759014505}
+  - {fileID: 1659013488}
+  - {fileID: 1830572018}

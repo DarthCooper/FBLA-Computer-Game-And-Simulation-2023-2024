@@ -43,8 +43,12 @@ public class QuestNPCStep : QuestStep
         if(npc && player)
         {
             distance = Vector3.Distance(npc.transform.position, player.transform.position);
+            SetProgress();
         }
-        SetProgress();
+        else
+        {
+            progress = "In another area";
+        }
         if(distance < tolerance && waiting)
         {
             FinishQuestStep();
@@ -84,5 +88,7 @@ public class QuestNPCStep : QuestStep
 
     protected override void SetQuestStepState(string state)
     {
+        this.distance = System.Int32.Parse(state);
+        UpdateState();
     }
 }

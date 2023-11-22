@@ -7,10 +7,14 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour, IDataPersistence
 {
+    public static QuestManager instance;
+
     [Header("Config")]
     [SerializeField] private bool loadQuestState = true;
 
     private Dictionary<string, Quest> questMap;
+
+    public List<QuestStep> steps;
 
     private int currentPlayerLevel = 0;
 
@@ -23,6 +27,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     private void Awake()
     {
         questMap = CreateQuestMap();
+        instance = this;
     }
 
     private void OnEnable()
@@ -59,12 +64,26 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             if (quest.state == QuestState.IN_PROGRESS)
             {
                 quest.InstatiateCurrentQuestStep(this.transform);
-            }else if(quest.state == QuestState.CAN_FINISH)
+            }
+            else if(quest.state == QuestState.CAN_FINISH)
             {
                 Journal.Instance.AddQuest(quest);
             }
             ChangeQuestState(quest.info.id, state);
         }
+    }
+
+    public void CheckToSpawnSpecificQuest(Quest quest, QuestState state)
+    {
+        if (quest.state == QuestState.IN_PROGRESS)
+        {
+            quest.InstatiateCurrentQuestStep(this.transform);
+        }
+        else if (quest.state == QuestState.CAN_FINISH)
+        {
+            Journal.Instance.AddQuest(quest);
+        }
+        ChangeQuestState(quest.info.id, state);
     }
 
     private void ChangeQuestState(string id, QuestState state)
@@ -114,6 +133,24 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         }
     }
 
+    public void AddQuestStep(QuestStep step)
+    {
+        steps.Add(step);
+    }
+
+    public bool DuplicateQuestStep(QuestStep questStep)
+    {
+        bool alreadySpawned = false;
+        foreach (var step in steps)
+        {
+            if (step.questId == questStep.questId)
+            {
+                alreadySpawned = true;
+            }
+        }
+        return alreadySpawned;
+    }
+
     public void CheckLoadData()
     {
         if (needToLoad && data != null)
@@ -121,7 +158,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             questMap = CreateQuestMap();
             foreach (var quest in questMap.Values)
             {
-                CheckToSpawnQuest(quest.state);
+                CheckToSpawnSpecificQuest(quest, quest.state);
             }
         }
     }
@@ -136,7 +173,6 @@ public class QuestManager : MonoBehaviour, IDataPersistence
 
     private void AdvanceQuest(string id)
     {
-        print(id);
         Quest quest = GetQuestById(id);
         quest.MoveToNextStep();
         if(quest.CurrentStepExists())
@@ -223,6 +259,10 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             {
                 string serializedData = data.questData[questInfo.id];
                 QuestData questData = JsonUtility.FromJson<QuestData>(serializedData);
+                if(questData.state == QuestState.REQUIREMENTS_NOT_MET)
+                {
+                    return quest = new Quest(questInfo);
+                }
                 quest = new Quest(questInfo, questData.state, questData.questStepIndex, questData.questStepStates);
             }else
             {

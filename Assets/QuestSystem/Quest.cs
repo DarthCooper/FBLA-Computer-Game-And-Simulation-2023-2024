@@ -55,12 +55,12 @@ public class Quest
     public void InstatiateCurrentQuestStep(Transform parentTransform)
     {
         GameObject questStepPrefab = GetCurrentQuestStepPrefab();
-        if (questStepPrefab != null)
+        if (questStepPrefab != null && !QuestManager.instance.DuplicateQuestStep(questStepPrefab.GetComponent<QuestStep>()))
         {
             QuestStep questStep = Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
-            //NetworkServer.Spawn(questStep.gameObject);
             questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state, this);
             questSteps.Add(questStep);
+            QuestManager.instance.AddQuestStep(questStep);
             Journal.Instance.AddQuest(this);
         }
     }
