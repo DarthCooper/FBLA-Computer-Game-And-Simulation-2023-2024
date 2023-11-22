@@ -143,6 +143,7 @@
     <Compile Include="Assets\Manager.cs" />
     <Compile Include="Assets\QuestSystem\Quest.cs" />
     <Compile Include="Assets\DataPersistence\DataPersistenceManager.cs" />
+    <Compile Include="Assets\Shop.cs" />
     <Compile Include="Assets\DataPersistantNPC.cs" />
     <Compile Include="Assets\QuestSystem\QuestInfoSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -158,12 +159,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\QuestSystem\QuestStep.cs" />
+    <Compile Include="Assets\ShopSlot.cs" />
     <Compile Include="Assets\TransitionInteractable.cs" />
     <Compile Include="Assets\GetClosestTarget.cs" />
     <Compile Include="Assets\WaveSpawner.cs" />
     <Compile Include="Assets\SceneSaver.cs" />
     <Compile Include="Assets\LobbyDataEntry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\ShopInteract.cs" />
     <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\DataPersistantEnemy.cs" />
     <Compile Include="Assets\QuestSystem\QuestManager.cs" />

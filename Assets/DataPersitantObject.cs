@@ -31,6 +31,7 @@ public class DataPersitantObject : MonoBehaviour, IDataPersistence
     {
         foreach(var item in items)
         {
+            if(!item) { continue; }
             if (data.itemsCollected.ContainsKey(item.id))
             {
                 data.itemsCollected.Remove(item.id);

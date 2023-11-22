@@ -26,6 +26,10 @@ public class PlayerInteract : NetworkBehaviour
     bool canRead = false;
     public string message;
 
+    public bool shopOpen = false;
+    public GameObject shop;
+    bool canOpenShop = false;
+
     public bool PauseMenuOpen = false;
     public GameObject pauseMenu;
     bool canPause = false;
@@ -40,7 +44,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void OnInventory(InputAction.CallbackContext context)
     {
-        if(context.ReadValueAsButton() && !canOpenInventory)
+        if (context.ReadValueAsButton() && !canOpenInventory)
         {
             InventoryOpen = !InventoryOpen;
         }
@@ -49,7 +53,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void OnJournal(InputAction.CallbackContext context)
     {
-        if(context.ReadValueAsButton() && !canOpenJournal)
+        if (context.ReadValueAsButton() && !canOpenJournal)
         {
             JournalOpen = !JournalOpen;
         }
@@ -58,7 +62,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        if(context.ReadValueAsButton() && !canPause)
+        if (context.ReadValueAsButton() && !canPause)
         {
             PauseMenuOpen = !PauseMenuOpen;
         }
@@ -67,7 +71,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void Read(string message)
     {
-        if(!canRead)
+        if (!canRead)
         {
             reading = !reading;
         }
@@ -75,9 +79,23 @@ public class PlayerInteract : NetworkBehaviour
         canRead = true;
     }
 
+    public void Shop()
+    {
+        if (!canOpenShop)
+        {
+            shopOpen = !shopOpen;
+        }
+        canOpenShop = true;
+    }
+
     public void ResetCanRead()
     {
         canRead = false;
+    }
+
+    public void ResetCanOpenShop()
+    {
+        canOpenShop = false;
     }
 
     public void OnMouseScroll(InputAction.CallbackContext context)
@@ -87,14 +105,14 @@ public class PlayerInteract : NetworkBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<Interactable>() != null)
+        if (collision.gameObject.GetComponent<Interactable>() != null)
         {
             interactables.Add(collision.gameObject.GetComponent<Interactable>());
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<Interactable>() != null)
+        if (collision.gameObject.GetComponent<Interactable>() != null)
         {
             interactables.Remove(collision.gameObject.GetComponent<Interactable>());
             collision.gameObject.GetComponent<Interactable>().ChangeSelectableView(false);
@@ -125,16 +143,25 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckReading()
     {
-        while(readingPage == null ||  readingPage.name != "Sign")
+        while (readingPage == null || readingPage.name != "Sign")
         {
             SetReadingPage();
         }
         EnableDisableRead();
     }
 
+    public void CheckShop()
+    {
+        while (shop == null || shop.name != "PlayerShop")
+        {
+            SetShop();
+        }
+        EnableDisableShop();
+    }
+
     public void CheckPauseMenu()
     {
-        while(pauseMenu == null || pauseMenu.name != "PauseMenu")
+        while (pauseMenu == null || pauseMenu.name != "PauseMenu")
         {
             SetPauseMenu();
         }
@@ -225,10 +252,10 @@ public class PlayerInteract : NetworkBehaviour
 
     public void SetPauseMenu()
     {
-        if(!pauseMenu &&  Manager.Instance.settings.isPlayable)
+        if (!pauseMenu && Manager.Instance.settings.isPlayable)
         {
             pauseMenu = GameObject.Find("Canvas");
-            if(pauseMenu)
+            if (pauseMenu)
             {
                 pauseMenu = pauseMenu.transform.Find("PauseMenu").gameObject;
             }
@@ -253,10 +280,10 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableRead()
     {
-        if(reading && readingPage)
+        if (reading && readingPage)
         {
             readingPage.GetComponentInParent<ReadPage>().SetMessage(message);
-        }else if(readingPage)
+        } else if (readingPage)
         {
             readingPage.GetComponentInParent<ReadPage>().SetMessage("");
         }
@@ -271,6 +298,22 @@ public class PlayerInteract : NetworkBehaviour
         foreach (var text in readingPage.GetComponentsInChildren<TMP_Text>())
         {
             text.enabled = reading;
+        }
+    }
+
+    public void EnableDisableShop()
+    {
+        foreach (var image in shop.GetComponentsInChildren<Image>())
+        {
+            image.enabled = shopOpen;
+        }
+        foreach (var image in shop.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = shopOpen;
+        }
+        foreach (var text in shop.GetComponentsInChildren<TMP_Text>())
+        {
+            text.enabled = shopOpen;
         }
     }
 
@@ -290,6 +333,22 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void SetShop()
+    {
+        if(!shop && Manager.Instance.settings.isPlayable)
+        {
+            shop = GameObject.Find("Canvas");
+            if(shop)
+            {
+                shop = shop.transform.Find("Shop").gameObject;
+                if(shop)
+                {
+                    shop = shop.transform.Find("PlayerShop").gameObject;
+                }
+            }
+        }
+    }
+
     private void Update()
     {
         if (!isOwned)
@@ -300,6 +359,7 @@ public class PlayerInteract : NetworkBehaviour
         SetJournal();
         SetReadingPage();
         SetPauseMenu();
+        SetShop();
         if(interactables.Count > 0)
         {
             interactable = interactables[Mathf.Abs((int)mouse) % interactables.Count];
@@ -341,6 +401,10 @@ public class PlayerInteract : NetworkBehaviour
         if(pauseMenu)
         {
             CheckPauseMenu();
+        }
+        if(shop)
+        {
+            CheckShop();
         }
     }
 }

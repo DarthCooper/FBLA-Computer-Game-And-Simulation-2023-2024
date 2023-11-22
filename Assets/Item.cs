@@ -28,6 +28,8 @@ public class Item : NetworkBehaviour
 
     bool beenPickedUp = false;
 
+    public int price;
+
     private void Awake()
     {
         interactable = GetComponent<Interactable>();
