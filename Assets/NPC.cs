@@ -145,13 +145,34 @@ public class NPC : NetworkBehaviour
 
     public void ExecuteStep()
     {
-        if(!checkIfRequirementsMet()) { return; }
-        if(!canRun) { return; }
-        if(currentStep)
+        CmdExecuteStep();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdExecuteStep()
+    {
+        if(isServer)
+        {
+            ServerExecuteStep();
+        }
+    }
+
+    [Server]
+    public void ServerExecuteStep()
+    {
+        RpcExecuteStep();
+    }
+
+    [ClientRpc]
+    public void RpcExecuteStep()
+    {
+        if (!checkIfRequirementsMet()) { return; }
+        if (!canRun) { return; }
+        if (currentStep)
         {
             Destroy(currentStep.gameObject);
         }
-        if(currentStepIndex < steps.Length)
+        if (currentStepIndex < steps.Length)
         {
             InsatiateStep(steps[currentStepIndex]);
             currentStep.Execute();
