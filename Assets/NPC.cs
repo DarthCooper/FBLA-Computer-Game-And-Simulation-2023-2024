@@ -45,6 +45,8 @@ public class NPC : NetworkBehaviour
 
     bool canRun = true;
 
+    bool Finished = true;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -168,6 +170,8 @@ public class NPC : NetworkBehaviour
     {
         if (!checkIfRequirementsMet()) { return; }
         if (!canRun) { return; }
+        if(!Finished) { return; }
+        Finished = false;
         if (currentStep)
         {
             Destroy(currentStep.gameObject);
@@ -209,6 +213,11 @@ public class NPC : NetworkBehaviour
     [ClientRpc]
     public void RpcEndStep()
     {
+        if(Finished)
+        {
+            return;
+        }
+        Finished = true;
         currentStepIndex++;
         if (currentStepIndex >= steps.Length)
         {
