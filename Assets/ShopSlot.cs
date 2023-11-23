@@ -18,7 +18,7 @@ public class ShopSlot : MonoBehaviour
     public void DisplayInSlot()
     {
         itemImage.texture = item.itemTexture;
-        nameText.text = item.itemName;
+        nameText.text = item.itemName + " x" + currentInSlot;
         amountText.text = item.price.ToString();
     }
 

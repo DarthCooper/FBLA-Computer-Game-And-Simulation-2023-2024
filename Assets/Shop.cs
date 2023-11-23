@@ -70,11 +70,24 @@ public class Shop : MonoBehaviour
         slots.Clear();
         foreach (var item in items.Keys)
         {
-            var slot = Instantiate(slotPrefab, context);
-            slot.item = item;
-            slot.currentInSlot = items[item];
-            slot.DisplayInSlot();
-            slots.Add(slot);
+            int amount = items[item];
+            while(amount > item.maxStack)
+            {
+                var slot = Instantiate(slotPrefab, context);
+                slot.item = item;
+                slot.currentInSlot = item.maxStack;
+                slot.DisplayInSlot();
+                slots.Add(slot);
+                amount -= item.maxStack;
+            }
+            if(amount > 0)
+            {
+                var slot = Instantiate(slotPrefab, context);
+                slot.item = item;
+                slot.currentInSlot = amount;
+                slot.DisplayInSlot();
+                slots.Add(slot);
+            }
         }
     }
 

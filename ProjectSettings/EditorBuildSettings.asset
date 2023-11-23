@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Blacksmith.unity
     guid: 2ae93d705c936524a80bbb8a35eaf3e1
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 0783c00be8f61324b8d6f3953edaa178
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
