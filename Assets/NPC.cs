@@ -14,7 +14,7 @@ public class NPC : NetworkBehaviour
 
     public NPCStep[] steps;
 
-    [SyncVar(hook = nameof(ChangeCurrentStep))]public int currentStepIndex = 0;
+    public int currentStepIndex = 0;
 
     public GameObject speechBubble;
     public TMP_Text speechText;
@@ -168,10 +168,13 @@ public class NPC : NetworkBehaviour
     [ClientRpc]
     public void RpcExecuteStep()
     {
+        if (!Finished)
+        {
+            return;
+        }
+        Finished = false;
         if (!checkIfRequirementsMet()) { return; }
         if (!canRun) { return; }
-        if (!Finished) { return; }
-        Finished = false;
         if (currentStep)
         {
             Destroy(currentStep.gameObject);
@@ -192,33 +195,35 @@ public class NPC : NetworkBehaviour
 
     public void EndStep()
     {
-        if (Finished)
+        if(isServer)
         {
-            return;
+            RpcEndStep();
         }
-        Finished = true;
-        CmdChangeStep(currentStepIndex++);
-        if (currentStepIndex >= steps.Length)
-        {
-            OnFinishSteps.Invoke();
-            NPCManager.CompleteNPC(NPCName);
-            print("finished");
-        }
-        ExecuteStep();
     }
 
     [Command(requiresAuthority = false)]
-    public void CmdChangeStep(int currentStepIndex)
+    public void CmdChangeStep()
     {
-        ChangeCurrentStep(this.currentStepIndex, currentStepIndex);
+        ChangeCurrentStep(currentStepIndex, currentStepIndex++);
     }
 
     public void ChangeCurrentStep(int oldValue, int newValue)
     {
-        if(isClient)
+        if(Finished) { return; }
+        Finished = true;
+        Invoke(nameof(ResetFinish), 1f);
+        currentStepIndex = newValue;
+        if (currentStepIndex >= steps.Length)
         {
-            EndStep();
+            OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
         }
+        ExecuteStep();
+    }
+
+    public void ResetFinish()
+    {
+        Finished = false;
     }
 
     [Command(requiresAuthority = false)]
@@ -236,7 +241,7 @@ public class NPC : NetworkBehaviour
         RpcEndStep();
     }
 
-    [ClientRpc]
+    [ClientRpc(includeOwner = true)]
     public void RpcEndStep()
     {
         if (Finished)
