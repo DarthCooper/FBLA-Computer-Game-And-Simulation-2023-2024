@@ -188,6 +188,27 @@ public class NPC : NetworkBehaviour
 
     public void EndStep()
     {
+        CmdEndStep();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdEndStep()
+    {
+        if(isServer)
+        {
+            ServerEndStep();
+        }
+    }
+
+    [Server]
+    public void ServerEndStep()
+    {
+        RpcEndStep();
+    }
+
+    [ClientRpc]
+    public void RpcEndStep()
+    {
         currentStepIndex++;
         if (currentStepIndex >= steps.Length)
         {
