@@ -153,18 +153,9 @@ public class NPC : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdExecuteStep()
     {
-        if (!checkIfRequirementsMet()) { return; }
-        if (!canRun) { return; }
-        if (!Finished) { return; }
-        Finished = false;
-        if (currentStep)
+        if(isServer)
         {
-            Destroy(currentStep.gameObject);
-        }
-        if (currentStepIndex < steps.Length)
-        {
-            InsatiateStep(steps[currentStepIndex]);
-            currentStep.Execute();
+            ServerExecuteStep();
         }
     }
 
@@ -177,9 +168,14 @@ public class NPC : NetworkBehaviour
     [ClientRpc]
     public void RpcExecuteStep()
     {
+        RunStep();
+    }
+
+    public void RunStep()
+    {
         if (!checkIfRequirementsMet()) { return; }
         if (!canRun) { return; }
-        if(!Finished) { return; }
+        if (!Finished) { return; }
         Finished = false;
         if (currentStep)
         {
@@ -207,6 +203,21 @@ public class NPC : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndStep()
     {
+        if(isServer)
+        {
+            ServerEndStep();
+        }
+    }
+
+    [Server]
+    public void ServerEndStep()
+    {
+        RpcEndStep();
+    }
+
+    [ClientRpc]
+    public void RpcEndStep()
+    {
         if (Finished)
         {
             return;
@@ -219,19 +230,7 @@ public class NPC : NetworkBehaviour
             NPCManager.CompleteNPC(NPCName);
             print("finished");
         }
-        ExecuteStep();
-    }
-
-    [Server]
-    public void ServerEndStep()
-    {
-        RpcEndStep();
-    }
-
-    [ClientRpc]
-    public void RpcEndStep()
-    {
-
+        RunStep();
     }
 
     public void DisplayText(string text)
