@@ -14,12 +14,29 @@ public class Shop : MonoBehaviour
     public Dictionary<Item, int> items = new Dictionary<Item, int>();
     public List<ShopSlot> slots = new List<ShopSlot>();
 
-    public void AddItem(Item item, int amount)
+    ShopInteract retailer;
+
+    public void AddItem(Item item, int amount, ShopInteract retailer)
     {
+        this.retailer = retailer;
         if(!items.ContainsKey(item)) 
         {
             items.Add(item, amount);
         }
+        DisplayItems();
+    }
+
+    public void BuyItem(Item item)
+    {
+        if (items.ContainsKey(item))
+        {
+            items[item]--;
+            if (items[item] <= 0)
+            {
+                items.Remove(item);
+            }
+        }
+        retailer.BuyItem(item);
         DisplayItems();
     }
 

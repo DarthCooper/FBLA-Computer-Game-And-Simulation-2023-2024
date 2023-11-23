@@ -1,18 +1,32 @@
 using Mirror;
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopInteract : MonoBehaviour
+public class ShopInteract : MonoBehaviour, IDataPersistence
 {
-    public Item[] item;
-    public int[] prices;
+    public string ShopName;
 
-    public Dictionary<Item, int> items = new Dictionary<Item, int>();
+    public Item[] item;
+    public int[] amount;
+
+    public SerializableDictionary<Item, int> items = new SerializableDictionary<Item, int>();
 
     public Interactable interactable;
 
     public Transform interactingPlayer;
+
+    private void Awake()
+    {
+        for (int i = 0; i < item.Length; i++)
+        {
+            if (!items.ContainsKey(item[i]))
+            {
+                items.Add(item[i], amount[i]);
+            }
+        }
+    }
 
     public void onInteract()
     {
@@ -22,17 +36,21 @@ public class ShopInteract : MonoBehaviour
             interactingPlayer = closest;
             interactingPlayer.GetComponent<PlayerInteract>().Shop();
 
-            for (int i = 0; i < item.Length; i++)
-            {
-                if (!items.ContainsKey(item[i]))
-                {
-                    items.Add(item[i], prices[i]);
-                }
-            }
-
             foreach (var item in items.Keys)
             {
-                Shop.instance.AddItem(item, items[item]);
+                Shop.instance.AddItem(item, items[item], this);
+            }
+        }
+    }
+
+    public void BuyItem(Item item)
+    {
+        if(items.ContainsKey(item))
+        {
+            items[item]--;
+            if (items[item] <= 0)
+            {
+                items.Remove(item);
             }
         }
     }
@@ -59,5 +77,25 @@ public class ShopInteract : MonoBehaviour
             }
         }
         return Target;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if(data.ShopKeepers.ContainsKey(ShopName))
+        {
+            if (data.ShopKeepers[ShopName].Count > 0)
+            {
+                items = data.ShopKeepers[ShopName];
+            }
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if(data.ShopKeepers.ContainsKey(ShopName))
+        {
+            data.ShopKeepers.Remove(ShopName);
+        }
+        data.ShopKeepers.Add(ShopName, items);
     }
 }

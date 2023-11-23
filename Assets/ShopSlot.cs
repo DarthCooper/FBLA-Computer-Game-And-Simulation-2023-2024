@@ -28,10 +28,11 @@ public class ShopSlot : MonoBehaviour
 
     public void OnClick()
     {
-        if(Inventory.Instance.amountOfItem(Shop.instance.currency) > item.price)
+        print("Clicked");
+        if(Inventory.Instance.amountOfItem(Shop.instance.currency) >= item.price && currentInSlot > 0)
         {
             Inventory.Instance.AddItem(item);
-            currentInSlot--;
+            Shop.instance.BuyItem(item);
         }
     }
 }

@@ -74,7 +74,7 @@ public class QuestNPCStep : QuestStep
             }
             foreach (string name in NPCnames)
             {
-                if(npc.NPCName == name)
+                if(npc.NPCName == name && npc.canRun)
                 {
                     this.npc = npc;
                 }

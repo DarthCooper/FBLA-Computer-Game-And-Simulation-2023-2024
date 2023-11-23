@@ -43,7 +43,7 @@ public class NPC : NetworkBehaviour
 
     public QuestPoint quest;
 
-    bool canRun = true;
+    [HideInInspector]public bool canRun = true;
 
     bool Finished = true;
 

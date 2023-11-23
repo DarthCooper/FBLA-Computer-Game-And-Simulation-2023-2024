@@ -24,6 +24,8 @@ public class GameData
     public SerializableDictionary<string, Vector3> NPCPos;
     public SerializableDictionary<string, int> NPCStep;
 
+    public SerializableDictionary<string, SerializableDictionary<Item, int>> ShopKeepers;
+
     public string primaryWeapon;
     public string secondaryWeapon;
     public string ammo;
@@ -45,6 +47,7 @@ public class GameData
         EnemiesPos = new SerializableDictionary<string, Vector3>();
         NPCPos = new SerializableDictionary<string, Vector3>();
         NPCStep = new SerializableDictionary<string, int>();
+        ShopKeepers = new SerializableDictionary<string, SerializableDictionary<Item, int>>();
         primaryWeapon = string.Empty;
         secondaryWeapon = string.Empty;
         ammo = string.Empty;

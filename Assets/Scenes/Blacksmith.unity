@@ -2384,7 +2384,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  id: 
+  id: VillageBlacksmith
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -2448,11 +2448,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137b1500aa440dc449a0abd39542341e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShopName: 
   item:
   - {fileID: 6402922954368474776, guid: 451a868b1895f12469df47e92da093dc, type: 3}
   - {fileID: 6402922954368474776, guid: aeda60527d36464409f29257a20e283d, type: 3}
   - {fileID: 6402922954368474776, guid: 6d93a3559bfd7c44ea5ac55f5d98a503, type: 3}
-  prices: 020000000200000002000000
+  amount: 010000000200000002000000
+  items:
+    keys: []
+    values: 
   interactable: {fileID: 0}
   interactingPlayer: {fileID: 0}
 --- !u!1 &1822589535
