@@ -14,7 +14,7 @@ public class NPC : NetworkBehaviour
 
     public NPCStep[] steps;
 
-    public int currentStepIndex = 0;
+    [SyncVar(hook = nameof(ChangeCurrentStep))]public int currentStepIndex = 0;
 
     public GameObject speechBubble;
     public TMP_Text speechText;
@@ -168,11 +168,6 @@ public class NPC : NetworkBehaviour
     [ClientRpc]
     public void RpcExecuteStep()
     {
-        RunStep();
-    }
-
-    public void RunStep()
-    {
         if (!checkIfRequirementsMet()) { return; }
         if (!canRun) { return; }
         if (!Finished) { return; }
@@ -197,7 +192,33 @@ public class NPC : NetworkBehaviour
 
     public void EndStep()
     {
-        CmdEndStep();
+        if (Finished)
+        {
+            return;
+        }
+        Finished = true;
+        CmdChangeStep(currentStepIndex++);
+        if (currentStepIndex >= steps.Length)
+        {
+            OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
+            print("finished");
+        }
+        ExecuteStep();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdChangeStep(int currentStepIndex)
+    {
+        ChangeCurrentStep(this.currentStepIndex, currentStepIndex);
+    }
+
+    public void ChangeCurrentStep(int oldValue, int newValue)
+    {
+        if(isClient)
+        {
+            EndStep();
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -230,7 +251,7 @@ public class NPC : NetworkBehaviour
             NPCManager.CompleteNPC(NPCName);
             print("finished");
         }
-        RunStep();
+        ExecuteStep();
     }
 
     public void DisplayText(string text)
