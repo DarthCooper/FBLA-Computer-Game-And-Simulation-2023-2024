@@ -153,9 +153,18 @@ public class NPC : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdExecuteStep()
     {
-        if(isServer)
+        if (!checkIfRequirementsMet()) { return; }
+        if (!canRun) { return; }
+        if (!Finished) { return; }
+        Finished = false;
+        if (currentStep)
         {
-            ServerExecuteStep();
+            Destroy(currentStep.gameObject);
+        }
+        if (currentStepIndex < steps.Length)
+        {
+            InsatiateStep(steps[currentStepIndex]);
+            currentStep.Execute();
         }
     }
 
@@ -198,22 +207,7 @@ public class NPC : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdEndStep()
     {
-        if(isServer)
-        {
-            ServerEndStep();
-        }
-    }
-
-    [Server]
-    public void ServerEndStep()
-    {
-        RpcEndStep();
-    }
-
-    [ClientRpc]
-    public void RpcEndStep()
-    {
-        if(Finished)
+        if (Finished)
         {
             return;
         }
@@ -226,6 +220,18 @@ public class NPC : NetworkBehaviour
             print("finished");
         }
         ExecuteStep();
+    }
+
+    [Server]
+    public void ServerEndStep()
+    {
+        RpcEndStep();
+    }
+
+    [ClientRpc]
+    public void RpcEndStep()
+    {
+
     }
 
     public void DisplayText(string text)
