@@ -36,6 +36,10 @@ public class WaveSpawner : NetworkBehaviour
         }else if(currentWave >= waves.Length && Enemies.Count <= 0)
         {
             Debug.Log("You have won!");
+            if(quest)
+            {
+                quest.StartQuest();
+            }
         }
         QuestStep[] steps= GameObject.FindObjectsOfType<QuestStep>();
         for(int i = 0; i < steps.Length; i++)

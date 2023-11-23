@@ -68,7 +68,7 @@ MonoBehaviour:
   questStepID: 2
   questId: Arena1
   progress: 
-  maxProgress: 0/5
+  maxProgress: 0/3
   time: 120
-  enemiesLeft: 5
-  totalEnemies: 5
+  enemiesLeft: 3
+  totalEnemies: 3
