@@ -639,7 +639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000027656555}
+  m_AnchoredPosition: {x: 0, y: 0.00009508406}
   m_SizeDelta: {x: 0, y: 92.826}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2908829727258209598
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1671315209197406590}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999946
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2368,7 +2368,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6374794433640688447}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9898063
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2630,7 +2630,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4986466879304672582}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9955053
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4128,7 +4128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000007796101}
+  m_AnchoredPosition: {x: 0, y: 0.00015175263}
   m_SizeDelta: {x: 0, y: 136.5428}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7044873433204005103
@@ -4822,7 +4822,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0.00026108508}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7966905161269943797
@@ -5496,7 +5496,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00090225105}
+  m_AnchoredPosition: {x: 0, y: -0.0001733147}
   m_SizeDelta: {x: 0, y: 99.9006}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5277513089207828490
@@ -8125,6 +8125,8 @@ MonoBehaviour:
   purchaseSlot: {fileID: 4763327991242766879, guid: 44cf2672c5a6ef942826942c9ecec219, type: 3}
   purchaseSlots: []
   totalCost: 0
+  PlayerCurrentMoney: {fileID: 7264258300866622618}
+  TotalCost: {fileID: 5166708584710045431}
 --- !u!1 &8564518190901845716
 GameObject:
   m_ObjectHideFlags: 0

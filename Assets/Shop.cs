@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
@@ -27,6 +27,9 @@ public class Shop : MonoBehaviour
 
     public int totalCost;
 
+    public TMP_Text PlayerCurrentMoney;
+    public TMP_Text TotalCost;
+
     public void AddItem(Item item, int amount, ShopInteract retailer)
     {
         this.retailer = retailer;
@@ -35,6 +38,7 @@ public class Shop : MonoBehaviour
             items.Add(item, amount);
         }
         DisplayItems();
+        PlayerCurrentMoney.text = "Tokens Held: " + Inventory.Instance.amountOfItem(currency).ToString();
     }
 
     public void AddpurchaseItem(Item item, int amount)
@@ -42,6 +46,9 @@ public class Shop : MonoBehaviour
         if(!purchaseItems.ContainsKey(item))
         {
             purchaseItems.Add(item, amount);
+        }else
+        {
+            purchaseItems[item] += amount;
         }
         DisplayPurchaseItems();
     }
@@ -70,25 +77,32 @@ public class Shop : MonoBehaviour
         slots.Clear();
         foreach (var item in items.Keys)
         {
-            int amount = items[item];
-            while(amount > item.maxStack)
+            if(retailer.stackItems)
             {
-                var slot = Instantiate(slotPrefab, context);
-                slot.item = item;
-                slot.currentInSlot = item.maxStack;
-                slot.DisplayInSlot();
-                slots.Add(slot);
-                amount -= item.maxStack;
-            }
-            if(amount > 0)
+                int amount = items[item];
+                while(amount > item.maxStack)
+                {
+                    SpawnSlot(item, item.maxStack);
+                    amount -= item.maxStack;
+                }
+                if(amount > 0)
+                {
+                    SpawnSlot(item, amount);
+                }
+            }else
             {
-                var slot = Instantiate(slotPrefab, context);
-                slot.item = item;
-                slot.currentInSlot = amount;
-                slot.DisplayInSlot();
-                slots.Add(slot);
+                SpawnSlot(item, items[item]);
             }
         }
+    }
+
+    public void SpawnSlot(Item item, int amount)
+    {
+        var slot = Instantiate(slotPrefab, context);
+        slot.item = item;
+        slot.currentInSlot = amount;
+        slot.DisplayInSlot();
+        slots.Add(slot);
     }
 
     public void DisplayPurchaseItems()
@@ -97,19 +111,10 @@ public class Shop : MonoBehaviour
         {
             Destroy(slot.gameObject);
         }
+        totalCost = 0;
         purchaseSlots.Clear();
         foreach(var item in purchaseItems.Keys)
         {
-            bool itemExists = false;
-            foreach(PurcaseShopSlot purchaseSlot in purchaseSlots)
-            {
-                if(purchaseSlot.item == item)
-                {
-                    purchaseSlot.currentInSlot++;
-                    itemExists = true;
-                }
-            }
-            if(itemExists) { continue; }
             var slot = Instantiate(purchaseSlot, purchaseContext);
             slot.item = item;
             slot.currentInSlot = purchaseItems[item];
@@ -120,6 +125,7 @@ public class Shop : MonoBehaviour
             purchaseSlot.DisplayInSlot();
             totalCost += (purchaseSlot.item.price * purchaseSlot.currentInSlot);
         }
+        TotalCost.text = "Total: " + totalCost;
     }
 
     public void Awake()
@@ -131,13 +137,17 @@ public class Shop : MonoBehaviour
     {
         foreach(var slots in purchaseSlots)
         {
-            Inventory.Instance.AddItem(slots.item);
-            for (int i = 0; i < totalCost; i++)
+            for (int i = 0; i < slots.currentInSlot; i++)
             {
-                Inventory.Instance.UseItem(currency);
+                Inventory.Instance.AddItem(slots.item);
             }
+        }
+        for (int i = 0; i < totalCost; i++)
+        {
+            Inventory.Instance.UseItem(currency);
         }
         purchaseItems.Clear();
         DisplayPurchaseItems();
+        PlayerCurrentMoney.text = "Tokens Held: " + Inventory.Instance.amountOfItem(currency).ToString();
     }
 }

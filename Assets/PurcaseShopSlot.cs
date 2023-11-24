@@ -21,6 +21,7 @@ public class PurcaseShopSlot : MonoBehaviour
 
     private void Update()
     {
+        DisplayInSlot();
     }
 
     public void OnClick()

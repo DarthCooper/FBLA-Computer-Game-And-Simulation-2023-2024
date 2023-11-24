@@ -17,6 +17,8 @@ public class ShopInteract : MonoBehaviour, IDataPersistence
 
     public Transform interactingPlayer;
 
+    public bool stackItems = true;
+
     private void Awake()
     {
         for (int i = 0; i < item.Length; i++)
