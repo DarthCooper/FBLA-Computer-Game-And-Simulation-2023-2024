@@ -45,6 +45,8 @@ public class ComputerPuzzle : MonoBehaviour
 
     public Indicator[] attemptIndicators;
 
+    public Firewall firewall;
+
     private void Awake()
     {
         Instance = this;
@@ -75,8 +77,11 @@ public class ComputerPuzzle : MonoBehaviour
         input.DeactivateInputField();
     }
 
-    public void EnableComputer()
+    public void EnableComputer(Firewall firewall)
     {
+        totalAttempts = 0;
+        questionsAnswered = 0;
+        this.firewall = firewall;
         foreach (var image in GetComponentsInChildren<Image>())
         {
             image.enabled = true;
@@ -239,6 +244,7 @@ public class ComputerPuzzle : MonoBehaviour
         else
         {
             DisableComputer();
+            firewall.DisableFirewall();
         }
     }
 
