@@ -83,6 +83,7 @@
     <Compile Include="Assets\QuestSystem\QuestData.cs" />
     <Compile Include="Assets\Interactable.cs" />
     <Compile Include="Assets\LobbyController.cs" />
+    <Compile Include="Assets\Indicator.cs" />
     <Compile Include="Assets\DataPersistence\IDataPersistence.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />

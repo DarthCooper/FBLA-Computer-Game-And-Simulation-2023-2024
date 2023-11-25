@@ -26,8 +26,7 @@ public class ComputerPuzzle : MonoBehaviour
     public int extraAnswers = 19;
 
     public int questionAmount = 3;
-    public int questionsAnswered;
-
+    public int questionsAnswered = 0;
 
     [Header("Add Extra Symbols")]
     public bool useExtraSymbols;
@@ -38,6 +37,13 @@ public class ComputerPuzzle : MonoBehaviour
 
     [Header("CheckAnswer")]
     public TMP_InputField input;
+
+    public Indicator[] indicators;
+
+    public int maxAttempts = 5;
+    public int totalAttempts = 0;
+
+    public Indicator[] attemptIndicators;
 
     private void Awake()
     {
@@ -97,6 +103,14 @@ public class ComputerPuzzle : MonoBehaviour
 
     public void StartPuzzle()
     {
+        for(int i = questionsAnswered; i < indicators.Length; i++)
+        {
+            indicators[i].ChangeIndicator(false);
+        }
+        for(int i = totalAttempts; i < attemptIndicators.Length; i++)
+        {
+            attemptIndicators[i].ChangeIndicator(false);
+        }
         puzzles = CreatePuzzleMap();
         foreach (var text in spawnedText)
         {
@@ -182,19 +196,86 @@ public class ComputerPuzzle : MonoBehaviour
         if(CheckAnswer())
         {
             print("Correct");
-            questionsAnswered++;
-            if(questionsAnswered < questionAmount)
-            {
-                input.text = "";
-                input.ActivateInputField();
-                StartPuzzle();
-            }else
-            {
-                DisableComputer();
-            }
+            StartCoroutine(nameof(CorrectAnimation));
         }else
         {
             print("Incorrect. The answer is" + puzzles[currentPuzzleID].answer);
+            StartCoroutine(nameof(IncorrectAnimation));
+        }
+    }
+
+    IEnumerator CorrectAnimation()
+    {
+        input.interactable = false;
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Correct";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Correct";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Correct";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        Correct();
+    }
+
+    public void Correct()
+    {
+        input.interactable = true;
+        questionsAnswered++;
+        totalAttempts = 0;
+        indicators[questionsAnswered - 1].ChangeIndicator(true);
+        if (questionsAnswered < questionAmount)
+        {
+            input.text = "";
+            input.ActivateInputField();
+            indicators[questionsAnswered - 1].ChangeIndicator(true);
+            StartPuzzle();
+        }
+        else
+        {
+            DisableComputer();
+        }
+    }
+
+    IEnumerator IncorrectAnimation()
+    {
+        input.interactable = false;
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Incorrect";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Incorrect";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "Incorrect";
+        yield return new WaitForSeconds(0.25f);
+        input.text = "";
+        Incorrect();
+    }
+
+    public void Incorrect()
+    {
+        input.interactable = true;
+        input.ActivateInputField();
+        totalAttempts++;
+        attemptIndicators[totalAttempts - 1].ChangeIndicator(true);
+        if (totalAttempts >= maxAttempts)
+        {
+            if (questionsAnswered >= 1)
+            {
+                questionsAnswered--;
+                indicators[questionsAnswered].ChangeIndicator(true);
+            }
+            totalAttempts = 0;
+            StartPuzzle();
         }
     }
 
