@@ -13,6 +13,7 @@ public class SceneChange : MonoBehaviour
         {
             Vector3 pos = new Vector3 (xPos, yPos);
             GameObject.Find("LocalGamePlayer").transform.position = pos;
+            Manager.Instance.SetPlayerPos(xPos, yPos);
             DataPersistenceManager.instance.SaveGame();
             changedScene = true;
             GetComponent<SceneSettings>().ChangeScene(sceneName);

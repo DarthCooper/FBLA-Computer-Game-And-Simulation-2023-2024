@@ -9,11 +9,28 @@ public class Firewall : NetworkBehaviour
     bool canInteract;
     public void OnInteract()
     {
-        if(canInteract)
+        Transform closest = GetClosest();
+        if(canInteract && closest.GetComponent<NetworkIdentity>().isLocalPlayer)
         {
             ComputerPuzzle.Instance.EnableComputer(this);
             canInteract = false;
         }
+    }
+
+    public Transform GetClosest()
+    {
+        float maxDistance = 10000;
+        Transform Target = null;
+        foreach (var target in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            float Distance = Vector2.Distance(transform.position, target.transform.position);
+            if (Distance < maxDistance)
+            {
+                maxDistance = Distance;
+                Target = target.transform;
+            }
+        }
+        return Target;
     }
 
     public void OnEndInteract()

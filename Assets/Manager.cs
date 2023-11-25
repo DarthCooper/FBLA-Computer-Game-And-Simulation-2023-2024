@@ -184,4 +184,34 @@ public class Manager : NetworkBehaviour
     {
         destroyOnLoad = newValue;
     }
+
+    public void SetPlayerPos(float x, float y)
+    {
+        CmdSetPlayerPos(x, y);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetPlayerPos(float x, float y)
+    {
+        if(isServer)
+        {
+            ServerSetPlayerPos(x, y);
+        }
+    }
+
+    [Server]
+    public void ServerSetPlayerPos(float x, float y)
+    {
+        RpcSetPlayerPos(x, y);
+    }
+
+    [ClientRpc]
+    public void RpcSetPlayerPos(float x, float y)
+    {
+        foreach(var player in players)
+        {
+            print("Setting");
+            player.transform.position = new Vector3(x, y, 0);
+        }
+    }
 }
