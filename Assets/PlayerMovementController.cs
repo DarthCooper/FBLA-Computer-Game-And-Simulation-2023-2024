@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Mirror;
 using UnityEngine.SceneManagement;
 using Steamworks;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 {
@@ -53,10 +54,13 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        attackSprite.SetActive(false);
-        Time.timeScale = 1f;
-        if (!isOwned) { return; }
-        data.playerPosition = this.transform.position;
+        if(Manager.Instance.settings.isSavable)
+        {
+            attackSprite.SetActive(false);
+            Time.timeScale = 1f;
+            if (!isOwned) { return; }
+            data.playerPosition = this.transform.position;
+        }
     }
 
     private void FixedUpdate()
@@ -76,11 +80,26 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
                 }
                 Movement();
             }
+        }else if(Manager.Instance.settings.Minigame)
+        {
+
         }else
         {
             if(PlayerModel.activeSelf == true)
             {
                 PlayerModel.SetActive(false);
+            }
+        }
+
+        if(Manager.Instance.settings.Minigame)
+        {
+            if(isOwned)
+            {
+                Movement();
+            }
+            if(PlayerModel.activeSelf == false)
+            {
+                PlayerModel.SetActive(true);
             }
         }
     }
@@ -89,6 +108,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
     {
         if(isOwned)
         {
+            if(!Manager.Instance.AllowMovement) { return; }
             movement = context.ReadValue<Vector2>().normalized;
             if(movement != Vector2.zero )
             {
@@ -101,6 +121,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
     {
         if(canDash)
         {
+            if (!Manager.Instance.AllowOtherInput) { return; }
             desiredDash |= context.ReadValueAsButton();
         }
     }
@@ -109,6 +130,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
     {
         if(context.ReadValueAsButton() && canChangeAim)
         {
+            if (!Manager.Instance.AllowOtherInput) { return; }
             aiming = !aiming;
             if(aiming && sprinting)
             {
@@ -121,6 +143,7 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 
     public void OnSprint(InputAction.CallbackContext context)
     {
+        if (!Manager.Instance.AllowMovement) { return; }
         sprinting = context.ReadValueAsButton();
         if(sprinting && aiming)
         {

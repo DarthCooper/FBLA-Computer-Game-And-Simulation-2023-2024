@@ -82,6 +82,7 @@ public class PlayerAttack : NetworkBehaviour
     public void OnPrimaryAttack(InputAction.CallbackContext context)
     {
         if (!Manager.Instance.settings.isPlayable) { return; }
+        if(!Manager.Instance.AllowOtherInput) { return; }
         if (canAttack)
         {
             Attacking |= context.ReadValueAsButton();
@@ -91,6 +92,7 @@ public class PlayerAttack : NetworkBehaviour
     public void OnSecondaryAttack(InputAction.CallbackContext context)
     {
         if (!Manager.Instance.settings.isPlayable) { return; }
+        if (!Manager.Instance.AllowOtherInput) { return; }
         if (canSecondaryAttack)
         {
             secondaryAttacking |= context.ReadValueAsButton();
@@ -100,7 +102,8 @@ public class PlayerAttack : NetworkBehaviour
     public void OnConsumablePressed(InputAction.CallbackContext context)
     {
         if(!Manager.Instance.settings.isPlayable) { return; }
-        if(canUseConsumable)
+        if (!Manager.Instance.AllowOtherInput) { return; }
+        if (canUseConsumable)
         {
             usingConsumable |= context.ReadValueAsButton();
         }

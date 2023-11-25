@@ -415,6 +415,7 @@ MonoBehaviour:
   dashSpeed: 2000
   TimeBetweenDashes: 0.5
   attackSprite: {fileID: 7712626547458190379}
+  HackingPlayerPrefab: {fileID: 1069433701062738497, guid: c84653961f4b85944871a42466b1973b, type: 3}
 --- !u!114 &5587829081801725446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +576,7 @@ MonoBehaviour:
   reviveMarker: {fileID: 3408733443353997524, guid: 3bbd7754abdf8eb498457c38f53cc761, type: 3}
   health: 100
   maxHealth: 100
+  itemsToSpawn: []
 --- !u!70 &6203871864702825603
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -652,6 +654,8 @@ MonoBehaviour:
   reading: 0
   readingPage: {fileID: 0}
   message: 
+  shopOpen: 0
+  shop: {fileID: 0}
   PauseMenuOpen: 0
   pauseMenu: {fileID: 0}
   interactables: []

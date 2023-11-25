@@ -37,9 +37,16 @@ public class PlayerInteract : NetworkBehaviour
     public List<Interactable> interactables = new List<Interactable>();
     public Interactable interactable;
 
+    public bool computerOpen = false;
+
+    public bool[] Canvases = new bool[5];
+
     public void OnInteract(InputAction.CallbackContext context)
     {
-        interact = context.ReadValueAsButton();
+        if(Manager.Instance.AllowInteract)
+        {
+            interact = context.ReadValueAsButton();
+        }
     }
 
     public void OnInventory(InputAction.CallbackContext context)
@@ -360,7 +367,7 @@ public class PlayerInteract : NetworkBehaviour
         SetReadingPage();
         SetPauseMenu();
         SetShop();
-        if(interactables.Count > 0)
+        if (interactables.Count > 0)
         {
             interactable = interactables[Mathf.Abs((int)mouse) % interactables.Count];
             interactable.ChangeSelectableView(true);
@@ -406,5 +413,35 @@ public class PlayerInteract : NetworkBehaviour
         {
             CheckShop();
         }
+        bool AllowInteract = true;
+        bool AllowMove = true;
+        bool AllowOther = true;
+        if(!Manager.Instance.settings.Minigame)
+        {
+            if(Canvases.Length != 5)
+            {
+                Canvases = new bool[5];
+            }
+            Canvases[0] = InventoryOpen;
+            Canvases[1] = JournalOpen;
+            Canvases[2] = reading;
+            Canvases[3] = PauseMenuOpen;
+            Canvases[4] = shopOpen;
+            AllowInteract = true;
+            AllowMove = true;
+            AllowOther = false;
+        }
+        else
+        {
+            if(Canvases.Length > 1)
+            {
+                Canvases = new bool[1];
+            }
+            Canvases[0] = computerOpen;
+            AllowInteract = false;
+            AllowMove = false;
+            AllowOther = false;
+        }
+        Manager.Instance.CurrentLoadedCanvasSheet(Canvases, AllowMove, AllowInteract, AllowOther);
     }
 }

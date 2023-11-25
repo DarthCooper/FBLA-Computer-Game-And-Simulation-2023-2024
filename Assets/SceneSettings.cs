@@ -7,6 +7,8 @@ public class SceneSettings : MonoBehaviour
     public bool isPlayable;
     public bool isSavable;
 
+    public bool Minigame;
+
     public SceneChange sceneChanger;
 
     private void Awake()

@@ -23,6 +23,10 @@ public class Manager : NetworkBehaviour
 
     [SyncVar(hook = nameof(SetDontDestroyOnLoad))]public bool destroyOnLoad;
 
+    public bool AllowMovement = true;
+    public bool AllowInteract = true;
+    public bool AllowOtherInput = true;
+
     private void Awake()
     {
         if (Instance != this)
@@ -41,9 +45,37 @@ public class Manager : NetworkBehaviour
         networkManager = GameObject.Find("NetworkManager").GetComponent<CustomNetworkManager>();
     }
 
+    public void CurrentLoadedCanvasSheet(bool[] canvases, bool keepMovement, bool keepInteract, bool keepOtherInput)
+    {
+        bool AnyActive = false;
+        foreach (var canvas in canvases)
+        {
+            if(canvas)
+            {
+                AnyActive = true;
+            }
+        }
+        if(AnyActive)
+        {
+            AllowMovement = keepMovement;
+            AllowInteract = keepInteract;
+            AllowOtherInput = keepOtherInput;
+        }else
+        {
+            AllowMovement = true;
+            AllowInteract = true;
+            AllowOtherInput = true;
+        }
+    }
+
     private void Start()
     {
         CmdSetDontDestroyOnLoad();
+    }
+
+    public GameObject GetLocalPlayer()
+    {
+        return GameObject.Find("LocalGamePlayer");
     }
 
     private void OnDisable()

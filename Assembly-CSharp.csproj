@@ -96,6 +96,7 @@
     <Compile Include="Assets\DataPersitantObject.cs" />
     <Compile Include="Assets\Inventory.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\ComputerPuzzle.cs" />
     <Compile Include="Assets\QuestSystem\QuestState.cs" />
     <Compile Include="Assets\NPCManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\NPC.cs" />
     <Compile Include="Assets\GetClosestEnemy.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
+    <Compile Include="Assets\Firewall.cs" />
     <Compile Include="Assets\QuestSystem\QuestStepState.cs" />
     <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
@@ -128,6 +130,7 @@
     <Compile Include="Assets\MiscEvents.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\PlayerInteract.cs" />
+    <Compile Include="Assets\PuzzleSystem\PuzzleInfoSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TriggerNPC.cs" />
@@ -164,6 +167,7 @@
     <Compile Include="Assets\TransitionInteractable.cs" />
     <Compile Include="Assets\GetClosestTarget.cs" />
     <Compile Include="Assets\WaveSpawner.cs" />
+    <Compile Include="Assets\CanvasEnabler.cs" />
     <Compile Include="Assets\SceneSaver.cs" />
     <Compile Include="Assets\LobbyDataEntry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
