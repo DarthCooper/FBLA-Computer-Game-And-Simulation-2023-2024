@@ -117,6 +117,7 @@
     <Compile Include="Assets\Firewall.cs" />
     <Compile Include="Assets\QuestSystem\QuestStepState.cs" />
     <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
+    <Compile Include="Assets\HackingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\SteamLobby.cs" />
     <Compile Include="Assets\Resources\Quests\CollectArrowsQuest\CollectArrowsQuestStep.cs" />

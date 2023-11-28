@@ -36,7 +36,7 @@ public class ComputerPuzzle : MonoBehaviour
     public string[] extraSymbols;
 
     [Header("CheckAnswer")]
-    public TMP_InputField input;
+    public TMP_Text response;
 
     public Indicator[] indicators;
 
@@ -74,7 +74,6 @@ public class ComputerPuzzle : MonoBehaviour
                 Manager.Instance.GetLocalPlayer().GetComponent<PlayerInteract>().computerOpen = false;
             }
         }
-        input.DeactivateInputField();
     }
 
     public void EnableComputer(Firewall firewall)
@@ -94,8 +93,6 @@ public class ComputerPuzzle : MonoBehaviour
         {
             text.enabled = true;
         }
-        input.ActivateInputField();
-        input.pointSize = 38;
         if(Manager.Instance.GetLocalPlayer())
         {
             if(Manager.Instance.GetLocalPlayer().GetComponent<PlayerInteract>())
@@ -151,6 +148,7 @@ public class ComputerPuzzle : MonoBehaviour
         {
             int random = Random.Range(0, answers.Count);
             var text = Instantiate(textPrefab, context);
+            text.GetComponent<HackingText>().word = answers[random];
             if(useExtraSymbols)
             {
                 string[] strings = new string[lengthOfEachText - answers[random].Length];
@@ -178,9 +176,9 @@ public class ComputerPuzzle : MonoBehaviour
         }
     }
 
-    public bool CheckAnswer()
+    public bool CheckAnswer(string word)
     {
-        string Input = input.text.ToLower();
+        string Input = word.ToLower();
         string answer = puzzles[currentPuzzleID].answer.ToLower();
         answer = answer.Replace("_", "");
         answer = answer.Replace(" ", "");
@@ -196,48 +194,48 @@ public class ComputerPuzzle : MonoBehaviour
         }
     }
 
-    public void SubmitResponse()
+    public void SubmitResponse(string word, HackingText text)
     {
-        if(CheckAnswer())
+        if(CheckAnswer(word))
         {
             print("Correct");
             StartCoroutine(nameof(CorrectAnimation));
         }else
         {
+            text.ResetText();
             print("Incorrect. The answer is" + puzzles[currentPuzzleID].answer);
             StartCoroutine(nameof(IncorrectAnimation));
+            text.textColor = "\"red\"";
+            text.SetText();
         }
     }
 
     IEnumerator CorrectAnimation()
     {
-        input.interactable = false;
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Correct";
+        response.text = "<color=\"green\">Correct</Color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Correct";
+        response.text = "<color=\"green\">Correct</Color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Correct";
+        response.text = "<color=\"green\">Correct</Color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         Correct();
     }
 
     public void Correct()
     {
-        input.interactable = true;
         questionsAnswered++;
         totalAttempts = 0;
         indicators[questionsAnswered - 1].ChangeIndicator(true);
         if (questionsAnswered < questionAmount)
         {
-            input.text = "";
-            input.ActivateInputField();
+            response.text = "";
             indicators[questionsAnswered - 1].ChangeIndicator(true);
             StartPuzzle();
         }
@@ -250,27 +248,24 @@ public class ComputerPuzzle : MonoBehaviour
 
     IEnumerator IncorrectAnimation()
     {
-        input.interactable = false;
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Incorrect";
+        response.text = "<color=\"red\">Incorrect</color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Incorrect";
+        response.text = "<color=\"red\">Incorrect</color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         yield return new WaitForSeconds(0.25f);
-        input.text = "Incorrect";
+        response.text = "<color=\"red\">Incorrect</color>";
         yield return new WaitForSeconds(0.25f);
-        input.text = "";
+        response.text = "";
         Incorrect();
     }
 
     public void Incorrect()
     {
-        input.interactable = true;
-        input.ActivateInputField();
         totalAttempts++;
         attemptIndicators[totalAttempts - 1].ChangeIndicator(true);
         if (totalAttempts >= maxAttempts)
