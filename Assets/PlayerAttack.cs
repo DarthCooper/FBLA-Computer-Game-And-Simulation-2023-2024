@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using Mirror;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerAttack : NetworkBehaviour
 {
@@ -21,9 +22,17 @@ public class PlayerAttack : NetworkBehaviour
     [SyncVar(hook = "SetAmmo")] public int Ammo;
     [SyncVar(hook = "SetConsumables")] public int ConsumableAmount;
 
-    Animator anim;
+    public Animator anim;
+    bool alreadyAdded = false;
+    public int attackIndex = 0;
+    private int lastAttack = 0;
+    public int secondaryAttackIndex = 0;
+    bool secondaryAlreadyAdded = false;
+    private string[] lightMeleeAttack = { "Attack1", "Attack2", "Attack3" };
 
-    bool canAttack = true;
+    bool inSwing = false;
+
+    public bool canAttack = true;
     bool canSecondaryAttack = true;
 
     public bool canUseConsumable = true;
@@ -43,7 +52,6 @@ public class PlayerAttack : NetworkBehaviour
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
         Attacks.Add("", nullAttack);
         Attacks.Add("Sword", meleeAttack);
         Attacks.Add("Bow", rangedAttack);
@@ -51,13 +59,16 @@ public class PlayerAttack : NetworkBehaviour
 
         Consumables.Add("", nullAttack);
         Consumables.Add("SmallHealth", SmallHealth);
+
+        OnPrimaryPressed.AddListener(Attacks[""]);
+        OnSecondaryPressed.AddListener(Attacks[""]);
     }
 
     public void ChangePrimaryAttack(string weapon)
     {
         OnPrimaryPressed.RemoveAllListeners();
         OnPrimaryPressed.AddListener(Attacks[weapon]);
-        if(GetComponent<PlayerInventory>().PrimaryWeapon)
+        if (GetComponent<PlayerInventory>().PrimaryWeapon)
         {
             timeBetweenAttack = GetComponent<PlayerInventory>().PrimaryWeapon.delayBetweenUses;
         }
@@ -83,10 +94,35 @@ public class PlayerAttack : NetworkBehaviour
     {
         if (!Manager.Instance.settings.isPlayable) { return; }
         if(!Manager.Instance.AllowOtherInput) { return; }
-        if (canAttack)
+        if (context.ReadValueAsButton())
         {
-            Attacking |= context.ReadValueAsButton();
+            if(inSwing)
+            {
+                    if(attackIndex + 1 == lastAttack + 1)
+                    {
+                        attackIndex++;
+                        Attacking |= context.ReadValueAsButton();
+                    }
+                    if (attackIndex > lightMeleeAttack.Length - 1)
+                    {
+                        attackIndex = 0;
+                    }
+            }else
+            {
+                attackIndex = 0;
+                if (canAttack)
+                {
+                    Attacking |= context.ReadValueAsButton();
+                    return;
+                }
+            }
         }
+    }
+
+    public void changeSwing(bool swing)
+    {
+        if(attackIndex < lightMeleeAttack.Length && attackIndex != 0) { return; }
+        inSwing = swing;
     }
 
     public void OnSecondaryAttack(InputAction.CallbackContext context)
@@ -96,6 +132,16 @@ public class PlayerAttack : NetworkBehaviour
         if (canSecondaryAttack)
         {
             secondaryAttacking |= context.ReadValueAsButton();
+        }else if (!secondaryAlreadyAdded)
+        {
+            if(secondaryAttackIndex < lightMeleeAttack.Length - 1)
+            {
+                secondaryAttackIndex++;
+            }else
+            {
+                secondaryAttackIndex = 0;
+            }
+            secondaryAlreadyAdded = true;
         }
     }
 
@@ -207,8 +253,49 @@ public class PlayerAttack : NetworkBehaviour
 
     public void meleeAttack()
     {
-        anim.SetTrigger("Attack1");
+        lastAttack = attackIndex;
+        anim.SetBool(lightMeleeAttack[attackIndex], true);
         ChangeAttack(this.primary);
+    }
+
+    public void resetAnimValues()
+    {
+        for(int i = 0; i < lightMeleeAttack.Length; i++)
+        {
+            if(attackIndex < lightMeleeAttack.Length && attackIndex > 0)
+            {
+                if(i < lightMeleeAttack.Length - 1)
+                {
+                    if (anim.GetBool(lightMeleeAttack[i + 1]))
+                    {
+                        return;
+                    }else
+                    {
+                        foreach (var item in lightMeleeAttack)
+                        {
+                            anim.SetBool(item, false);
+                        }
+                    }
+                }
+            }
+        }
+        foreach (var item in lightMeleeAttack)
+        {
+            anim.SetBool(item, false);
+        }
+    }
+
+    public void closeAllAnims()
+    {
+        foreach (var item in lightMeleeAttack)
+        {
+            anim.SetBool(item, false);
+        }
+    }
+
+    public void shield()
+    {
+
     }
 
     public void SmallHealth()
@@ -310,7 +397,7 @@ public class PlayerAttack : NetworkBehaviour
         {
             Attacking = false;
             canAttack = false;
-            Invoke("ResetAttack", timeBetweenAttack);
+            Invoke(nameof(ResetAttack), timeBetweenAttack);
         }
         else
         {

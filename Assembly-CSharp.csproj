@@ -73,6 +73,7 @@
     <Compile Include="Assets\PlayerMovementController.cs" />
     <Compile Include="Assets\QuestEvents.cs" />
     <Compile Include="Assets\EndQuestNPCStep.cs" />
+    <Compile Include="Assets\WeaponHolder.cs" />
     <Compile Include="Assets\NPCStep.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\QuestNPCStep.cs" />
@@ -150,7 +151,9 @@
     <Compile Include="Assets\QuestSystem\Quest.cs" />
     <Compile Include="Assets\DataPersistence\DataPersistenceManager.cs" />
     <Compile Include="Assets\Shop.cs" />
+    <Compile Include="Assets\GameTiles.cs" />
     <Compile Include="Assets\DataPersistantNPC.cs" />
+    <Compile Include="Assets\WorldTile.cs" />
     <Compile Include="Assets\QuestSystem\QuestInfoSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -1279,6 +1282,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1317,6 +1324,10 @@
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Common">
@@ -1497,10 +1508,6 @@
       <Project>{19E940D9-5B71-0FAC-70A4-1391EF9F5A50}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{29AA536F-67A4-5F91-6090-50A2EE1BF469}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{CB5C91D1-14B2-B8C5-FB56-5B446A9E764C}</Project>
       <Name>kcp2k</Name>
@@ -1508,6 +1515,10 @@
     <ProjectReference Include="Mirror.csproj">
       <Project>{7FF5E601-1701-6736-F204-BE80465E2011}</Project>
       <Name>Mirror</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{29AA536F-67A4-5F91-6090-50A2EE1BF469}</Project>
+      <Name>Mirror.Examples</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{62B65C1C-8A9F-06D0-49E8-B0C520AA390B}</Project>
