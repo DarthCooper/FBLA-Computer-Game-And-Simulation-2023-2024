@@ -47,15 +47,23 @@ public class PlayerAttack : NetworkBehaviour
 
     bool primary;
 
+    public GameObject shield;
+    public Transform weaponHolder;
+    GameObject spawnedShield;
+
+    PlayerInventory playerInventory;
+
     public Dictionary<string, UnityAction> Attacks = new Dictionary<string, UnityAction>();
     public Dictionary<string, UnityAction> Consumables = new Dictionary<string, UnityAction>();
 
     private void Awake()
     {
+        playerInventory = GetComponent<PlayerInventory>();
         Attacks.Add("", nullAttack);
         Attacks.Add("Sword", meleeAttack);
         Attacks.Add("Bow", rangedAttack);
         Attacks.Add("Shotgun", shotgunAttack);
+        Attacks.Add("Shield", Shield);
 
         Consumables.Add("", nullAttack);
         Consumables.Add("SmallHealth", SmallHealth);
@@ -68,9 +76,9 @@ public class PlayerAttack : NetworkBehaviour
     {
         OnPrimaryPressed.RemoveAllListeners();
         OnPrimaryPressed.AddListener(Attacks[weapon]);
-        if (GetComponent<PlayerInventory>().PrimaryWeapon)
+        if (playerInventory.PrimaryWeapon)
         {
-            timeBetweenAttack = GetComponent<PlayerInventory>().PrimaryWeapon.delayBetweenUses;
+            timeBetweenAttack = playerInventory.PrimaryWeapon.delayBetweenUses;
         }
     }
 
@@ -78,9 +86,9 @@ public class PlayerAttack : NetworkBehaviour
     {
         OnSecondaryPressed.RemoveAllListeners();
         OnSecondaryPressed.AddListener(Attacks[weapon]);
-        if(GetComponent<PlayerInventory>().SecondaryWeapon)
+        if(playerInventory.SecondaryWeapon)
         {
-            timeBetweenSecondaryAttack = GetComponent<PlayerInventory>().SecondaryWeapon.delayBetweenUses;
+            timeBetweenSecondaryAttack = playerInventory.SecondaryWeapon.delayBetweenUses;
         }
     }
 
@@ -116,6 +124,9 @@ public class PlayerAttack : NetworkBehaviour
                     return;
                 }
             }
+        }else if (spawnedShield && playerInventory.PrimaryWeapon.itemName == "Shield")
+        {
+            CmdDestroyShield();
         }
     }
 
@@ -129,19 +140,33 @@ public class PlayerAttack : NetworkBehaviour
     {
         if (!Manager.Instance.settings.isPlayable) { return; }
         if (!Manager.Instance.AllowOtherInput) { return; }
-        if (canSecondaryAttack)
+        if (context.ReadValueAsButton())
         {
-            secondaryAttacking |= context.ReadValueAsButton();
-        }else if (!secondaryAlreadyAdded)
-        {
-            if(secondaryAttackIndex < lightMeleeAttack.Length - 1)
+            if (inSwing)
             {
-                secondaryAttackIndex++;
-            }else
+                if (secondaryAttackIndex + 1 == lastAttack + 1)
+                {
+                    secondaryAttackIndex++;
+                    secondaryAttacking |= context.ReadValueAsButton();
+                }
+                if (secondaryAttackIndex > lightMeleeAttack.Length - 1)
+                {
+                    secondaryAttackIndex = 0;
+                }
+            }
+            else
             {
                 secondaryAttackIndex = 0;
+                if (canAttack)
+                {
+                    secondaryAttacking |= context.ReadValueAsButton();
+                    return;
+                }
             }
-            secondaryAlreadyAdded = true;
+        }
+        else if (spawnedShield && playerInventory.SecondaryWeapon.itemName == "Shield")
+        {
+            CmdDestroyShield();
         }
     }
 
@@ -293,10 +318,32 @@ public class PlayerAttack : NetworkBehaviour
         }
     }
 
-    public void shield()
+    public void Shield()
     {
-
+        if(spawnedShield) { return; }
+        spawnedShield = Instantiate(shield, weaponHolder.transform.position, transform.rotation);
+        spawnedShield.GetComponent<ShieldFollow>().followTransform = weaponHolder;
     }
+
+    [Command(requiresAuthority = false)]
+    public void CmdDestroyShield()
+    {
+        ServerDestroyShield();
+    }
+
+    [Server]
+    public void ServerDestroyShield()
+    {
+        RpcDestroyShield();
+    }
+
+    [ClientRpc]
+    public void RpcDestroyShield()
+    {
+        Destroy(spawnedShield);
+        ChangeAttack(this.primary);
+    }
+
 
     public void SmallHealth()
     {

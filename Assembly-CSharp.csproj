@@ -153,6 +153,7 @@
     <Compile Include="Assets\Shop.cs" />
     <Compile Include="Assets\GameTiles.cs" />
     <Compile Include="Assets\DataPersistantNPC.cs" />
+    <Compile Include="Assets\ShieldFollow.cs" />
     <Compile Include="Assets\WorldTile.cs" />
     <Compile Include="Assets\QuestSystem\QuestInfoSO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />

@@ -552,12 +552,15 @@ MonoBehaviour:
   anim: {fileID: 1784643800395180212}
   attackIndex: 0
   secondaryAttackIndex: 0
+  canAttack: 1
   canUseConsumable: 1
   timeBetweenAttack: 1
   timeBetweenSecondaryAttack: 0.5
   timeBetweenConsumableUse: 20
   projectiles: []
   firepoint: {fileID: 1739220308583516291}
+  shield: {fileID: 8037025038743915283, guid: be941c7fbf3b49843943cad9aeb2c169, type: 3}
+  weaponHolder: {fileID: 4281615649663137317}
 --- !u!114 &2476981166703122982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,7 +999,7 @@ MonoBehaviour:
         m_CallState: 2
   hitableTags:
   - Enemy
-  knockBack: 500
+  knockBack: 100
   damage: 25
 --- !u!1 &7712626547458190379
 GameObject:
