@@ -78,6 +78,7 @@
     <Compile Include="Assets\NPCStep.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\QuestNPCStep.cs" />
+    <Compile Include="Assets\TextToDisplay.cs" />
     <Compile Include="Assets\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
     <Compile Include="Assets\Patrol.cs" />
