@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.0013090889, w: 0.9999992}
   m_LocalPosition: {x: 0, y: 0.192, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1217246591434167862}
@@ -343,7 +343,7 @@ MonoBehaviour:
   syncInterval: 0
   id: a3528fc6-fa42-4f6f-9e53-dd7f8799b155
   target: {fileID: 0}
-  targetTolerance: 2
+  targetTolerance: 3
   waypointTolerance: 2
   currentState: 1
   OnReachedTarget:
@@ -373,7 +373,7 @@ MonoBehaviour:
   tempTarget: {fileID: 0}
   tempTargetPrefab: {fileID: 5243171882204016220, guid: 5a788bc29aac35e4c840108a22617fd1, type: 3}
   canMove: 1
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1
   timeSinceLastAttack: 0
   projectile: {fileID: 0}
   Firepoint: {fileID: 0}
@@ -924,5 +924,8 @@ MonoBehaviour:
         m_CallState: 2
   hitableTags:
   - Player
+  - Shield
   knockBack: 2000
   damage: 20
+  canHit: 1
+  colliders: []

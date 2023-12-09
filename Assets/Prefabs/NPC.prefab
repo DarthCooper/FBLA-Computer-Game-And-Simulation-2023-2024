@@ -436,6 +436,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   NPCName: Carrot
+  prerequisites: []
   steps:
   - {fileID: 7091477975883375602, guid: eebb2284fcb467e4593ba4996608ebf1, type: 3}
   - {fileID: 7091477975883375602, guid: 97bdb056228c8c3459ee603867f1a1d9, type: 3}
@@ -464,6 +465,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  OnFinishSteps:
+    m_PersistentCalls:
+      m_Calls: []
+  quest: {fileID: 0}
+  canRun: 1
 --- !u!114 &1351622625339897021
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,6 +26,10 @@ public class PlayerInteract : NetworkBehaviour
     bool canRead = false;
     public string message;
 
+    public bool speaking = false;
+    public GameObject dialoguePage;
+    public string speechMessage;
+
     public bool shopOpen = false;
     public GameObject shop;
     bool canOpenShop = false;
@@ -39,7 +43,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public bool computerOpen = false;
 
-    public bool[] Canvases = new bool[5];
+    public bool[] Canvases = new bool[6];
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -84,6 +88,12 @@ public class PlayerInteract : NetworkBehaviour
         }
         this.message = message;
         canRead = true;
+    }
+
+    public void Speak(string messsage)
+    {
+        speaking = !speaking;
+        this.speechMessage = messsage;
     }
 
     public void Shop()
@@ -155,6 +165,15 @@ public class PlayerInteract : NetworkBehaviour
             SetReadingPage();
         }
         EnableDisableRead();
+    }
+
+    public void CheckDialogue()
+    {
+        while(dialoguePage == null || dialoguePage.name != "SpeechBox")
+        {
+            SetDialoguePage();
+        }
+        EnableDisableDialogue();
     }
 
     public void CheckShop()
@@ -340,6 +359,42 @@ public class PlayerInteract : NetworkBehaviour
         }
     }
 
+    public void SetDialoguePage()
+    {
+        if(!dialoguePage && Manager.Instance.settings.isPlayable)
+        {
+            dialoguePage = GameObject.Find("Canvas");
+            if(dialoguePage)
+            {
+                dialoguePage = dialoguePage.transform.Find("Dialogue").gameObject;
+                if(dialoguePage)
+                {
+                    dialoguePage = dialoguePage.transform.Find("SpeechBox").gameObject;
+                }
+            }
+        }
+    }
+
+    public void EnableDisableDialogue()
+    {
+        if (speaking && dialoguePage)
+        {
+            dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage);
+        }
+        foreach (var image in dialoguePage.GetComponentsInChildren<Image>())
+        {
+            image.enabled = speaking;
+        }
+        foreach (var image in dialoguePage.GetComponentsInChildren<RawImage>())
+        {
+            image.enabled = speaking;
+        }
+        foreach (var text in dialoguePage.GetComponentsInChildren<TMP_Text>())
+        {
+            text.enabled = speaking;
+        }
+    }
+
     public void SetShop()
     {
         if(!shop && Manager.Instance.settings.isPlayable)
@@ -366,6 +421,7 @@ public class PlayerInteract : NetworkBehaviour
         SetJournal();
         SetReadingPage();
         SetPauseMenu();
+        SetDialoguePage();
         SetShop();
         if (interactables.Count > 0)
         {
@@ -413,20 +469,25 @@ public class PlayerInteract : NetworkBehaviour
         {
             CheckShop();
         }
+        if(dialoguePage)
+        {
+            CheckDialogue();
+        }
         bool AllowInteract = true;
         bool AllowMove = true;
         bool AllowOther = true;
         if(!Manager.Instance.settings.Minigame)
         {
-            if(Canvases.Length != 5)
+            if(Canvases.Length != 6)
             {
-                Canvases = new bool[5];
+                Canvases = new bool[6];
             }
             Canvases[0] = InventoryOpen;
             Canvases[1] = JournalOpen;
             Canvases[2] = reading;
             Canvases[3] = PauseMenuOpen;
             Canvases[4] = shopOpen;
+            Canvases[5] = speaking;
             AllowInteract = true;
             AllowMove = true;
             AllowOther = false;

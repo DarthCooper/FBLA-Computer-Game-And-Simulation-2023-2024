@@ -5,10 +5,14 @@ using UnityEngine;
 public class ShieldFollow : MonoBehaviour
 {
     public Transform followTransform;
-    // Start is called before the first frame update
-    void Start()
+
+    public bool canParry = true;
+
+    public float parryTime = 0.2f;
+
+    private void Awake()
     {
-        
+        canParry = true;
     }
 
     // Update is called once per frame
@@ -18,6 +22,13 @@ public class ShieldFollow : MonoBehaviour
         {
             transform.position = followTransform.position;
             transform.rotation = followTransform.rotation;
+        }
+        if(parryTime > 0)
+        {
+            parryTime -= Time.deltaTime;
+        }else
+        {
+            canParry = false;
         }
     }
 }

@@ -254,20 +254,19 @@ public class NPC : NetworkBehaviour
         {
             OnFinishSteps.Invoke();
             NPCManager.CompleteNPC(NPCName);
-            print("finished");
         }
         ExecuteStep();
     }
 
     public void DisplayText(string text)
     {
-        speechBubble.SetActive(true);
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text);
         speechText.text = text;
     }
 
     public void HideText()
     {
-        speechText.text = "";
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("");
         speechBubble.SetActive(false);
     }
 

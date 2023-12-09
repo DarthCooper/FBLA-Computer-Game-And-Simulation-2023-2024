@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TextNPCStep : NPCStep
 {
-    public string text;
+    [TextAreaAttribute]public string text;
 
     public float timeToDisplay;
 
@@ -26,13 +26,7 @@ public class TextNPCStep : NPCStep
 
     private void Update()
     {
-        if(timeToDisplay > 0)
-        {
-            timeToDisplay -= Time.deltaTime;
-        }else
-        {
-            Finish();
-        }
+
     }
 
     public override void Finish()

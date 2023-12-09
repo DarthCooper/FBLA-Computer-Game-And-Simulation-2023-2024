@@ -104,7 +104,7 @@ public class PlayerAttack : NetworkBehaviour
         if(!Manager.Instance.AllowOtherInput) { return; }
         if (context.ReadValueAsButton())
         {
-            if(inSwing)
+            if(inSwing && playerInventory.PrimaryWeapon.itemName == "Sword")
             {
                     if(attackIndex + 1 == lastAttack + 1)
                     {
@@ -142,7 +142,7 @@ public class PlayerAttack : NetworkBehaviour
         if (!Manager.Instance.AllowOtherInput) { return; }
         if (context.ReadValueAsButton())
         {
-            if (inSwing)
+            if (inSwing && playerInventory.SecondaryWeapon.itemName == "Sword")
             {
                 if (secondaryAttackIndex + 1 == lastAttack + 1)
                 {

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\EnemyAIChase.cs" />
     <Compile Include="Assets\QuestStartNPCStep.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\PauseMenu.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\MeleeWeapon.cs" />
     <Compile Include="Assets\EnemyVision.cs" />
+    <Compile Include="Assets\EnemyTriggerSpawner.cs" />
     <Compile Include="Assets\InCameraRangeNPC.cs" />
     <Compile Include="Assets\MovementNPCStep.cs" />
     <Compile Include="Assets\Readable.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="Assets\TriggerNPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\DialoguePage.cs" />
     <Compile Include="Assets\EnemyAI.cs" />
     <Compile Include="Assets\QuestSlot.cs" />
     <Compile Include="Assets\Slot.cs" />

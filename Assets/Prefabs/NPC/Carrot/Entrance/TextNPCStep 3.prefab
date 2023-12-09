@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  text: Quick. In here!
+  text: Follow me!
   timeToDisplay: 2
+  stopMovement: 0

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - ReviveMarker
   - QuestIdentifier
+  - Shield
+  - NPC
   layers:
   - Default
   - TransparentFX

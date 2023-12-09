@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  text: Follow me, I'll explain when we're safe!
+  text: Oh, you are! Well that's splendid. Here let me give you a tour of my humble
+    abode.
   timeToDisplay: 2
+  stopMovement: 0

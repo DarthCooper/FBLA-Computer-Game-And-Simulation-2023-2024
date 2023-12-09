@@ -27,8 +27,8 @@ public class EnemyAI : NetworkBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
-    Path path;
-    int currentWaypoint = 0;
+    public Path path;
+    public int currentWaypoint = 0;
     public bool reachedEndOfPath = false;
 
     public bool runIfPlayerIsClose;
@@ -38,10 +38,10 @@ public class EnemyAI : NetworkBehaviour
     public Transform tempTarget;
     public Transform tempTargetPrefab;
 
-    Seeker seeker;
-    Rigidbody2D rb;
+    public Seeker seeker;
+    public Rigidbody2D rb;
 
-    Animator animator;
+    public Animator animator;
 
     public bool canMove = true;
 
@@ -49,12 +49,14 @@ public class EnemyAI : NetworkBehaviour
     bool canAttack = true;
     public float timeSinceLastAttack = 0;
 
-    bool waitingForReEnable;
+    public bool waitingForReEnable;
 
     public GameObject projectile;
     public Transform Firepoint;
 
     public LayerMask targetLayer;
+
+    public bool stunned;
 
     // Start is called before the first frame update
     void Start()
@@ -93,52 +95,64 @@ public class EnemyAI : NetworkBehaviour
 
     private void FixedUpdate()
     {
+        onUpdate();
+    }
+
+    public virtual void onUpdate()
+    {
         if (Firepoint && target != null)
         {
             Firepoint.up = target.position - Firepoint.position;
         }
         if (!isServer) { return; } //movement will only be ran on the server while the clients recieve the data from the server.
 
-        if(target == null && tempTarget != null)
+        if (stunned) { return; }
+
+        if (target == null && tempTarget != null)
         {
             target = tempTarget;
-        }else if(target == null)
+        }
+        else if (target == null)
         {
             tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
             target = tempTarget;
         }
-        if(GetComponent<Patrol>().target == null)
+        if (GetComponent<Patrol>())
         {
-            GetComponent<Patrol>().target = tempTarget;
+            if (GetComponent<Patrol>().target == null)
+            {
+                GetComponent<Patrol>().target = tempTarget;
+            }
         }
 
         if (path == null) { return; }
         if (currentWaypoint >= path.vectorPath.Count) { return; }
 
-        if(currentState == EnemyStates.Patroling)
+        if (currentState == EnemyStates.Patroling)
         {
             target = tempTarget;
         }
 
         float distanceToPlayer = 0;
-        if(GetComponent<GetClosestTarget>().Target)
+        if (GetComponent<GetClosestTarget>().Target)
         {
             distanceToPlayer = Vector2.Distance(rb.position, GetComponent<GetClosestTarget>().Target.transform.position);
         }
-        if(distanceToPlayer >= DistanceFromPlayer && (currentState == EnemyStates.Hunting || currentState == EnemyStates.Fleeing))
+        if (distanceToPlayer >= DistanceFromPlayer && (currentState == EnemyStates.Hunting || currentState == EnemyStates.Fleeing))
         {
             target = GetComponent<GetClosestTarget>().Target.transform;
             currentState = EnemyStates.Hunting;
-        }else
+        }
+        else
         {
             if (runIfPlayerIsClose && distanceToPlayer < DistanceFromPlayer)
             {
                 currentState = EnemyStates.Fleeing;
-                if(tempTarget == null)
+                if (tempTarget == null)
                 {
                     tempTarget = Instantiate(tempTargetPrefab, transform.position, transform.rotation);
                 }
-                if(GetComponent<GetClosestTarget>().Target)
+                if (GetComponent<GetClosestTarget>().Target)
                 {
                     RaycastHit2D NewPos = Physics2D.Raycast(transform.position, transform.position - GetComponent<GetClosestTarget>().Target.transform.position, runDistance, runLayer);
                     if (NewPos)
@@ -157,26 +171,27 @@ public class EnemyAI : NetworkBehaviour
         }
 
         float distanceToTarget = Vector2.Distance(rb.position, target.position);
-        RaycastHit2D hit =  Physics2D.Raycast(transform.position, target.position - transform.position, targetTolerance, targetLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, target.position - transform.position, targetTolerance, targetLayer);
 
-        if(currentState == EnemyStates.Patroling)
+        if (currentState == EnemyStates.Patroling && GetComponent<Patrol>())
         {
-            if(distanceToTarget <= waypointTolerance)
+            if (distanceToTarget <= waypointTolerance)
             {
                 GetComponent<Patrol>().FindNewTarget();
                 target = tempTarget;
             }
         }
 
-        if(distanceToTarget <= targetTolerance)
+        if (distanceToTarget <= targetTolerance)
         {
-            if(hit)
+            if (hit)
             {
-                if(hit.collider.gameObject == target.gameObject)
+                if (hit.collider.gameObject == target.gameObject)
                 {
                     reachedEndOfPath = true;
                     canMove = false;
-                }else
+                }
+                else
                 {
                     reachedEndOfPath = false;
                     if (!waitingForReEnable)
@@ -184,7 +199,8 @@ public class EnemyAI : NetworkBehaviour
                         canMove = true;
                     }
                 }
-            }else
+            }
+            else
             {
                 reachedEndOfPath = false;
                 if (!waitingForReEnable)
@@ -192,16 +208,17 @@ public class EnemyAI : NetworkBehaviour
                     canMove = true;
                 }
             }
-        }else
+        }
+        else
         {
             reachedEndOfPath = false;
-            if(!waitingForReEnable)
+            if (!waitingForReEnable)
             {
-                canMove=true;
+                canMove = true;
             }
         }
 
-        if(reachedEndOfPath)
+        if (reachedEndOfPath)
         {
             CmdReachedTarget();
         }
@@ -209,14 +226,14 @@ public class EnemyAI : NetworkBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.fixedDeltaTime;
 
-        if(canMove)
+        if (canMove)
         {
             rb.AddForce(force);
         }
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
-        if(distance < nextWaypointDistance)
+        if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
@@ -298,6 +315,19 @@ public class EnemyAI : NetworkBehaviour
     {
         canMove = true;
         waitingForReEnable = false;
+    }
+
+    public void StunEnemy(float time)
+    {
+        StopMovement(time);
+        waitingForReEnable = true;
+        stunned = true;
+        Invoke(nameof(DisableStun), time);
+    }
+
+    void DisableStun()
+    {
+        stunned = false;
     }
 }
 

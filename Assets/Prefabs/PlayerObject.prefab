@@ -658,6 +658,9 @@ MonoBehaviour:
   reading: 0
   readingPage: {fileID: 0}
   message: 
+  speaking: 0
+  dialoguePage: {fileID: 0}
+  speechMessage: 
   shopOpen: 0
   shop: {fileID: 0}
   PauseMenuOpen: 0
@@ -999,8 +1002,10 @@ MonoBehaviour:
         m_CallState: 2
   hitableTags:
   - Enemy
-  knockBack: 100
+  knockBack: 5000
   damage: 25
+  canHit: 1
+  colliders: []
 --- !u!1 &7712626547458190379
 GameObject:
   m_ObjectHideFlags: 0
