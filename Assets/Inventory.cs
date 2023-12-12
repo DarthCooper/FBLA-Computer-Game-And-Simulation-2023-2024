@@ -202,6 +202,28 @@ public class Inventory : MonoBehaviour, IDataPersistence
         SelectedSlot = questionedSlot;
         questionedSlot = null;
         slotOptions.SetActive(false);
+        print(SelectedSlot.item.itemType);
+        if(SelectedSlot.item.itemType == ItemType.Weapon)
+        {
+            PrimarySlot.hightlight.SetActive(true);
+            SecondarySlot.hightlight.SetActive(true);
+        }
+        if(SelectedSlot.item.itemType == ItemType.Ammo)
+        {
+            AmmoSlot.hightlight.SetActive(true);
+        }
+        if(SelectedSlot.item.itemType == ItemType.Useable)
+        {
+            ConsumableSlot.hightlight.SetActive(true);
+        }
+    }
+
+    public void ResetHighlights()
+    {
+        PrimarySlot.hightlight.SetActive(false);
+        SecondarySlot.hightlight.SetActive(false);
+        AmmoSlot.hightlight.SetActive(false);
+        ConsumableSlot.hightlight.SetActive(false);
     }
 
     public void ClostSlotOptions()

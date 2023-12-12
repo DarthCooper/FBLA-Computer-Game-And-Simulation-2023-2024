@@ -25,6 +25,8 @@ public class Slot : MonoBehaviour
 
     public Slot equipedInSlot;
 
+    public GameObject hightlight;
+
     public void DisplayInSlot()
     {
         itemImage.texture = item.itemTexture;
@@ -99,6 +101,7 @@ public class Slot : MonoBehaviour
             Inventory.Instance.SelectedSlot = null;
             DisplayInSlot();
             onEquip.Invoke();
+            Inventory.Instance.ResetHighlights();
         }else if(equipSlot && !Inventory.Instance.SelectedSlot && item)
         {
             UnEquip();
