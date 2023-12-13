@@ -13,7 +13,6 @@ public class DialoguePage : MonoBehaviour
 
     public void SetMessage(string message)
     {
-        print(message);
         messageText.text = message;
         GetClosest();
     }

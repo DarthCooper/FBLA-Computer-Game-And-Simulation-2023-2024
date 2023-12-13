@@ -67,6 +67,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\PauseMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\TriggerEvent.cs" />
     <Compile Include="Assets\DataPersistence\FileDataHandler.cs" />
     <Compile Include="Assets\Journal.cs" />
     <Compile Include="Assets\Item.cs" />
