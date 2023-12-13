@@ -942,6 +942,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357230826}
   m_CullTransparentMesh: 1
+--- !u!1 &397242905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 995017139645312066, guid: 2857e2cee7b73284184589443da8775b, type: 3}
+  m_PrefabInstance: {fileID: 2678371051265507124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &397242906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397242905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24252ec54f42a847a92cbbfea0bd366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 397242908}
+        m_TargetAssemblyTypeName: AddTutorialStepSignal, Assembly-CSharp
+        m_MethodName: addSignal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  doNothing: 0
+  goOnDisable: 1
+--- !u!114 &397242907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397242905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c061fdef7dc4c4f857402d80645a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  component: {fileID: 0}
+  goOnDisable: 0
+  doNothing: 1
+--- !u!114 &397242908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397242905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759b4801eb40dc341b01fb2c03fa06db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 2678371051265507125}
+  signal: {fileID: 397242907}
+  signalIndex: 0
+  SignalNot: 1
 --- !u!1 &410203621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2379,6 +2447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3cce7a0ed424541a6e9b615d257928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1040034509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4905,6 +4976,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7348479069592849877, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2678371051265507127}
+    - targetCorrespondingSourceObject: {fileID: 995017139645312066, guid: 2857e2cee7b73284184589443da8775b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397242906}
+    - targetCorrespondingSourceObject: {fileID: 995017139645312066, guid: 2857e2cee7b73284184589443da8775b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397242908}
+    - targetCorrespondingSourceObject: {fileID: 995017139645312066, guid: 2857e2cee7b73284184589443da8775b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 397242907}
     - targetCorrespondingSourceObject: {fileID: 6812884544139605609, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2678371051265507129}
@@ -4940,8 +5020,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c061fdef7dc4c4f857402d80645a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls: []
   component: {fileID: 2678371051265507126}
   goOnDisable: 0
+  doNothing: 0
 --- !u!1 &2678371051265507128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6812884544139605609, guid: 2857e2cee7b73284184589443da8775b, type: 3}
@@ -4959,6 +5043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24252ec54f42a847a92cbbfea0bd366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  doNothing: 0
   goOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

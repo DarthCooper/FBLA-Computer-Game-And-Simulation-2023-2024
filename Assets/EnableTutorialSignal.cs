@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnableTutorialSignal : TutorialStepSignal
 {
+    public bool doNothing = false;
     public bool goOnDisable;
     private void OnEnable()
     {
+        if(doNothing) { return; }
         if(!goOnDisable)
         {
             finishStep();
@@ -15,7 +17,8 @@ public class EnableTutorialSignal : TutorialStepSignal
 
     private void OnDisable()
     {
-        if(!goOnDisable)
+        if (doNothing) { return; }
+        if (goOnDisable)
         {
             finishStep();
         }

@@ -9,6 +9,8 @@ public class ComponentTutorialSignal : TutorialStepSignal
 
     public bool goOnDisable;
 
+    public bool doNothing = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class ComponentTutorialSignal : TutorialStepSignal
     // Update is called once per frame
     void Update()
     {
+        if(doNothing) { return; }
         if(component.enabled && !goOnDisable)
         {
             finishStep();

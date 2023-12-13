@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is how you can view what items you have picked up.
+  m_text: You can use I to enable and disable the backpack
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: Inventory
-  actionResponse: to open your backpack
+  actionResponse: to close your backpack
   actionText: {fileID: 167226150305634922}
   currentActionMap: {fileID: -2297000528375821469, guid: 27a15d8586e531e40ac42f560a403265, type: 3}
 --- !u!114 &8974795938815066723
