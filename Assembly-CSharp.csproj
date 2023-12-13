@@ -195,6 +195,7 @@
     <Compile Include="Assets\DataPersistantEnemy.cs" />
     <Compile Include="Assets\QuestSystem\QuestManager.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
+    <Compile Include="Assets\WatchPlayerInput.cs" />
     <Compile Include="Assets\CustomNetworkManager.cs" />
     <Compile Include="Assets\QuestSystem\QuestIcon.cs" />
   </ItemGroup>

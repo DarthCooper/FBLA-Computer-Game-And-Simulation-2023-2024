@@ -1010,6 +1010,21 @@ MonoBehaviour:
   signal: {fileID: 397242907}
   signalIndex: 0
   SignalNot: 1
+  onFinish:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1494328761}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: RunTutorial
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Movement
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &410203621
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,6 +3439,7 @@ MonoBehaviour:
   tutorialPrefab: {fileID: 7680178383449240909, guid: c31cea66a9c1b324aaaa9c283460e428, type: 3}
   tutorials:
   - {fileID: 11400000, guid: 517f4445c48921c49bff79047c044c98, type: 2}
+  - {fileID: 11400000, guid: 796a3bfe7c9ef65409f5b2a8265ff0ff, type: 2}
   currentTutorial: {fileID: 0}
   currentStep: {fileID: 0}
   tutorialParent: {fileID: 93804193}
