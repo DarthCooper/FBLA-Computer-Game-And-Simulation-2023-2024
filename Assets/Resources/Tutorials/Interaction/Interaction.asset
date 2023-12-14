@@ -17,4 +17,5 @@ MonoBehaviour:
   Description: 
   previouslyLoaded: 0
   Prerequisites: []
-  TutorialStepPrefabs: []
+  TutorialStepPrefabs:
+  - {fileID: 7680178383449240909, guid: d1ad099aa1014a64885fd5edfcfeee75, type: 3}

@@ -8,6 +8,7 @@ public class NPCAdvanceQuestStep : NPCStep
 
     public override void Execute()
     {
+        print("running");
         Manager.Instance.miscEvents.NpcPositionReached();
         if(stopMovement)
         {

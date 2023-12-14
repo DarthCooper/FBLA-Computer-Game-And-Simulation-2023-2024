@@ -5,7 +5,7 @@ using Mirror;
 
 public abstract class QuestStep : NetworkBehaviour
 {
-    private bool isFinished = false;
+    public bool isFinished = false;
     public string questStepID;
     public string questId;
     private int stepIndex = 0;

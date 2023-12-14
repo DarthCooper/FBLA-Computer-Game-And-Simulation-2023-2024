@@ -21,4 +21,5 @@ MonoBehaviour:
   questPrerequisites: []
   questStepPrefabs:
   - {fileID: 1409073945696819791, guid: fe96fb5c8253f344ab5a56659e44bbc7, type: 3}
+  - {fileID: 5484769963175897239, guid: a9fbebf1b80e9e6458b7e11dc0a3de5c, type: 3}
   itemRewards: []

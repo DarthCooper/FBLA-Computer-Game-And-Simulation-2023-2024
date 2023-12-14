@@ -129,6 +129,10 @@ public class Manager : NetworkBehaviour
             {
                 miscEvents.ArrowCollected();
             }
+            if(item.itemName == "Mushroom")
+            {
+                miscEvents.MushroomCollected();
+            }
         }
     }
 

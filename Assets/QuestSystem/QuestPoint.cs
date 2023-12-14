@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestPoint : MonoBehaviour
 {
     [Header("Quest")]
-    [SerializeField] private QuestInfoSO questInfoForPoint;
+    [SerializeField] public QuestInfoSO questInfoForPoint;
 
     [Header("Config")]
     [SerializeField] private bool startPoint = true;

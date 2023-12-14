@@ -12,6 +12,16 @@ public class MiscEvents
         }
     }
 
+    public event Action onMushroomCollected;
+
+    public void MushroomCollected()
+    {
+        if(onMushroomCollected != null)
+        {
+            onMushroomCollected();
+        }
+    }
+
     public event Action onWaveEnemyKilled;
 
     public void WaveEnemyKilled()

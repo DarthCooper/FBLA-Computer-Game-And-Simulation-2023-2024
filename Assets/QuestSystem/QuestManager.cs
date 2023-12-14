@@ -138,6 +138,18 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         steps.Add(step);
     }
 
+    public QuestStep getQuestStep(string id, string questStepId)
+    {
+        foreach (var step in steps)
+        {
+            if(step.questId.Equals(id) && step.questStepID.Equals(questStepId))
+            {
+                return step;
+            }
+        }
+        return null;
+    }
+
     public bool DuplicateQuestStep(QuestStep questStep)
     {
         bool alreadySpawned = false;
