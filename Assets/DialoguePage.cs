@@ -1,9 +1,10 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialoguePage : MonoBehaviour
+public class DialoguePage : NetworkBehaviour
 {
     public TMP_Text messageText;
 
@@ -18,6 +19,27 @@ public class DialoguePage : MonoBehaviour
     }
 
     public void OnClick()
+    {
+        CmdOnClick();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdOnClick()
+    {
+        if(isServer)
+        {
+            ServerOnClick();
+        }
+    }
+
+    [Server]
+    public void ServerOnClick()
+    {
+        RpcOnClick();
+    }
+
+    [ClientRpc]
+    public void RpcOnClick()
     {
         npc.currentStep.Finish();
     }
