@@ -10,6 +10,8 @@ public class TutorialStepSignal : MonoBehaviour
 
     public void finishStep()
     {
+        if(!TutorialManager.instance) { return; }
+        if(!TutorialManager.instance.currentStep) { return; }
         TutorialManager.instance.currentStep.FinishTutorialStep(this);
         onFinish.Invoke();
     }

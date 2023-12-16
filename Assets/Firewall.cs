@@ -7,7 +7,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 using UnityEngine.U2D;
-using static UnityEditor.PlayerSettings;
 
 public class Firewall : NetworkBehaviour
 {

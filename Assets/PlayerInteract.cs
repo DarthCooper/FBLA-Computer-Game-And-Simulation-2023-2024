@@ -138,7 +138,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckInventory()
     {
-        while (inventory == null || inventory.name != "PlayerMenu")
+        if (inventory == null || inventory.name != "PlayerMenu")
         {
             SetInventory();
         }
@@ -151,7 +151,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckJournal()
     {
-        while (journal == null || journal.name != "PlayerJournal")
+        if (journal == null || journal.name != "PlayerJournal")
         {
             SetJournal();
         }
@@ -160,7 +160,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckReading()
     {
-        while (readingPage == null || readingPage.name != "Sign")
+        if (readingPage == null || readingPage.name != "Sign")
         {
             SetReadingPage();
         }
@@ -169,7 +169,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckDialogue()
     {
-        while(dialoguePage == null || dialoguePage.name != "SpeechBox")
+        if(dialoguePage == null || dialoguePage.name != "SpeechBox")
         {
             SetDialoguePage();
         }
@@ -178,7 +178,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckShop()
     {
-        while (shop == null || shop.name != "PlayerShop")
+        if (shop == null || shop.name != "PlayerShop")
         {
             SetShop();
         }
@@ -187,7 +187,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void CheckPauseMenu()
     {
-        while (pauseMenu == null || pauseMenu.name != "PauseMenu")
+        if (pauseMenu == null || pauseMenu.name != "PauseMenu")
         {
             SetPauseMenu();
         }
@@ -212,6 +212,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableInventory()
     {
+        if (inventory == null || inventory.name != "PlayerMenu") { return; }
         foreach (var image in inventory.GetComponentsInChildren<Image>())
         {
             if (!image.gameObject.GetComponentInParent<SlotOptions>())
@@ -246,6 +247,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableJournal()
     {
+        if (journal == null || journal.name != "PlayerJournal") { return; }
         foreach (var image in journal.GetComponentsInChildren<Image>())
         {
             image.enabled = JournalOpen;
@@ -290,6 +292,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisablePauseMenu()
     {
+        if (pauseMenu == null || pauseMenu.name != "PauseMenu") { return; }
         foreach (var image in pauseMenu.GetComponentsInChildren<Image>())
         {
             image.enabled = PauseMenuOpen;
@@ -306,6 +309,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableRead()
     {
+        if (readingPage == null || readingPage.name != "Sign") { return; }
         if (reading && readingPage)
         {
             readingPage.GetComponentInParent<ReadPage>().SetMessage(message);
@@ -329,6 +333,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableShop()
     {
+        if (shop == null || shop.name != "PlayerShop") { return ; }
         foreach (var image in shop.GetComponentsInChildren<Image>())
         {
             image.enabled = shopOpen;
@@ -377,6 +382,7 @@ public class PlayerInteract : NetworkBehaviour
 
     public void EnableDisableDialogue()
     {
+        if (dialoguePage == null || dialoguePage.name != "SpeechBox") { return; }
         if (speaking && dialoguePage)
         {
             dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage);
