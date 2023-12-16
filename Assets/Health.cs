@@ -91,6 +91,7 @@ public class Health : NetworkBehaviour
         if (health <= 0 && !canBeRevived)
         {
             gameObject.SetActive(false);
+            Manager.Instance.miscEvents.EnemyKilled();
         }else if(canBeRevived && health <= 0 && !marker)
         {
             if(isOwned)

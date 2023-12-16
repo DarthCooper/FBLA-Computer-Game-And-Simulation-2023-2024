@@ -47,4 +47,4 @@ MonoBehaviour:
   npc: {fileID: 0}
   text: Look out, That fungi is not friendly!
   timeToDisplay: 2
-  stopMovement: 0
+  stopMovement: 1

@@ -22,4 +22,7 @@ MonoBehaviour:
   questStepPrefabs:
   - {fileID: 1409073945696819791, guid: fe96fb5c8253f344ab5a56659e44bbc7, type: 3}
   - {fileID: 5484769963175897239, guid: a9fbebf1b80e9e6458b7e11dc0a3de5c, type: 3}
+  - {fileID: 1409073945696819791, guid: 49ee9b2fb70e79e4a8bf01f323e2a293, type: 3}
+  - {fileID: 3325787778959975465, guid: c73ff34583f23e744b37e12867946351, type: 3}
+  - {fileID: 1409073945696819791, guid: 1e086ada93a49d746b7e33b93d10a3c8, type: 3}
   itemRewards: []

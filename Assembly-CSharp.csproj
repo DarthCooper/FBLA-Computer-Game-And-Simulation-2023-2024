@@ -149,6 +149,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\WaitForQuestProgression.cs" />
     <Compile Include="Assets\DialoguePage.cs" />
+    <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\DefearEnemiesNPCQuest.cs" />
     <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\CollectMushroomsNPCQuestStep.cs" />
     <Compile Include="Assets\EnemyAI.cs" />
     <Compile Include="Assets\QuestSlot.cs" />

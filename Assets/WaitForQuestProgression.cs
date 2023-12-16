@@ -7,6 +7,8 @@ public class WaitForQuestProgression : NPCStep
     public QuestStep currentStep;
     public string questID;
 
+    QuestStep lastStep;
+
     private void Awake()
     {
         findStep();
@@ -24,9 +26,14 @@ public class WaitForQuestProgression : NPCStep
         {
             findStep();
         }
-        if(currentStep.isFinished)
+        if(currentStep.isFinished || (currentStep == null && lastStep))
         {
             Finish();
+            Debug.LogError(currentStep.questStepID);
+        }
+        if(currentStep != null)
+        {
+            lastStep = currentStep;
         }
     }
 

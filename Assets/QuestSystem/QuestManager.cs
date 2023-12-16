@@ -186,7 +186,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         Debug.Log("Start Quest: " +  id);
     }
 
-    private void AdvanceQuest(string id)
+    public void AdvanceQuest(string id)
     {
         Quest quest = GetQuestById(id);
         quest.MoveToNextStep();

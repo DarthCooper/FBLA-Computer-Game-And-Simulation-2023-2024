@@ -9,7 +9,7 @@ public class NPCAdvanceQuestStep : NPCStep
     public override void Execute()
     {
         print("running");
-        Manager.Instance.miscEvents.NpcPositionReached();
+        QuestManager.instance.AdvanceQuest(GetComponentInParent<QuestPoint>().questInfoForPoint.id);
         if(stopMovement)
         {
             npc.StopMovement();
