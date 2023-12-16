@@ -2635,7 +2635,7 @@ PrefabInstance:
       objectReference: {fileID: 1104354811}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 19
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[3]'
@@ -2701,6 +2701,30 @@ PrefabInstance:
       propertyPath: 'steps.Array.data[18]'
       value: 
       objectReference: {fileID: 7091477975883375602, guid: 7155f88c10dc4534fab4973f195ed390, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[19]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: 44d54b4bb7f05bb47a9ca15ad9b87b04, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[20]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: 1e78041d204119a449a1678ef7b72465, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[21]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: 05905ab4d92d74d40ada514360b35951, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[22]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: 2541ed9baff6ec44d833b2474788b942, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[23]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: da68bf82492729d4fa83cd80a4b0afd7, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[24]'
+      value: 
+      objectReference: {fileID: -6694248310365052407, guid: 360f0a6ccc8202745b0d3f17ea802aee, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: waypoints.Array.size
       value: 6
