@@ -14,6 +14,28 @@ public class DialoguePage : NetworkBehaviour
 
     public void SetMessage(string message)
     {
+        CmdSetMessage(message);
+    }
+
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetMessage(string message)
+    {
+        if (isServer)
+        {
+            ServerSetMessage(message);
+        }
+    }
+
+    [Server]
+    public void ServerSetMessage(string message)
+    {
+        RpcSetMessage(message);
+    }
+
+    [ClientRpc]
+    public void RpcSetMessage(string message)
+    {
         messageText.text = message;
         GetClosest();
     }
