@@ -21,7 +21,10 @@ public class EnemyTriggerSpawner : NetworkBehaviour
 
     public void SpawnEnemies()
     {
-        CmdSpawnEnemies();
+        if(isServer)
+        {
+            CmdSpawnEnemies();
+        }
     }
 
     [Command(requiresAuthority = false)]
