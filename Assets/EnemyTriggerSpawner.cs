@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTriggerSpawner : MonoBehaviour
+public class EnemyTriggerSpawner : NetworkBehaviour
 {
     public EnemyAI[] enemies;
 
@@ -21,6 +21,12 @@ public class EnemyTriggerSpawner : MonoBehaviour
 
     public void SpawnEnemies()
     {
+        CmdSpawnEnemies();
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSpawnEnemies()
+    {
         List<Transform> NewSpawnPoints = new List<Transform>(spawnpoints);
         foreach (var enemy in enemies)
         {
@@ -35,6 +41,5 @@ public class EnemyTriggerSpawner : MonoBehaviour
             NetworkServer.Spawn(spawnedEnemy);
         }
         spawned = true;
-
     }
 }
