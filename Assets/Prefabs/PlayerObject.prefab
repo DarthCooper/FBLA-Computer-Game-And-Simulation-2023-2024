@@ -1002,7 +1002,7 @@ MonoBehaviour:
         m_CallState: 2
   hitableTags:
   - Enemy
-  knockBack: 5000
+  knockBack: 1000
   damage: 25
   canHit: 1
   colliders: []
