@@ -51,6 +51,10 @@ public class Quest
 
     public QuestStep GetCurrentStep()
     {
+        if(currentQuestStepIndex >= questSteps.Count)
+        {
+            currentQuestStepIndex = questSteps.Count - 1;
+        }
         return questSteps[currentQuestStepIndex];
     }
 

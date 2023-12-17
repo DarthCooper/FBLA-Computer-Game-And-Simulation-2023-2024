@@ -712,7 +712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00055928744}
+  m_AnchoredPosition: {x: 0, y: 0.00081329927}
   m_SizeDelta: {x: 0, y: 92.826}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2908829727258209598
@@ -3040,6 +3040,7 @@ MonoBehaviour:
   context: {fileID: 7521356691555575800}
   questNameText: {fileID: 6189063795483453610}
   questProgressText: {fileID: 7383869968362286589}
+  arrowImage: {fileID: 5204916567742413311}
 --- !u!1 &2948630051675938486
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,7 +4483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00076736376}
+  m_AnchoredPosition: {x: 0, y: 0.00047636984}
   m_SizeDelta: {x: 0, y: 136.5428}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7044873433204005103
@@ -5176,7 +5177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00094516616}
+  m_AnchoredPosition: {x: 0, y: 0.0009460449}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7966905161269943797
@@ -5984,7 +5985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0005302944}
+  m_AnchoredPosition: {x: 0, y: -0.000036241487}
   m_SizeDelta: {x: 0, y: 99.9006}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5277513089207828490
@@ -8233,6 +8234,7 @@ RectTransform:
   - {fileID: 1881179341978214774}
   - {fileID: 5788491712998619082}
   - {fileID: 1023623100031769181}
+  - {fileID: 5204916567742413311}
   - {fileID: 5361914614894845166}
   - {fileID: 1497008420728440321}
   - {fileID: 6166177384019945870}
@@ -8444,6 +8446,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &7802913204626873431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5204916567742413311}
+  - component: {fileID: 116171987598398030}
+  - component: {fileID: 3542108821129598447}
+  m_Layer: 5
+  m_Name: QuestExtra
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5204916567742413311
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802913204626873431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8850464362906688771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 898.9, y: 393}
+  m_SizeDelta: {x: 100, y: 49.5964}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &116171987598398030
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802913204626873431}
+  m_CullTransparentMesh: 1
+--- !u!114 &3542108821129598447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802913204626873431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4422058441468162558, guid: 97ff33e4ca65f854b96b638e946aedd4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7958763704523293711
 GameObject:
   m_ObjectHideFlags: 0

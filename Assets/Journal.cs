@@ -22,6 +22,8 @@ public class Journal : MonoBehaviour, IDataPersistence
     public TMP_Text questNameText;
     public TMP_Text questProgressText;
 
+    public Transform arrowImage;
+
     private string lastSelectedQuestName;
 
     private void Awake()
@@ -90,10 +92,22 @@ public class Journal : MonoBehaviour, IDataPersistence
         {
             questNameText.text = string.Empty;
             questProgressText.text = string.Empty;
-        }else
+            arrowImage.gameObject.SetActive(false);
+        }
+        else
         {
             questNameText.text = selectedSlot.questName;
             questProgressText.text = selectedSlot.progressText.text;
+            if (selectedSlot.usesArrow)
+            {
+                arrowImage.gameObject.SetActive(true);
+                float angle = Mathf.Atan2(selectedSlot.step.difference.y, selectedSlot.step.difference.x) * Mathf.Rad2Deg;
+                arrowImage.rotation = Quaternion.Euler(new Vector3(0,0, angle));
+            }
+            else
+            {
+                arrowImage.gameObject.SetActive(false);
+            }
         }
     }
 

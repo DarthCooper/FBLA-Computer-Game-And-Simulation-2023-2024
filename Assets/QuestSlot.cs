@@ -7,6 +7,7 @@ public class QuestSlot : MonoBehaviour
 {
     public string questName;
     public QuestStep step;
+    public bool usesArrow;
     public string description;
     public string maxProgress;
 
@@ -19,6 +20,7 @@ public class QuestSlot : MonoBehaviour
         if(step != null)
         {
             progressText.text = step.progress;
+            usesArrow = step.usesArrow;
         }
         else
         {
@@ -31,6 +33,7 @@ public class QuestSlot : MonoBehaviour
         if (step != null)
         {
             progressText.text = step.progress;
+            usesArrow = step.usesArrow;
         }
         else
         {

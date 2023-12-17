@@ -43,6 +43,7 @@ public class QuestNPCStep : QuestStep
         if(npc && player)
         {
             distance = Vector3.Distance(npc.transform.position, player.transform.position);
+            difference = npc.transform.position - player.transform.position;
             SetProgress();
         }
         else

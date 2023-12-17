@@ -65,16 +65,16 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  isFinished: 0
   questStepID: 1
   questId: FollowTheCarrot
+  usesArrow: 1
   progress: 
   maxProgress: 0
   distance: 0
   NPCnames:
   - Carrot
-  - Carrot2
-  - Carrot3
-  - Carrot4
+  - Carrot1
   npc: {fileID: 0}
   player: {fileID: 0}
   tolerance: 5

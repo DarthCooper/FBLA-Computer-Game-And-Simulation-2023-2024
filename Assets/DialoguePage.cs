@@ -63,6 +63,10 @@ public class DialoguePage : NetworkBehaviour
     [ClientRpc]
     public void RpcOnClick()
     {
+        if(npc == null)
+        {
+            GetClosest();
+        }
         npc.currentStep.Finish();
     }
 

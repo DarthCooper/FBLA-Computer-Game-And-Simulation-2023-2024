@@ -25,7 +25,7 @@ public class CollectMushroomsNPCQuestStep : QuestStep
         if (mushroomsCollected < mushroomsTilComplete)
         {
             mushroomsCollected++;
-            progress = ("" + mushroomsCollected + "/" + mushroomsTilComplete);
+            progress = ("Mushrooms: " + mushroomsCollected + "/" + mushroomsTilComplete);
             Journal.Instance.DisplayQuests();
             UpdateState();
         }
@@ -37,7 +37,7 @@ public class CollectMushroomsNPCQuestStep : QuestStep
 
     private void Update()
     {
-        progress = ("" + mushroomsCollected + "/" + mushroomsTilComplete);
+        progress = ("Mushrooms: " + mushroomsCollected + "/" + mushroomsTilComplete);
     }
 
     [Command(requiresAuthority = false)]
@@ -56,7 +56,7 @@ public class CollectMushroomsNPCQuestStep : QuestStep
     public void RpcChangeMushrooms()
     {
         mushroomsCollected++;
-        progress = ("" + mushroomsCollected + "/" + mushroomsTilComplete);
+        progress = ("Mushrooms: " + mushroomsCollected + "/" + mushroomsTilComplete);
         Journal.Instance.DisplayQuests();
         if (isClient)
         {

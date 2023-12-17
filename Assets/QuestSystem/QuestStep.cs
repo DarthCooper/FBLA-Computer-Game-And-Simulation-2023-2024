@@ -10,10 +10,14 @@ public abstract class QuestStep : NetworkBehaviour
     public string questId;
     private int stepIndex = 0;
 
+    public bool usesArrow;
+
     public Quest quest;
 
     public string progress;
     public string maxProgress;
+
+    public Vector3 difference;
 
     public void InitializeQuestStep(string questId, int stepIndex, string questStepState, Quest quest)
     {
