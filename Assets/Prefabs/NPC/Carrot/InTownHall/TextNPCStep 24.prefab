@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7289384730228821011}
   - component: {fileID: 7091477975883375602}
   m_Layer: 0
-  m_Name: TextNPCStep
+  m_Name: TextNPCStep 24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  text: Sorry, About That.
+  speaker: Radish
+  text: They may exchange it for an item. They recently lost their locket and I'm
+    guessing that they would like to have that back.
   timeToDisplay: 2
+  stopMovement: 0

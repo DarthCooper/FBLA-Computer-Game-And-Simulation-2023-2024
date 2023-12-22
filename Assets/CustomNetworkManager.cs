@@ -27,6 +27,11 @@ public class CustomNetworkManager : NetworkManager
 
     public void StartGame(string SceneName)
     {
+        Manager.Instance.FadeToBlack(SceneName);
+    }
+
+    public void ChangeScene(string SceneName)
+    {
         ServerChangeScene(SceneName);
     }
 }

@@ -258,15 +258,15 @@ public class NPC : NetworkBehaviour
         ExecuteStep();
     }
 
-    public void DisplayText(string text)
+    public void DisplayText(string text, string speaker)
     {
-        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text);
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text, speaker);
         speechText.text = text;
     }
 
     public void HideText()
     {
-        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("");
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("", "");
         speechBubble.SetActive(false);
     }
 

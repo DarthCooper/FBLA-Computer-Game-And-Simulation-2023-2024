@@ -12,31 +12,32 @@ public class DialoguePage : NetworkBehaviour
 
     public NPC npc;
 
-    public void SetMessage(string message)
+    public void SetMessage(string message, string speaker)
     {
-        CmdSetMessage(message);
+        CmdSetMessage(message, speaker);
     }
 
 
     [Command(requiresAuthority = false)]
-    public void CmdSetMessage(string message)
+    public void CmdSetMessage(string message, string speaker)
     {
         if (isServer)
         {
-            ServerSetMessage(message);
+            ServerSetMessage(message, speaker);
         }
     }
 
     [Server]
-    public void ServerSetMessage(string message)
+    public void ServerSetMessage(string message, string speaker)
     {
-        RpcSetMessage(message);
+        RpcSetMessage(message, speaker);
     }
 
     [ClientRpc]
-    public void RpcSetMessage(string message)
+    public void RpcSetMessage(string message, string speaker)
     {
         messageText.text = message;
+        speakerText.text = speaker;
         GetClosest();
     }
 

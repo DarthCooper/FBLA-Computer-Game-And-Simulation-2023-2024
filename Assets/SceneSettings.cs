@@ -14,6 +14,13 @@ public class SceneSettings : MonoBehaviour
     private void Awake()
     {
         sceneChanger = GetComponent<SceneChange>();
+        if(Manager.Instance)
+        {
+            if(Manager.Instance.animator)
+            {
+                Manager.Instance.animator.SetTrigger("ToClear");
+            }
+        }
     }
 
     private void Update()

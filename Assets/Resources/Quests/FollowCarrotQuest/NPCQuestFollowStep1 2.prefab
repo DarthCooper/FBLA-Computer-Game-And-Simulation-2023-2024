@@ -71,10 +71,12 @@ MonoBehaviour:
   usesArrow: 1
   progress: 
   maxProgress: 0
+  difference: {x: 0, y: 0, z: 0}
   distance: 0
   NPCnames:
   - Carrot
   - Carrot1
+  - Carrot2
   npc: {fileID: 0}
   player: {fileID: 0}
   tolerance: 5

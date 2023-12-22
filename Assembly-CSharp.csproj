@@ -108,6 +108,7 @@
     <Compile Include="Assets\QuestSystem\QuestState.cs" />
     <Compile Include="Assets\NPCManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\SceneTransition.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\EnableTutorialSignal.cs" />
     <Compile Include="Assets\AddTutorialStepSignal.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Assets\DataPersistence\DataPersistenceManager.cs" />
     <Compile Include="Assets\Shop.cs" />
     <Compile Include="Assets\TutorialManager.cs" />
+    <Compile Include="Assets\NPCWaitForInteraction.cs" />
     <Compile Include="Assets\GameTiles.cs" />
     <Compile Include="Assets\DataPersistantNPC.cs" />
     <Compile Include="Assets\TutorialUI.cs" />
@@ -191,6 +193,7 @@
     <Compile Include="Assets\GetClosestTarget.cs" />
     <Compile Include="Assets\WaveSpawner.cs" />
     <Compile Include="Assets\CanvasEnabler.cs" />
+    <Compile Include="Assets\WaitForPlayerInRange.cs" />
     <Compile Include="Assets\SceneSaver.cs" />
     <Compile Include="Assets\LobbyDataEntry.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />

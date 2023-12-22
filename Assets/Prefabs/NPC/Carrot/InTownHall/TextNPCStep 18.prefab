@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7289384730228821011}
   - component: {fileID: 7091477975883375602}
   m_Layer: 0
-  m_Name: TextNPCStep 7
+  m_Name: TextNPCStep 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  text: Here's our main hall
+  speaker: Zucchini
+  text: Now most of us are to malnourished to do much.
   timeToDisplay: 2
   stopMovement: 0

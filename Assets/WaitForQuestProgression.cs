@@ -26,10 +26,9 @@ public class WaitForQuestProgression : NPCStep
         {
             findStep();
         }
-        if(currentStep.isFinished || (currentStep == null && lastStep))
+        if((currentStep == null && lastStep) || currentStep.isFinished)
         {
             Finish();
-            Debug.LogError(currentStep.questStepID);
         }
         if(currentStep != null)
         {
@@ -40,5 +39,6 @@ public class WaitForQuestProgression : NPCStep
     public override void Finish()
     {
         npc.EndStep();
+        print("finished");
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TextNPCStep : NPCStep
 {
+    public string speaker = "Carrot";
+
     [TextAreaAttribute]public string text;
 
     public float timeToDisplay;
@@ -17,7 +19,7 @@ public class TextNPCStep : NPCStep
         {
             npc = GetComponentInParent<NPC>();
         }
-        npc.DisplayText(text);
+        npc.DisplayText(text, speaker);
         if(stopMovement)
         {
             npc.StopMovement();

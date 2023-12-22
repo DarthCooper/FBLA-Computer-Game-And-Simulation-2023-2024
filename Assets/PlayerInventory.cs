@@ -37,7 +37,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     {
         if (!setData && Inventory.Instance != null && gameData != null)
         {
-            Invoke(nameof(SetData), 0.25f);
+            SetData();
         }
         if(!Manager.Instance.settings.isPlayable) { return; }
         if(PrimaryWeaponSlot == null)
@@ -234,11 +234,13 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         gameData = data;
+        setData = false;
     }
 
     public void SetData()
     {
         if(Inventory.Instance == null || !Inventory.Instance.itemsLoaded) { return; }
+        print(gameData.primaryWeapon);
         if (gameData.primaryWeapon != string.Empty)
         {
             Inventory.Instance.PrimarySlot.EquipItem(Inventory.Instance.GetClosestSlot(Inventory.Instance.GetItem(gameData.primaryWeapon)));

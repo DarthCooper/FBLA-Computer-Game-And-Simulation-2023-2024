@@ -21,6 +21,8 @@ public class Manager : NetworkBehaviour
     public MiscEvents miscEvents;
     public QuestEvents questEvents;
 
+    public Animator animator;
+
     [SyncVar(hook = nameof(SetDontDestroyOnLoad))]public bool destroyOnLoad;
 
     public bool AllowMovement = true;
@@ -34,6 +36,7 @@ public class Manager : NetworkBehaviour
             Instance = this;
         }
         FindSettings();
+        animator = GetComponentInChildren<Animator>();
         miscEvents = new MiscEvents();
         questEvents = new QuestEvents();
         Application.targetFrameRate = 60;
@@ -217,5 +220,18 @@ public class Manager : NetworkBehaviour
             print("Setting");
             player.transform.position = new Vector3(x, y, 0);
         }
+    }
+
+    string sceneName;
+
+    public void FadeToBlack(string sceneName)
+    {
+        this.sceneName = sceneName;
+        animator.SetTrigger("ToBlack");
+    }
+
+    public void changeScene()
+    {
+        networkManager.ChangeScene(sceneName);
     }
 }

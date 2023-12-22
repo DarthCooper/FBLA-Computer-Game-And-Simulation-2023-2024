@@ -47,4 +47,4 @@ MonoBehaviour:
   npc: {fileID: 0}
   text: We're here!
   timeToDisplay: 2
-  stopMovement: 0
+  stopMovement: 1

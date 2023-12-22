@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  text: Our town hall has some dioramas and other things,
+  text: Now, your probably interested in that proposition huh?
   timeToDisplay: 3
   stopMovement: 0

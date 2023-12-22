@@ -29,6 +29,7 @@ public class PlayerInteract : NetworkBehaviour
     public bool speaking = false;
     public GameObject dialoguePage;
     public string speechMessage;
+    public string speaker;
 
     public bool shopOpen = false;
     public GameObject shop;
@@ -90,10 +91,11 @@ public class PlayerInteract : NetworkBehaviour
         canRead = true;
     }
 
-    public void Speak(string messsage)
+    public void Speak(string messsage, string speaker)
     {
         speaking = !speaking;
         this.speechMessage = messsage;
+        this.speaker = speaker;
     }
 
     public void Shop()
@@ -385,7 +387,10 @@ public class PlayerInteract : NetworkBehaviour
         if (dialoguePage == null || dialoguePage.name != "SpeechBox") { return; }
         if (speaking && dialoguePage)
         {
-            dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage);
+            if(dialoguePage.GetComponentInParent<DialoguePage>() != null)
+            {
+                dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage, speaker);
+            }
         }
         foreach (var image in dialoguePage.GetComponentsInChildren<Image>())
         {

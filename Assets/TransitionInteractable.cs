@@ -14,5 +14,6 @@ public class TransitionInteractable : MonoBehaviour
     {
         Manager.Instance.miscEvents.NpcPositionReached();
         Manager.Instance.settings.sceneChanger.ChangeScene(newScene, exitPos.x, exitPos.y);
+        DataPersistenceManager.instance.SaveGame();
     }
 }
