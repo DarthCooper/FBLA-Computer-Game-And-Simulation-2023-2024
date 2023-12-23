@@ -103,7 +103,7 @@ public class PlayerAttack : NetworkBehaviour
         if(!Manager.Instance.AllowOtherInput) { return; }
         if (context.ReadValueAsButton())
         {
-            if(inSwing && playerInventory.PrimaryWeapon.itemName == "Sword")
+            if(inSwing && playerInventory.PrimaryWeapon && playerInventory.PrimaryWeapon.itemName == "Sword")
             {
                     if(attackIndex + 1 == lastAttack + 1)
                     {
@@ -133,6 +133,8 @@ public class PlayerAttack : NetworkBehaviour
     {
         if(attackIndex < lightMeleeAttack.Length && attackIndex != 0) { return; }
         inSwing = swing;
+        if(secondaryAttackIndex < lightMeleeAttack.Length && secondaryAttackIndex != 0) { return; }
+        inSwing = swing;
     }
 
     public void OnSecondaryAttack(InputAction.CallbackContext context)
@@ -141,7 +143,7 @@ public class PlayerAttack : NetworkBehaviour
         if (!Manager.Instance.AllowOtherInput) { return; }
         if (context.ReadValueAsButton())
         {
-            if (inSwing && playerInventory.SecondaryWeapon.itemName == "Sword")
+            if (inSwing && playerInventory.SecondaryWeapon && playerInventory.SecondaryWeapon.itemName == "Sword")
             {
                 if (secondaryAttackIndex + 1 == lastAttack + 1)
                 {

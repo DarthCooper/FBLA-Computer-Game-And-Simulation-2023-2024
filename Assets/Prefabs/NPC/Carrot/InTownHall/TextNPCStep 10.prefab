@@ -50,3 +50,4 @@ MonoBehaviour:
     hole, is inside the head Fungi''s factory. It seems both of our needs are intertwined. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

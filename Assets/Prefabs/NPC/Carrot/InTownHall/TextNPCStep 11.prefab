@@ -50,3 +50,4 @@ MonoBehaviour:
     it will reverse the effect, or talk with the boss of this corporation. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

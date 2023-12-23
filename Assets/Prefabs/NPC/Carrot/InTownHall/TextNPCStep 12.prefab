@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Well I'm not fond of heights, so I guess I'll help.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

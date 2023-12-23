@@ -49,3 +49,5 @@ MonoBehaviour:
   text: Follow me.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1
+  resetCamera: 1

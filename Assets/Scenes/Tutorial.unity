@@ -1559,6 +1559,18 @@ MonoBehaviour:
           m_StringArgument: Interaction
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 429071742}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Interaction
+          m_BoolArgument: 0
+        m_CallState: 2
   onStay:
     m_PersistentCalls:
       m_Calls: []
@@ -1773,6 +1785,55 @@ Transform:
   m_Children:
   - {fileID: 412177446}
   m_Father: {fileID: 777085575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &606601876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606601878}
+  - component: {fileID: 606601877}
+  m_Layer: 0
+  m_Name: CameraSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &606601877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606601876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 077c92df3bb337b4781883f1ba287a3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VirtualCamera: {fileID: 1472113490}
+  keys:
+  - Carrot
+  values:
+  - {fileID: 1104354812}
+--- !u!4 &606601878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606601876}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.091232, y: -2.4322839, z: 5.203406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607008779
 GameObject:
@@ -2902,6 +2963,11 @@ MonoBehaviour:
   startPoint: 1
   finishPoint: 1
   currentQuestState: 0
+--- !u!4 &1104354812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8604830467323741491, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+  m_PrefabInstance: {fileID: 1104354808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116141093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9157861828444693300, guid: 2857e2cee7b73284184589443da8775b, type: 3}
@@ -3741,7 +3807,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.516552, y: 9.009075}
+  m_Offset: {x: -3.5326204, y: 9.009075}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3751,7 +3817,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.966896, y: 88.71473}
+  m_Size: {x: 17.06524, y: 88.71473}
   m_EdgeRadius: 0
 --- !u!4 &1483599363
 Transform:
@@ -3813,7 +3879,19 @@ MonoBehaviour:
       m_Calls: []
   onExit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1483599364}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   acceptedTag: Player
 --- !u!114 &1483599365
 MonoBehaviour:
@@ -4066,7 +4144,7 @@ Transform:
   m_GameObject: {fileID: 1596300938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 0, z: 0}
+  m_LocalPosition: {x: 18.74, y: 3.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5793,3 +5871,4 @@ SceneRoots:
   - {fileID: 2120750729}
   - {fileID: 429071745}
   - {fileID: 1443142945}
+  - {fileID: 606601878}

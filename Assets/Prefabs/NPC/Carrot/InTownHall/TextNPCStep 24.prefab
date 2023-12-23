@@ -50,3 +50,4 @@ MonoBehaviour:
     guessing that they would like to have that back.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

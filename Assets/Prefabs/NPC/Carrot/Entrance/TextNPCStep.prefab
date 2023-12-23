@@ -45,5 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
+  speaker: Carrot
   text: Oh, hello there!
   timeToDisplay: 2
+  stopMovement: 0
+  changeCamera: 1
+  resetCamera: 0

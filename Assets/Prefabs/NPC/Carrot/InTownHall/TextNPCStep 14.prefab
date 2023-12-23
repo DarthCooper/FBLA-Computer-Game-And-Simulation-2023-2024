@@ -49,3 +49,4 @@ MonoBehaviour:
   text: A couple of months ago, a fungus constructed that behemoth of a mushroom.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

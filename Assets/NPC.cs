@@ -47,6 +47,8 @@ public class NPC : NetworkBehaviour
 
     bool Finished = true;
 
+    public bool disabled = false;
+
     void Start()
     {
         seeker = GetComponent<Seeker>();
@@ -79,6 +81,11 @@ public class NPC : NetworkBehaviour
     private void Update()
     {
         move();
+        if (currentStepIndex >= steps.Length && currentStep == null)
+        {
+            OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
+        }
     }
 
     private void Awake()
@@ -260,13 +267,13 @@ public class NPC : NetworkBehaviour
 
     public void DisplayText(string text, string speaker)
     {
-        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text, speaker);
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text, speaker, this);
         speechText.text = text;
     }
 
     public void HideText()
     {
-        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("", "");
+        GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("", "", null);
         speechBubble.SetActive(false);
     }
 
@@ -300,6 +307,7 @@ public class NPC : NetworkBehaviour
         {
             component.enabled = false;
         }
+        disabled = true;
     }
 
     public void EnableOnFinish()
@@ -313,5 +321,6 @@ public class NPC : NetworkBehaviour
         {
             component.enabled = true;
         }
+        disabled = false;
     }
 }

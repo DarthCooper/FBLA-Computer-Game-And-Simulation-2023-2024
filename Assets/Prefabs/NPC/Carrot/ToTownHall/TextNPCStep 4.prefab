@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
+  speaker: Carrot
   text: Now, your probably interested in that proposition huh?
   timeToDisplay: 3
   stopMovement: 0
+  changeCamera: 1
+  resetCamera: 0

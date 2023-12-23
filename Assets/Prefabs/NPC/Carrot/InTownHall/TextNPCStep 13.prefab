@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Great! Well in that case, lets get you caught up on everything.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

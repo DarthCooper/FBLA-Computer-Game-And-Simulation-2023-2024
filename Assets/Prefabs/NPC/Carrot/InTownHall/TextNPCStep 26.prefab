@@ -50,3 +50,4 @@ MonoBehaviour:
     way. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

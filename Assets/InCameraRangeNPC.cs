@@ -8,6 +8,11 @@ public class InCameraRangeNPC : NPC
     void Update()
     {
         move();
+        if (currentStepIndex >= steps.Length && currentStep == null)
+        {
+            OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
+        }
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x >= 0 && viewPos.x <= 0.75 && viewPos.y >= 0 && viewPos.y <= 0.75 && viewPos.z > 0 && !stepsStarted)
         {

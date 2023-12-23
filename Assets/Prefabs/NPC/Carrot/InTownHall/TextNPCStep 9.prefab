@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Wait, I didn't sign up for this. I just want to go home!
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

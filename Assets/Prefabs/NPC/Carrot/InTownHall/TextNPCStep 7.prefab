@@ -50,3 +50,4 @@ MonoBehaviour:
     and we''ll eventually be to weak to do anything about this darn fungi infestation. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

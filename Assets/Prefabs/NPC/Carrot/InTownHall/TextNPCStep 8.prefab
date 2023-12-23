@@ -50,3 +50,4 @@ MonoBehaviour:
     It can deal with our problems while we help guide it.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
+  speaker: Carrot
   text: Ohh, exactly what I as looking for! There's a patch of mushrooms here. Mind
     helping me pick them?
   timeToDisplay: 2
   stopMovement: 1
+  changeCamera: 1
+  resetCamera: 1

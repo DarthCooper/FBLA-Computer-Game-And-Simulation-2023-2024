@@ -50,3 +50,4 @@ MonoBehaviour:
     Unfortunatly for us, these "sun spots" cost an incredibly high amount.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

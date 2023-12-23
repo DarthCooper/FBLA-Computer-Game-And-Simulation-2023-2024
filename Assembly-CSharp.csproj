@@ -74,6 +74,7 @@
     <Compile Include="Assets\ReviveMarker.cs" />
     <Compile Include="Assets\PlayerMovementController.cs" />
     <Compile Include="Assets\QuestEvents.cs" />
+    <Compile Include="Assets\CameraSwitcher.cs" />
     <Compile Include="Assets\EndQuestNPCStep.cs" />
     <Compile Include="Assets\WeaponHolder.cs" />
     <Compile Include="Assets\NPCStep.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\QuestNPCStep.cs" />
     <Compile Include="Assets\TextToDisplay.cs" />
     <Compile Include="Assets\PlayerInventory.cs" />
+    <Compile Include="Assets\NPCSwitchCameraSwitcher.cs" />
     <Compile Include="Assets\Scripts\Steamworks.NET\SteamManager.cs" />
     <Compile Include="Assets\Patrol.cs" />
     <Compile Include="Assets\DataPersistence\SaveSlotsMenu.cs" />

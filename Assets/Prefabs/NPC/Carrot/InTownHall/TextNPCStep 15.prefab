@@ -49,3 +49,4 @@ MonoBehaviour:
   text: 'That awful mushroom blocked out sunlight for this entire garden. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

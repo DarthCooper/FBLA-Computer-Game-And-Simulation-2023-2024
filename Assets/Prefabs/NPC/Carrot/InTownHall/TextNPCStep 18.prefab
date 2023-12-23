@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Now most of us are to malnourished to do much.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

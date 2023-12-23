@@ -51,3 +51,4 @@ MonoBehaviour:
     being here.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

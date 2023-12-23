@@ -46,6 +46,8 @@ public class PlayerInteract : NetworkBehaviour
 
     public bool[] Canvases = new bool[6];
 
+    public NPC npc;
+
     public void OnInteract(InputAction.CallbackContext context)
     {
         if(Manager.Instance.AllowInteract)
@@ -91,11 +93,12 @@ public class PlayerInteract : NetworkBehaviour
         canRead = true;
     }
 
-    public void Speak(string messsage, string speaker)
+    public void Speak(string messsage, string speaker, NPC npc)
     {
         speaking = !speaking;
         this.speechMessage = messsage;
         this.speaker = speaker;
+        this.npc = npc;
     }
 
     public void Shop()
@@ -389,7 +392,7 @@ public class PlayerInteract : NetworkBehaviour
         {
             if(dialoguePage.GetComponentInParent<DialoguePage>() != null)
             {
-                dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage, speaker);
+                dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage, speaker, npc.gameObject);
             }
         }
         foreach (var image in dialoguePage.GetComponentsInChildren<Image>())

@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
+  speaker: Carrot
   text: Look out, That fungi is not friendly!
   timeToDisplay: 2
   stopMovement: 1
+  changeCamera: 1
+  resetCamera: 1

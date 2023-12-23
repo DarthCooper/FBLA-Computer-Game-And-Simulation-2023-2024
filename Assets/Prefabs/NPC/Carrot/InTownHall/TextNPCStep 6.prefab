@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Even so, how do we know we can trust them?
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

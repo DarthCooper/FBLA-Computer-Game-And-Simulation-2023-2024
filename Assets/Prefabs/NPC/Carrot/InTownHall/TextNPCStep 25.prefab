@@ -49,3 +49,4 @@ MonoBehaviour:
   text: 'Ok, well that should work for now. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

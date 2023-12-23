@@ -50,3 +50,4 @@ MonoBehaviour:
     give you a ride, but it ain't gonna be cheap.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

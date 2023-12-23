@@ -49,3 +49,4 @@ MonoBehaviour:
   text: 'It drove almost everyone in the lower two levels of the garden to bankruptcy. '
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

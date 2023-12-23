@@ -49,3 +49,4 @@ MonoBehaviour:
   text: They came from the weird bottomless pit, on the outskirts of town.
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1

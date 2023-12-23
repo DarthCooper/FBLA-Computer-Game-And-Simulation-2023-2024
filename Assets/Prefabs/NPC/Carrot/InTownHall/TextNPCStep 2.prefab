@@ -49,3 +49,4 @@ MonoBehaviour:
   text: Plus, why do they look so weird?
   timeToDisplay: 2
   stopMovement: 0
+  changeCamera: 1
