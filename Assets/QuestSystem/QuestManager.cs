@@ -200,7 +200,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
         Debug.Log("Advance Quest: " + id);
     }
 
-    private void FinishQuest(string id)
+    public void FinishQuest(string id)
     {
         Quest quest = GetQuestById(id);
         ClaimRewards(quest);

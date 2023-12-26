@@ -8,19 +8,8 @@ public class EndQuestNPCStep : NPCStep
 
     public override void Execute()
     {
-        waitingToFinish = true;
-    }
-
-    public void Update()
-    {
-        if (npc.quest && waitingToFinish)
-        {
-            npc.quest.StartQuest();
-            if(npc.quest.currentQuestState == QuestState.FINISHED)
-            {
-                Finish();
-            }
-        }
+        QuestManager.instance.FinishQuest(npc.quest.questInfoForPoint.id);
+        Finish();
     }
 
     public override void Finish()

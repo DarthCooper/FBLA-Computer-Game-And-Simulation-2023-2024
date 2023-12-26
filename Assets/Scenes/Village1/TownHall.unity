@@ -5050,6 +5050,73 @@ Transform:
   - {fileID: 1232377232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1246706955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246706957}
+  - component: {fileID: 1246706956}
+  m_Layer: 0
+  m_Name: Save/Load NPC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1246706956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246706955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b97a354e0266398469a0b652477b9fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCPos:
+    keys:
+    - Carrot
+    - Carrot1
+    - Carrot2
+    - Carrot4
+    - Carrot3
+    values:
+    - {x: 91.92902, y: 58.148724, z: -0.038622886}
+    - {x: -0.48114958, y: 79.41625, z: -0.038622886}
+    - {x: -1.2314566, y: 64.03479, z: -0.038622886}
+    - {x: -1.5377185, y: 50.04236, z: -0.038622886}
+    - {x: -0.93992925, y: 12.09903, z: -0.038622886}
+  NPCStep:
+    keys:
+    - Carrot
+    - Carrot1
+    - Carrot2
+    - Carrot4
+    - Carrot3
+    values: 1d0000000a00000011000000090000005e000000
+  NPCs:
+  - {fileID: 842303220}
+--- !u!4 &1246706957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246706955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8955604, y: 10.99996, z: -1.4249291}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1249671737
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,6 +6201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34138e2fff6bf204c9e292049e7ef42c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPCs: []
 --- !u!4 &1531644829
 Transform:
   m_ObjectHideFlags: 0
@@ -8295,7 +8363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2037678812471655214, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00011907303
+      value: 0.00015624307
       objectReference: {fileID: 0}
     - target: {fileID: 3071613423886313411, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8331,7 +8399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400258025396094198, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0004681732
+      value: 0.0010338303
       objectReference: {fileID: 0}
     - target: {fileID: 4986466879304672582, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8415,7 +8483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8503088008246481061, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00025279674
+      value: 0.00034440812
       objectReference: {fileID: 0}
     - target: {fileID: 8850464362906688771, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_Pivot.x
@@ -8532,3 +8600,4 @@ SceneRoots:
   - {fileID: 387181225}
   - {fileID: 286993106}
   - {fileID: 709718430}
+  - {fileID: 1246706957}

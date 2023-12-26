@@ -237,7 +237,7 @@ MonoBehaviour:
   componentsToDisable:
   - {fileID: 1978917651605286589}
   - {fileID: 5548310365805667415}
-  price: 0
+  price: 5
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0

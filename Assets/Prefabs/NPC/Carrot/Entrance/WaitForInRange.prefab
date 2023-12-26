@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  acceptableRange: 5
+  acceptableRange: 10
   player: {fileID: 0}
+  stopMovement: 1

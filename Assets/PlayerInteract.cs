@@ -388,12 +388,15 @@ public class PlayerInteract : NetworkBehaviour
     public void EnableDisableDialogue()
     {
         if (dialoguePage == null || dialoguePage.name != "SpeechBox") { return; }
-        if (speaking && dialoguePage)
+        if (speaking && dialoguePage && npc)
         {
             if(dialoguePage.GetComponentInParent<DialoguePage>() != null)
             {
                 dialoguePage.GetComponentInParent<DialoguePage>().SetMessage(speechMessage, speaker, npc.gameObject);
             }
+        }else
+        {
+            speaking = false;
         }
         foreach (var image in dialoguePage.GetComponentsInChildren<Image>())
         {

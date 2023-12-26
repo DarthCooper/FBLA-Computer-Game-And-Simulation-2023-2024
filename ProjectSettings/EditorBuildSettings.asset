@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tests/Game.unity
     guid: 164cfe423c9fec44c9f1160bc5f8627a
   - enabled: 1
+    path: Assets/Scenes/Ye_ol_holeIntro.unity
+    guid: 6ed73c0e85682e548ad13e8c9f2507c2
+  - enabled: 1
     path: Assets/Scenes/Ye_ol_hole.unity
     guid: 7f567196227e29f4abb2a04dcd204318
   - enabled: 1
