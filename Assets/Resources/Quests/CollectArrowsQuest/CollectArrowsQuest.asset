@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Collect The Arrows!
   questDescription: 
   autoEquip: 0
-  previouslyLoaded: 0
+  previouslyLoaded: 1
   levelRequirement: 0
   questPrerequisites: []
   questStepPrefabs:

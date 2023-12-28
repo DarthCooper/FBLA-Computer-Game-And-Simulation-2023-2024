@@ -53,11 +53,11 @@ MonoBehaviour:
   questId: FindTheLocket
   usesArrow: 0
   progress: 
-  maxProgress: ReturnToTheOrange
+  maxProgress: Return To The Orange
   difference: {x: 0, y: 0, z: 0}
   interactableName: ArenaDoor
   interactable: {fileID: 0}
-  setProgress: Find The Locket
+  setProgress: In a red bucket
 --- !u!114 &-42842321555584482
 MonoBehaviour:
   m_ObjectHideFlags: 0

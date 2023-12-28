@@ -279,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2037678812471655214, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00027228572
+      value: 0.00010241118
       objectReference: {fileID: 0}
     - target: {fileID: 3071613423886313411, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400258025396094198, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00025254203
+      value: 0.000088156434
       objectReference: {fileID: 0}
     - target: {fileID: 4742050680098823941, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8503088008246481061, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00012502307
+      value: 0.00020189803
       objectReference: {fileID: 0}
     - target: {fileID: 8850464362906688771, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_Pivot.x
@@ -1316,8 +1316,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToAdvance.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: 'questIdsToFinish.Array.data[0]'
       value: FollowTheCarrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToAdvance.Array.data[0]'
+      value: FindTheLocket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

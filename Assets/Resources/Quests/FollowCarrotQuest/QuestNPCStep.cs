@@ -57,7 +57,7 @@ public class QuestNPCStep : QuestStep
 
     public void SetProgress()
     {
-        progress = "Distance from carrot: " + distance.ToString();
+        progress = "Distance from carrot: " + distance.ToString("0.00") + " m";
     }
 
     public void GetNPC()
