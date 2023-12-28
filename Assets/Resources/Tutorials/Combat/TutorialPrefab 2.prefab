@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: Aim
-  actionResponse: to transition between aiming and not aiming
+  actionResponse: on the mouse to transition between aiming and not aiming
   actionText: {fileID: 167226150305634922}
   currentActionMap: {fileID: -7241057019561050955, guid: 27a15d8586e531e40ac42f560a403265, type: 3}
 --- !u!114 &8974795938815066723

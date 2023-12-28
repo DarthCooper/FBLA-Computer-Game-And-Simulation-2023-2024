@@ -58,6 +58,25 @@ public class Journal : MonoBehaviour, IDataPersistence
         DisplayQuests();
     }
 
+    public void RemoveQuest(string questID)
+    {
+        List<Quest> tempQuests = new List<Quest>();
+        bool questRemoved = false;
+        foreach(Quest quest in questSteps)
+        {
+            if(quest.info.id != questID)
+            {
+                questRemoved = true;
+                tempQuests.Add(quest);
+            }
+        }
+        if(questRemoved)
+        {
+            questSteps = tempQuests;
+            DisplayQuests();
+        }
+    }
+
     public void DisplayQuests()
     {
         foreach (QuestSlot quest in questSlots)
@@ -69,6 +88,7 @@ public class Journal : MonoBehaviour, IDataPersistence
         foreach (Quest quest in questSteps)
         {
             QuestSlot slot = Instantiate(questSlot, context).GetComponent<QuestSlot>();
+            slot.name = slot.name + questSlots.Count.ToString();
             slot.questName = quest.info.displayName;
             if(quest.CurrentStepExists())
             {
@@ -88,7 +108,8 @@ public class Journal : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
-        if(selectedSlot == null)
+        DestroyDuplicated();
+        if (selectedSlot == null)
         {
             questNameText.text = string.Empty;
             questProgressText.text = string.Empty;
@@ -107,6 +128,31 @@ public class Journal : MonoBehaviour, IDataPersistence
             else
             {
                 arrowImage.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void DestroyDuplicated()
+    {
+        bool duplicateFound = false;
+        List<Quest> duplicates = new List<Quest>();
+        for (int i = 0; i < questSteps.Count; i++)
+        {
+            for (int j = 0; j < questSteps.Count; j++)
+            {
+                if(i != j && questSteps[i].info.id == questSteps[j].info.id)
+                {
+                    if (duplicates.Contains(questSteps[j])) { continue; }
+                    duplicates.Add(questSteps[j]);
+                    duplicateFound = true;
+                }
+            }
+        }
+        if(duplicateFound)
+        {
+            foreach(var duplicate in duplicates)
+            {
+                RemoveQuest(duplicate);
             }
         }
     }

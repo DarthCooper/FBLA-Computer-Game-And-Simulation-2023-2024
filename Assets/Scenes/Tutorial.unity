@@ -2828,6 +2828,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7091477975883375602, guid: ab8479556dffc8f4ab58f32b0ce13e92, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[29]'
+      value: 
+      objectReference: {fileID: 4540885905733667255, guid: 92791e0b1eabd9047b6849717fe0666e, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: waypoints.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -3486,6 +3490,14 @@ PrefabInstance:
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: newScene
       value: Ye_ol_holeIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToAdvance.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToAdvance.Array.data[0]'
+      value: FollowTheCarrot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

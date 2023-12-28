@@ -8,7 +8,14 @@ public class NPCAdvanceQuestStep : NPCStep
 
     public override void Execute()
     {
-        print("running");
+        foreach (var step in QuestManager.instance.gameObject.GetComponentsInChildren<QuestStep>())
+        {
+            if(step.questId == GetComponentInParent<QuestPoint>().questInfoForPoint.id)
+            {
+                Destroy(step.gameObject);
+                Journal.Instance.RemoveQuest(step.questId);
+            }
+        }
         QuestManager.instance.AdvanceQuest(GetComponentInParent<QuestPoint>().questInfoForPoint.id);
         if(stopMovement)
         {

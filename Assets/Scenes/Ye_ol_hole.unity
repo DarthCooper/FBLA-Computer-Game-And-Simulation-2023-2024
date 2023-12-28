@@ -1095,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3459088819446751664, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: m_Radius
+      value: 0.73
+      objectReference: {fileID: 0}
     - target: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.82935625
@@ -1145,15 +1149,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: newScene
-      value: Village
+      value: Docks
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: exitPos.x
-      value: -3.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: exitPos.y
-      value: -11.07
+      value: 5.95
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: questIdsToFinish.Array.size
@@ -4046,7 +4050,6 @@ Transform:
   - {fileID: 1628997472}
   - {fileID: 1872028686}
   - {fileID: 1354698960}
-  - {fileID: 1875670811}
   m_Father: {fileID: 777085575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583366236
@@ -4560,7 +4563,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1543866330}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 712033844909442971, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: sceneId
@@ -4568,7 +4571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923673688053250615, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Name
-      value: Door (1)
+      value: ArenaDoor
       objectReference: {fileID: 0}
     - target: {fileID: 3459088819446751664, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Radius
@@ -4584,11 +4587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.99
+      value: -20.310001
       objectReference: {fileID: 0}
     - target: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.7688
+      value: 137.5688
       objectReference: {fileID: 0}
     - target: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4639,11 +4642,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
---- !u!4 &1875670811 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
-  m_PrefabInstance: {fileID: 1875670810}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1907984440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5699,6 +5697,7 @@ SceneRoots:
   - {fileID: 1822589536}
   - {fileID: 6601820099561160319}
   - {fileID: 391833995}
+  - {fileID: 1875670810}
   - {fileID: 777085575}
   - {fileID: 1611979433}
   - {fileID: 1188873522}

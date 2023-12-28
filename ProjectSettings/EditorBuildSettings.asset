@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Village1/Buisnesses/Shop.unity
     guid: 0783c00be8f61324b8d6f3953edaa178
   - enabled: 1
+    path: Assets/Scenes/Docks.unity
+    guid: 62387b3ae93bd254b8f0fdd89d8c870f
+  - enabled: 1
     path: Assets/Scenes/Puzzle.unity
     guid: a4bc9723c09012049a3ac8c82604c19f
   m_configObjects: {}

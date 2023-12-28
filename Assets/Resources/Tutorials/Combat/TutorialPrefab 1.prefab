@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: PrimaryAttack
-  actionResponse: to use the item in the primary slot.
+  actionResponse: on the mouse to use the item in the primary slot.
   actionText: {fileID: 167226150305634922}
   currentActionMap: {fileID: -7044864360358042157, guid: 27a15d8586e531e40ac42f560a403265, type: 3}
 --- !u!114 &8974795938815066723

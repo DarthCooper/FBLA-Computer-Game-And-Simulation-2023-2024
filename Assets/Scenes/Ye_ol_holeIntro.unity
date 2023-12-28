@@ -2860,7 +2860,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[10]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: b5bcb1f6f56de7d438f4d40b9a25cee0, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: bb65ba76dcc6dc242a5418e2305b3350, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[11]'
       value: 

@@ -27,7 +27,6 @@ public class QuestNPCStep : QuestStep
 
     void ReachedPosition()
     {
-        waiting = true;
     }
 
     private void Update()

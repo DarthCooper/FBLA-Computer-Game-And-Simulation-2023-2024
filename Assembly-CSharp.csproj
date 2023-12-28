@@ -80,6 +80,7 @@
     <Compile Include="Assets\NPCStep.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Resources\Quests\FollowCarrotQuest\QuestNPCStep.cs" />
+    <Compile Include="Assets\Resources\Quests\GatherLocket\InteractQuestStep.cs" />
     <Compile Include="Assets\TextToDisplay.cs" />
     <Compile Include="Assets\PlayerInventory.cs" />
     <Compile Include="Assets\NPCSwitchCameraSwitcher.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Assets\GetClosestEnemy.cs" />
     <Compile Include="Assets\DataPersistence\Data\GameData.cs" />
     <Compile Include="Assets\Firewall.cs" />
+    <Compile Include="Assets\NPCStartTutorial.cs" />
     <Compile Include="Assets\QuestSystem\QuestStepState.cs" />
     <Compile Include="Assets\DataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\HackingText.cs" />
