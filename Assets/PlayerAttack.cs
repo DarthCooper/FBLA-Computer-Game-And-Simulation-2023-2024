@@ -119,6 +119,7 @@ public class PlayerAttack : NetworkBehaviour
                 attackIndex = 0;
                 if (canAttack)
                 {
+                    if(spawnedShield) { return; }
                     Attacking |= context.ReadValueAsButton();
                     return;
                 }
@@ -160,6 +161,7 @@ public class PlayerAttack : NetworkBehaviour
                 secondaryAttackIndex = 0;
                 if (canAttack)
                 {
+                    if (spawnedShield) { return; }
                     secondaryAttacking |= context.ReadValueAsButton();
                     return;
                 }
