@@ -41,7 +41,6 @@ public class MeleeWeapon : MonoBehaviour
         foreach (var collision in colliders)
         {
             if (collision == null) { continue; }
-            print(collision.gameObject.name + ": " + collision.gameObject.layer);
             if (collision.gameObject.layer == 10)
             {
                 if(collision.gameObject.GetComponent<ShieldFollow>())

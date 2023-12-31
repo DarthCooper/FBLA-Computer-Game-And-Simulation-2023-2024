@@ -1,4 +1,5 @@
 using Mirror;
+using NUnit.Framework.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class Quest
 {
     public QuestInfoSO info;
     public QuestState state;
-    private int currentQuestStepIndex;
+    public int currentQuestStepIndex;
     private QuestStepState[] questStepStates;
 
     public List<QuestStep> questSteps = new List<QuestStep>();
@@ -19,6 +20,9 @@ public class Quest
         this.currentQuestStepIndex = 0;
         this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
         this.info.previouslyLoaded = false;
+
+        Debug.Log("New Save: " + info.id + " : " + currentQuestStepIndex);
+
         for (int i = 0; i < questStepStates.Length; i++)
         {
             questStepStates[i] = new QuestStepState();
@@ -32,6 +36,8 @@ public class Quest
         this.currentQuestStepIndex = currentQuestStepIndex;
         this.questStepStates = questStepStates;
         this.info.previouslyLoaded = true;
+
+        Debug.Log("Loading: " + info.id + " : " + currentQuestStepIndex);
 
         if (this.questStepStates.Length != this.info.questStepPrefabs.Length)
         {
@@ -53,7 +59,7 @@ public class Quest
     {
         if(currentQuestStepIndex >= questSteps.Count)
         {
-            currentQuestStepIndex = questSteps.Count - 1;
+            return questSteps[questSteps.Count - 1];
         }
         return questSteps[currentQuestStepIndex];
     }

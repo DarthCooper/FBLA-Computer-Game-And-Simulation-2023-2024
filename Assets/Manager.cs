@@ -116,7 +116,7 @@ public class Manager : NetworkBehaviour
 
     public void FindPlayers()
     {
-        players = FindObjectsOfType(typeof(PlayerObjectController)) as PlayerObjectController[];
+        players = FindObjectsByType(typeof(PlayerObjectController), FindObjectsSortMode.None) as PlayerObjectController[];
     }
 
     public void FindSettings()

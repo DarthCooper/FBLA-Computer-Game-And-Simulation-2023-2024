@@ -10,8 +10,11 @@ public class TransitionInteractable : MonoBehaviour
 
     public string[] questIdsToAdvance;
 
+    bool changed = false;
+
     public void ChangeScene()
     {
+        if(changed) { return; }
         foreach (var id in questIdsToAdvance)
         {
             QuestManager.instance.AdvanceQuest(id);
@@ -19,5 +22,6 @@ public class TransitionInteractable : MonoBehaviour
         Manager.Instance.miscEvents.NpcPositionReached();
         Manager.Instance.settings.sceneChanger.ChangeScene(newScene, exitPos.x, exitPos.y);
         DataPersistenceManager.instance.SaveGame();
+        changed = true;
     }
 }

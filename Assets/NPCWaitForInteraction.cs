@@ -8,9 +8,15 @@ public class NPCWaitForInteraction : NPCStep
 
     public Interactable interactable;
 
+    public bool stopMovement = true;
+
     public void Update()
     {
-        if(interactable == null)
+        if (stopMovement)
+        {
+            npc.StopMovement();
+        }
+        if (interactable == null)
         {
             Interactable[] interactables = GameObject.FindObjectsByType<Interactable>(FindObjectsSortMode.None);
             foreach(var interactable in interactables)

@@ -57,6 +57,7 @@ MonoBehaviour:
   difference: {x: 0, y: 0, z: 0}
   interactableName: Door (1)
   interactable: {fileID: 0}
+  setProgress: Interact with the door
 --- !u!114 &-42842321555584482
 MonoBehaviour:
   m_ObjectHideFlags: 0

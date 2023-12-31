@@ -2945,7 +2945,6 @@ Transform:
   - {fileID: 1737482122}
   - {fileID: 2047516254}
   - {fileID: 1091451360}
-  - {fileID: 1120454054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804680843
@@ -3150,7 +3149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[0]'
@@ -3191,19 +3190,19 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[9]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 6e4ddd4e1614c304faf497d7a158e859, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 3c236717955df3142b1369d51d43a8b1, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[10]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 75f7be6ebd05a8945a1435679be5f3ab, type: 3}
+      objectReference: {fileID: 8123989391065118563, guid: 0a86e249f8c2c0a49b569f7ffb6448b1, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[11]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 75f7be6ebd05a8945a1435679be5f3ab, type: 3}
+      objectReference: {fileID: -6694248310365052407, guid: 6e4ddd4e1614c304faf497d7a158e859, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[12]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 65107042f7af119479b2d42b3a9ee6db, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 3c236717955df3142b1369d51d43a8b1, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[13]'
       value: 
@@ -3772,7 +3771,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 777085575}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 712033844909442971, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: sceneId
@@ -3780,7 +3779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923673688053250615, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: ShopExit
       objectReference: {fileID: 0}
     - target: {fileID: 1923673688053250615, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Layer
@@ -3859,11 +3858,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
---- !u!4 &1120454054 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
-  m_PrefabInstance: {fileID: 1120454053}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1154509710
 GameObject:
   m_ObjectHideFlags: 0
@@ -6573,7 +6567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7521356691555575800, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0005652879
+      value: 0.000068714646
       objectReference: {fileID: 0}
     - target: {fileID: 7568334837139159021, guid: 2857e2cee7b73284184589443da8775b, type: 3}
       propertyPath: m_Name
@@ -6689,6 +6683,7 @@ SceneRoots:
   - {fileID: 423604816}
   - {fileID: 291505939}
   - {fileID: 1822589536}
+  - {fileID: 1120454053}
   - {fileID: 777085575}
   - {fileID: 1235937114}
   - {fileID: 1531644829}

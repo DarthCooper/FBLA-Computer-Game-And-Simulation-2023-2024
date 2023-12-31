@@ -189,7 +189,9 @@ public class QuestManager : MonoBehaviour, IDataPersistence
     public void AdvanceQuest(string id)
     {
         Quest quest = GetQuestById(id);
+        print(quest.info.id +" : " + quest.currentQuestStepIndex);
         quest.MoveToNextStep();
+        print(quest.info.id + " : " + quest.currentQuestStepIndex);
         if(quest.CurrentStepExists())
         {
             quest.InstatiateCurrentQuestStep(this.transform);
@@ -299,6 +301,7 @@ public class QuestManager : MonoBehaviour, IDataPersistence
             try
             {
                 QuestData questData = quest.GetQuestData();
+                print(quest.info.id + " : " + questData.questStepIndex);
                 string serializedData = JsonUtility.ToJson(questData);
                 data.questData.Add(quest.info.id, serializedData);
             }

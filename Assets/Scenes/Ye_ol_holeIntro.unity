@@ -2815,7 +2815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[0]'
@@ -2860,7 +2860,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[10]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: bb65ba76dcc6dc242a5418e2305b3350, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 03479a35380063441945a243b07776ae, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[11]'
       value: 
@@ -6283,7 +6283,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToAdvance.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: 'questIdsToFinish.Array.data[0]'
+      value: FollowTheCarrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToAdvance.Array.data[0]'
       value: FollowTheCarrot
       objectReference: {fileID: 0}
     m_RemovedComponents: []

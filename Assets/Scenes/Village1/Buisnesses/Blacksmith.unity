@@ -485,7 +485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[0]'
@@ -526,23 +526,23 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[9]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 046df04f6b2710f49a939f5006fca500, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 122c4eb6a57b4ab4db96baceb715924a, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[10]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 75f7be6ebd05a8945a1435679be5f3ab, type: 3}
+      objectReference: {fileID: -7362941223265537505, guid: d48a00dc474840b4e8f7117ece50d50b, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[11]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 75f7be6ebd05a8945a1435679be5f3ab, type: 3}
+      objectReference: {fileID: -6694248310365052407, guid: 046df04f6b2710f49a939f5006fca500, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[12]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 65107042f7af119479b2d42b3a9ee6db, type: 3}
+      objectReference: {fileID: -6694248310365052407, guid: 75f7be6ebd05a8945a1435679be5f3ab, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[13]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: d4456a2d34d54c249bee2c8fd0289d44, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 122c4eb6a57b4ab4db96baceb715924a, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[14]'
       value: 
@@ -1935,7 +1935,6 @@ Transform:
   - {fileID: 1737482122}
   - {fileID: 2047516254}
   - {fileID: 1091451360}
-  - {fileID: 1120454054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &804680843
@@ -2372,7 +2371,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 777085575}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 712033844909442971, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: sceneId
@@ -2380,7 +2379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1923673688053250615, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: BlacksmithExit
       objectReference: {fileID: 0}
     - target: {fileID: 1923673688053250615, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: m_Layer
@@ -2451,7 +2450,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: questIdsToAdvance.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: 'questIdsToFinish.Array.data[0]'
+      value: FollowTheCarrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
+      propertyPath: 'questIdsToAdvance.Array.data[0]'
       value: FollowTheCarrot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2459,11 +2466,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
---- !u!4 &1120454054 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5771398163799293943, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
-  m_PrefabInstance: {fileID: 1120454053}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1149446511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,6 +4187,7 @@ SceneRoots:
   - {fileID: 423604816}
   - {fileID: 291505939}
   - {fileID: 1822589536}
+  - {fileID: 1120454053}
   - {fileID: 777085575}
   - {fileID: 1235937114}
   - {fileID: 363320661}

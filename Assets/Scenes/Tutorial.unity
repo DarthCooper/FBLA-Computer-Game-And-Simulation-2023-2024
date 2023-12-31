@@ -2721,7 +2721,7 @@ PrefabInstance:
       objectReference: {fileID: 1104354811}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 29
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[3]'
@@ -2830,7 +2830,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[29]'
       value: 
-      objectReference: {fileID: 4540885905733667255, guid: 92791e0b1eabd9047b6849717fe0666e, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 6940a4ee4e01ef74c88393e2a3b30b1e, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: waypoints.Array.size
       value: 6
@@ -3493,7 +3493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: questIdsToAdvance.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6481756185616473802, guid: d5507dd79682a4e4ab6e16805ea470f6, type: 3}
       propertyPath: 'questIdsToAdvance.Array.data[0]'
