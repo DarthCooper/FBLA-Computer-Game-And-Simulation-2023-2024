@@ -15,7 +15,7 @@ public class EnemyTriggerSpawner : NetworkBehaviour
     {
         if(collision.gameObject.tag == "Player" && !spawned)
         {
-            SpawnEnemies();
+            //SpawnEnemies();
         }
     }
 

@@ -73,6 +73,7 @@
     <Compile Include="Assets\Item.cs" />
     <Compile Include="Assets\ReviveMarker.cs" />
     <Compile Include="Assets\PlayerMovementController.cs" />
+    <Compile Include="Assets\NPCSpawnEnemyStep.cs" />
     <Compile Include="Assets\QuestEvents.cs" />
     <Compile Include="Assets\CameraSwitcher.cs" />
     <Compile Include="Assets\EndQuestNPCStep.cs" />

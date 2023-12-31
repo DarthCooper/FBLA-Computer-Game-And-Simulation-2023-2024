@@ -2721,7 +2721,7 @@ PrefabInstance:
       objectReference: {fileID: 1104354811}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: steps.Array.size
-      value: 30
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[3]'
@@ -2790,45 +2790,53 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[19]'
       value: 
-      objectReference: {fileID: 3304452999108234843, guid: eb743b3a05bce3241a900a13fd02dcb1, type: 3}
+      objectReference: {fileID: 7983833572072964954, guid: 977cd51221620574fbd2eb45c44d58de, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[20]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 7155f88c10dc4534fab4973f195ed390, type: 3}
+      objectReference: {fileID: -4790958507881240217, guid: 27badb550b541604883fde2141ac873e, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[21]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 44d54b4bb7f05bb47a9ca15ad9b87b04, type: 3}
+      objectReference: {fileID: 3304452999108234843, guid: eb743b3a05bce3241a900a13fd02dcb1, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[22]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 1e78041d204119a449a1678ef7b72465, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: 7155f88c10dc4534fab4973f195ed390, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[23]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 05905ab4d92d74d40ada514360b35951, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: 44d54b4bb7f05bb47a9ca15ad9b87b04, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[24]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: 2541ed9baff6ec44d833b2474788b942, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: 1e78041d204119a449a1678ef7b72465, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[25]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: da68bf82492729d4fa83cd80a4b0afd7, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: 05905ab4d92d74d40ada514360b35951, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[26]'
       value: 
-      objectReference: {fileID: -6694248310365052407, guid: 360f0a6ccc8202745b0d3f17ea802aee, type: 3}
+      objectReference: {fileID: 7091477975883375602, guid: 2541ed9baff6ec44d833b2474788b942, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[27]'
       value: 
-      objectReference: {fileID: -900940964264539818, guid: 4c057ca751f69af45928fe972f37958e, type: 3}
+      objectReference: {fileID: -6694248310365052407, guid: da68bf82492729d4fa83cd80a4b0afd7, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[28]'
       value: 
-      objectReference: {fileID: 7091477975883375602, guid: ab8479556dffc8f4ab58f32b0ce13e92, type: 3}
+      objectReference: {fileID: -6694248310365052407, guid: 360f0a6ccc8202745b0d3f17ea802aee, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[29]'
+      value: 
+      objectReference: {fileID: -900940964264539818, guid: 4c057ca751f69af45928fe972f37958e, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[30]'
+      value: 
+      objectReference: {fileID: 7091477975883375602, guid: ab8479556dffc8f4ab58f32b0ce13e92, type: 3}
+    - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
+      propertyPath: 'steps.Array.data[31]'
       value: 
       objectReference: {fileID: 4540885905733667255, guid: 6940a4ee4e01ef74c88393e2a3b30b1e, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
@@ -3757,7 +3765,6 @@ GameObject:
   - component: {fileID: 1483599363}
   - component: {fileID: 1483599362}
   - component: {fileID: 1483599361}
-  - component: {fileID: 1483599364}
   - component: {fileID: 1483599365}
   m_Layer: 0
   m_Name: EnemyTriggerSpawner
@@ -3847,64 +3854,6 @@ Transform:
   - {fileID: 1596300939}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1483599364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483599360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ac14cb09929e7408754bb404ab6143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1494328761}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: RunTutorial
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Combat
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1494328761}
-        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-        m_MethodName: RunTutorial
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Combat
-          m_BoolArgument: 0
-        m_CallState: 2
-  onStay:
-    m_PersistentCalls:
-      m_Calls: []
-  onExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1483599364}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  acceptedTag: Player
 --- !u!114 &1483599365
 MonoBehaviour:
   m_ObjectHideFlags: 0
