@@ -5,6 +5,7 @@ using TMPro;
 using Pathfinding;
 using Mirror;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 public class NPC : NetworkBehaviour
 {
@@ -58,6 +59,11 @@ public class NPC : NetworkBehaviour
 
         if (!isServer) { return; }
         InvokeRepeating("UpdatePath", 0f, .5f);
+
+        for (int i = 0; i < steps.Length; i++)
+        {
+            steps[i].index = i;
+        }
     }
 
     void UpdatePath()
@@ -91,16 +97,8 @@ public class NPC : NetworkBehaviour
 
     public void CheckIfOnStep()
     {
-        if(!isServer)
-        {
-            if(currentStep is NPCAdvanceQuestStep)
-            {
-                EndStep();
-            }
-        }
-        if(steps.Length <= 1 || currentStepIndex == 0 || currentStepIndex >= steps.Length) { return; }
-        print(currentStep.GetComponent<NPCStep>() == steps[currentStepIndex - 1].GetComponent<NPCStep>());
-        if (currentStep.GetComponent<NPCStep>() == steps[currentStepIndex - 1].GetComponent<NPCStep>())
+        if(currentStepIndex >= steps.Length || currentStep == null) { return; }
+        if (currentStep.index < currentStepIndex)
         {
             EndStep();
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class NPCStep : MonoBehaviour
 {
+    public int index;
+
     public NPC npc = null;
 
     public void SetNpc(NPC npc)
