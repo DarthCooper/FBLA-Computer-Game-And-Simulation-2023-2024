@@ -92,7 +92,7 @@ public class NPC : NetworkBehaviour
     public void CheckIfOnStep()
     {
         if(steps.Length <= 1 || currentStepIndex == 0 || currentStepIndex >= steps.Length) { return; }
-        if (currentStep == steps[currentStepIndex - 1])
+        if (currentStep.name == steps[currentStepIndex - 1].name + "(Clone)")
         {
             EndStep();
         }
