@@ -88,6 +88,14 @@ public class NPC : NetworkBehaviour
         }
     }
 
+    public void CheckIfOnStep()
+    {
+        if (steps[currentStepIndex] != currentStep)
+        {
+            EndStep();
+        }
+    }
+
     private void Awake()
     {
         checkIfRequirementsMet();
