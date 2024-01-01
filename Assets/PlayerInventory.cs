@@ -40,6 +40,7 @@ public class PlayerInventory : NetworkBehaviour, IDataPersistence
             SetData();
         }
         if(!Manager.Instance.settings.isPlayable) { return; }
+        if(!isLocalPlayer) { return; }
         if(PrimaryWeaponSlot == null)
         {
             PrimaryWeaponSlot = FindSlot("PrimaryWeapon");
