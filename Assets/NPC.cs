@@ -99,7 +99,8 @@ public class NPC : NetworkBehaviour
             }
         }
         if(steps.Length <= 1 || currentStepIndex == 0 || currentStepIndex >= steps.Length) { return; }
-        if (currentStep.name == steps[currentStepIndex - 1].name + "(Clone)")
+        print(currentStep.GetComponent<NPCStep>() == steps[currentStepIndex - 1].GetComponent<NPCStep>());
+        if (currentStep.GetComponent<NPCStep>() == steps[currentStepIndex - 1].GetComponent<NPCStep>())
         {
             EndStep();
         }
