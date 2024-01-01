@@ -97,10 +97,9 @@ public class NPC : NetworkBehaviour
     public void CheckIfOnStep()
     {
         if(currentStepIndex >= steps.Length || currentStep == null) { return; }
-        print(currentStep.index + " : " + currentStepIndex);
         if (currentStep.index < currentStepIndex)
         {
-            EndStep();
+            LocallyEndStep();
         }
     }
 
@@ -267,6 +266,23 @@ public class NPC : NetworkBehaviour
     [ClientRpc(includeOwner = true)]
     public void RpcEndStep()
     {
+        if (Finished)
+        {
+            return;
+        }
+        Finished = true;
+        currentStepIndex++;
+        if (currentStepIndex >= steps.Length)
+        {
+            OnFinishSteps.Invoke();
+            NPCManager.CompleteNPC(NPCName);
+        }
+        ExecuteStep();
+    }
+
+    public void LocallyEndStep()
+    {
+        if(isServer) { return; }
         if (Finished)
         {
             return;
