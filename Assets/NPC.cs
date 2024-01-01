@@ -91,6 +91,13 @@ public class NPC : NetworkBehaviour
 
     public void CheckIfOnStep()
     {
+        if(!isServer)
+        {
+            if(currentStep is NPCAdvanceQuestStep)
+            {
+                EndStep();
+            }
+        }
         if(steps.Length <= 1 || currentStepIndex == 0 || currentStepIndex >= steps.Length) { return; }
         if (currentStep.name == steps[currentStepIndex - 1].name + "(Clone)")
         {
