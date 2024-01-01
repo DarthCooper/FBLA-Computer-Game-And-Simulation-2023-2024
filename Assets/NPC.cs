@@ -91,7 +91,7 @@ public class NPC : NetworkBehaviour
 
     public void CheckIfOnStep()
     {
-        if(steps.Length <= 1 || currentStepIndex == 0) { return; }
+        if(steps.Length <= 1 || currentStepIndex == 0 || currentStepIndex >= steps.Length) { return; }
         if (steps[currentStepIndex] != currentStep && currentStep == steps[currentStepIndex - 1])
         {
             EndStep();
