@@ -57,13 +57,12 @@ public class NPC : NetworkBehaviour
 
         quest = GetComponent<QuestPoint>();
 
-        if (!isServer) { return; }
-        InvokeRepeating("UpdatePath", 0f, .5f);
-
         for (int i = 0; i < steps.Length; i++)
         {
             steps[i].index = i;
         }
+        if (!isServer) { return; }
+        InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
     void UpdatePath()
@@ -98,6 +97,7 @@ public class NPC : NetworkBehaviour
     public void CheckIfOnStep()
     {
         if(currentStepIndex >= steps.Length || currentStep == null) { return; }
+        print(currentStep.index + " : " + currentStepIndex);
         if (currentStep.index < currentStepIndex)
         {
             EndStep();
