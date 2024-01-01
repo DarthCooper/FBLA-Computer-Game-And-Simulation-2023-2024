@@ -14,7 +14,7 @@ public class NPC : NetworkBehaviour
 
     public NPCStep[] steps;
 
-    [SyncVar]public int currentStepIndex = 0;
+    [SyncVar(hook = nameof(SyncStep))]public int currentStepIndex = 0;
 
     public GameObject speechBubble;
     public TMP_Text speechText;
@@ -275,6 +275,14 @@ public class NPC : NetworkBehaviour
     {
         GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("", "", null);
         speechBubble.SetActive(false);
+    }
+
+    public void SyncStep(int oldValue, int newValue)
+    {
+        if(currentStepIndex < newValue)
+        {
+            EndStep();
+        }
     }
 
     public void StartMovement(string targetName)
