@@ -8,6 +8,7 @@ public class InCameraRangeNPC : NPC
     void Update()
     {
         move();
+        CheckIfOnStep();
         if (currentStepIndex >= steps.Length && currentStep == null)
         {
             OnFinishSteps.Invoke();
