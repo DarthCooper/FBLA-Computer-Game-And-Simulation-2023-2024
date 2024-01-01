@@ -14,7 +14,7 @@ public class NPC : NetworkBehaviour
 
     public NPCStep[] steps;
 
-    public int currentStepIndex = 0;
+    [SyncVar]public int currentStepIndex = 0;
 
     public GameObject speechBubble;
     public TMP_Text speechText;
