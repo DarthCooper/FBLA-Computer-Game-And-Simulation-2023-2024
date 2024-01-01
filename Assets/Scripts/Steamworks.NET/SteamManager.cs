@@ -155,7 +155,7 @@ public class SteamManager : MonoBehaviour {
 			return;
 		}
 
-		s_instance = null;
+		InitOnPlayMode();
 
 		if (!m_bInitialized) {
 			return;

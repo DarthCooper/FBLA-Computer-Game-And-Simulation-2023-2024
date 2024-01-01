@@ -79,6 +79,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        if(selectedProfileId == string.Empty) { selectedProfileId = "1"; }
         this.gameData = dataHandler.Load(selectedProfileId);
 
         if(this.gameData == null)

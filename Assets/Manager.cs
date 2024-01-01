@@ -142,7 +142,7 @@ public class Manager : NetworkBehaviour
     public void CheckPlayersHealth()
     {
         FindPlayers();
-        if(!settings)
+        if(!settings) { return; }
         if(!settings.isPlayable) { return; }
         if(players.Length <= 0) { ReloadLevel(); return; }
         bool allDead = true;

@@ -78,6 +78,7 @@ public class LobbyController : MonoBehaviour
 
         if(AllReady)
         {
+            if(!StartGameButton) { return; }
             if(LocalplayerController.PlayerIdNumber == 1)
             {
                 StartGameButton.interactable = true;
@@ -87,6 +88,7 @@ public class LobbyController : MonoBehaviour
             }
         }else
         {
+            if (!StartGameButton) { return; }
             StartGameButton.interactable = false;
         }
     }
@@ -191,6 +193,8 @@ public class LobbyController : MonoBehaviour
         {
             foreach(PlayerListItem playerlistItemToRemove in playerListItemToRemove)
             {
+                if(playerlistItemToRemove == null) { PlayerListItems.Remove(playerlistItemToRemove); continue; }
+                if(playerlistItemToRemove.gameObject == null) { PlayerListItems.Remove(playerlistItemToRemove); continue; }
                 GameObject ObjectToRemove = playerlistItemToRemove.gameObject;
                 PlayerListItems.Remove(playerlistItemToRemove);
                 Destroy(ObjectToRemove);
