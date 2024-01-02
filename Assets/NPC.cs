@@ -288,7 +288,6 @@ public class NPC : NetworkBehaviour
             return;
         }
         Finished = true;
-        currentStepIndex++;
         if (currentStepIndex >= steps.Length)
         {
             OnFinishSteps.Invoke();
