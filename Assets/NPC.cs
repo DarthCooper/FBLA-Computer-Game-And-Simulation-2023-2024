@@ -96,7 +96,7 @@ public class NPC : NetworkBehaviour
 
     public void CheckIfOnStep()
     {
-        if(currentStepIndex >= steps.Length || currentStep == null) { return; }
+        if(currentStep == null) { return; }
         if (currentStep.index < currentStepIndex)
         {
             LocallyEndStep();
