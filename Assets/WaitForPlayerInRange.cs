@@ -6,7 +6,8 @@ public class WaitForPlayerInRange : NPCStep
 {
     public float acceptableRange = 5f;
 
-    public GameObject player;
+    public GameObject localPlayer;
+    public GameObject[] players;
 
     public bool stopMovement = true;
 
@@ -16,7 +17,8 @@ public class WaitForPlayerInRange : NPCStep
         {
             npc = GetComponentInParent<NPC>();
         }
-        player = GameObject.Find("LocalGamePlayer");
+        localPlayer = GameObject.Find("LocalGamePlayer");
+        players = GameObject.FindGameObjectsWithTag("Player");
         if(stopMovement)
         {
             npc.StopMovement();
@@ -25,9 +27,12 @@ public class WaitForPlayerInRange : NPCStep
 
     public void Update()
     {
-        if(Vector3.Distance(npc.transform.position, player.transform.position) <= acceptableRange)
+        foreach (var player in players)
         {
-            npc.EndStep();
+            if(Vector3.Distance(npc.transform.position, player.transform.position) <= acceptableRange)
+            {
+                npc.EndStep();
+            }
         }
     }
 }
