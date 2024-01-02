@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Follow the... carrot?
   questDescription: 
   autoEquip: 1
-  previouslyLoaded: 1
+  previouslyLoaded: 0
   levelRequirement: 0
   questPrerequisites: []
   questStepPrefabs:

@@ -2803,7 +2803,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[17]'
       value: 
-      objectReference: {fileID: 4540885905733667255, guid: 6940a4ee4e01ef74c88393e2a3b30b1e, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 92791e0b1eabd9047b6849717fe0666e, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[18]'
       value: 
@@ -2859,7 +2859,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[31]'
       value: 
-      objectReference: {fileID: 4540885905733667255, guid: 6940a4ee4e01ef74c88393e2a3b30b1e, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 1f269601012c4f741a2c7605060a8933, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: waypoints.Array.size
       value: 6
