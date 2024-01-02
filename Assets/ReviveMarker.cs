@@ -72,6 +72,39 @@ public class ReviveMarker : NetworkBehaviour
 
     public void Revive()
     {
-        player.GetComponent<Health>().Heal(1);
+        if(player != null)
+        {
+            player.GetComponent<Health>().Heal(1);
+        }else
+        {
+            player = GetClosest();
+            if(player != null)
+            {
+                player.GetComponent<Health>().Heal(1);
+            }
+        }
+        CmdDestroy();
+    }
+
+    public GameObject GetClosest()
+    {
+        float maxDistance = 10000;
+        GameObject Target = null;
+        foreach (var target in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            float Distance = Vector2.Distance(transform.position, target.transform.position);
+            if (Distance < maxDistance)
+            {
+                maxDistance = Distance;
+                Target = target;
+            }
+        }
+        return Target;
+    }
+
+    [Command]
+    public void CmdDestroy()
+    {
+        NetworkServer.Destroy(this.gameObject);
     }
 }
