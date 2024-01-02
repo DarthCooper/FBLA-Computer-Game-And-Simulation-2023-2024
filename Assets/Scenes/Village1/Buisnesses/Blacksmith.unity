@@ -542,7 +542,7 @@ PrefabInstance:
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[13]'
       value: 
-      objectReference: {fileID: 4540885905733667255, guid: 122c4eb6a57b4ab4db96baceb715924a, type: 3}
+      objectReference: {fileID: 4540885905733667255, guid: 5ac3ebcc741c89e47906e2ff678e1e23, type: 3}
     - target: {fileID: 7206831114282826969, guid: 5e73354307ae92544a780e5a157a1691, type: 3}
       propertyPath: 'steps.Array.data[14]'
       value: 
