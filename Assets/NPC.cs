@@ -17,9 +17,6 @@ public class NPC : NetworkBehaviour
 
     [SyncVar(hook = nameof(SyncStep))]public int currentStepIndex = 0;
 
-    public GameObject speechBubble;
-    public TMP_Text speechText;
-
     public NPCStep currentStep;
 
     Seeker seeker;
@@ -49,6 +46,12 @@ public class NPC : NetworkBehaviour
     bool Finished = true;
 
     public bool disabled = false;
+
+    public Animator bodyAnimator;
+
+    bool facingLeft;
+
+    public GameObject graphics;
 
     void Start()
     {
@@ -125,6 +128,22 @@ public class NPC : NetworkBehaviour
         }
         if (canMove)
         {
+            Vector2 difference = target.position - this.transform.position;
+            print(difference.x);
+            if (difference.x < 0 && !facingLeft)
+            {
+                facingLeft = true;
+                graphics.transform.localScale = new Vector3(graphics.transform.localScale.x * -1, graphics.transform.localScale.y, graphics.transform.localScale.z);
+            }else if(difference.x >= 0 && facingLeft)
+            {
+                facingLeft = false;
+                foreach (SpriteRenderer renderer in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    graphics.transform.localScale = new Vector3(1, graphics.transform.localScale.y, graphics.transform.localScale.z * -1);
+                }
+            }
+
+            bodyAnimator.SetBool("Walking", true);
             rb.AddForce(force);
 
             float distToTarget = Vector2.Distance(rb.position, target.position);
@@ -138,6 +157,9 @@ public class NPC : NetworkBehaviour
                     EndStep();
                 }
             }
+        }else
+        {
+            bodyAnimator.SetBool("Walking", false);
         }
 
     }
@@ -299,13 +321,11 @@ public class NPC : NetworkBehaviour
     public void DisplayText(string text, string speaker)
     {
         GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak(text, speaker, this);
-        speechText.text = text;
     }
 
     public void HideText()
     {
         GameObject.Find("LocalGamePlayer").GetComponent<PlayerInteract>().Speak("", "", null);
-        speechBubble.SetActive(false);
     }
 
     public void SyncStep(int oldValue, int newValue)
