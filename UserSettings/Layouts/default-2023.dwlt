@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 19
+    y: 73
     width: 273
     height: 637
   m_SerializedDataModeController:
@@ -443,9 +443,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 1ee10000
       m_LastClickedID: 0
-      m_ExpandedIDs: 00d4f7ff56e7f7fff415f8ffd01ff8ff764cf8ffd05ff8fffa70f8ffe68cfbff8ea8fbff62a9fbff7eb4fbff84b4fbffa6b9fbff4ec5fbff18cffbffb855fcfff45cfcff7066fcfff0cffcff70d9fcff50e3fcffca72fdff42dafdff6af9fdff7406feffa072feffba79feffca79feffd079feff9a7dfeffde7efeffb089feffe693feffdea0feff42b0feff0cb1feffb2bafeff10d6feff2c11ffff041effff8aaaffffd4faffffeeda000080e20000f6e4000028e600003ce60000b4eb0000e4f00000eaf0000042f10000fafa00003efb0000080f010010210100c82d0100223d0100804f0100ca570100fa700100
+      m_ExpandedIDs: f88bffffce92ffff7499ffff68a1ffff44aaffff30b3ffffd8baffffbcc3ffff0ccdffffaed5ffff36dfffff0ae7ffff20f0ffff44f8ffffd4faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -462,7 +462,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 8}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -491,8 +491,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 275
-    y: 19
+    x: 274
+    y: 73
     width: 1239
     height: 637
   m_SerializedDataModeController:
@@ -1063,9 +1063,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -3.0500965, y: 14.727862, z: -0.07693386}
+    m_Target: {x: 7.921333, y: 0.22772816, z: 0.17852256}
     speed: 2
-    m_Value: {x: -3.0500965, y: 14.727862, z: -0.07693386}
+    m_Value: {x: 8.554893, y: 0.5672926, z: 0.16954109}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1115,9 +1115,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.117021
+    m_Target: 19.060843
     speed: 2
-    m_Value: 15.117021
+    m_Value: 19.958998
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 677
+    y: 731
     width: 1514
     height: 260
   m_SerializedDataModeController:
@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/Village1
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1341,16 +1341,23 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/Village1
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\GitRepos\FBLA-Computer-Game-And-Simulation-2023-2024
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 588}
     m_SelectedIDs: eac10000
     m_LastClickedID: 49642
     m_ExpandedIDs: 
+=======
+    scrollPos: {x: 0, y: 260}
+    m_SelectedIDs: 06c20000
+    m_LastClickedID: 49670
+    m_ExpandedIDs: 00000000fec1000000c2000002c2000004c2000006c2000008c200000ac200000cc200000ec2000010c2000012c2000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1379,7 +1386,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 
+=======
+    m_ExpandedIDs: 00000000fec1000000c2000002c2000004c2000006c2000008c200000ac200000cc200000ec2000010c2000012c20000
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1511,7 +1522,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 102418
+  m_LastSelectedObjectID: 114628
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2259,8 +2270,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1516
-    y: 19
+    x: 1515
+    y: 73
     width: 404
     height: 918
   m_SerializedDataModeController:

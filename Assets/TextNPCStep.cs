@@ -17,6 +17,8 @@ public class TextNPCStep : NPCStep
 
     public bool resetCamera;
 
+    public string emotion;
+
     public override void Execute()
     {
         if(npc == null)
@@ -27,6 +29,14 @@ public class TextNPCStep : NPCStep
         if(stopMovement)
         {
             npc.StopMovement();
+        }
+
+        if(emotion != string.Empty)
+        {
+            if(npc.GetComponent<FaceSwitcher>())
+            {
+                npc.GetComponent<FaceSwitcher>().SwitchFace(emotion);
+            }
         }
 
         if(changeCamera)

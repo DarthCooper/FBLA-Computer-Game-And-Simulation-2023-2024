@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c936d532e31b1ef48a0f17c73956003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   npc: {fileID: 0}
   speaker: Carrot
   text: 'I couldn''t do it even if I wanted to. The herbs are for my friend here. '
@@ -51,3 +52,4 @@ MonoBehaviour:
   stopMovement: 0
   changeCamera: 1
   resetCamera: 0
+  emotion: Indifferent

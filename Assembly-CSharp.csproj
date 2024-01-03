@@ -90,6 +90,7 @@
     <Compile Include="Assets\DataPersistence\SaveSlotsMenu.cs" />
     <Compile Include="Assets\QuestSystem\QuestData.cs" />
     <Compile Include="Assets\Interactable.cs" />
+    <Compile Include="Assets\FaceSwitcher.cs" />
     <Compile Include="Assets\LobbyController.cs" />
     <Compile Include="Assets\ComponentTutorialSignal.cs" />
     <Compile Include="Assets\Indicator.cs" />
