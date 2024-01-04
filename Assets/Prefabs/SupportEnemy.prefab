@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.87843144, g: 0.7843138, b: 0.29411766, a: 1}
   m_FlipX: 0
@@ -199,6 +199,7 @@ MonoBehaviour:
         m_CallState: 2
   speed: 600
   nextWaypointDistance: 3
+  currentWaypoint: 0
   reachedEndOfPath: 0
   runIfPlayerIsClose: 0
   runDistance: 10
@@ -208,14 +209,21 @@ MonoBehaviour:
     m_Bits: 1
   tempTarget: {fileID: 0}
   tempTargetPrefab: {fileID: 5243171882204016220, guid: 5a788bc29aac35e4c840108a22617fd1, type: 3}
+  seeker: {fileID: 0}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
   canMove: 1
   timeBetweenAttacks: 5
   timeSinceLastAttack: 0
+  waitingForReEnable: 0
   projectile: {fileID: 1164507450302123576, guid: 8cedd335b4f0c684989fbb957ad25e1c, type: 3}
   Firepoint: {fileID: 93386718325563570}
   targetLayer:
     serializedVersion: 2
     m_Bits: 72
+  stunned: 0
+  facingLeft: 1
+  graphics: {fileID: 9202977812078754235}
 --- !u!50 &5470848024381401025
 Rigidbody2D:
   serializedVersion: 4
@@ -908,6 +916,8 @@ MonoBehaviour:
   - Player
   knockBack: 2000
   damage: 10
+  canHit: 1
+  colliders: []
 --- !u!1 &8627668827666382308
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,9 +990,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.9411765, g: 0.84525573, b: 0.31764704, a: 1}
   m_FlipX: 0

@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.3019608, g: 0.9058824, b: 0.3529412, a: 1}
   m_FlipX: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
         m_CallState: 2
   speed: 700
   nextWaypointDistance: 3
+  currentWaypoint: 0
   reachedEndOfPath: 0
   runIfPlayerIsClose: 1
   runDistance: 7
@@ -283,14 +284,21 @@ MonoBehaviour:
     m_Bits: 1
   tempTarget: {fileID: 0}
   tempTargetPrefab: {fileID: 5243171882204016220, guid: 5a788bc29aac35e4c840108a22617fd1, type: 3}
+  seeker: {fileID: 0}
+  rb: {fileID: 0}
+  animator: {fileID: 0}
   canMove: 1
   timeBetweenAttacks: 0.5
   timeSinceLastAttack: 0
+  waitingForReEnable: 0
   projectile: {fileID: 1164507450302123576, guid: 8cedd335b4f0c684989fbb957ad25e1c, type: 3}
   Firepoint: {fileID: 7366273398743392419}
   targetLayer:
     serializedVersion: 2
     m_Bits: 9
+  stunned: 0
+  facingLeft: 1
+  graphics: {fileID: 5881420613933422697}
 --- !u!50 &3868151615024046155
 Rigidbody2D:
   serializedVersion: 4
@@ -746,9 +754,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.31764704, g: 0.9411765, b: 0.36356366, a: 1}
   m_FlipX: 0
@@ -835,9 +843,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -958,3 +966,5 @@ MonoBehaviour:
   - Player
   knockBack: 2000
   damage: 10
+  canHit: 1
+  colliders: []

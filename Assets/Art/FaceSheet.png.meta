@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 98a91ca86e88b8745a6efc93c45cc7c0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7104653133866990232
+    second: FaceSheet_0
+  - first:
+      213: -2517195831628879061
+    second: FaceSheet_1
+  - first:
+      213: -839814646631479578
+    second: FaceSheet_2
+  - first:
+      213: 8609931413824535480
+    second: FaceSheet_3
+  - first:
+      213: -2232999317935964130
+    second: FaceSheet_4
+  - first:
+      213: 6012099333991230607
+    second: FaceSheet_5
+  - first:
+      213: -5658160316877397077
+    second: FaceSheet_6
+  - first:
+      213: 5340966957695551916
+    second: FaceSheet_7
+  - first:
+      213: -4308670617957998673
+    second: FaceSheet_8
+  - first:
+      213: -4901648359913743789
+    second: FaceSheet_9
+  - first:
+      213: -1629449922232280892
+    second: FaceSheet_10
+  - first:
+      213: -6906035229145509608
+    second: FaceSheet_11
+  - first:
+      213: -5117402094689109786
+    second: FaceSheet_12
+  - first:
+      213: -2385863605725970190
+    second: FaceSheet_13
+  - first:
+      213: -5048844805890155011
+    second: FaceSheet_14
+  - first:
+      213: 4598372404605439640
+    second: FaceSheet_15
+  - first:
+      213: -3500366254774237055
+    second: FaceSheet_16
+  - first:
+      213: -7506550325973072654
+    second: FaceSheet_17
+  - first:
+      213: 678867114034343871
+    second: FaceSheet_18
+  - first:
+      213: -2217905624032776669
+    second: FaceSheet_19
+  - first:
+      213: 8093184749608468223
+    second: FaceSheet_20
+  - first:
+      213: -3828351814304594283
+    second: FaceSheet_21
+  - first:
+      213: -645048055150006738
+    second: FaceSheet_22
+  - first:
+      213: -1048698705962158209
+    second: FaceSheet_23
+  - first:
+      213: -9168767463124242392
+    second: FaceSheet_24
+  - first:
+      213: -9164160895084351403
+    second: FaceSheet_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FaceSheet_0
+      rect:
+        serializedVersion: 2
+        x: 3007
+        y: 3832
+        width: 1103
+        height: 490
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89af188126cc89260800000000000000
+      internalID: 7104653133866990232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_3
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 2352
+        width: 763
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bbfc75e00f9c7770800000000000000
+      internalID: 8609931413824535480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_5
+      rect:
+        serializedVersion: 2
+        x: 2292
+        y: 2379
+        width: 778
+        height: 447
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ce8e4ad744f6350800000000000000
+      internalID: 6012099333991230607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_7
+      rect:
+        serializedVersion: 2
+        x: 4070
+        y: 2365
+        width: 778
+        height: 404
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9ca8e762dee1a40800000000000000
+      internalID: 5340966957695551916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_9
+      rect:
+        serializedVersion: 2
+        x: 5679
+        y: 2418
+        width: 793
+        height: 377
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a177569c8d9fbb0800000000000000
+      internalID: -4901648359913743789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_15
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 802
+        width: 1060
+        height: 588
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e4779b653b0df30800000000000000
+      internalID: 4598372404605439640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_24
+      rect:
+        serializedVersion: 2
+        x: 2935
+        y: 761
+        width: 904
+        height: 736
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 820f15c029ef1c080800000000000000
+      internalID: -9168767463124242392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FaceSheet_25
+      rect:
+        serializedVersion: 2
+        x: 4918
+        y: 858
+        width: 944
+        height: 440
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 550b8ff383c52d080800000000000000
+      internalID: -9164160895084351403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c5a2da9d37176db4a89f785242ed29cb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FaceSheet_0: 7104653133866990232
+      FaceSheet_15: 4598372404605439640
+      FaceSheet_24: -9168767463124242392
+      FaceSheet_25: -9164160895084351403
+      FaceSheet_3: 8609931413824535480
+      FaceSheet_5: 6012099333991230607
+      FaceSheet_7: 5340966957695551916
+      FaceSheet_9: -4901648359913743789
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -53,6 +53,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,6 +115,8 @@ MonoBehaviour:
   maxStack: 0
   currentStack: 1
   projectile: {fileID: 0}
+  componentsToDisable: []
+  price: 0
 --- !u!114 &1491518979092590518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +132,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  id: 
   OnInteract:
     m_PersistentCalls:
       m_Calls:
@@ -146,8 +151,10 @@ MonoBehaviour:
   OnEndInteract:
     m_PersistentCalls:
       m_Calls: []
+  SelectableGraphics: {fileID: 0}
   beenInteractedWith: 0
   Player: {fileID: 0}
+  collected: 0
 --- !u!114 &7694449872212761019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +180,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8028369058199731947}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -196,7 +204,7 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.000000029802322, y: 0}
-  serializedVersion: 2
   m_Radius: 0.95

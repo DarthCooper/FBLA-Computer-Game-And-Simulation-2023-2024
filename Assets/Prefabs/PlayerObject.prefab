@@ -661,6 +661,7 @@ MonoBehaviour:
   speaking: 0
   dialoguePage: {fileID: 0}
   speechMessage: 
+  speaker: 
   shopOpen: 0
   shop: {fileID: 0}
   PauseMenuOpen: 0
@@ -669,6 +670,7 @@ MonoBehaviour:
   interactable: {fileID: 0}
   computerOpen: 0
   Canvases: 0000000000
+  npc: {fileID: 0}
 --- !u!114 &1051821159834773036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,9 +822,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -908,9 +910,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingLayerID: 948443329
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

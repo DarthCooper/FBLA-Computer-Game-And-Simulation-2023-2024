@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Pathfinding;
 using Mirror;
+using UnityEngine.UIElements;
 
 public class EnemyAI : NetworkBehaviour
 {
@@ -58,13 +59,17 @@ public class EnemyAI : NetworkBehaviour
 
     public bool stunned;
 
+    public bool facingLeft = true;
+
+    public Transform graphics;
+
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
         if(!isServer) { return; }
         InvokeRepeating("UpdatePath", 0f, .5f);
@@ -226,8 +231,19 @@ public class EnemyAI : NetworkBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.fixedDeltaTime;
 
+        Vector2 difference = target.position - transform.position;
+
         if (canMove)
         {
+            if(difference.x > 0 && facingLeft)
+            {
+                graphics.localScale = new Vector3(-1, 1, 1);
+                facingLeft = false;
+            }else if(difference.x < 0 && !facingLeft)
+            {
+                graphics.localScale = new Vector3(1, 1, 1);
+                facingLeft = true;
+            }
             rb.AddForce(force);
         }
 
@@ -238,7 +254,7 @@ public class EnemyAI : NetworkBehaviour
             currentWaypoint++;
         }
 
-        PlayAnim((Vector2)target.transform.position - rb.position);
+        PlayAnim(canMove);
     }
 
     [Command(requiresAuthority = false)]
@@ -266,7 +282,8 @@ public class EnemyAI : NetworkBehaviour
     {
         if(canAttack)
         {
-            animator.SetTrigger("Attack1");
+            StopMovement(5f);
+            animator.SetTrigger("Attack");
             canAttack = false;
             Invoke("AttackDelay", timeBetweenAttacks);
         }
@@ -298,10 +315,9 @@ public class EnemyAI : NetworkBehaviour
         canAttack = true;
     }
 
-    public void PlayAnim(Vector2 diff)
+    public void PlayAnim(bool walking)
     {
-        animator.SetFloat("X", diff.x);
-        animator.SetFloat("Y", diff.y);
+        animator.SetBool("Walking", walking);
     }
 
     public void StopMovement(float time)

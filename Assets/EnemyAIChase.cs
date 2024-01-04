@@ -110,8 +110,20 @@ public class EnemyAIChase : EnemyAI
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.fixedDeltaTime;
 
+        Vector2 difference = target.position - transform.position;
+
         if (canMove)
         {
+            if (difference.x > 0 && facingLeft)
+            {
+                graphics.localScale = new Vector3(-1, 1, 1);
+                facingLeft = false;
+            }
+            else if (difference.x < 0 && !facingLeft)
+            {
+                graphics.localScale = new Vector3(1, 1, 1);
+                facingLeft = true;
+            }
             rb.AddForce(force);
         }
 
@@ -122,6 +134,6 @@ public class EnemyAIChase : EnemyAI
             currentWaypoint++;
         }
 
-        PlayAnim((Vector2)target.transform.position - rb.position);
+        PlayAnim(canMove);
     }
 }
