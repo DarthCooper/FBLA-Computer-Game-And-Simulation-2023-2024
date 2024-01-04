@@ -73,6 +73,9 @@ public class Item : NetworkBehaviour
         else if (component is Collider2D)
         {
             (component as Collider2D).enabled = false;
+        }else if(component is Transform)
+        {
+            component.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
