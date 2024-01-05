@@ -103,7 +103,7 @@ public class Projectile : MonoBehaviour
 
     public void HideObject()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
     }

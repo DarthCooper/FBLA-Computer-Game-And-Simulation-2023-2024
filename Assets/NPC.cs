@@ -129,7 +129,6 @@ public class NPC : NetworkBehaviour
         if (canMove)
         {
             Vector2 difference = target.position - this.transform.position;
-            print(difference.x);
             if (difference.x < 0 && !facingLeft)
             {
                 facingLeft = true;

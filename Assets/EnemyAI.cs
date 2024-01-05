@@ -54,6 +54,7 @@ public class EnemyAI : NetworkBehaviour
 
     public GameObject projectile;
     public Transform Firepoint;
+    public Transform FirepointPivot;
 
     public LayerMask targetLayer;
 
@@ -105,9 +106,10 @@ public class EnemyAI : NetworkBehaviour
 
     public virtual void onUpdate()
     {
-        if (Firepoint && target != null)
+        if (Firepoint && GetComponent<GetClosestTarget>().Target != null)
         {
-            Firepoint.up = target.position - Firepoint.position;
+            Vector3 offset = GetComponent<GetClosestTarget>().Target.transform.position - transform.position;
+            FirepointPivot.rotation = Quaternion.LookRotation(Vector3.forward,offset);
         }
         if (!isServer) { return; } //movement will only be ran on the server while the clients recieve the data from the server.
 
@@ -282,7 +284,6 @@ public class EnemyAI : NetworkBehaviour
     {
         if(canAttack)
         {
-            StopMovement(5f);
             animator.SetTrigger("Attack");
             canAttack = false;
             Invoke("AttackDelay", timeBetweenAttacks);
@@ -293,10 +294,16 @@ public class EnemyAI : NetworkBehaviour
     {
         if(canAttack)
         {
-            Instantiate(projectile, Firepoint.position, Firepoint.rotation);
+            animator.SetTrigger("Attack");
+            Invoke(nameof(spawnProjectile), 0.5f);
             canAttack = false;
             Invoke("AttackDelay", timeBetweenAttacks);
         }
+    }
+
+    public void spawnProjectile()
+    {
+        Instantiate(projectile, Firepoint.position, Firepoint.rotation);
     }
 
     public void SupportAttack()
