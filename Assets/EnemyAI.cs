@@ -64,6 +64,8 @@ public class EnemyAI : NetworkBehaviour
 
     public Transform graphics;
 
+    public GameObject healParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -239,11 +241,11 @@ public class EnemyAI : NetworkBehaviour
         {
             if(difference.x > 0 && facingLeft)
             {
-                graphics.localScale = new Vector3(-1, 1, 1);
+                graphics.localScale = new Vector3(graphics.localScale.x * -1, 1, 1);
                 facingLeft = false;
             }else if(difference.x < 0 && !facingLeft)
             {
-                graphics.localScale = new Vector3(1, 1, 1);
+                graphics.localScale = new Vector3(graphics.localScale.x * -1, 1, 1);
                 facingLeft = true;
             }
             rb.AddForce(force);
@@ -310,8 +312,18 @@ public class EnemyAI : NetworkBehaviour
     {
         if(canAttack)
         {
+            StopMovement(4f);
             print("Healed" + target.GetComponent<Health>().health);
-            target.GetComponent<Health>().health += 25;
+            animator.SetTrigger("Attack");
+            Health targetHealth = target.GetComponent<Health>();
+            targetHealth.health += 50;
+            if(healParticles)
+            {
+                var selfParticles = Instantiate(healParticles, this.transform.position, Quaternion.identity);
+                selfParticles.transform.SetParent(transform);
+                var targetParticles = Instantiate(healParticles, target.transform.position, Quaternion.identity);
+                targetParticles.transform.SetParent(target);
+            }
             canAttack = false;
             Invoke("AttackDelay", timeBetweenAttacks);
         }

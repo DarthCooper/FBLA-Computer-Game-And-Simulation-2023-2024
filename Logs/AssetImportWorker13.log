@@ -1104,3 +1104,71 @@ Memory consumption went from 198.1 MB to 193.0 MB.
 Total: 5.787200 ms (FindLiveObjects: 0.510000 ms CreateObjectMapping: 0.239000 ms MarkObjects: 3.175500 ms  DeleteObjects: 1.861700 ms)
 
 Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 2967.644501 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/2.png
+  artifactKey: Guid(ab34367dec82198429cd3cf3dbc002a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/2.png using Guid(ab34367dec82198429cd3cf3dbc002a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'da3cba8692597e0a04735e2061e18cee') in 0.1469256 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/18.png
+  artifactKey: Guid(e5194bac3b6e41242bb0cba0e034af2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/18.png using Guid(e5194bac3b6e41242bb0cba0e034af2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '40145062f32bba5852c86fdf9d02d3a1') in 0.008663 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/19.png
+  artifactKey: Guid(06d1652b083f24e469e127df0df6a770) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/19.png using Guid(06d1652b083f24e469e127df0df6a770) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0602c595a675f334a7147bae8deb7121') in 0.0067908 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000120 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/20.png
+  artifactKey: Guid(0dad1580de58b5c479f1475efb5c5289) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/20.png using Guid(0dad1580de58b5c479f1475efb5c5289) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '40ce03b7d37128fd3ee83bf8d3ad0b9b') in 0.0071555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/14.png
+  artifactKey: Guid(2fc0d8099fb02ba4f8edb410758c8a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/14.png using Guid(2fc0d8099fb02ba4f8edb410758c8a58) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '153dc11e8f8cc8345c360299f80f1807') in 0.0074277 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/6.png
+  artifactKey: Guid(1c03d17f2ab567d46b752e98d2d1038c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/6.png using Guid(1c03d17f2ab567d46b752e98d2d1038c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd41c7af9d50be86eaf94906e7de4915') in 0.0087481 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/8.png
+  artifactKey: Guid(ae12c8999cd895f4cb9917e3eff5e5b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/8.png using Guid(ae12c8999cd895f4cb9917e3eff5e5b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a9fce142c34af74f03f633eb07614081') in 0.0075323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/13.png
+  artifactKey: Guid(e1f8c3f41b2730e4a805d3e4392a3a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/13.png using Guid(e1f8c3f41b2730e4a805d3e4392a3a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '690ea062f96a0de0411272b285b2e30d') in 0.0062619 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

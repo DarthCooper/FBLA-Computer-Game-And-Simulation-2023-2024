@@ -13,7 +13,6 @@ public class TriggerEvent : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.tag);
         if (collision.gameObject.tag == acceptedTag)
         {
             onEnter.Invoke();

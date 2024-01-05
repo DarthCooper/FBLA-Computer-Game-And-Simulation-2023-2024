@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GetClosestEnemy : GetClosestTarget
 {
+    void Update()
+    {
+        SetTarget();
+    }
+
     public override void GetClosest()
     {
         float maxDistance = 0;
@@ -13,6 +18,7 @@ public class GetClosestEnemy : GetClosestTarget
             foreach (var target in GameObject.FindGameObjectsWithTag(tag))
             {
                 float Distance = Vector2.Distance(transform.position, target.transform.position);
+                if(!target.GetComponent<Health>()) { continue; }
                 if (Distance > maxDistance && target.GetComponent<Health>().health < previousHealth && target != this.gameObject)
                 {
                     previousHealth = target.GetComponent<Health>().health;

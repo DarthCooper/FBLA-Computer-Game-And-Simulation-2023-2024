@@ -1975,3 +1975,218 @@ Received Import Request.
 Start importing Assets/Scenes/Tutorial.unity using Guid(24a62f704a0fd1c4aa82cf4068fa51e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f81c8b746ae94a8e7f1f8bb2843875e9') in 0.0052 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
+========================================================================
+Received Import Request.
+  Time since last request: 2801.370202 seconds.
+  path: Assets/Animations/EnemyAnims
+  artifactKey: Guid(2d6ee752a81ff534cacca260dad3e501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/EnemyAnims using Guid(2d6ee752a81ff534cacca260dad3e501) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ecd590c46b00d9d7b6ed84b1ee7e2187') in 0.0007203 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.569517 seconds.
+  path: Assets/Animations/Mango/SupportEnemy
+  artifactKey: Guid(29886df68ecf2884abb28ea7c82472ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy using Guid(29886df68ecf2884abb28ea7c82472ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae4a7456c085ae8408423b0a2a2ba0b1') in 0.0008065 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.141504 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/1.png
+  artifactKey: Guid(340d296478d13e84289f8cb3dcb1cced) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/1.png using Guid(340d296478d13e84289f8cb3dcb1cced) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8475aed1261bab79d8dc8ba43a2b920e') in 0.0735006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/5.png
+  artifactKey: Guid(00f7932d381f8bb4d9e33d0a31616c55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/5.png using Guid(00f7932d381f8bb4d9e33d0a31616c55) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dd12b8fb38d40fbb2a22788be34d3f62') in 0.0097582 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000085 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/4.png
+  artifactKey: Guid(e91f4c7b4f7f9c7448ed01e98a48e19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/4.png using Guid(e91f4c7b4f7f9c7448ed01e98a48e19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '142363b6dcf743848e508294a5cb5d06') in 0.0094917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/9.png
+  artifactKey: Guid(2805dfbf8f3fc714a84592a447919838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/9.png using Guid(2805dfbf8f3fc714a84592a447919838) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c3158898fafe55e2f390221bf0706b6e') in 0.0142976 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/11.png
+  artifactKey: Guid(9c4e89aa356732941afaed6bb9ed65fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/11.png using Guid(9c4e89aa356732941afaed6bb9ed65fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '990476eebc95bb4ae564182c39d4533d') in 0.0066529 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/21.png
+  artifactKey: Guid(74bfca55ae8136a499654bd3d98b6d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/21.png using Guid(74bfca55ae8136a499654bd3d98b6d16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '066e6341007116d4a2447a7cbd3af019') in 0.0106292 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000012 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/10.png
+  artifactKey: Guid(947765002e81d554590d6008838947ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/10.png using Guid(947765002e81d554590d6008838947ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a1ba4343a2ad4a235a54afd205d5c5ec') in 0.00751 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/15.png
+  artifactKey: Guid(7d367625776d6c445a9ee3dfc6c91033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/15.png using Guid(7d367625776d6c445a9ee3dfc6c91033) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '34401967c5fccfc86727f4173d743dee') in 0.0077602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/16.png
+  artifactKey: Guid(4446ef5f0be5c174196f2d1d2da43fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/16.png using Guid(4446ef5f0be5c174196f2d1d2da43fdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '75eb0068b4ef6614041cc18c417e39c8') in 0.0074322 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/7.png
+  artifactKey: Guid(e5dcd83cd88ada142ae34d2feb0b345b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/7.png using Guid(e5dcd83cd88ada142ae34d2feb0b345b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e025159c5a10cc96f5d33f7ad2fdec9') in 0.008094 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000011 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/12.png
+  artifactKey: Guid(39c263c1c99ef8046af27f6fc10b8dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/12.png using Guid(39c263c1c99ef8046af27f6fc10b8dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c2b47e6520d1f33a85714fd2575c3a90') in 0.0086146 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/3.png
+  artifactKey: Guid(5ab71fc7e66471344ae03e16b58e3f4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/3.png using Guid(5ab71fc7e66471344ae03e16b58e3f4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6cdf3664cd8b5bd8318356a9081bbfbb') in 0.0071148 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/17.png
+  artifactKey: Guid(ff44d180033dded4ca12a13d96f8eb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/17.png using Guid(ff44d180033dded4ca12a13d96f8eb95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b1e2495fde4faf7e7adf89b620dfd257') in 0.0065323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.682347 seconds.
+  path: Assets/Prefabs/RangedEnemyBasic.prefab
+  artifactKey: Guid(315df1dc56521dc4c978862a8aedb79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/RangedEnemyBasic.prefab using Guid(315df1dc56521dc4c978862a8aedb79a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '285dd503820d29dd6a760cefb1850951') in 7.5451533 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 299
+
+========================================================================
+Received Import Request.
+  Time since last request: 977.364318 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/2.png
+  artifactKey: Guid(7b7ea617d75345b43b2ae36bd29ffe59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/2.png using Guid(7b7ea617d75345b43b2ae36bd29ffe59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3d827d5006467ccbc03e3fab99675d65') in 0.1121415 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/8.png
+  artifactKey: Guid(c36ae0d637012a04b8ca8c1ec0dc1a11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/8.png using Guid(c36ae0d637012a04b8ca8c1ec0dc1a11) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0bef24d3842c2958f51bf07f61b1684') in 0.0169346 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/13.png
+  artifactKey: Guid(e540339e33c292b40849a3b37084ddd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/13.png using Guid(e540339e33c292b40849a3b37084ddd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7cf675d66c016fd7f4cc6e6059c10bdb') in 0.0139581 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/9.png
+  artifactKey: Guid(4986fa03b96304848bcc2fcdce32105d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/9.png using Guid(4986fa03b96304848bcc2fcdce32105d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'adee0ea8977b64e7bd8840aba14249ae') in 0.0236046 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/4.png
+  artifactKey: Guid(cb7ded88535dd344c899df0ef684de95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/4.png using Guid(cb7ded88535dd344c899df0ef684de95) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9dd34fd5a1301967063051bf781f7409') in 0.0110162 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/16.png
+  artifactKey: Guid(529f351f2b5913b489411172f500aab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/16.png using Guid(529f351f2b5913b489411172f500aab4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7cf725b890a3f0eee06af9d31cfa72cf') in 0.0120581 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/12.png
+  artifactKey: Guid(10e1ed8dd1293f1429453081b2b14a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/12.png using Guid(10e1ed8dd1293f1429453081b2b14a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b6e3611fb5403d43b31c929ad502221c') in 0.0158472 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Animations/Mango/SupportEnemy/Walk/10.png
+  artifactKey: Guid(bd077a2fa43e01a4bb803ec6b8f9a0d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Mango/SupportEnemy/Walk/10.png using Guid(bd077a2fa43e01a4bb803ec6b8f9a0d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7d43135e3ddfc0cb68d101b54142675') in 0.0108199 seconds
+Internal: There are remaining Allocations on the JobTempAlloc. This is a leak, and will impact performance
+To Debug, run app with -diag-job-temp-memory-leak-validation cmd line argument. This will output the callstacks of the leaked allocations.
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
