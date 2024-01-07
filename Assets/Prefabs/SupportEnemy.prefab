@@ -134,7 +134,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   stunned: 0
-  facingLeft: 0
+  facingLeft: 1
   graphics: {fileID: 9202977812078754235}
   healParticles: {fileID: 4614678001347882642, guid: c4a6a8446aab19349a98ded803f48845, type: 3}
 --- !u!50 &5470848024381401025
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45f0d80cc3566c45a01b73acde19eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  targets: []
   HuntingSight: {fileID: 8782442481421166734}
   PatrollingSight: {fileID: 8782442481421166734}
 --- !u!58 &8782442481421166734
@@ -477,7 +477,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 16
+  m_Radius: 48
 --- !u!1 &5670839057316323358
 GameObject:
   m_ObjectHideFlags: 0
@@ -739,7 +739,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2987307428325462956}

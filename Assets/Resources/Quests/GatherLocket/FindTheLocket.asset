@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: FindTheLocket
   questDescription: 
   autoEquip: 1
-  previouslyLoaded: 0
+  previouslyLoaded: 1
   levelRequirement: 0
   questPrerequisites: []
   questStepPrefabs:

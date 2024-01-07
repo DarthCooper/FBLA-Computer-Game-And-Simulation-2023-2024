@@ -5,13 +5,14 @@ using UnityEngine.InputSystem;
 using Mirror;
 using UnityEngine.SceneManagement;
 using Steamworks;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 {
     Vector2 movement = Vector2.zero;
     Vector2 lastMovement = Vector2.zero;
     Rigidbody2D rb;
-    Animator animator;
+    public Animator animator;
 
     public bool aiming;
     bool canChangeAim = true;
@@ -41,7 +42,6 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
     {
         PlayerModel.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
     public void LoadData(GameData data)
@@ -161,10 +161,22 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
         animator.SetFloat("Y", direction.y);
     }
 
+    public void setWalking(bool walking)
+    {
+        animator.SetBool("Walking", walking);
+    }
+
     public void Movement()
     {
         if(canMove)
         {
+            if(movement == Vector2.zero)
+            {
+                setWalking(false);
+            }else
+            {
+                setWalking(true);
+            }
             var currentSpeed = speed;
             if(movement != Vector2.zero && !aiming)
             {
@@ -174,12 +186,17 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
                     currentSpeed = runSpeed;
                 }
                 PlayAnim(lastMovement);
-
             }else if(aiming)
             {
                 currentSpeed = aimingSpeed;
                 Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                PlayAnim(pos - transform.position);
+                if(movement != Vector2.zero)
+                {
+                    PlayAnim(pos - transform.position);
+                }
+            }else
+            {
+                PlayAnim(lastMovement);
             }
             rb.velocity = movement * currentSpeed * Time.fixedDeltaTime;
         }
