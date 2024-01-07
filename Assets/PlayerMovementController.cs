@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 using Mirror;
 using UnityEngine.SceneManagement;
 using Steamworks;
-using static UnityEditor.PlayerSettings;
 
 public class PlayerMovementController : NetworkBehaviour, IDataPersistence
 {
