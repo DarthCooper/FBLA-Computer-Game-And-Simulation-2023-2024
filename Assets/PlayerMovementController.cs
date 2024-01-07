@@ -161,7 +161,50 @@ public class PlayerMovementController : NetworkBehaviour, IDataPersistence
         animator.SetFloat("Y", direction.y);
     }
 
+    [Command(requiresAuthority = false)]
+    public void SyncAnim(float x, float y)
+    {
+        if(isServer)
+        {
+            ServerSyncAnim(x, y);
+        }
+    }
+
+    [Server]
+    public void ServerSyncAnim(float x, float y)
+    {
+        RpcSyncAnim(x, y);
+    }
+
+    [ClientRpc]
+    public void RpcSyncAnim(float x, float y)
+    {
+        animator.SetFloat("X", x);
+        animator.SetFloat("Y", y);
+    }
+
     public void setWalking(bool walking)
+    {
+        SyncWalking(walking);
+    }
+
+    [Command(requiresAuthority = false)]
+    public void SyncWalking(bool walking)
+    {
+        if (isServer)
+        {
+            ServerSyncWalking(walking);
+        }
+    }
+
+    [Server]
+    public void ServerSyncWalking(bool walking)
+    {
+        RpcSyncWalking(walking);
+    }
+
+    [ClientRpc]
+    public void RpcSyncWalking(bool walking)
     {
         animator.SetBool("Walking", walking);
     }
