@@ -7,7 +7,7 @@ It uses a steam ID of 480 (or something like that).
 
 ### Software Used:
 	We used Unity as the game engine, along with visual studio code 2022 as the compilier.
-	We used photoshop, inkscape, and gimp to create the sprites and UI elements.
+	We used photoshop, procreate, and gimp to create the sprites and UI elements.
 	We used Github desktop to share this project.
 
 ### Libraries Used:
@@ -15,7 +15,6 @@ It uses a steam ID of 480 (or something like that).
 	FizzySteamworks - Allows Mirror to communicate with Steamworks, and thus Steam's servers.
 	Cinemachine - Fancy Cameras.
 	A* Pathfinding - pathfinding for enemies and NPCs.
-
 
 ## Set Up Unity Project with Github desktop
 	Start off by downloading github desktop.https://desktop.github.com/
